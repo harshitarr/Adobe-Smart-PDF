@@ -2,8 +2,7 @@ import sys
 import os
 sys.path.append(os.path.join(os.path.dirname(__file__), '..', '..'))
 
-import re
-from typing import List, Dict, Any, Tuple
+from typing import List, Dict
 import logging
 
 # Core imports
@@ -31,176 +30,233 @@ logger = logging.getLogger('extraction')
 
 class ManualProcessor:
     def __init__(self):
-        # Core components
-        self.title_extractor = TitleExtractor()
-        self.outline_extractor = OutlineExtractor()
-        
-        # Analyzers
-        self.font_analyzer = FontAnalyzer()
-        self.spatial_analyzer = SpatialAnalyzer()
-        self.text_analyzer = TextAnalyzer()
-        self.structure_analyzer = StructureAnalyzer()
-        
-        # Classifiers
-        self.content_filter = ContentFilter()
-        self.heading_detector = HeadingDetector()
-        self.pattern_matcher = PatternMatcher()
-        self.semantic_classifier = SemanticClassifier()
-        
-        # Utils
-        self.text_processor = TextProcessor()
-        self.output_validator = OutputValidator()
-        
-        # Generalized pattern rules
-        self.pattern_rules = {
-            'navigation_patterns': [
-                r'revision\s+history',
-                r'table\s+of\s+contents',
-                r'acknowledgements?'
-            ],
-            'numbered_section_patterns': [
-                r'^\d+\.\s+[a-z]',  # Main sections: 1., 2., 3., 4.
-            ],
-            'subsection_patterns': [
-                r'^\d+\.\d+\s+[a-z]',  # Subsections: 2.1, 2.2, etc.
-            ],
-            'exclusion_patterns': [
-                r'version\s+\d+\s+page\s+\d+',
-                r'copyright.*international',
-                r'qualifications\s+board',
-                r'may\s+\d+,\s+\d+',
-                r'working\s+group',
-                r'ga\s+release'
-            ]
-        }
+        try:
+            # Core components
+            self.title_extractor = TitleExtractor()
+            self.outline_extractor = OutlineExtractor()
+            
+            # Analyzers
+            self.font_analyzer = FontAnalyzer()
+            self.spatial_analyzer = SpatialAnalyzer()
+            self.text_analyzer = TextAnalyzer()
+            self.structure_analyzer = StructureAnalyzer()
+            
+            # Classifiers
+            self.content_filter = ContentFilter()
+            self.heading_detector = HeadingDetector()
+            self.pattern_matcher = PatternMatcher()
+            self.semantic_classifier = SemanticClassifier()
+            
+            # Utils
+            self.text_processor = TextProcessor()
+            self.output_validator = OutputValidator()
+            
+            logger.info("ManualProcessor initialized successfully")
+        except Exception as e:
+            logger.error(f"ManualProcessor initialization error: {e}")
+            raise
     
     def process(self, text_blocks: List[TextBlock]) -> DocumentStructure:
-        """Generalized processing for technical manuals"""
-        logger.info("Processing technical manual - generalized pattern matching")
+        """Component-driven processing for manual documents with enhanced safety"""
+        logger.info("Processing manual document - component-driven analysis")
         
-        # Filter structural elements
-        filtered_blocks = self.content_filter.filter_structural_elements(text_blocks, DocumentType.TECHNICAL_MANUAL)
-        
-        # Analyze document structure
-        structure_analysis = self.structure_analyzer.analyze_document_structure(filtered_blocks, DocumentType.TECHNICAL_MANUAL)
-        
-        # Dynamic title extraction
-        title = self._extract_generalized_title(filtered_blocks, structure_analysis)
-        
-        # Pattern-based outline extraction
-        outline = self._extract_generalized_outline(filtered_blocks, structure_analysis)
-        
-        return DocumentStructure(
-            title=title,
-            outline=outline,
-            doc_type=DocumentType.TECHNICAL_MANUAL,
-            confidence=0.9
-        )
+        try:
+            if not text_blocks:
+                logger.warning("No text blocks provided to ManualProcessor")
+                return self._create_safe_result()
+            
+            logger.info(f"Processing {len(text_blocks)} text blocks")
+            
+            # Use TECHNICAL_MANUAL to match main.py mapping
+            doc_type = DocumentType.TECHNICAL_MANUAL  # ← Fixed: changed from MANUAL_DOCUMENT
+            
+            # Safe filtering with fallback
+            filtered_blocks = self._filter_blocks_safe(text_blocks, doc_type)
+            
+            # Safe structure analysis with fallback
+            structure_analysis = self._analyze_structure_safe(filtered_blocks, doc_type)
+            
+            # Component-driven title extraction
+            title = self._extract_title_safe(filtered_blocks, structure_analysis, doc_type)
+            logger.info(f"Extracted title: '{title}'")
+            
+            # Component-driven outline extraction
+            outline = self._extract_outline_safe(filtered_blocks, structure_analysis, doc_type)
+            logger.info(f"Extracted outline: {len(outline)} items")
+            
+            result = DocumentStructure(
+                title=title,
+                outline=outline,
+                doc_type=doc_type,  # ← Uses TECHNICAL_MANUAL
+                confidence=0.9
+            )
+            
+            logger.info("ManualProcessor completed successfully")
+            return result
+            
+        except Exception as e:
+            logger.error(f"ManualProcessor critical error: {e}", exc_info=True)
+            return self._create_safe_result()
     
-    def _extract_generalized_title(self, text_blocks: List[TextBlock], structure_analysis: Dict) -> str:
-        """Extract title using generalized patterns with structure analysis"""
+    def _filter_blocks_safe(self, text_blocks: List[TextBlock], doc_type: DocumentType) -> List[TextBlock]:
+        """Safe filtering with fallback"""
+        try:
+            filtered = self.content_filter.filter_structural_elements(text_blocks, doc_type)
+            return filtered if filtered else text_blocks
+        except Exception as e:
+            logger.warning(f"Content filter error, using original blocks: {e}")
+            return text_blocks
+    
+    def _analyze_structure_safe(self, filtered_blocks: List[TextBlock], doc_type: DocumentType) -> Dict:
+        """Safe structure analysis with fallback"""
+        try:
+            return self.structure_analyzer.analyze_document_structure(filtered_blocks, doc_type)
+        except Exception as e:
+            logger.warning(f"Structure analyzer error, using empty analysis: {e}")
+            return {}
+    
+    def _extract_title_safe(self, text_blocks: List[TextBlock], structure_analysis: Dict, doc_type: DocumentType) -> str:
+        """Safe title extraction with multiple fallbacks"""
         title_candidates = []
         
-        # Use semantic classifier for better title detection
-        for block in text_blocks[:30]:  # Check first 30 blocks
-            text = block.text.strip()
-            if not text:
-                continue
-                
-            # Get semantic classification
-            semantic_scores = self.semantic_classifier.classify_text_role(text)
-            
-            if semantic_scores.get('structural', 0) > 0.5:
-                score = self._calculate_title_score(text, block, structure_analysis)
-                
-                if score > 0.5:  # Threshold for title candidates
-                    title_candidates.append((text, score, block))
+        # Method 1: Title extractor
+        try:
+            extracted_title = self.title_extractor.extract_title(text_blocks, doc_type)
+            if extracted_title and extracted_title.strip():
+                # Use semantic classifier to avoid TOC contamination
+                try:
+                    semantic_scores = self.semantic_classifier.classify_text_role(extracted_title)
+                    if semantic_scores.get('navigation', 0) < 0.5:  # Not navigation content
+                        title_candidates.append({
+                            'text': extracted_title,
+                            'confidence': 0.9,
+                            'method': 'title_extractor'
+                        })
+                except Exception:
+                    # If semantic classification fails, still consider the title
+                    title_candidates.append({
+                        'text': extracted_title,
+                        'confidence': 0.7,
+                        'method': 'title_extractor_fallback'
+                    })
+        except Exception as e:
+            logger.warning(f"Title extractor error: {e}")
         
+        # Method 2: Direct analysis of early blocks
+        for i, block in enumerate(text_blocks[:5]):
+            try:
+                text = getattr(block, 'text', '').strip()
+                if not text or len(text) < 5:
+                    continue
+                
+                # Use text processor for basic validation
+                try:
+                    if self.text_processor.is_likely_title(text):
+                        title_candidates.append({
+                            'text': text,
+                            'confidence': 0.8 - (i * 0.1),
+                            'method': f'text_processor_block_{i}'
+                        })
+                except Exception:
+                    pass
+                
+                # Semantic analysis if available
+                try:
+                    semantic_scores = self.semantic_classifier.classify_text_role(text)
+                    if (semantic_scores.get('structural', 0) > 0.5 and 
+                        semantic_scores.get('navigation', 0) < 0.5):
+                        
+                        title_candidates.append({
+                            'text': text,
+                            'confidence': 0.7 - (i * 0.1),
+                            'method': f'semantic_block_{i}'
+                        })
+                except Exception:
+                    pass
+                
+            except Exception as e:
+                logger.warning(f"Error analyzing block {i}: {e}")
+        
+        # Select best candidate
         if title_candidates:
-            # Sort by score and take the best
-            title_candidates.sort(key=lambda x: x[1], reverse=True)
-            best_title = title_candidates[0][0]
-            return self._format_title(best_title)
+            title_candidates.sort(key=lambda x: x['confidence'], reverse=True)
+            best_title = title_candidates[0]['text']
+            
+            # Format title safely
+            formatted_title = self._format_title_safe(best_title)
+            logger.info(f"Selected title: '{formatted_title}' using {title_candidates[0]['method']}")
+            return formatted_title
         
+        logger.warning("No title candidates found")
         return ""
     
-    def _calculate_title_score(self, text: str, block: TextBlock, structure_analysis: Dict) -> float:
-        """Calculate title likelihood score using analyzers"""
-        if not text or len(text) < 5:
-            return 0.0
+    def _format_title_safe(self, title: str) -> str:
+        """Safe title formatting"""
+        if not title:
+            return ""
         
-        score = 0.0
-        text_lower = text.lower()
-        words = text.split()
-        
-        # Use text processor for better analysis
-        if self.text_processor.is_likely_title(text):
-            score += 0.4
-        
-        # Font analysis
-        font_analysis = structure_analysis.get('font_analysis', {})
-        if font_analysis:
-            font_importance = self.font_analyzer.classify_text_block_importance(block, font_analysis)
-            score += font_importance * 0.3
-        
-        # Spatial analysis
-        spatial_analysis = structure_analysis.get('spatial_analysis', {})
-        if spatial_analysis:
-            page_analysis = spatial_analysis.get('pages', {}).get(block.page, {})
-            spatial_score = self.spatial_analyzer.is_likely_heading_position(block, page_analysis)
-            score += spatial_score * 0.2
-        
-        # Title indicators
-        title_words = ['overview', 'introduction', 'manual', 'guide', 'foundation', 'level', 'extensions']
-        indicator_count = sum(1 for word in title_words if word in text_lower)
-        score += indicator_count * 0.1
-        
-        # Length characteristics
-        if 3 <= len(words) <= 8:
-            score += 0.2
-        elif len(words) > 12:
-            score -= 0.3
-        
-        # Position characteristics
-        if block.page == 0:
-            score += 0.1
-        
-        # Avoid numbered sections as titles
-        if re.match(r'^\d+\.', text):
-            score -= 0.5
-        
-        return min(1.0, max(0.0, score))
+        try:
+            clean_title = self.text_processor.clean_text(title)
+            if clean_title:
+                try:
+                    formatted_title = self.text_processor.format_section_text(clean_title)
+                    # Add appropriate spacing
+                    if len(formatted_title.split()) <= 5:
+                        return f"{formatted_title}  "  # Double space for short titles
+                    return f"{formatted_title} "  # Single space for longer titles
+                except Exception:
+                    # Fallback formatting
+                    return clean_title + "  "
+            else:
+                return title.strip() + "  "
+        except Exception as e:
+            logger.warning(f"Title formatting error: {e}")
+            return title.strip() + "  "
     
-    def _format_title(self, title: str) -> str:
-        """Format title with text processor"""
-        clean_title = self.text_processor.clean_text(title)
+    def _extract_outline_safe(self, text_blocks: List[TextBlock], structure_analysis: Dict, doc_type: DocumentType) -> List[HeadingLevel]:
+        """Safe outline extraction with multiple methods"""
         
-        # Format section text for consistency
-        formatted_title = self.text_processor.format_section_text(clean_title)
+        # Method 1: Outline extractor
+        try:
+            outline = self.outline_extractor.extract_outline(text_blocks, doc_type)
+            if outline and len(outline) > 0:
+                validated = self._validate_outline_safe(outline)
+                if validated:
+                    logger.info(f"Outline extractor success: {len(validated)} items")
+                    return validated
+        except Exception as e:
+            logger.warning(f"Outline extractor error: {e}")
         
-        # Detect if we need extra spacing based on content
-        if len(formatted_title.split()) <= 5:
-            # Short titles often have extra spacing
-            return f"{formatted_title}  "  # Double space at end
+        # Method 2: Structure analyzer
+        try:
+            if structure_analysis:
+                outline = self.structure_analyzer.extract_hierarchical_outline(structure_analysis, doc_type)
+                if outline and len(outline) > 0:
+                    validated = self._validate_outline_safe(outline)
+                    if validated:
+                        logger.info(f"Structure analyzer success: {len(validated)} items")
+                        return validated
+        except Exception as e:
+            logger.warning(f"Structure analyzer outline error: {e}")
         
-        return f"{formatted_title} "  # Single space at end
+        logger.warning("No outline extracted")
+        return []
     
-    def _extract_generalized_outline(self, text_blocks: List[TextBlock], structure_analysis: Dict) -> List[HeadingLevel]:
-        """Extract outline using structure analyzer"""
-        # Use structure analyzer to get hierarchical outline
-        outline = self.structure_analyzer.extract_hierarchical_outline(structure_analysis, DocumentType.TECHNICAL_MANUAL)
+    def _validate_outline_safe(self, outline: List[HeadingLevel]) -> List[HeadingLevel]:
+        """Safe outline validation"""
+        if not outline:
+            return []
         
-        # Validate outline using output validator
-        if outline:
+        try:
             # Convert to dict format for validation
             outline_dict = {
                 'title': '',
                 'outline': [
                     {
-                        'level': h.level,
-                        'text': h.text,
-                        'page': h.page
-                    } for h in outline
+                        'level': getattr(h, 'level', 'H1'),
+                        'text': getattr(h, 'text', ''),
+                        'page': getattr(h, 'page', 0)
+                    } for h in outline if hasattr(h, 'text') and h.text
                 ]
             }
             
@@ -217,5 +273,15 @@ class ManualProcessor:
                         confidence=0.8
                     ) for item in cleaned_dict['outline']
                 ]
-        
-        return []
+        except Exception as e:
+            logger.warning(f"Outline validation error: {e}")
+            return outline  # Return original if validation fails
+    
+    def _create_safe_result(self) -> DocumentStructure:
+        """Create guaranteed safe result"""
+        return DocumentStructure(
+            title="",
+            outline=[],
+            doc_type=DocumentType.TECHNICAL_MANUAL,  # ← Fixed: changed from MANUAL_DOCUMENT
+            confidence=0.0
+        )

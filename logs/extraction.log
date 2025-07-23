@@ -9251,3 +9251,1699 @@ AttributeError: 'ContentFilter' object has no attribute 'is_structural_noise'
 2025-07-23 14:28:08,180 [INFO] extraction: Processing completed in 0.12 seconds
 2025-07-23 14:28:08,180 [INFO] extraction: Output saved to: /app/output/file05_outline.json
 2025-07-23 14:28:08,180 [INFO] extraction: Successfully processed 4/5 PDF files
+2025-07-23 15:40:32,910 [INFO] extraction: Found 5 PDF files to process
+2025-07-23 15:40:32,910 [INFO] extraction: Processing PDF: /app/input/file01.pdf
+2025-07-23 15:40:32,971 [INFO] extraction: PDF loaded successfully: /app/input/file01.pdf
+2025-07-23 15:40:33,043 [INFO] extraction: Extracted 28 text blocks
+2025-07-23 15:40:33,044 [INFO] extraction: Extracted 28 text blocks
+2025-07-23 15:40:33,047 [INFO] extraction: Document classified as manual (confidence: 1.00)
+2025-07-23 15:40:33,048 [INFO] extraction: Processing technical manual - generalized pattern matching
+2025-07-23 15:40:33,051 [INFO] extraction: Output validation passed
+2025-07-23 15:40:33,052 [INFO] extraction: JSON output formatted and validated successfully
+2025-07-23 15:40:33,056 [INFO] extraction: JSON output saved to /app/output/file01_outline.json
+2025-07-23 15:40:33,057 [INFO] extraction: Processing completed in 0.15 seconds
+2025-07-23 15:40:33,057 [INFO] extraction: Output saved to: /app/output/file01_outline.json
+2025-07-23 15:40:33,058 [INFO] extraction: Processing PDF: /app/input/file02.pdf
+2025-07-23 15:40:33,163 [INFO] extraction: PDF loaded successfully: /app/input/file02.pdf
+2025-07-23 15:40:34,029 [INFO] extraction: Extracted 235 text blocks
+2025-07-23 15:40:34,030 [INFO] extraction: Extracted 235 text blocks
+2025-07-23 15:40:34,032 [INFO] extraction: Document classified as manual (confidence: 1.00)
+2025-07-23 15:40:34,033 [INFO] extraction: Processing technical manual - generalized pattern matching
+2025-07-23 15:40:34,038 [INFO] extraction: Font analysis completed: 18 size samples, 2 unique fonts
+2025-07-23 15:40:34,038 [INFO] extraction: Spatial analysis completed for 8 pages
+2025-07-23 15:40:34,042 [INFO] extraction: Text pattern analysis completed for 18 blocks
+2025-07-23 15:40:34,043 [INFO] extraction: Document structure analysis completed
+2025-07-23 15:40:34,045 [INFO] extraction: Output validation passed
+2025-07-23 15:40:34,046 [INFO] extraction: Output validation passed
+2025-07-23 15:40:34,047 [INFO] extraction: JSON output formatted and validated successfully
+2025-07-23 15:40:34,052 [INFO] extraction: JSON output saved to /app/output/file02_outline.json
+2025-07-23 15:40:34,052 [INFO] extraction: Processing completed in 0.99 seconds
+2025-07-23 15:40:34,053 [INFO] extraction: Output saved to: /app/output/file02_outline.json
+2025-07-23 15:40:34,054 [INFO] extraction: Processing PDF: /app/input/file03.pdf
+2025-07-23 15:40:34,154 [INFO] extraction: PDF loaded successfully: /app/input/file03.pdf
+2025-07-23 15:40:35,371 [INFO] extraction: Extracted 224 text blocks
+2025-07-23 15:40:35,372 [INFO] extraction: Extracted 224 text blocks
+2025-07-23 15:40:35,375 [INFO] extraction: Document classified as business (confidence: 1.00)
+2025-07-23 15:40:35,375 [INFO] extraction: Processing business document
+2025-07-23 15:40:35,376 [INFO] extraction: Extracted title: RFP: RRFP: RRFP: RRFP: Reeeequest fquest fquest fquest foooor Prr Prr Prr Proposaloposal oposaloposal
+2025-07-23 15:40:35,377 [INFO] extraction: Extracting outline for business document with 224 text blocks
+2025-07-23 15:40:35,382 [INFO] extraction: Font analysis completed: 17 size samples, 3 unique fonts
+2025-07-23 15:40:35,383 [INFO] extraction: Font analysis completed: 17 size samples, 3 unique fonts
+2025-07-23 15:40:35,383 [INFO] extraction: Spatial analysis completed for 14 pages
+2025-07-23 15:40:35,387 [INFO] extraction: Text pattern analysis completed for 17 blocks
+2025-07-23 15:40:35,387 [INFO] extraction: Document structure analysis completed
+2025-07-23 15:40:35,392 [INFO] extraction: Extracted 0 outline items
+2025-07-23 15:40:35,392 [INFO] extraction: Font analysis completed: 224 size samples, 8 unique fonts
+2025-07-23 15:40:35,409 [INFO] extraction: Output validation passed
+2025-07-23 15:40:35,410 [INFO] extraction: Output validation passed
+2025-07-23 15:40:35,410 [INFO] extraction: JSON output formatted and validated successfully
+2025-07-23 15:40:35,420 [INFO] extraction: JSON output saved to /app/output/file03_outline.json
+2025-07-23 15:40:35,420 [INFO] extraction: Processing completed in 1.37 seconds
+2025-07-23 15:40:35,421 [INFO] extraction: Output saved to: /app/output/file03_outline.json
+2025-07-23 15:40:35,422 [INFO] extraction: Processing PDF: /app/input/file04.pdf
+2025-07-23 15:40:35,481 [INFO] extraction: PDF loaded successfully: /app/input/file04.pdf
+2025-07-23 15:40:35,612 [INFO] extraction: Extracted 28 text blocks
+2025-07-23 15:40:35,613 [INFO] extraction: Extracted 28 text blocks
+2025-07-23 15:40:35,614 [INFO] extraction: Document classified as program (confidence: 1.00)
+2025-07-23 15:40:35,615 [INFO] extraction: Processing program document - pure component-driven analysis
+2025-07-23 15:40:35,615 [INFO] extraction: Font analysis completed: 28 size samples, 5 unique fonts
+2025-07-23 15:40:35,616 [INFO] extraction: Spatial analysis completed for 1 pages
+2025-07-23 15:40:35,619 [INFO] extraction: Text pattern analysis completed for 28 blocks
+2025-07-23 15:40:35,620 [INFO] extraction: Document structure analysis completed
+2025-07-23 15:40:35,621 [INFO] extraction: Font analysis completed: 28 size samples, 5 unique fonts
+2025-07-23 15:40:35,623 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 15:40:35,624 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 15:40:35,625 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 15:40:35,625 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 15:40:35,626 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 15:40:35,626 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 15:40:35,627 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 15:40:35,628 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 15:40:35,629 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 15:40:35,629 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 15:40:35,630 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 15:40:35,631 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 15:40:35,631 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 15:40:35,632 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 15:40:35,633 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 15:40:35,633 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 15:40:35,634 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 15:40:35,635 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 15:40:35,636 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 15:40:35,636 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 15:40:35,637 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 15:40:35,637 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 15:40:35,638 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 15:40:35,638 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 15:40:35,638 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 15:40:35,639 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 15:40:35,640 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 15:40:35,641 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 15:40:35,642 [INFO] extraction: Extracted title: Parsippany -Troy Hills STEM Pathways
+2025-07-23 15:40:35,643 [INFO] extraction: Component-validated outline item: 'PATHWAY OPTIONS' as H1 (source: structure_analyzer)
+2025-07-23 15:40:35,644 [INFO] extraction: Output validation passed
+2025-07-23 15:40:35,645 [INFO] extraction: Final validation successful - Title: 'Parsippany -Troy Hills STEM Pathways', Outline: 1 items
+2025-07-23 15:40:35,645 [INFO] extraction: Output validation passed
+2025-07-23 15:40:35,646 [INFO] extraction: JSON output formatted and validated successfully
+2025-07-23 15:40:35,652 [INFO] extraction: JSON output saved to /app/output/file04_outline.json
+2025-07-23 15:40:35,652 [INFO] extraction: Processing completed in 0.23 seconds
+2025-07-23 15:40:35,653 [INFO] extraction: Output saved to: /app/output/file04_outline.json
+2025-07-23 15:40:35,654 [INFO] extraction: Processing PDF: /app/input/file05.pdf
+2025-07-23 15:40:35,731 [INFO] extraction: PDF loaded successfully: /app/input/file05.pdf
+2025-07-23 15:40:35,773 [INFO] extraction: Extracted 12 text blocks
+2025-07-23 15:40:35,774 [INFO] extraction: Extracted 12 text blocks
+2025-07-23 15:40:35,775 [INFO] extraction: Document classified as invitation (confidence: 1.00)
+2025-07-23 15:40:35,776 [INFO] extraction: Processing invitation document with dynamic analysis
+2025-07-23 15:40:35,777 [INFO] extraction: Font analysis completed: 1 size samples, 1 unique fonts
+2025-07-23 15:40:35,777 [INFO] extraction: Spatial analysis completed for 1 pages
+2025-07-23 15:40:35,778 [INFO] extraction: Text pattern analysis completed for 1 blocks
+2025-07-23 15:40:35,778 [INFO] extraction: Document structure analysis completed
+2025-07-23 15:40:35,779 [INFO] extraction: Font analysis completed: 1 size samples, 1 unique fonts
+2025-07-23 15:40:35,779 [INFO] extraction: Spatial analysis completed for 1 pages
+2025-07-23 15:40:35,780 [INFO] extraction: Using default title for invitation: 
+2025-07-23 15:40:35,781 [INFO] extraction: Extracting outline for invitation document with 1 text blocks
+2025-07-23 15:40:35,782 [INFO] extraction: Font analysis completed: 1 size samples, 1 unique fonts
+2025-07-23 15:40:35,782 [INFO] extraction: Font analysis completed: 1 size samples, 1 unique fonts
+2025-07-23 15:40:35,783 [INFO] extraction: Spatial analysis completed for 1 pages
+2025-07-23 15:40:35,783 [INFO] extraction: Text pattern analysis completed for 1 blocks
+2025-07-23 15:40:35,783 [INFO] extraction: Document structure analysis completed
+2025-07-23 15:40:35,784 [INFO] extraction: Extracted 0 outline items
+2025-07-23 15:40:35,784 [INFO] extraction: Added to outline: 'HOPE To SEE You THERE!' as H1 (method: semantic_analysis, confidence: 0.67)
+2025-07-23 15:40:35,785 [INFO] extraction: Output validation passed
+2025-07-23 15:40:35,785 [INFO] extraction: Output validation passed
+2025-07-23 15:40:35,785 [INFO] extraction: Output validation passed
+2025-07-23 15:40:35,785 [INFO] extraction: JSON output formatted and validated successfully
+2025-07-23 15:40:35,789 [INFO] extraction: JSON output saved to /app/output/file05_outline.json
+2025-07-23 15:40:35,790 [INFO] extraction: Processing completed in 0.14 seconds
+2025-07-23 15:40:35,790 [INFO] extraction: Output saved to: /app/output/file05_outline.json
+2025-07-23 15:40:35,791 [INFO] extraction: Successfully processed 5/5 PDF files
+2025-07-23 15:48:41,780 [INFO] extraction: Found 5 PDF files to process
+2025-07-23 15:48:41,781 [INFO] extraction: Processing PDF: /app/input/file01.pdf
+2025-07-23 15:48:41,814 [INFO] extraction: PDF loaded successfully: /app/input/file01.pdf
+2025-07-23 15:48:41,911 [INFO] extraction: Extracted 28 text blocks
+2025-07-23 15:48:41,912 [INFO] extraction: Extracted 28 text blocks
+2025-07-23 15:48:41,916 [INFO] extraction: Document classified as manual (confidence: 1.00)
+2025-07-23 15:48:41,917 [INFO] extraction: Processing technical manual - generalized pattern matching
+2025-07-23 15:48:41,921 [INFO] extraction: Output validation passed
+2025-07-23 15:48:41,922 [INFO] extraction: JSON output formatted and validated successfully
+2025-07-23 15:48:41,926 [INFO] extraction: JSON output saved to /app/output/file01_outline.json
+2025-07-23 15:48:41,927 [INFO] extraction: Processing completed in 0.15 seconds
+2025-07-23 15:48:41,927 [INFO] extraction: Output saved to: /app/output/file01_outline.json
+2025-07-23 15:48:41,928 [INFO] extraction: Processing PDF: /app/input/file02.pdf
+2025-07-23 15:48:41,983 [INFO] extraction: PDF loaded successfully: /app/input/file02.pdf
+2025-07-23 15:48:43,255 [INFO] extraction: Extracted 235 text blocks
+2025-07-23 15:48:43,255 [INFO] extraction: Extracted 235 text blocks
+2025-07-23 15:48:43,259 [INFO] extraction: Document classified as manual (confidence: 1.00)
+2025-07-23 15:48:43,259 [INFO] extraction: Processing technical manual - generalized pattern matching
+2025-07-23 15:48:43,265 [INFO] extraction: Font analysis completed: 18 size samples, 2 unique fonts
+2025-07-23 15:48:43,266 [INFO] extraction: Spatial analysis completed for 8 pages
+2025-07-23 15:48:43,270 [INFO] extraction: Text pattern analysis completed for 18 blocks
+2025-07-23 15:48:43,271 [INFO] extraction: Document structure analysis completed
+2025-07-23 15:48:43,274 [INFO] extraction: Output validation passed
+2025-07-23 15:48:43,275 [INFO] extraction: Output validation passed
+2025-07-23 15:48:43,275 [INFO] extraction: JSON output formatted and validated successfully
+2025-07-23 15:48:43,278 [INFO] extraction: JSON output saved to /app/output/file02_outline.json
+2025-07-23 15:48:43,278 [INFO] extraction: Processing completed in 1.35 seconds
+2025-07-23 15:48:43,278 [INFO] extraction: Output saved to: /app/output/file02_outline.json
+2025-07-23 15:48:43,279 [INFO] extraction: Processing PDF: /app/input/file03.pdf
+2025-07-23 15:48:43,331 [INFO] extraction: PDF loaded successfully: /app/input/file03.pdf
+2025-07-23 15:48:44,678 [INFO] extraction: Extracted 224 text blocks
+2025-07-23 15:48:44,679 [INFO] extraction: Extracted 224 text blocks
+2025-07-23 15:48:44,683 [INFO] extraction: Document classified as business (confidence: 1.00)
+2025-07-23 15:48:44,683 [INFO] extraction: Processing business document
+2025-07-23 15:48:44,685 [INFO] extraction: Extracted title: RFP: RRFP: RRFP: RRFP: Reeeequest fquest fquest fquest foooor Prr Prr Prr Proposaloposal oposaloposal
+2025-07-23 15:48:44,685 [INFO] extraction: Extracting outline for business document with 224 text blocks
+2025-07-23 15:48:44,691 [INFO] extraction: Font analysis completed: 17 size samples, 3 unique fonts
+2025-07-23 15:48:44,692 [INFO] extraction: Font analysis completed: 17 size samples, 3 unique fonts
+2025-07-23 15:48:44,693 [INFO] extraction: Spatial analysis completed for 14 pages
+2025-07-23 15:48:44,697 [INFO] extraction: Text pattern analysis completed for 17 blocks
+2025-07-23 15:48:44,698 [INFO] extraction: Document structure analysis completed
+2025-07-23 15:48:44,701 [INFO] extraction: Extracted 0 outline items
+2025-07-23 15:48:44,702 [INFO] extraction: Font analysis completed: 224 size samples, 8 unique fonts
+2025-07-23 15:48:44,708 [INFO] extraction: Output validation passed
+2025-07-23 15:48:44,709 [INFO] extraction: JSON output formatted and validated successfully
+2025-07-23 15:48:44,714 [INFO] extraction: JSON output saved to /app/output/file03_outline.json
+2025-07-23 15:48:44,714 [INFO] extraction: Processing completed in 1.44 seconds
+2025-07-23 15:48:44,714 [INFO] extraction: Output saved to: /app/output/file03_outline.json
+2025-07-23 15:48:44,716 [INFO] extraction: Processing PDF: /app/input/file04.pdf
+2025-07-23 15:48:44,756 [INFO] extraction: PDF loaded successfully: /app/input/file04.pdf
+2025-07-23 15:48:44,915 [INFO] extraction: Extracted 28 text blocks
+2025-07-23 15:48:44,916 [INFO] extraction: Extracted 28 text blocks
+2025-07-23 15:48:44,917 [INFO] extraction: Document classified as program (confidence: 1.00)
+2025-07-23 15:48:44,918 [INFO] extraction: Processing program document - pure component-driven analysis
+2025-07-23 15:48:44,919 [INFO] extraction: Font analysis completed: 28 size samples, 5 unique fonts
+2025-07-23 15:48:44,920 [INFO] extraction: Spatial analysis completed for 1 pages
+2025-07-23 15:48:44,923 [INFO] extraction: Text pattern analysis completed for 28 blocks
+2025-07-23 15:48:44,925 [INFO] extraction: Document structure analysis completed
+2025-07-23 15:48:44,925 [INFO] extraction: Font analysis completed: 28 size samples, 5 unique fonts
+2025-07-23 15:48:44,927 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 15:48:44,928 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 15:48:44,928 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 15:48:44,929 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 15:48:44,930 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 15:48:44,930 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 15:48:44,931 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 15:48:44,932 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 15:48:44,933 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 15:48:44,933 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 15:48:44,934 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 15:48:44,934 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 15:48:44,935 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 15:48:44,936 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 15:48:44,936 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 15:48:44,937 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 15:48:44,937 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 15:48:44,937 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 15:48:44,938 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 15:48:44,938 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 15:48:44,938 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 15:48:44,939 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 15:48:44,939 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 15:48:44,939 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 15:48:44,940 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 15:48:44,940 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 15:48:44,941 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 15:48:44,941 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 15:48:44,942 [INFO] extraction: Extracted title: Parsippany -Troy Hills STEM Pathways
+2025-07-23 15:48:44,943 [INFO] extraction: Component-validated outline item: 'PATHWAY OPTIONS' as H1 (source: structure_analyzer)
+2025-07-23 15:48:44,944 [INFO] extraction: Output validation passed
+2025-07-23 15:48:44,944 [INFO] extraction: Final validation successful - Title: 'Parsippany -Troy Hills STEM Pathways', Outline: 1 items
+2025-07-23 15:48:44,945 [INFO] extraction: Output validation passed
+2025-07-23 15:48:44,945 [INFO] extraction: JSON output formatted and validated successfully
+2025-07-23 15:48:44,949 [INFO] extraction: JSON output saved to /app/output/file04_outline.json
+2025-07-23 15:48:44,949 [INFO] extraction: Processing completed in 0.23 seconds
+2025-07-23 15:48:44,950 [INFO] extraction: Output saved to: /app/output/file04_outline.json
+2025-07-23 15:48:44,950 [INFO] extraction: Processing PDF: /app/input/file05.pdf
+2025-07-23 15:48:44,962 [INFO] extraction: PDF loaded successfully: /app/input/file05.pdf
+2025-07-23 15:48:45,001 [INFO] extraction: Extracted 12 text blocks
+2025-07-23 15:48:45,001 [INFO] extraction: Extracted 12 text blocks
+2025-07-23 15:48:45,002 [INFO] extraction: Document classified as invitation (confidence: 1.00)
+2025-07-23 15:48:45,002 [INFO] extraction: Processing invitation document with dynamic analysis
+2025-07-23 15:48:45,005 [INFO] extraction: Font analysis completed: 1 size samples, 1 unique fonts
+2025-07-23 15:48:45,005 [INFO] extraction: Spatial analysis completed for 1 pages
+2025-07-23 15:48:45,006 [INFO] extraction: Text pattern analysis completed for 1 blocks
+2025-07-23 15:48:45,006 [INFO] extraction: Document structure analysis completed
+2025-07-23 15:48:45,006 [INFO] extraction: Font analysis completed: 1 size samples, 1 unique fonts
+2025-07-23 15:48:45,007 [INFO] extraction: Spatial analysis completed for 1 pages
+2025-07-23 15:48:45,008 [INFO] extraction: Using default title for invitation: 
+2025-07-23 15:48:45,009 [INFO] extraction: Extracting outline for invitation document with 1 text blocks
+2025-07-23 15:48:45,009 [INFO] extraction: Font analysis completed: 1 size samples, 1 unique fonts
+2025-07-23 15:48:45,010 [INFO] extraction: Font analysis completed: 1 size samples, 1 unique fonts
+2025-07-23 15:48:45,010 [INFO] extraction: Spatial analysis completed for 1 pages
+2025-07-23 15:48:45,010 [INFO] extraction: Text pattern analysis completed for 1 blocks
+2025-07-23 15:48:45,010 [INFO] extraction: Document structure analysis completed
+2025-07-23 15:48:45,011 [INFO] extraction: Extracted 0 outline items
+2025-07-23 15:48:45,011 [INFO] extraction: Added to outline: 'HOPE To SEE You THERE!' as H1 (method: semantic_analysis, confidence: 0.67)
+2025-07-23 15:48:45,011 [INFO] extraction: Output validation passed
+2025-07-23 15:48:45,012 [INFO] extraction: Output validation passed
+2025-07-23 15:48:45,012 [INFO] extraction: Output validation passed
+2025-07-23 15:48:45,012 [INFO] extraction: JSON output formatted and validated successfully
+2025-07-23 15:48:45,014 [INFO] extraction: JSON output saved to /app/output/file05_outline.json
+2025-07-23 15:48:45,015 [INFO] extraction: Processing completed in 0.06 seconds
+2025-07-23 15:48:45,015 [INFO] extraction: Output saved to: /app/output/file05_outline.json
+2025-07-23 15:48:45,015 [INFO] extraction: Successfully processed 5/5 PDF files
+2025-07-23 16:01:59,435 [INFO] extraction: Found 5 PDF files to process
+2025-07-23 16:01:59,436 [INFO] extraction: Processing PDF: /app/input/file01.pdf
+2025-07-23 16:01:59,459 [INFO] extraction: PDF loaded successfully: /app/input/file01.pdf
+2025-07-23 16:01:59,570 [INFO] extraction: Extracted 28 text blocks
+2025-07-23 16:01:59,571 [INFO] extraction: Extracted 28 text blocks
+2025-07-23 16:01:59,574 [INFO] extraction: Document classified as manual (confidence: 1.00)
+2025-07-23 16:01:59,575 [INFO] extraction: Processing technical manual - generalized pattern matching
+2025-07-23 16:01:59,579 [INFO] extraction: Output validation passed
+2025-07-23 16:01:59,579 [INFO] extraction: JSON output formatted and validated successfully
+2025-07-23 16:01:59,585 [INFO] extraction: JSON output saved to /app/output/file01_outline.json
+2025-07-23 16:01:59,586 [INFO] extraction: Processing completed in 0.15 seconds
+2025-07-23 16:01:59,586 [INFO] extraction: Output saved to: /app/output/file01_outline.json
+2025-07-23 16:01:59,587 [INFO] extraction: Processing PDF: /app/input/file02.pdf
+2025-07-23 16:01:59,655 [INFO] extraction: PDF loaded successfully: /app/input/file02.pdf
+2025-07-23 16:02:00,986 [INFO] extraction: Extracted 235 text blocks
+2025-07-23 16:02:00,987 [INFO] extraction: Extracted 235 text blocks
+2025-07-23 16:02:00,992 [INFO] extraction: Document classified as manual (confidence: 1.00)
+2025-07-23 16:02:00,992 [INFO] extraction: Processing technical manual - generalized pattern matching
+2025-07-23 16:02:00,998 [INFO] extraction: Font analysis completed: 18 size samples, 2 unique fonts
+2025-07-23 16:02:01,000 [INFO] extraction: Spatial analysis completed for 8 pages
+2025-07-23 16:02:01,018 [INFO] extraction: Text pattern analysis completed for 18 blocks
+2025-07-23 16:02:01,040 [INFO] extraction: Document structure analysis completed
+2025-07-23 16:02:01,044 [INFO] extraction: Output validation passed
+2025-07-23 16:02:01,045 [INFO] extraction: Output validation passed
+2025-07-23 16:02:01,046 [INFO] extraction: JSON output formatted and validated successfully
+2025-07-23 16:02:01,057 [INFO] extraction: JSON output saved to /app/output/file02_outline.json
+2025-07-23 16:02:01,057 [INFO] extraction: Processing completed in 1.47 seconds
+2025-07-23 16:02:01,058 [INFO] extraction: Output saved to: /app/output/file02_outline.json
+2025-07-23 16:02:01,058 [INFO] extraction: Processing PDF: /app/input/file03.pdf
+2025-07-23 16:02:01,126 [INFO] extraction: PDF loaded successfully: /app/input/file03.pdf
+2025-07-23 16:02:02,562 [INFO] extraction: Extracted 224 text blocks
+2025-07-23 16:02:02,563 [INFO] extraction: Extracted 224 text blocks
+2025-07-23 16:02:02,568 [INFO] extraction: Document classified as business (confidence: 1.00)
+2025-07-23 16:02:02,568 [INFO] extraction: Processing business document with enhanced extraction
+2025-07-23 16:02:02,570 [INFO] extraction: Extracted title: RFP: RRFP: RRFP: RRFP: Reeeequest fquest fquest fquest foooor Prr Prr Prr Proposaloposal oposaloposal
+2025-07-23 16:02:02,571 [INFO] extraction: Font analysis completed: 224 size samples, 8 unique fonts
+2025-07-23 16:02:02,574 [INFO] extraction: Spatial analysis completed for 14 pages
+2025-07-23 16:02:02,590 [INFO] extraction: Text pattern analysis completed for 224 blocks
+2025-07-23 16:02:02,596 [INFO] extraction: Document structure analysis completed
+2025-07-23 16:02:02,597 [INFO] extraction: Selected title via title_extractor: 'RFP: RRFP: RRFP: RRFP: Reeeequest fquest fquest fquest foooor Prr Prr Prr Proposaloposal oposaloposal  '
+2025-07-23 16:02:02,598 [INFO] extraction: Extracting outline for business document with 224 text blocks
+2025-07-23 16:02:02,604 [INFO] extraction: Font analysis completed: 17 size samples, 3 unique fonts
+2025-07-23 16:02:02,604 [INFO] extraction: Font analysis completed: 17 size samples, 3 unique fonts
+2025-07-23 16:02:02,605 [INFO] extraction: Spatial analysis completed for 14 pages
+2025-07-23 16:02:02,607 [INFO] extraction: Text pattern analysis completed for 17 blocks
+2025-07-23 16:02:02,608 [INFO] extraction: Document structure analysis completed
+2025-07-23 16:02:02,611 [INFO] extraction: Extracted 0 outline items
+2025-07-23 16:02:02,612 [INFO] extraction: Font analysis completed: 224 size samples, 8 unique fonts
+2025-07-23 16:02:02,614 [INFO] extraction: Spatial analysis completed for 14 pages
+2025-07-23 16:02:02,628 [INFO] extraction: Text pattern analysis completed for 224 blocks
+2025-07-23 16:02:02,635 [INFO] extraction: Document structure analysis completed
+2025-07-23 16:02:02,637 [INFO] extraction: Structure analyzer found 152 items
+2025-07-23 16:02:02,638 [INFO] extraction: Output validation passed
+2025-07-23 16:02:02,639 [INFO] extraction: Validation successful - Title: 'RFP: RRFP: RRFP: RRFP: Reeeequest fquest fquest fquest foooor Prr Prr Prr Proposaloposal oposaloposal  ', Outline: 152 items
+2025-07-23 16:02:02,639 [INFO] extraction: Output validation passed
+2025-07-23 16:02:02,640 [INFO] extraction: JSON output formatted and validated successfully
+2025-07-23 16:02:02,649 [INFO] extraction: JSON output saved to /app/output/file03_outline.json
+2025-07-23 16:02:02,649 [INFO] extraction: Processing completed in 1.59 seconds
+2025-07-23 16:02:02,650 [INFO] extraction: Output saved to: /app/output/file03_outline.json
+2025-07-23 16:02:02,651 [INFO] extraction: Processing PDF: /app/input/file04.pdf
+2025-07-23 16:02:02,683 [INFO] extraction: PDF loaded successfully: /app/input/file04.pdf
+2025-07-23 16:02:02,906 [INFO] extraction: Extracted 28 text blocks
+2025-07-23 16:02:02,906 [INFO] extraction: Extracted 28 text blocks
+2025-07-23 16:02:02,908 [INFO] extraction: Document classified as program (confidence: 1.00)
+2025-07-23 16:02:02,908 [INFO] extraction: Processing program document - pure component-driven analysis
+2025-07-23 16:02:02,909 [INFO] extraction: Font analysis completed: 28 size samples, 5 unique fonts
+2025-07-23 16:02:02,909 [INFO] extraction: Spatial analysis completed for 1 pages
+2025-07-23 16:02:02,912 [INFO] extraction: Text pattern analysis completed for 28 blocks
+2025-07-23 16:02:02,914 [INFO] extraction: Document structure analysis completed
+2025-07-23 16:02:02,915 [INFO] extraction: Font analysis completed: 28 size samples, 5 unique fonts
+2025-07-23 16:02:02,917 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 16:02:02,918 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 16:02:02,918 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 16:02:02,919 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 16:02:02,919 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 16:02:02,920 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 16:02:02,920 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 16:02:02,921 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 16:02:02,921 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 16:02:02,922 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 16:02:02,922 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 16:02:02,922 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 16:02:02,923 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 16:02:02,923 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 16:02:02,924 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 16:02:02,924 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 16:02:02,924 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 16:02:02,925 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 16:02:02,925 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 16:02:02,926 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 16:02:02,926 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 16:02:02,926 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 16:02:02,927 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 16:02:02,927 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 16:02:02,928 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 16:02:02,928 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 16:02:02,928 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 16:02:02,929 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 16:02:02,930 [INFO] extraction: Extracted title: Parsippany -Troy Hills STEM Pathways
+2025-07-23 16:02:02,931 [INFO] extraction: Component-validated outline item: 'PATHWAY OPTIONS' as H1 (source: structure_analyzer)
+2025-07-23 16:02:02,932 [INFO] extraction: Output validation passed
+2025-07-23 16:02:02,932 [INFO] extraction: Final validation successful - Title: 'Parsippany -Troy Hills STEM Pathways', Outline: 1 items
+2025-07-23 16:02:02,933 [INFO] extraction: Output validation passed
+2025-07-23 16:02:02,933 [INFO] extraction: JSON output formatted and validated successfully
+2025-07-23 16:02:02,938 [INFO] extraction: JSON output saved to /app/output/file04_outline.json
+2025-07-23 16:02:02,938 [INFO] extraction: Processing completed in 0.29 seconds
+2025-07-23 16:02:02,939 [INFO] extraction: Output saved to: /app/output/file04_outline.json
+2025-07-23 16:02:02,940 [INFO] extraction: Processing PDF: /app/input/file05.pdf
+2025-07-23 16:02:02,956 [INFO] extraction: PDF loaded successfully: /app/input/file05.pdf
+2025-07-23 16:02:03,009 [INFO] extraction: Extracted 12 text blocks
+2025-07-23 16:02:03,010 [INFO] extraction: Extracted 12 text blocks
+2025-07-23 16:02:03,011 [INFO] extraction: Document classified as invitation (confidence: 1.00)
+2025-07-23 16:02:03,012 [INFO] extraction: Processing invitation document with dynamic analysis
+2025-07-23 16:02:03,014 [INFO] extraction: Font analysis completed: 1 size samples, 1 unique fonts
+2025-07-23 16:02:03,015 [INFO] extraction: Spatial analysis completed for 1 pages
+2025-07-23 16:02:03,016 [INFO] extraction: Text pattern analysis completed for 1 blocks
+2025-07-23 16:02:03,017 [INFO] extraction: Document structure analysis completed
+2025-07-23 16:02:03,017 [INFO] extraction: Font analysis completed: 1 size samples, 1 unique fonts
+2025-07-23 16:02:03,018 [INFO] extraction: Spatial analysis completed for 1 pages
+2025-07-23 16:02:03,020 [INFO] extraction: Using default title for invitation: 
+2025-07-23 16:02:03,022 [INFO] extraction: Extracting outline for invitation document with 1 text blocks
+2025-07-23 16:02:03,023 [INFO] extraction: Font analysis completed: 1 size samples, 1 unique fonts
+2025-07-23 16:02:03,024 [INFO] extraction: Font analysis completed: 1 size samples, 1 unique fonts
+2025-07-23 16:02:03,024 [INFO] extraction: Spatial analysis completed for 1 pages
+2025-07-23 16:02:03,025 [INFO] extraction: Text pattern analysis completed for 1 blocks
+2025-07-23 16:02:03,026 [INFO] extraction: Document structure analysis completed
+2025-07-23 16:02:03,027 [INFO] extraction: Extracted 0 outline items
+2025-07-23 16:02:03,028 [INFO] extraction: Added to outline: 'HOPE To SEE You THERE!' as H1 (method: semantic_analysis, confidence: 0.67)
+2025-07-23 16:02:03,029 [INFO] extraction: Output validation passed
+2025-07-23 16:02:03,029 [INFO] extraction: Output validation passed
+2025-07-23 16:02:03,030 [INFO] extraction: Output validation passed
+2025-07-23 16:02:03,031 [INFO] extraction: JSON output formatted and validated successfully
+2025-07-23 16:02:03,037 [INFO] extraction: JSON output saved to /app/output/file05_outline.json
+2025-07-23 16:02:03,038 [INFO] extraction: Processing completed in 0.10 seconds
+2025-07-23 16:02:03,038 [INFO] extraction: Output saved to: /app/output/file05_outline.json
+2025-07-23 16:02:03,040 [INFO] extraction: Successfully processed 5/5 PDF files
+2025-07-23 16:14:46,872 [INFO] extraction: Found 5 PDF files to process
+2025-07-23 16:14:46,873 [INFO] extraction: Processing PDF: /app/input/file01.pdf
+2025-07-23 16:14:46,911 [INFO] extraction: PDF loaded successfully: /app/input/file01.pdf
+2025-07-23 16:14:46,992 [INFO] extraction: Extracted 28 text blocks
+2025-07-23 16:14:46,993 [INFO] extraction: Extracted 28 text blocks
+2025-07-23 16:14:46,995 [INFO] extraction: Document classified as manual (confidence: 1.00)
+2025-07-23 16:14:46,996 [INFO] extraction: Processing technical manual - generalized pattern matching
+2025-07-23 16:14:46,999 [INFO] extraction: Output validation passed
+2025-07-23 16:14:47,000 [INFO] extraction: JSON output formatted and validated successfully
+2025-07-23 16:14:47,006 [INFO] extraction: JSON output saved to /app/output/file01_outline.json
+2025-07-23 16:14:47,006 [INFO] extraction: Processing completed in 0.13 seconds
+2025-07-23 16:14:47,007 [INFO] extraction: Output saved to: /app/output/file01_outline.json
+2025-07-23 16:14:47,008 [INFO] extraction: Processing PDF: /app/input/file02.pdf
+2025-07-23 16:14:47,101 [INFO] extraction: PDF loaded successfully: /app/input/file02.pdf
+2025-07-23 16:14:48,337 [INFO] extraction: Extracted 235 text blocks
+2025-07-23 16:14:48,338 [INFO] extraction: Extracted 235 text blocks
+2025-07-23 16:14:48,341 [INFO] extraction: Document classified as manual (confidence: 1.00)
+2025-07-23 16:14:48,341 [INFO] extraction: Processing technical manual - generalized pattern matching
+2025-07-23 16:14:48,347 [INFO] extraction: Font analysis completed: 18 size samples, 2 unique fonts
+2025-07-23 16:14:48,348 [INFO] extraction: Spatial analysis completed for 8 pages
+2025-07-23 16:14:48,351 [INFO] extraction: Text pattern analysis completed for 18 blocks
+2025-07-23 16:14:48,352 [INFO] extraction: Document structure analysis completed
+2025-07-23 16:14:48,355 [INFO] extraction: Output validation passed
+2025-07-23 16:14:48,355 [INFO] extraction: Output validation passed
+2025-07-23 16:14:48,355 [INFO] extraction: JSON output formatted and validated successfully
+2025-07-23 16:14:48,362 [INFO] extraction: JSON output saved to /app/output/file02_outline.json
+2025-07-23 16:14:48,362 [INFO] extraction: Processing completed in 1.35 seconds
+2025-07-23 16:14:48,363 [INFO] extraction: Output saved to: /app/output/file02_outline.json
+2025-07-23 16:14:48,364 [INFO] extraction: Processing PDF: /app/input/file03.pdf
+2025-07-23 16:14:48,450 [INFO] extraction: PDF loaded successfully: /app/input/file03.pdf
+2025-07-23 16:14:49,853 [INFO] extraction: Extracted 224 text blocks
+2025-07-23 16:14:49,854 [INFO] extraction: Extracted 224 text blocks
+2025-07-23 16:14:49,858 [INFO] extraction: Document classified as business (confidence: 1.00)
+2025-07-23 16:14:49,858 [INFO] extraction: Processing business document
+2025-07-23 16:14:49,860 [INFO] extraction: Extracted title: RFP: RRFP: RRFP: RRFP: Reeeequest fquest fquest fquest foooor Prr Prr Prr Proposaloposal oposaloposal
+2025-07-23 16:14:49,861 [INFO] extraction: Title extracted and cleaned: 'RFP: RRFP: RRFP: RRFP: Reeeequest fquest fquest fquest foooor Prr Prr Prr Proposaloposal oposaloposal  '
+2025-07-23 16:14:49,861 [INFO] extraction: Extracting outline for business document with 224 text blocks
+2025-07-23 16:14:49,867 [INFO] extraction: Font analysis completed: 17 size samples, 3 unique fonts
+2025-07-23 16:14:49,868 [INFO] extraction: Font analysis completed: 17 size samples, 3 unique fonts
+2025-07-23 16:14:49,869 [INFO] extraction: Spatial analysis completed for 14 pages
+2025-07-23 16:14:49,872 [INFO] extraction: Text pattern analysis completed for 17 blocks
+2025-07-23 16:14:49,873 [INFO] extraction: Document structure analysis completed
+2025-07-23 16:14:49,877 [INFO] extraction: Extracted 0 outline items
+2025-07-23 16:14:49,878 [INFO] extraction: Font analysis completed: 224 size samples, 8 unique fonts
+2025-07-23 16:14:49,881 [INFO] extraction: Spatial analysis completed for 14 pages
+2025-07-23 16:14:49,894 [INFO] extraction: Text pattern analysis completed for 224 blocks
+2025-07-23 16:14:49,901 [INFO] extraction: Document structure analysis completed
+2025-07-23 16:14:49,902 [INFO] extraction: Structure analyzer found 152 items
+2025-07-23 16:14:49,902 [INFO] extraction: Output validation passed
+2025-07-23 16:14:49,903 [INFO] extraction: Validation successful - Title: 'RFP: RRFP: RRFP: RRFP: Reeeequest fquest fquest fquest foooor Prr Prr Prr Proposaloposal oposaloposal  ', Outline: 152 items
+2025-07-23 16:14:49,903 [INFO] extraction: Output validation passed
+2025-07-23 16:14:49,904 [INFO] extraction: JSON output formatted and validated successfully
+2025-07-23 16:14:49,913 [INFO] extraction: JSON output saved to /app/output/file03_outline.json
+2025-07-23 16:14:49,913 [INFO] extraction: Processing completed in 1.55 seconds
+2025-07-23 16:14:49,914 [INFO] extraction: Output saved to: /app/output/file03_outline.json
+2025-07-23 16:14:49,915 [INFO] extraction: Processing PDF: /app/input/file04.pdf
+2025-07-23 16:14:49,950 [INFO] extraction: PDF loaded successfully: /app/input/file04.pdf
+2025-07-23 16:14:50,120 [INFO] extraction: Extracted 28 text blocks
+2025-07-23 16:14:50,121 [INFO] extraction: Extracted 28 text blocks
+2025-07-23 16:14:50,123 [INFO] extraction: Document classified as program (confidence: 1.00)
+2025-07-23 16:14:50,123 [INFO] extraction: Processing program document - pure component-driven analysis
+2025-07-23 16:14:50,124 [INFO] extraction: Font analysis completed: 28 size samples, 5 unique fonts
+2025-07-23 16:14:50,125 [INFO] extraction: Spatial analysis completed for 1 pages
+2025-07-23 16:14:50,128 [INFO] extraction: Text pattern analysis completed for 28 blocks
+2025-07-23 16:14:50,129 [INFO] extraction: Document structure analysis completed
+2025-07-23 16:14:50,130 [INFO] extraction: Font analysis completed: 28 size samples, 5 unique fonts
+2025-07-23 16:14:50,132 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 16:14:50,132 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 16:14:50,133 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 16:14:50,134 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 16:14:50,134 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 16:14:50,135 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 16:14:50,136 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 16:14:50,136 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 16:14:50,137 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 16:14:50,138 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 16:14:50,138 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 16:14:50,139 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 16:14:50,140 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 16:14:50,140 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 16:14:50,141 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 16:14:50,142 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 16:14:50,142 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 16:14:50,143 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 16:14:50,143 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 16:14:50,144 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 16:14:50,145 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 16:14:50,145 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 16:14:50,146 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 16:14:50,147 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 16:14:50,147 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 16:14:50,148 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 16:14:50,148 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 16:14:50,149 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 16:14:50,150 [INFO] extraction: Extracted title: Parsippany -Troy Hills STEM Pathways
+2025-07-23 16:14:50,151 [INFO] extraction: Component-validated outline item: 'PATHWAY OPTIONS' as H1 (source: structure_analyzer)
+2025-07-23 16:14:50,152 [INFO] extraction: Output validation passed
+2025-07-23 16:14:50,152 [INFO] extraction: Final validation successful - Title: 'Parsippany -Troy Hills STEM Pathways', Outline: 1 items
+2025-07-23 16:14:50,153 [INFO] extraction: Output validation passed
+2025-07-23 16:14:50,153 [INFO] extraction: JSON output formatted and validated successfully
+2025-07-23 16:14:50,159 [INFO] extraction: JSON output saved to /app/output/file04_outline.json
+2025-07-23 16:14:50,160 [INFO] extraction: Processing completed in 0.24 seconds
+2025-07-23 16:14:50,160 [INFO] extraction: Output saved to: /app/output/file04_outline.json
+2025-07-23 16:14:50,162 [INFO] extraction: Processing PDF: /app/input/file05.pdf
+2025-07-23 16:14:50,195 [INFO] extraction: PDF loaded successfully: /app/input/file05.pdf
+2025-07-23 16:14:50,248 [INFO] extraction: Extracted 12 text blocks
+2025-07-23 16:14:50,249 [INFO] extraction: Extracted 12 text blocks
+2025-07-23 16:14:50,250 [INFO] extraction: Document classified as invitation (confidence: 1.00)
+2025-07-23 16:14:50,250 [INFO] extraction: Processing invitation document with dynamic analysis
+2025-07-23 16:14:50,252 [INFO] extraction: Font analysis completed: 1 size samples, 1 unique fonts
+2025-07-23 16:14:50,253 [INFO] extraction: Spatial analysis completed for 1 pages
+2025-07-23 16:14:50,253 [INFO] extraction: Text pattern analysis completed for 1 blocks
+2025-07-23 16:14:50,254 [INFO] extraction: Document structure analysis completed
+2025-07-23 16:14:50,255 [INFO] extraction: Font analysis completed: 1 size samples, 1 unique fonts
+2025-07-23 16:14:50,255 [INFO] extraction: Spatial analysis completed for 1 pages
+2025-07-23 16:14:50,257 [INFO] extraction: Using default title for invitation: 
+2025-07-23 16:14:50,258 [INFO] extraction: Extracting outline for invitation document with 1 text blocks
+2025-07-23 16:14:50,259 [INFO] extraction: Font analysis completed: 1 size samples, 1 unique fonts
+2025-07-23 16:14:50,260 [INFO] extraction: Font analysis completed: 1 size samples, 1 unique fonts
+2025-07-23 16:14:50,261 [INFO] extraction: Spatial analysis completed for 1 pages
+2025-07-23 16:14:50,261 [INFO] extraction: Text pattern analysis completed for 1 blocks
+2025-07-23 16:14:50,262 [INFO] extraction: Document structure analysis completed
+2025-07-23 16:14:50,263 [INFO] extraction: Extracted 0 outline items
+2025-07-23 16:14:50,264 [INFO] extraction: Added to outline: 'HOPE To SEE You THERE!' as H1 (method: semantic_analysis, confidence: 0.67)
+2025-07-23 16:14:50,264 [INFO] extraction: Output validation passed
+2025-07-23 16:14:50,265 [INFO] extraction: Output validation passed
+2025-07-23 16:14:50,265 [INFO] extraction: Output validation passed
+2025-07-23 16:14:50,266 [INFO] extraction: JSON output formatted and validated successfully
+2025-07-23 16:14:50,272 [INFO] extraction: JSON output saved to /app/output/file05_outline.json
+2025-07-23 16:14:50,273 [INFO] extraction: Processing completed in 0.11 seconds
+2025-07-23 16:14:50,273 [INFO] extraction: Output saved to: /app/output/file05_outline.json
+2025-07-23 16:14:50,274 [INFO] extraction: Successfully processed 5/5 PDF files
+2025-07-23 16:56:50,282 [INFO] extraction: Found 5 PDF files to process
+2025-07-23 16:56:50,282 [INFO] extraction: Processing PDF: /app/input/file01.pdf
+2025-07-23 16:56:50,304 [INFO] extraction: PDF loaded successfully: /app/input/file01.pdf
+2025-07-23 16:56:50,380 [INFO] extraction: Extracted 28 text blocks
+2025-07-23 16:56:50,381 [INFO] extraction: Extracted 28 text blocks
+2025-07-23 16:56:50,383 [INFO] extraction: Document classified as manual (confidence: 1.00)
+2025-07-23 16:56:50,384 [INFO] extraction: Processing manual document with enhanced extraction
+2025-07-23 16:56:50,384 [WARNING] extraction: Structure analyzer error: MANUAL_DOCUMENT
+2025-07-23 16:56:50,385 [WARNING] extraction: Title extractor error: MANUAL_DOCUMENT
+2025-07-23 16:56:50,386 [WARNING] extraction: Semantic analysis error: MANUAL_DOCUMENT
+2025-07-23 16:56:50,387 [WARNING] extraction: Semantic analysis error: MANUAL_DOCUMENT
+2025-07-23 16:56:50,387 [WARNING] extraction: Semantic analysis error: MANUAL_DOCUMENT
+2025-07-23 16:56:50,388 [WARNING] extraction: Semantic analysis error: MANUAL_DOCUMENT
+2025-07-23 16:56:50,388 [WARNING] extraction: Semantic analysis error: MANUAL_DOCUMENT
+2025-07-23 16:56:50,389 [WARNING] extraction: Semantic analysis error: MANUAL_DOCUMENT
+2025-07-23 16:56:50,389 [WARNING] extraction: Semantic analysis error: MANUAL_DOCUMENT
+2025-07-23 16:56:50,390 [WARNING] extraction: Semantic analysis error: MANUAL_DOCUMENT
+2025-07-23 16:56:50,390 [WARNING] extraction: Semantic analysis error: MANUAL_DOCUMENT
+2025-07-23 16:56:50,391 [WARNING] extraction: Semantic analysis error: MANUAL_DOCUMENT
+2025-07-23 16:56:50,391 [WARNING] extraction: Outline extractor error: MANUAL_DOCUMENT
+2025-07-23 16:56:50,392 [WARNING] extraction: Structure analyzer error: MANUAL_DOCUMENT
+2025-07-23 16:56:50,395 [INFO] extraction: Font analysis completed: 28 size samples, 3 unique fonts
+2025-07-23 16:56:50,395 [WARNING] extraction: Heading detection error: MANUAL_DOCUMENT
+2025-07-23 16:56:50,396 [ERROR] extraction: Error processing PDF: MANUAL_DOCUMENT
+Traceback (most recent call last):
+  File "/app/app/main.py", line 79, in process_pdf
+    document_structure = processor.process(text_blocks)
+  File "/app/app/processors/manual_processor.py", line 54, in process
+    doc_type=DocumentType.MANUAL_DOCUMENT,
+  File "/usr/local/lib/python3.9/enum.py", line 429, in __getattr__
+    raise AttributeError(name) from None
+AttributeError: MANUAL_DOCUMENT
+2025-07-23 16:56:50,398 [INFO] extraction: Processing PDF: /app/input/file02.pdf
+2025-07-23 16:56:50,447 [INFO] extraction: PDF loaded successfully: /app/input/file02.pdf
+2025-07-23 16:56:51,223 [INFO] extraction: Extracted 235 text blocks
+2025-07-23 16:56:51,224 [INFO] extraction: Extracted 235 text blocks
+2025-07-23 16:56:51,227 [INFO] extraction: Document classified as manual (confidence: 1.00)
+2025-07-23 16:56:51,227 [INFO] extraction: Processing manual document with enhanced extraction
+2025-07-23 16:56:51,228 [WARNING] extraction: Structure analyzer error: MANUAL_DOCUMENT
+2025-07-23 16:56:51,228 [WARNING] extraction: Title extractor error: MANUAL_DOCUMENT
+2025-07-23 16:56:51,229 [WARNING] extraction: Semantic analysis error: MANUAL_DOCUMENT
+2025-07-23 16:56:51,230 [WARNING] extraction: Semantic analysis error: MANUAL_DOCUMENT
+2025-07-23 16:56:51,231 [WARNING] extraction: Semantic analysis error: MANUAL_DOCUMENT
+2025-07-23 16:56:51,231 [WARNING] extraction: Semantic analysis error: MANUAL_DOCUMENT
+2025-07-23 16:56:51,232 [WARNING] extraction: Semantic analysis error: MANUAL_DOCUMENT
+2025-07-23 16:56:51,233 [WARNING] extraction: Semantic analysis error: MANUAL_DOCUMENT
+2025-07-23 16:56:51,234 [WARNING] extraction: Semantic analysis error: MANUAL_DOCUMENT
+2025-07-23 16:56:51,234 [WARNING] extraction: Semantic analysis error: MANUAL_DOCUMENT
+2025-07-23 16:56:51,235 [WARNING] extraction: Semantic analysis error: MANUAL_DOCUMENT
+2025-07-23 16:56:51,236 [WARNING] extraction: Semantic analysis error: MANUAL_DOCUMENT
+2025-07-23 16:56:51,237 [WARNING] extraction: Outline extractor error: MANUAL_DOCUMENT
+2025-07-23 16:56:51,237 [WARNING] extraction: Structure analyzer error: MANUAL_DOCUMENT
+2025-07-23 16:56:51,238 [INFO] extraction: Font analysis completed: 235 size samples, 6 unique fonts
+2025-07-23 16:56:51,239 [WARNING] extraction: Heading detection error: MANUAL_DOCUMENT
+2025-07-23 16:56:51,240 [ERROR] extraction: Error processing PDF: MANUAL_DOCUMENT
+Traceback (most recent call last):
+  File "/app/app/main.py", line 79, in process_pdf
+    document_structure = processor.process(text_blocks)
+  File "/app/app/processors/manual_processor.py", line 54, in process
+    doc_type=DocumentType.MANUAL_DOCUMENT,
+  File "/usr/local/lib/python3.9/enum.py", line 429, in __getattr__
+    raise AttributeError(name) from None
+AttributeError: MANUAL_DOCUMENT
+2025-07-23 16:56:51,242 [INFO] extraction: Processing PDF: /app/input/file03.pdf
+2025-07-23 16:56:51,302 [INFO] extraction: PDF loaded successfully: /app/input/file03.pdf
+2025-07-23 16:56:52,319 [INFO] extraction: Extracted 224 text blocks
+2025-07-23 16:56:52,320 [INFO] extraction: Extracted 224 text blocks
+2025-07-23 16:56:52,323 [INFO] extraction: Document classified as business (confidence: 1.00)
+2025-07-23 16:56:52,324 [INFO] extraction: Processing business document
+2025-07-23 16:56:52,329 [INFO] extraction: Extracted title: RFP: RRFP: RRFP: RRFP: Reeeequest fquest fquest fquest foooor Prr Prr Prr Proposaloposal oposaloposal
+2025-07-23 16:56:52,330 [INFO] extraction: Extracting outline for business document with 224 text blocks
+2025-07-23 16:56:52,337 [INFO] extraction: Font analysis completed: 17 size samples, 3 unique fonts
+2025-07-23 16:56:52,338 [INFO] extraction: Font analysis completed: 17 size samples, 3 unique fonts
+2025-07-23 16:56:52,338 [INFO] extraction: Spatial analysis completed for 14 pages
+2025-07-23 16:56:52,343 [INFO] extraction: Text pattern analysis completed for 17 blocks
+2025-07-23 16:56:52,344 [INFO] extraction: Document structure analysis completed
+2025-07-23 16:56:52,348 [INFO] extraction: Extracted 0 outline items
+2025-07-23 16:56:52,349 [INFO] extraction: Font analysis completed: 224 size samples, 8 unique fonts
+2025-07-23 16:56:52,354 [INFO] extraction: Output validation passed
+2025-07-23 16:56:52,354 [INFO] extraction: JSON output formatted and validated successfully
+2025-07-23 16:56:52,360 [INFO] extraction: JSON output saved to /app/output/file03_outline.json
+2025-07-23 16:56:52,360 [INFO] extraction: Processing completed in 1.12 seconds
+2025-07-23 16:56:52,361 [INFO] extraction: Output saved to: /app/output/file03_outline.json
+2025-07-23 16:56:52,362 [INFO] extraction: Processing PDF: /app/input/file04.pdf
+2025-07-23 16:56:52,390 [INFO] extraction: PDF loaded successfully: /app/input/file04.pdf
+2025-07-23 16:56:52,515 [INFO] extraction: Extracted 28 text blocks
+2025-07-23 16:56:52,516 [INFO] extraction: Extracted 28 text blocks
+2025-07-23 16:56:52,517 [INFO] extraction: Document classified as program (confidence: 1.00)
+2025-07-23 16:56:52,518 [INFO] extraction: Processing program document - pure component-driven analysis
+2025-07-23 16:56:52,519 [INFO] extraction: Font analysis completed: 28 size samples, 5 unique fonts
+2025-07-23 16:56:52,520 [INFO] extraction: Spatial analysis completed for 1 pages
+2025-07-23 16:56:52,523 [INFO] extraction: Text pattern analysis completed for 28 blocks
+2025-07-23 16:56:52,524 [INFO] extraction: Document structure analysis completed
+2025-07-23 16:56:52,525 [INFO] extraction: Font analysis completed: 28 size samples, 5 unique fonts
+2025-07-23 16:56:52,527 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 16:56:52,528 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 16:56:52,528 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 16:56:52,529 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 16:56:52,529 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 16:56:52,530 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 16:56:52,531 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 16:56:52,531 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 16:56:52,532 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 16:56:52,533 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 16:56:52,533 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 16:56:52,534 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 16:56:52,535 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 16:56:52,535 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 16:56:52,536 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 16:56:52,536 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 16:56:52,537 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 16:56:52,537 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 16:56:52,538 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 16:56:52,538 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 16:56:52,538 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 16:56:52,539 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 16:56:52,540 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 16:56:52,540 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 16:56:52,540 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 16:56:52,541 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 16:56:52,541 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 16:56:52,542 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 16:56:52,543 [INFO] extraction: Extracted title: Parsippany -Troy Hills STEM Pathways
+2025-07-23 16:56:52,543 [INFO] extraction: Component-validated outline item: 'PATHWAY OPTIONS' as H1 (source: structure_analyzer)
+2025-07-23 16:56:52,544 [INFO] extraction: Output validation passed
+2025-07-23 16:56:52,544 [INFO] extraction: Final validation successful - Title: 'Parsippany -Troy Hills STEM Pathways', Outline: 1 items
+2025-07-23 16:56:52,545 [INFO] extraction: Output validation passed
+2025-07-23 16:56:52,545 [INFO] extraction: JSON output formatted and validated successfully
+2025-07-23 16:56:52,549 [INFO] extraction: JSON output saved to /app/output/file04_outline.json
+2025-07-23 16:56:52,550 [INFO] extraction: Processing completed in 0.19 seconds
+2025-07-23 16:56:52,550 [INFO] extraction: Output saved to: /app/output/file04_outline.json
+2025-07-23 16:56:52,551 [INFO] extraction: Processing PDF: /app/input/file05.pdf
+2025-07-23 16:56:52,575 [INFO] extraction: PDF loaded successfully: /app/input/file05.pdf
+2025-07-23 16:56:52,614 [INFO] extraction: Extracted 12 text blocks
+2025-07-23 16:56:52,615 [INFO] extraction: Extracted 12 text blocks
+2025-07-23 16:56:52,616 [INFO] extraction: Document classified as invitation (confidence: 1.00)
+2025-07-23 16:56:52,617 [INFO] extraction: Processing invitation document with dynamic analysis
+2025-07-23 16:56:52,619 [INFO] extraction: Font analysis completed: 1 size samples, 1 unique fonts
+2025-07-23 16:56:52,620 [INFO] extraction: Spatial analysis completed for 1 pages
+2025-07-23 16:56:52,620 [INFO] extraction: Text pattern analysis completed for 1 blocks
+2025-07-23 16:56:52,621 [INFO] extraction: Document structure analysis completed
+2025-07-23 16:56:52,622 [INFO] extraction: Font analysis completed: 1 size samples, 1 unique fonts
+2025-07-23 16:56:52,623 [INFO] extraction: Spatial analysis completed for 1 pages
+2025-07-23 16:56:52,625 [INFO] extraction: Using default title for invitation: 
+2025-07-23 16:56:52,626 [INFO] extraction: Extracting outline for invitation document with 1 text blocks
+2025-07-23 16:56:52,627 [INFO] extraction: Font analysis completed: 1 size samples, 1 unique fonts
+2025-07-23 16:56:52,628 [INFO] extraction: Font analysis completed: 1 size samples, 1 unique fonts
+2025-07-23 16:56:52,628 [INFO] extraction: Spatial analysis completed for 1 pages
+2025-07-23 16:56:52,629 [INFO] extraction: Text pattern analysis completed for 1 blocks
+2025-07-23 16:56:52,629 [INFO] extraction: Document structure analysis completed
+2025-07-23 16:56:52,630 [INFO] extraction: Extracted 0 outline items
+2025-07-23 16:56:52,630 [INFO] extraction: Added to outline: 'HOPE To SEE You THERE!' as H1 (method: semantic_analysis, confidence: 0.67)
+2025-07-23 16:56:52,631 [INFO] extraction: Output validation passed
+2025-07-23 16:56:52,631 [INFO] extraction: Output validation passed
+2025-07-23 16:56:52,631 [INFO] extraction: Output validation passed
+2025-07-23 16:56:52,632 [INFO] extraction: JSON output formatted and validated successfully
+2025-07-23 16:56:52,635 [INFO] extraction: JSON output saved to /app/output/file05_outline.json
+2025-07-23 16:56:52,635 [INFO] extraction: Processing completed in 0.08 seconds
+2025-07-23 16:56:52,636 [INFO] extraction: Output saved to: /app/output/file05_outline.json
+2025-07-23 16:56:52,637 [INFO] extraction: Successfully processed 3/5 PDF files
+2025-07-23 17:04:44,209 [INFO] extraction: Found 5 PDF files to process
+2025-07-23 17:04:44,210 [INFO] extraction: Processing PDF: /app/input/file01.pdf
+2025-07-23 17:04:44,237 [INFO] extraction: PDF loaded successfully: /app/input/file01.pdf
+2025-07-23 17:04:44,306 [INFO] extraction: Extracted 28 text blocks
+2025-07-23 17:04:44,307 [INFO] extraction: Extracted 28 text blocks
+2025-07-23 17:04:44,310 [INFO] extraction: Document classified as manual (confidence: 1.00)
+2025-07-23 17:04:44,311 [INFO] extraction: Processing manual document
+2025-07-23 17:04:44,312 [WARNING] extraction: Title extractor error: MANUAL_DOCUMENT
+2025-07-23 17:04:44,312 [WARNING] extraction: Semantic title detection error: MANUAL_DOCUMENT
+2025-07-23 17:04:44,313 [WARNING] extraction: Outline extractor error: MANUAL_DOCUMENT
+2025-07-23 17:04:44,314 [INFO] extraction: Font analysis completed: 28 size samples, 3 unique fonts
+2025-07-23 17:04:44,315 [WARNING] extraction: Heading detector error: MANUAL_DOCUMENT
+2025-07-23 17:04:44,316 [ERROR] extraction: Processing error: MANUAL_DOCUMENT
+2025-07-23 17:04:44,316 [ERROR] extraction: Error processing PDF: MANUAL_DOCUMENT
+Traceback (most recent call last):
+  File "/app/app/main.py", line 79, in process_pdf
+    document_structure = processor.process(text_blocks)
+  File "/app/app/processors/manual_processor.py", line 52, in process
+    doc_type=DocumentType.MANUAL_DOCUMENT,
+  File "/usr/local/lib/python3.9/enum.py", line 429, in __getattr__
+    raise AttributeError(name) from None
+AttributeError: MANUAL_DOCUMENT
+2025-07-23 17:04:44,319 [INFO] extraction: Processing PDF: /app/input/file02.pdf
+2025-07-23 17:04:44,381 [INFO] extraction: PDF loaded successfully: /app/input/file02.pdf
+2025-07-23 17:04:45,237 [INFO] extraction: Extracted 235 text blocks
+2025-07-23 17:04:45,237 [INFO] extraction: Extracted 235 text blocks
+2025-07-23 17:04:45,240 [INFO] extraction: Document classified as manual (confidence: 1.00)
+2025-07-23 17:04:45,240 [INFO] extraction: Processing manual document
+2025-07-23 17:04:45,241 [WARNING] extraction: Title extractor error: MANUAL_DOCUMENT
+2025-07-23 17:04:45,241 [WARNING] extraction: Semantic title detection error: MANUAL_DOCUMENT
+2025-07-23 17:04:45,242 [WARNING] extraction: Outline extractor error: MANUAL_DOCUMENT
+2025-07-23 17:04:45,243 [INFO] extraction: Font analysis completed: 235 size samples, 6 unique fonts
+2025-07-23 17:04:45,243 [WARNING] extraction: Heading detector error: MANUAL_DOCUMENT
+2025-07-23 17:04:45,243 [ERROR] extraction: Processing error: MANUAL_DOCUMENT
+2025-07-23 17:04:45,244 [ERROR] extraction: Error processing PDF: MANUAL_DOCUMENT
+Traceback (most recent call last):
+  File "/app/app/main.py", line 79, in process_pdf
+    document_structure = processor.process(text_blocks)
+  File "/app/app/processors/manual_processor.py", line 52, in process
+    doc_type=DocumentType.MANUAL_DOCUMENT,
+  File "/usr/local/lib/python3.9/enum.py", line 429, in __getattr__
+    raise AttributeError(name) from None
+AttributeError: MANUAL_DOCUMENT
+2025-07-23 17:04:45,245 [INFO] extraction: Processing PDF: /app/input/file03.pdf
+2025-07-23 17:04:45,297 [INFO] extraction: PDF loaded successfully: /app/input/file03.pdf
+2025-07-23 17:04:46,576 [INFO] extraction: Extracted 224 text blocks
+2025-07-23 17:04:46,577 [INFO] extraction: Extracted 224 text blocks
+2025-07-23 17:04:46,580 [INFO] extraction: Document classified as business (confidence: 1.00)
+2025-07-23 17:04:46,581 [INFO] extraction: Processing business document
+2025-07-23 17:04:46,583 [INFO] extraction: Extracted title: RFP: RRFP: RRFP: RRFP: Reeeequest fquest fquest fquest foooor Prr Prr Prr Proposaloposal oposaloposal
+2025-07-23 17:04:46,583 [INFO] extraction: Extracting outline for business document with 224 text blocks
+2025-07-23 17:04:46,592 [INFO] extraction: Font analysis completed: 17 size samples, 3 unique fonts
+2025-07-23 17:04:46,593 [INFO] extraction: Font analysis completed: 17 size samples, 3 unique fonts
+2025-07-23 17:04:46,593 [INFO] extraction: Spatial analysis completed for 14 pages
+2025-07-23 17:04:46,600 [INFO] extraction: Text pattern analysis completed for 17 blocks
+2025-07-23 17:04:46,601 [INFO] extraction: Document structure analysis completed
+2025-07-23 17:04:46,604 [INFO] extraction: Extracted 0 outline items
+2025-07-23 17:04:46,604 [INFO] extraction: Font analysis completed: 224 size samples, 8 unique fonts
+2025-07-23 17:04:46,609 [INFO] extraction: Output validation passed
+2025-07-23 17:04:46,610 [INFO] extraction: JSON output formatted and validated successfully
+2025-07-23 17:04:46,622 [INFO] extraction: JSON output saved to /app/output/file03_outline.json
+2025-07-23 17:04:46,622 [INFO] extraction: Processing completed in 1.38 seconds
+2025-07-23 17:04:46,623 [INFO] extraction: Output saved to: /app/output/file03_outline.json
+2025-07-23 17:04:46,624 [INFO] extraction: Processing PDF: /app/input/file04.pdf
+2025-07-23 17:04:46,668 [INFO] extraction: PDF loaded successfully: /app/input/file04.pdf
+2025-07-23 17:04:46,811 [INFO] extraction: Extracted 28 text blocks
+2025-07-23 17:04:46,812 [INFO] extraction: Extracted 28 text blocks
+2025-07-23 17:04:46,813 [INFO] extraction: Document classified as program (confidence: 1.00)
+2025-07-23 17:04:46,813 [INFO] extraction: Processing program document - pure component-driven analysis
+2025-07-23 17:04:46,814 [INFO] extraction: Font analysis completed: 28 size samples, 5 unique fonts
+2025-07-23 17:04:46,815 [INFO] extraction: Spatial analysis completed for 1 pages
+2025-07-23 17:04:46,818 [INFO] extraction: Text pattern analysis completed for 28 blocks
+2025-07-23 17:04:46,819 [INFO] extraction: Document structure analysis completed
+2025-07-23 17:04:46,819 [INFO] extraction: Font analysis completed: 28 size samples, 5 unique fonts
+2025-07-23 17:04:46,822 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:04:46,822 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:04:46,823 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:04:46,823 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:04:46,824 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:04:46,824 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:04:46,824 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:04:46,825 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:04:46,825 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:04:46,825 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:04:46,826 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:04:46,826 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:04:46,826 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:04:46,827 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:04:46,827 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:04:46,828 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:04:46,828 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:04:46,829 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:04:46,829 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:04:46,830 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:04:46,830 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:04:46,831 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:04:46,831 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:04:46,831 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:04:46,832 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:04:46,832 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:04:46,833 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:04:46,833 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:04:46,834 [INFO] extraction: Extracted title: Parsippany -Troy Hills STEM Pathways
+2025-07-23 17:04:46,835 [INFO] extraction: Component-validated outline item: 'PATHWAY OPTIONS' as H1 (source: structure_analyzer)
+2025-07-23 17:04:46,835 [INFO] extraction: Output validation passed
+2025-07-23 17:04:46,836 [INFO] extraction: Final validation successful - Title: 'Parsippany -Troy Hills STEM Pathways', Outline: 1 items
+2025-07-23 17:04:46,836 [INFO] extraction: Output validation passed
+2025-07-23 17:04:46,836 [INFO] extraction: JSON output formatted and validated successfully
+2025-07-23 17:04:46,842 [INFO] extraction: JSON output saved to /app/output/file04_outline.json
+2025-07-23 17:04:46,843 [INFO] extraction: Processing completed in 0.22 seconds
+2025-07-23 17:04:46,843 [INFO] extraction: Output saved to: /app/output/file04_outline.json
+2025-07-23 17:04:46,844 [INFO] extraction: Processing PDF: /app/input/file05.pdf
+2025-07-23 17:04:46,870 [INFO] extraction: PDF loaded successfully: /app/input/file05.pdf
+2025-07-23 17:04:46,924 [INFO] extraction: Extracted 12 text blocks
+2025-07-23 17:04:46,924 [INFO] extraction: Extracted 12 text blocks
+2025-07-23 17:04:46,925 [INFO] extraction: Document classified as invitation (confidence: 1.00)
+2025-07-23 17:04:46,926 [INFO] extraction: Processing invitation document with dynamic analysis
+2025-07-23 17:04:46,927 [INFO] extraction: Font analysis completed: 1 size samples, 1 unique fonts
+2025-07-23 17:04:46,928 [INFO] extraction: Spatial analysis completed for 1 pages
+2025-07-23 17:04:46,928 [INFO] extraction: Text pattern analysis completed for 1 blocks
+2025-07-23 17:04:46,929 [INFO] extraction: Document structure analysis completed
+2025-07-23 17:04:46,930 [INFO] extraction: Font analysis completed: 1 size samples, 1 unique fonts
+2025-07-23 17:04:46,930 [INFO] extraction: Spatial analysis completed for 1 pages
+2025-07-23 17:04:46,932 [INFO] extraction: Using default title for invitation: 
+2025-07-23 17:04:46,933 [INFO] extraction: Extracting outline for invitation document with 1 text blocks
+2025-07-23 17:04:46,934 [INFO] extraction: Font analysis completed: 1 size samples, 1 unique fonts
+2025-07-23 17:04:46,935 [INFO] extraction: Font analysis completed: 1 size samples, 1 unique fonts
+2025-07-23 17:04:46,935 [INFO] extraction: Spatial analysis completed for 1 pages
+2025-07-23 17:04:46,936 [INFO] extraction: Text pattern analysis completed for 1 blocks
+2025-07-23 17:04:46,937 [INFO] extraction: Document structure analysis completed
+2025-07-23 17:04:46,938 [INFO] extraction: Extracted 0 outline items
+2025-07-23 17:04:46,938 [INFO] extraction: Added to outline: 'HOPE To SEE You THERE!' as H1 (method: semantic_analysis, confidence: 0.67)
+2025-07-23 17:04:46,939 [INFO] extraction: Output validation passed
+2025-07-23 17:04:46,939 [INFO] extraction: Output validation passed
+2025-07-23 17:04:46,940 [INFO] extraction: Output validation passed
+2025-07-23 17:04:46,941 [INFO] extraction: JSON output formatted and validated successfully
+2025-07-23 17:04:46,947 [INFO] extraction: JSON output saved to /app/output/file05_outline.json
+2025-07-23 17:04:46,947 [INFO] extraction: Processing completed in 0.10 seconds
+2025-07-23 17:04:46,947 [INFO] extraction: Output saved to: /app/output/file05_outline.json
+2025-07-23 17:04:46,949 [INFO] extraction: Successfully processed 3/5 PDF files
+2025-07-23 17:13:23,543 [INFO] extraction: Found 5 PDF files to process
+2025-07-23 17:13:23,545 [INFO] extraction: Processing PDF: /app/input/file01.pdf
+2025-07-23 17:13:23,578 [INFO] extraction: PDF loaded successfully: /app/input/file01.pdf
+2025-07-23 17:13:23,665 [INFO] extraction: Extracted 28 text blocks
+2025-07-23 17:13:23,666 [INFO] extraction: Extracted 28 text blocks
+2025-07-23 17:13:23,669 [INFO] extraction: Document classified as manual (confidence: 1.00)
+2025-07-23 17:13:23,669 [INFO] extraction: Processing manual document with component intelligence
+2025-07-23 17:13:23,670 [ERROR] extraction: Error processing PDF: MANUAL_DOCUMENT
+Traceback (most recent call last):
+  File "/app/app/main.py", line 79, in process_pdf
+    document_structure = processor.process(text_blocks)
+  File "/app/app/processors/manual_processor.py", line 59, in process
+    filtered_blocks = self.content_filter.filter_structural_elements(text_blocks, DocumentType.MANUAL_DOCUMENT)
+  File "/usr/local/lib/python3.9/enum.py", line 429, in __getattr__
+    raise AttributeError(name) from None
+AttributeError: MANUAL_DOCUMENT
+2025-07-23 17:13:23,674 [INFO] extraction: Processing PDF: /app/input/file02.pdf
+2025-07-23 17:13:23,735 [INFO] extraction: PDF loaded successfully: /app/input/file02.pdf
+2025-07-23 17:13:24,818 [INFO] extraction: Extracted 235 text blocks
+2025-07-23 17:13:24,819 [INFO] extraction: Extracted 235 text blocks
+2025-07-23 17:13:24,821 [INFO] extraction: Document classified as manual (confidence: 1.00)
+2025-07-23 17:13:24,822 [INFO] extraction: Processing manual document with component intelligence
+2025-07-23 17:13:24,823 [ERROR] extraction: Error processing PDF: MANUAL_DOCUMENT
+Traceback (most recent call last):
+  File "/app/app/main.py", line 79, in process_pdf
+    document_structure = processor.process(text_blocks)
+  File "/app/app/processors/manual_processor.py", line 59, in process
+    filtered_blocks = self.content_filter.filter_structural_elements(text_blocks, DocumentType.MANUAL_DOCUMENT)
+  File "/usr/local/lib/python3.9/enum.py", line 429, in __getattr__
+    raise AttributeError(name) from None
+AttributeError: MANUAL_DOCUMENT
+2025-07-23 17:13:24,825 [INFO] extraction: Processing PDF: /app/input/file03.pdf
+2025-07-23 17:13:24,901 [INFO] extraction: PDF loaded successfully: /app/input/file03.pdf
+2025-07-23 17:13:26,219 [INFO] extraction: Extracted 224 text blocks
+2025-07-23 17:13:26,220 [INFO] extraction: Extracted 224 text blocks
+2025-07-23 17:13:26,223 [INFO] extraction: Document classified as business (confidence: 1.00)
+2025-07-23 17:13:26,224 [INFO] extraction: Processing business document
+2025-07-23 17:13:26,225 [INFO] extraction: Extracted title: RFP: RRFP: RRFP: RRFP: Reeeequest fquest fquest fquest foooor Prr Prr Prr Proposaloposal oposaloposal
+2025-07-23 17:13:26,226 [INFO] extraction: Extracting outline for business document with 224 text blocks
+2025-07-23 17:13:26,234 [INFO] extraction: Font analysis completed: 17 size samples, 3 unique fonts
+2025-07-23 17:13:26,235 [INFO] extraction: Font analysis completed: 17 size samples, 3 unique fonts
+2025-07-23 17:13:26,236 [INFO] extraction: Spatial analysis completed for 14 pages
+2025-07-23 17:13:26,241 [INFO] extraction: Text pattern analysis completed for 17 blocks
+2025-07-23 17:13:26,242 [INFO] extraction: Document structure analysis completed
+2025-07-23 17:13:26,246 [INFO] extraction: Extracted 0 outline items
+2025-07-23 17:13:26,247 [INFO] extraction: Font analysis completed: 224 size samples, 8 unique fonts
+2025-07-23 17:13:26,252 [INFO] extraction: Output validation passed
+2025-07-23 17:13:26,253 [INFO] extraction: JSON output formatted and validated successfully
+2025-07-23 17:13:26,258 [INFO] extraction: JSON output saved to /app/output/file03_outline.json
+2025-07-23 17:13:26,259 [INFO] extraction: Processing completed in 1.43 seconds
+2025-07-23 17:13:26,259 [INFO] extraction: Output saved to: /app/output/file03_outline.json
+2025-07-23 17:13:26,261 [INFO] extraction: Processing PDF: /app/input/file04.pdf
+2025-07-23 17:13:26,302 [INFO] extraction: PDF loaded successfully: /app/input/file04.pdf
+2025-07-23 17:13:26,513 [INFO] extraction: Extracted 28 text blocks
+2025-07-23 17:13:26,514 [INFO] extraction: Extracted 28 text blocks
+2025-07-23 17:13:26,515 [INFO] extraction: Document classified as program (confidence: 1.00)
+2025-07-23 17:13:26,516 [INFO] extraction: Processing program document - pure component-driven analysis
+2025-07-23 17:13:26,517 [INFO] extraction: Font analysis completed: 28 size samples, 5 unique fonts
+2025-07-23 17:13:26,518 [INFO] extraction: Spatial analysis completed for 1 pages
+2025-07-23 17:13:26,520 [INFO] extraction: Text pattern analysis completed for 28 blocks
+2025-07-23 17:13:26,522 [INFO] extraction: Document structure analysis completed
+2025-07-23 17:13:26,523 [INFO] extraction: Font analysis completed: 28 size samples, 5 unique fonts
+2025-07-23 17:13:26,526 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:13:26,527 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:13:26,528 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:13:26,528 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:13:26,529 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:13:26,530 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:13:26,530 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:13:26,531 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:13:26,531 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:13:26,532 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:13:26,533 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:13:26,533 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:13:26,534 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:13:26,535 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:13:26,535 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:13:26,536 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:13:26,536 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:13:26,536 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:13:26,537 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:13:26,537 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:13:26,537 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:13:26,538 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:13:26,538 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:13:26,538 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:13:26,539 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:13:26,539 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:13:26,540 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:13:26,540 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:13:26,541 [INFO] extraction: Extracted title: Parsippany -Troy Hills STEM Pathways
+2025-07-23 17:13:26,541 [INFO] extraction: Component-validated outline item: 'PATHWAY OPTIONS' as H1 (source: structure_analyzer)
+2025-07-23 17:13:26,541 [INFO] extraction: Output validation passed
+2025-07-23 17:13:26,542 [INFO] extraction: Final validation successful - Title: 'Parsippany -Troy Hills STEM Pathways', Outline: 1 items
+2025-07-23 17:13:26,542 [INFO] extraction: Output validation passed
+2025-07-23 17:13:26,542 [INFO] extraction: JSON output formatted and validated successfully
+2025-07-23 17:13:26,546 [INFO] extraction: JSON output saved to /app/output/file04_outline.json
+2025-07-23 17:13:26,546 [INFO] extraction: Processing completed in 0.29 seconds
+2025-07-23 17:13:26,546 [INFO] extraction: Output saved to: /app/output/file04_outline.json
+2025-07-23 17:13:26,547 [INFO] extraction: Processing PDF: /app/input/file05.pdf
+2025-07-23 17:13:26,564 [INFO] extraction: PDF loaded successfully: /app/input/file05.pdf
+2025-07-23 17:13:26,602 [INFO] extraction: Extracted 12 text blocks
+2025-07-23 17:13:26,603 [INFO] extraction: Extracted 12 text blocks
+2025-07-23 17:13:26,604 [INFO] extraction: Document classified as invitation (confidence: 1.00)
+2025-07-23 17:13:26,605 [INFO] extraction: Processing invitation document with dynamic analysis
+2025-07-23 17:13:26,606 [INFO] extraction: Font analysis completed: 1 size samples, 1 unique fonts
+2025-07-23 17:13:26,606 [INFO] extraction: Spatial analysis completed for 1 pages
+2025-07-23 17:13:26,607 [INFO] extraction: Text pattern analysis completed for 1 blocks
+2025-07-23 17:13:26,607 [INFO] extraction: Document structure analysis completed
+2025-07-23 17:13:26,608 [INFO] extraction: Font analysis completed: 1 size samples, 1 unique fonts
+2025-07-23 17:13:26,609 [INFO] extraction: Spatial analysis completed for 1 pages
+2025-07-23 17:13:26,611 [INFO] extraction: Using default title for invitation: 
+2025-07-23 17:13:26,613 [INFO] extraction: Extracting outline for invitation document with 1 text blocks
+2025-07-23 17:13:26,614 [INFO] extraction: Font analysis completed: 1 size samples, 1 unique fonts
+2025-07-23 17:13:26,615 [INFO] extraction: Font analysis completed: 1 size samples, 1 unique fonts
+2025-07-23 17:13:26,615 [INFO] extraction: Spatial analysis completed for 1 pages
+2025-07-23 17:13:26,616 [INFO] extraction: Text pattern analysis completed for 1 blocks
+2025-07-23 17:13:26,616 [INFO] extraction: Document structure analysis completed
+2025-07-23 17:13:26,617 [INFO] extraction: Extracted 0 outline items
+2025-07-23 17:13:26,618 [INFO] extraction: Added to outline: 'HOPE To SEE You THERE!' as H1 (method: semantic_analysis, confidence: 0.67)
+2025-07-23 17:13:26,619 [INFO] extraction: Output validation passed
+2025-07-23 17:13:26,619 [INFO] extraction: Output validation passed
+2025-07-23 17:13:26,619 [INFO] extraction: Output validation passed
+2025-07-23 17:13:26,620 [INFO] extraction: JSON output formatted and validated successfully
+2025-07-23 17:13:26,622 [INFO] extraction: JSON output saved to /app/output/file05_outline.json
+2025-07-23 17:13:26,623 [INFO] extraction: Processing completed in 0.08 seconds
+2025-07-23 17:13:26,623 [INFO] extraction: Output saved to: /app/output/file05_outline.json
+2025-07-23 17:13:26,623 [INFO] extraction: Successfully processed 3/5 PDF files
+2025-07-23 17:15:31,543 [INFO] extraction: Found 5 PDF files to process
+2025-07-23 17:15:31,544 [INFO] extraction: Processing PDF: /app/input/file01.pdf
+2025-07-23 17:15:31,568 [INFO] extraction: PDF loaded successfully: /app/input/file01.pdf
+2025-07-23 17:15:31,653 [INFO] extraction: Extracted 28 text blocks
+2025-07-23 17:15:31,654 [INFO] extraction: Extracted 28 text blocks
+2025-07-23 17:15:31,658 [INFO] extraction: Document classified as manual (confidence: 1.00)
+2025-07-23 17:15:31,658 [INFO] extraction: Processing manual document with component intelligence
+2025-07-23 17:15:31,658 [ERROR] extraction: Error processing PDF: MANUAL_DOCUMENT
+Traceback (most recent call last):
+  File "/app/app/main.py", line 79, in process_pdf
+    document_structure = processor.process(text_blocks)
+  File "/app/app/processors/manual_processor.py", line 59, in process
+    filtered_blocks = self.content_filter.filter_structural_elements(text_blocks, DocumentType.MANUAL_DOCUMENT)
+  File "/usr/local/lib/python3.9/enum.py", line 429, in __getattr__
+    raise AttributeError(name) from None
+AttributeError: MANUAL_DOCUMENT
+2025-07-23 17:15:31,660 [INFO] extraction: Processing PDF: /app/input/file02.pdf
+2025-07-23 17:15:31,724 [INFO] extraction: PDF loaded successfully: /app/input/file02.pdf
+2025-07-23 17:15:32,632 [INFO] extraction: Extracted 235 text blocks
+2025-07-23 17:15:32,633 [INFO] extraction: Extracted 235 text blocks
+2025-07-23 17:15:32,635 [INFO] extraction: Document classified as manual (confidence: 1.00)
+2025-07-23 17:15:32,635 [INFO] extraction: Processing manual document with component intelligence
+2025-07-23 17:15:32,636 [ERROR] extraction: Error processing PDF: MANUAL_DOCUMENT
+Traceback (most recent call last):
+  File "/app/app/main.py", line 79, in process_pdf
+    document_structure = processor.process(text_blocks)
+  File "/app/app/processors/manual_processor.py", line 59, in process
+    filtered_blocks = self.content_filter.filter_structural_elements(text_blocks, DocumentType.MANUAL_DOCUMENT)
+  File "/usr/local/lib/python3.9/enum.py", line 429, in __getattr__
+    raise AttributeError(name) from None
+AttributeError: MANUAL_DOCUMENT
+2025-07-23 17:15:32,638 [INFO] extraction: Processing PDF: /app/input/file03.pdf
+2025-07-23 17:15:32,767 [INFO] extraction: PDF loaded successfully: /app/input/file03.pdf
+2025-07-23 17:15:33,924 [INFO] extraction: Extracted 224 text blocks
+2025-07-23 17:15:33,925 [INFO] extraction: Extracted 224 text blocks
+2025-07-23 17:15:33,928 [INFO] extraction: Document classified as business (confidence: 1.00)
+2025-07-23 17:15:33,929 [INFO] extraction: Processing business document
+2025-07-23 17:15:33,930 [INFO] extraction: Extracted title: RFP: RRFP: RRFP: RRFP: Reeeequest fquest fquest fquest foooor Prr Prr Prr Proposaloposal oposaloposal
+2025-07-23 17:15:33,931 [INFO] extraction: Extracting outline for business document with 224 text blocks
+2025-07-23 17:15:33,939 [INFO] extraction: Font analysis completed: 17 size samples, 3 unique fonts
+2025-07-23 17:15:33,940 [INFO] extraction: Font analysis completed: 17 size samples, 3 unique fonts
+2025-07-23 17:15:33,940 [INFO] extraction: Spatial analysis completed for 14 pages
+2025-07-23 17:15:33,946 [INFO] extraction: Text pattern analysis completed for 17 blocks
+2025-07-23 17:15:33,947 [INFO] extraction: Document structure analysis completed
+2025-07-23 17:15:33,950 [INFO] extraction: Extracted 0 outline items
+2025-07-23 17:15:33,951 [INFO] extraction: Font analysis completed: 224 size samples, 8 unique fonts
+2025-07-23 17:15:33,956 [INFO] extraction: Output validation passed
+2025-07-23 17:15:33,957 [INFO] extraction: JSON output formatted and validated successfully
+2025-07-23 17:15:33,962 [INFO] extraction: JSON output saved to /app/output/file03_outline.json
+2025-07-23 17:15:33,962 [INFO] extraction: Processing completed in 1.32 seconds
+2025-07-23 17:15:33,963 [INFO] extraction: Output saved to: /app/output/file03_outline.json
+2025-07-23 17:15:33,964 [INFO] extraction: Processing PDF: /app/input/file04.pdf
+2025-07-23 17:15:34,020 [INFO] extraction: PDF loaded successfully: /app/input/file04.pdf
+2025-07-23 17:15:34,151 [INFO] extraction: Extracted 28 text blocks
+2025-07-23 17:15:34,152 [INFO] extraction: Extracted 28 text blocks
+2025-07-23 17:15:34,153 [INFO] extraction: Document classified as program (confidence: 1.00)
+2025-07-23 17:15:34,154 [INFO] extraction: Processing program document - pure component-driven analysis
+2025-07-23 17:15:34,154 [INFO] extraction: Font analysis completed: 28 size samples, 5 unique fonts
+2025-07-23 17:15:34,155 [INFO] extraction: Spatial analysis completed for 1 pages
+2025-07-23 17:15:34,158 [INFO] extraction: Text pattern analysis completed for 28 blocks
+2025-07-23 17:15:34,159 [INFO] extraction: Document structure analysis completed
+2025-07-23 17:15:34,160 [INFO] extraction: Font analysis completed: 28 size samples, 5 unique fonts
+2025-07-23 17:15:34,162 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:15:34,163 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:15:34,163 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:15:34,164 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:15:34,164 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:15:34,165 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:15:34,166 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:15:34,166 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:15:34,166 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:15:34,167 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:15:34,168 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:15:34,168 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:15:34,169 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:15:34,169 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:15:34,170 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:15:34,170 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:15:34,171 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:15:34,171 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:15:34,172 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:15:34,172 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:15:34,173 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:15:34,174 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:15:34,174 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:15:34,175 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:15:34,175 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:15:34,176 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:15:34,176 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:15:34,177 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:15:34,177 [INFO] extraction: Extracted title: Parsippany -Troy Hills STEM Pathways
+2025-07-23 17:15:34,178 [INFO] extraction: Component-validated outline item: 'PATHWAY OPTIONS' as H1 (source: structure_analyzer)
+2025-07-23 17:15:34,178 [INFO] extraction: Output validation passed
+2025-07-23 17:15:34,178 [INFO] extraction: Final validation successful - Title: 'Parsippany -Troy Hills STEM Pathways', Outline: 1 items
+2025-07-23 17:15:34,179 [INFO] extraction: Output validation passed
+2025-07-23 17:15:34,179 [INFO] extraction: JSON output formatted and validated successfully
+2025-07-23 17:15:34,184 [INFO] extraction: JSON output saved to /app/output/file04_outline.json
+2025-07-23 17:15:34,184 [INFO] extraction: Processing completed in 0.22 seconds
+2025-07-23 17:15:34,184 [INFO] extraction: Output saved to: /app/output/file04_outline.json
+2025-07-23 17:15:34,185 [INFO] extraction: Processing PDF: /app/input/file05.pdf
+2025-07-23 17:15:34,202 [INFO] extraction: PDF loaded successfully: /app/input/file05.pdf
+2025-07-23 17:15:34,235 [INFO] extraction: Extracted 12 text blocks
+2025-07-23 17:15:34,236 [INFO] extraction: Extracted 12 text blocks
+2025-07-23 17:15:34,237 [INFO] extraction: Document classified as invitation (confidence: 1.00)
+2025-07-23 17:15:34,237 [INFO] extraction: Processing invitation document with dynamic analysis
+2025-07-23 17:15:34,239 [INFO] extraction: Font analysis completed: 1 size samples, 1 unique fonts
+2025-07-23 17:15:34,239 [INFO] extraction: Spatial analysis completed for 1 pages
+2025-07-23 17:15:34,240 [INFO] extraction: Text pattern analysis completed for 1 blocks
+2025-07-23 17:15:34,241 [INFO] extraction: Document structure analysis completed
+2025-07-23 17:15:34,241 [INFO] extraction: Font analysis completed: 1 size samples, 1 unique fonts
+2025-07-23 17:15:34,242 [INFO] extraction: Spatial analysis completed for 1 pages
+2025-07-23 17:15:34,244 [INFO] extraction: Using default title for invitation: 
+2025-07-23 17:15:34,245 [INFO] extraction: Extracting outline for invitation document with 1 text blocks
+2025-07-23 17:15:34,246 [INFO] extraction: Font analysis completed: 1 size samples, 1 unique fonts
+2025-07-23 17:15:34,247 [INFO] extraction: Font analysis completed: 1 size samples, 1 unique fonts
+2025-07-23 17:15:34,247 [INFO] extraction: Spatial analysis completed for 1 pages
+2025-07-23 17:15:34,248 [INFO] extraction: Text pattern analysis completed for 1 blocks
+2025-07-23 17:15:34,249 [INFO] extraction: Document structure analysis completed
+2025-07-23 17:15:34,250 [INFO] extraction: Extracted 0 outline items
+2025-07-23 17:15:34,250 [INFO] extraction: Added to outline: 'HOPE To SEE You THERE!' as H1 (method: semantic_analysis, confidence: 0.67)
+2025-07-23 17:15:34,251 [INFO] extraction: Output validation passed
+2025-07-23 17:15:34,252 [INFO] extraction: Output validation passed
+2025-07-23 17:15:34,252 [INFO] extraction: Output validation passed
+2025-07-23 17:15:34,253 [INFO] extraction: JSON output formatted and validated successfully
+2025-07-23 17:15:34,257 [INFO] extraction: JSON output saved to /app/output/file05_outline.json
+2025-07-23 17:15:34,258 [INFO] extraction: Processing completed in 0.07 seconds
+2025-07-23 17:15:34,258 [INFO] extraction: Output saved to: /app/output/file05_outline.json
+2025-07-23 17:15:34,259 [INFO] extraction: Successfully processed 3/5 PDF files
+2025-07-23 17:21:12,863 [INFO] extraction: Found 5 PDF files to process
+2025-07-23 17:21:12,864 [INFO] extraction: Processing PDF: /app/input/file01.pdf
+2025-07-23 17:21:12,885 [INFO] extraction: PDF loaded successfully: /app/input/file01.pdf
+2025-07-23 17:21:12,991 [INFO] extraction: Extracted 28 text blocks
+2025-07-23 17:21:12,992 [INFO] extraction: Extracted 28 text blocks
+2025-07-23 17:21:12,995 [INFO] extraction: Document classified as manual (confidence: 1.00)
+2025-07-23 17:21:12,995 [INFO] extraction: Processing manual document
+2025-07-23 17:21:12,996 [WARNING] extraction: Title extractor error: MANUAL_DOCUMENT
+2025-07-23 17:21:12,996 [WARNING] extraction: Semantic title error: MANUAL_DOCUMENT
+2025-07-23 17:21:12,997 [WARNING] extraction: Outline extractor error: MANUAL_DOCUMENT
+2025-07-23 17:21:12,998 [INFO] extraction: Font analysis completed: 28 size samples, 3 unique fonts
+2025-07-23 17:21:12,999 [WARNING] extraction: Heading detector error: MANUAL_DOCUMENT
+2025-07-23 17:21:12,999 [ERROR] extraction: Manual processing error: MANUAL_DOCUMENT
+2025-07-23 17:21:13,000 [ERROR] extraction: Error processing PDF: MANUAL_DOCUMENT
+Traceback (most recent call last):
+  File "/app/app/main.py", line 79, in process_pdf
+    document_structure = processor.process(text_blocks)
+  File "/app/app/processors/manual_processor.py", line 54, in process
+    doc_type=DocumentType.MANUAL_DOCUMENT,
+  File "/usr/local/lib/python3.9/enum.py", line 429, in __getattr__
+    raise AttributeError(name) from None
+AttributeError: MANUAL_DOCUMENT
+2025-07-23 17:21:13,002 [INFO] extraction: Processing PDF: /app/input/file02.pdf
+2025-07-23 17:21:13,092 [INFO] extraction: PDF loaded successfully: /app/input/file02.pdf
+2025-07-23 17:21:14,086 [INFO] extraction: Extracted 235 text blocks
+2025-07-23 17:21:14,087 [INFO] extraction: Extracted 235 text blocks
+2025-07-23 17:21:14,090 [INFO] extraction: Document classified as manual (confidence: 1.00)
+2025-07-23 17:21:14,091 [INFO] extraction: Processing manual document
+2025-07-23 17:21:14,091 [WARNING] extraction: Title extractor error: MANUAL_DOCUMENT
+2025-07-23 17:21:14,092 [WARNING] extraction: Semantic title error: MANUAL_DOCUMENT
+2025-07-23 17:21:14,093 [WARNING] extraction: Outline extractor error: MANUAL_DOCUMENT
+2025-07-23 17:21:14,094 [INFO] extraction: Font analysis completed: 235 size samples, 6 unique fonts
+2025-07-23 17:21:14,094 [WARNING] extraction: Heading detector error: MANUAL_DOCUMENT
+2025-07-23 17:21:14,095 [ERROR] extraction: Manual processing error: MANUAL_DOCUMENT
+2025-07-23 17:21:14,095 [ERROR] extraction: Error processing PDF: MANUAL_DOCUMENT
+Traceback (most recent call last):
+  File "/app/app/main.py", line 79, in process_pdf
+    document_structure = processor.process(text_blocks)
+  File "/app/app/processors/manual_processor.py", line 54, in process
+    doc_type=DocumentType.MANUAL_DOCUMENT,
+  File "/usr/local/lib/python3.9/enum.py", line 429, in __getattr__
+    raise AttributeError(name) from None
+AttributeError: MANUAL_DOCUMENT
+2025-07-23 17:21:14,097 [INFO] extraction: Processing PDF: /app/input/file03.pdf
+2025-07-23 17:21:14,151 [INFO] extraction: PDF loaded successfully: /app/input/file03.pdf
+2025-07-23 17:21:15,436 [INFO] extraction: Extracted 224 text blocks
+2025-07-23 17:21:15,437 [INFO] extraction: Extracted 224 text blocks
+2025-07-23 17:21:15,441 [INFO] extraction: Document classified as business (confidence: 1.00)
+2025-07-23 17:21:15,441 [INFO] extraction: Processing business document
+2025-07-23 17:21:15,443 [INFO] extraction: Extracted title: RFP: RRFP: RRFP: RRFP: Reeeequest fquest fquest fquest foooor Prr Prr Prr Proposaloposal oposaloposal
+2025-07-23 17:21:15,444 [INFO] extraction: Extracting outline for business document with 224 text blocks
+2025-07-23 17:21:15,450 [INFO] extraction: Font analysis completed: 17 size samples, 3 unique fonts
+2025-07-23 17:21:15,451 [INFO] extraction: Font analysis completed: 17 size samples, 3 unique fonts
+2025-07-23 17:21:15,452 [INFO] extraction: Spatial analysis completed for 14 pages
+2025-07-23 17:21:15,462 [INFO] extraction: Text pattern analysis completed for 17 blocks
+2025-07-23 17:21:15,463 [INFO] extraction: Document structure analysis completed
+2025-07-23 17:21:15,467 [INFO] extraction: Extracted 0 outline items
+2025-07-23 17:21:15,468 [INFO] extraction: Font analysis completed: 224 size samples, 8 unique fonts
+2025-07-23 17:21:15,473 [INFO] extraction: Output validation passed
+2025-07-23 17:21:15,473 [INFO] extraction: JSON output formatted and validated successfully
+2025-07-23 17:21:15,479 [INFO] extraction: JSON output saved to /app/output/file03_outline.json
+2025-07-23 17:21:15,479 [INFO] extraction: Processing completed in 1.38 seconds
+2025-07-23 17:21:15,480 [INFO] extraction: Output saved to: /app/output/file03_outline.json
+2025-07-23 17:21:15,481 [INFO] extraction: Processing PDF: /app/input/file04.pdf
+2025-07-23 17:21:15,522 [INFO] extraction: PDF loaded successfully: /app/input/file04.pdf
+2025-07-23 17:21:15,669 [INFO] extraction: Extracted 28 text blocks
+2025-07-23 17:21:15,669 [INFO] extraction: Extracted 28 text blocks
+2025-07-23 17:21:15,671 [INFO] extraction: Document classified as program (confidence: 1.00)
+2025-07-23 17:21:15,672 [INFO] extraction: Processing program document - pure component-driven analysis
+2025-07-23 17:21:15,672 [INFO] extraction: Font analysis completed: 28 size samples, 5 unique fonts
+2025-07-23 17:21:15,673 [INFO] extraction: Spatial analysis completed for 1 pages
+2025-07-23 17:21:15,676 [INFO] extraction: Text pattern analysis completed for 28 blocks
+2025-07-23 17:21:15,677 [INFO] extraction: Document structure analysis completed
+2025-07-23 17:21:15,677 [INFO] extraction: Font analysis completed: 28 size samples, 5 unique fonts
+2025-07-23 17:21:15,680 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:21:15,681 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:21:15,682 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:21:15,682 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:21:15,683 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:21:15,683 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:21:15,684 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:21:15,684 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:21:15,685 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:21:15,685 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:21:15,686 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:21:15,687 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:21:15,687 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:21:15,688 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:21:15,688 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:21:15,689 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:21:15,689 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:21:15,690 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:21:15,690 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:21:15,690 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:21:15,691 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:21:15,691 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:21:15,691 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:21:15,691 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:21:15,692 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:21:15,692 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:21:15,692 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:21:15,692 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:21:15,693 [INFO] extraction: Extracted title: Parsippany -Troy Hills STEM Pathways
+2025-07-23 17:21:15,694 [INFO] extraction: Component-validated outline item: 'PATHWAY OPTIONS' as H1 (source: structure_analyzer)
+2025-07-23 17:21:15,694 [INFO] extraction: Output validation passed
+2025-07-23 17:21:15,694 [INFO] extraction: Final validation successful - Title: 'Parsippany -Troy Hills STEM Pathways', Outline: 1 items
+2025-07-23 17:21:15,694 [INFO] extraction: Output validation passed
+2025-07-23 17:21:15,695 [INFO] extraction: JSON output formatted and validated successfully
+2025-07-23 17:21:15,697 [INFO] extraction: JSON output saved to /app/output/file04_outline.json
+2025-07-23 17:21:15,698 [INFO] extraction: Processing completed in 0.22 seconds
+2025-07-23 17:21:15,698 [INFO] extraction: Output saved to: /app/output/file04_outline.json
+2025-07-23 17:21:15,699 [INFO] extraction: Processing PDF: /app/input/file05.pdf
+2025-07-23 17:21:15,714 [INFO] extraction: PDF loaded successfully: /app/input/file05.pdf
+2025-07-23 17:21:15,741 [INFO] extraction: Extracted 12 text blocks
+2025-07-23 17:21:15,742 [INFO] extraction: Extracted 12 text blocks
+2025-07-23 17:21:15,743 [INFO] extraction: Document classified as invitation (confidence: 1.00)
+2025-07-23 17:21:15,744 [INFO] extraction: Processing invitation document with dynamic analysis
+2025-07-23 17:21:15,746 [INFO] extraction: Font analysis completed: 1 size samples, 1 unique fonts
+2025-07-23 17:21:15,746 [INFO] extraction: Spatial analysis completed for 1 pages
+2025-07-23 17:21:15,747 [INFO] extraction: Text pattern analysis completed for 1 blocks
+2025-07-23 17:21:15,747 [INFO] extraction: Document structure analysis completed
+2025-07-23 17:21:15,748 [INFO] extraction: Font analysis completed: 1 size samples, 1 unique fonts
+2025-07-23 17:21:15,748 [INFO] extraction: Spatial analysis completed for 1 pages
+2025-07-23 17:21:15,750 [INFO] extraction: Using default title for invitation: 
+2025-07-23 17:21:15,751 [INFO] extraction: Extracting outline for invitation document with 1 text blocks
+2025-07-23 17:21:15,752 [INFO] extraction: Font analysis completed: 1 size samples, 1 unique fonts
+2025-07-23 17:21:15,753 [INFO] extraction: Font analysis completed: 1 size samples, 1 unique fonts
+2025-07-23 17:21:15,753 [INFO] extraction: Spatial analysis completed for 1 pages
+2025-07-23 17:21:15,754 [INFO] extraction: Text pattern analysis completed for 1 blocks
+2025-07-23 17:21:15,754 [INFO] extraction: Document structure analysis completed
+2025-07-23 17:21:15,755 [INFO] extraction: Extracted 0 outline items
+2025-07-23 17:21:15,756 [INFO] extraction: Added to outline: 'HOPE To SEE You THERE!' as H1 (method: semantic_analysis, confidence: 0.67)
+2025-07-23 17:21:15,756 [INFO] extraction: Output validation passed
+2025-07-23 17:21:15,757 [INFO] extraction: Output validation passed
+2025-07-23 17:21:15,757 [INFO] extraction: Output validation passed
+2025-07-23 17:21:15,758 [INFO] extraction: JSON output formatted and validated successfully
+2025-07-23 17:21:15,762 [INFO] extraction: JSON output saved to /app/output/file05_outline.json
+2025-07-23 17:21:15,763 [INFO] extraction: Processing completed in 0.06 seconds
+2025-07-23 17:21:15,763 [INFO] extraction: Output saved to: /app/output/file05_outline.json
+2025-07-23 17:21:15,763 [INFO] extraction: Successfully processed 3/5 PDF files
+2025-07-23 17:49:12,913 [INFO] extraction: Found 5 PDF files to process
+2025-07-23 17:49:12,914 [INFO] extraction: Processing PDF: /app/input/file01.pdf
+2025-07-23 17:49:12,940 [INFO] extraction: PDF loaded successfully: /app/input/file01.pdf
+2025-07-23 17:49:13,057 [INFO] extraction: Extracted 28 text blocks
+2025-07-23 17:49:13,058 [INFO] extraction: Extracted 28 text blocks
+2025-07-23 17:49:13,060 [INFO] extraction: Document classified as manual (confidence: 1.00)
+2025-07-23 17:49:13,060 [INFO] extraction: Processing manual document - component-driven analysis
+2025-07-23 17:49:13,065 [ERROR] extraction: Error processing PDF: MANUAL_DOCUMENT
+Traceback (most recent call last):
+  File "/app/app/main.py", line 79, in process_pdf
+    document_structure = processor.process(text_blocks)
+  File "/app/app/processors/manual_processor.py", line 76, in process
+    doc_type=DocumentType.MANUAL_DOCUMENT,
+  File "/usr/local/lib/python3.9/enum.py", line 429, in __getattr__
+    raise AttributeError(name) from None
+AttributeError: MANUAL_DOCUMENT
+2025-07-23 17:49:13,068 [INFO] extraction: Processing PDF: /app/input/file02.pdf
+2025-07-23 17:49:13,130 [INFO] extraction: PDF loaded successfully: /app/input/file02.pdf
+2025-07-23 17:49:14,103 [INFO] extraction: Extracted 235 text blocks
+2025-07-23 17:49:14,104 [INFO] extraction: Extracted 235 text blocks
+2025-07-23 17:49:14,106 [INFO] extraction: Document classified as manual (confidence: 1.00)
+2025-07-23 17:49:14,107 [INFO] extraction: Processing manual document - component-driven analysis
+2025-07-23 17:49:14,115 [INFO] extraction: Font analysis completed: 18 size samples, 2 unique fonts
+2025-07-23 17:49:14,116 [INFO] extraction: Spatial analysis completed for 8 pages
+2025-07-23 17:49:14,119 [INFO] extraction: Text pattern analysis completed for 18 blocks
+2025-07-23 17:49:14,120 [INFO] extraction: Document structure analysis completed
+2025-07-23 17:49:14,124 [INFO] extraction: Using default title for manual: 
+2025-07-23 17:49:14,125 [INFO] extraction: Output validation passed
+2025-07-23 17:49:14,126 [ERROR] extraction: Error processing PDF: MANUAL_DOCUMENT
+Traceback (most recent call last):
+  File "/app/app/main.py", line 79, in process_pdf
+    document_structure = processor.process(text_blocks)
+  File "/app/app/processors/manual_processor.py", line 76, in process
+    doc_type=DocumentType.MANUAL_DOCUMENT,
+  File "/usr/local/lib/python3.9/enum.py", line 429, in __getattr__
+    raise AttributeError(name) from None
+AttributeError: MANUAL_DOCUMENT
+2025-07-23 17:49:14,127 [INFO] extraction: Processing PDF: /app/input/file03.pdf
+2025-07-23 17:49:14,196 [INFO] extraction: PDF loaded successfully: /app/input/file03.pdf
+2025-07-23 17:49:15,403 [INFO] extraction: Extracted 224 text blocks
+2025-07-23 17:49:15,404 [INFO] extraction: Extracted 224 text blocks
+2025-07-23 17:49:15,407 [INFO] extraction: Document classified as business (confidence: 1.00)
+2025-07-23 17:49:15,407 [INFO] extraction: Processing business document
+2025-07-23 17:49:15,408 [INFO] extraction: Extracted title: RFP: RRFP: RRFP: RRFP: Reeeequest fquest fquest fquest foooor Prr Prr Prr Proposaloposal oposaloposal
+2025-07-23 17:49:15,408 [INFO] extraction: Extracting outline for business document with 224 text blocks
+2025-07-23 17:49:15,413 [INFO] extraction: Font analysis completed: 17 size samples, 3 unique fonts
+2025-07-23 17:49:15,414 [INFO] extraction: Font analysis completed: 17 size samples, 3 unique fonts
+2025-07-23 17:49:15,414 [INFO] extraction: Spatial analysis completed for 14 pages
+2025-07-23 17:49:15,418 [INFO] extraction: Text pattern analysis completed for 17 blocks
+2025-07-23 17:49:15,419 [INFO] extraction: Document structure analysis completed
+2025-07-23 17:49:15,422 [INFO] extraction: Extracted 0 outline items
+2025-07-23 17:49:15,423 [INFO] extraction: Font analysis completed: 224 size samples, 8 unique fonts
+2025-07-23 17:49:15,427 [INFO] extraction: Output validation passed
+2025-07-23 17:49:15,427 [INFO] extraction: JSON output formatted and validated successfully
+2025-07-23 17:49:15,430 [INFO] extraction: JSON output saved to /app/output/file03_outline.json
+2025-07-23 17:49:15,431 [INFO] extraction: Processing completed in 1.30 seconds
+2025-07-23 17:49:15,431 [INFO] extraction: Output saved to: /app/output/file03_outline.json
+2025-07-23 17:49:15,432 [INFO] extraction: Processing PDF: /app/input/file04.pdf
+2025-07-23 17:49:15,463 [INFO] extraction: PDF loaded successfully: /app/input/file04.pdf
+2025-07-23 17:49:15,605 [INFO] extraction: Extracted 28 text blocks
+2025-07-23 17:49:15,606 [INFO] extraction: Extracted 28 text blocks
+2025-07-23 17:49:15,607 [INFO] extraction: Document classified as program (confidence: 1.00)
+2025-07-23 17:49:15,608 [INFO] extraction: Processing program document - pure component-driven analysis
+2025-07-23 17:49:15,609 [INFO] extraction: Font analysis completed: 28 size samples, 5 unique fonts
+2025-07-23 17:49:15,610 [INFO] extraction: Spatial analysis completed for 1 pages
+2025-07-23 17:49:15,613 [INFO] extraction: Text pattern analysis completed for 28 blocks
+2025-07-23 17:49:15,614 [INFO] extraction: Document structure analysis completed
+2025-07-23 17:49:15,615 [INFO] extraction: Font analysis completed: 28 size samples, 5 unique fonts
+2025-07-23 17:49:15,617 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:49:15,617 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:49:15,618 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:49:15,619 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:49:15,619 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:49:15,620 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:49:15,620 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:49:15,621 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:49:15,622 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:49:15,623 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:49:15,624 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:49:15,624 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:49:15,625 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:49:15,626 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:49:15,627 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:49:15,627 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:49:15,628 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:49:15,628 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:49:15,629 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:49:15,629 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:49:15,630 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:49:15,630 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:49:15,630 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:49:15,631 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:49:15,631 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:49:15,631 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:49:15,632 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:49:15,632 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:49:15,633 [INFO] extraction: Extracted title: Parsippany -Troy Hills STEM Pathways
+2025-07-23 17:49:15,633 [INFO] extraction: Component-validated outline item: 'PATHWAY OPTIONS' as H1 (source: structure_analyzer)
+2025-07-23 17:49:15,633 [INFO] extraction: Output validation passed
+2025-07-23 17:49:15,634 [INFO] extraction: Final validation successful - Title: 'Parsippany -Troy Hills STEM Pathways', Outline: 1 items
+2025-07-23 17:49:15,634 [INFO] extraction: Output validation passed
+2025-07-23 17:49:15,634 [INFO] extraction: JSON output formatted and validated successfully
+2025-07-23 17:49:15,637 [INFO] extraction: JSON output saved to /app/output/file04_outline.json
+2025-07-23 17:49:15,638 [INFO] extraction: Processing completed in 0.21 seconds
+2025-07-23 17:49:15,638 [INFO] extraction: Output saved to: /app/output/file04_outline.json
+2025-07-23 17:49:15,638 [INFO] extraction: Processing PDF: /app/input/file05.pdf
+2025-07-23 17:49:15,648 [INFO] extraction: PDF loaded successfully: /app/input/file05.pdf
+2025-07-23 17:49:15,677 [INFO] extraction: Extracted 12 text blocks
+2025-07-23 17:49:15,678 [INFO] extraction: Extracted 12 text blocks
+2025-07-23 17:49:15,679 [INFO] extraction: Document classified as invitation (confidence: 1.00)
+2025-07-23 17:49:15,680 [INFO] extraction: Processing invitation document with dynamic analysis
+2025-07-23 17:49:15,681 [INFO] extraction: Font analysis completed: 1 size samples, 1 unique fonts
+2025-07-23 17:49:15,682 [INFO] extraction: Spatial analysis completed for 1 pages
+2025-07-23 17:49:15,682 [INFO] extraction: Text pattern analysis completed for 1 blocks
+2025-07-23 17:49:15,682 [INFO] extraction: Document structure analysis completed
+2025-07-23 17:49:15,683 [INFO] extraction: Font analysis completed: 1 size samples, 1 unique fonts
+2025-07-23 17:49:15,683 [INFO] extraction: Spatial analysis completed for 1 pages
+2025-07-23 17:49:15,685 [INFO] extraction: Using default title for invitation: 
+2025-07-23 17:49:15,685 [INFO] extraction: Extracting outline for invitation document with 1 text blocks
+2025-07-23 17:49:15,686 [INFO] extraction: Font analysis completed: 1 size samples, 1 unique fonts
+2025-07-23 17:49:15,687 [INFO] extraction: Font analysis completed: 1 size samples, 1 unique fonts
+2025-07-23 17:49:15,687 [INFO] extraction: Spatial analysis completed for 1 pages
+2025-07-23 17:49:15,688 [INFO] extraction: Text pattern analysis completed for 1 blocks
+2025-07-23 17:49:15,688 [INFO] extraction: Document structure analysis completed
+2025-07-23 17:49:15,689 [INFO] extraction: Extracted 0 outline items
+2025-07-23 17:49:15,689 [INFO] extraction: Added to outline: 'HOPE To SEE You THERE!' as H1 (method: semantic_analysis, confidence: 0.67)
+2025-07-23 17:49:15,689 [INFO] extraction: Output validation passed
+2025-07-23 17:49:15,690 [INFO] extraction: Output validation passed
+2025-07-23 17:49:15,690 [INFO] extraction: Output validation passed
+2025-07-23 17:49:15,690 [INFO] extraction: JSON output formatted and validated successfully
+2025-07-23 17:49:15,695 [INFO] extraction: JSON output saved to /app/output/file05_outline.json
+2025-07-23 17:49:15,695 [INFO] extraction: Processing completed in 0.06 seconds
+2025-07-23 17:49:15,695 [INFO] extraction: Output saved to: /app/output/file05_outline.json
+2025-07-23 17:49:15,696 [INFO] extraction: Successfully processed 3/5 PDF files
+2025-07-23 17:55:20,832 [INFO] extraction: Found 5 PDF files to process
+2025-07-23 17:55:20,832 [INFO] extraction: Processing PDF: /app/input/file01.pdf
+2025-07-23 17:55:20,862 [INFO] extraction: PDF loaded successfully: /app/input/file01.pdf
+2025-07-23 17:55:20,952 [INFO] extraction: Extracted 28 text blocks
+2025-07-23 17:55:20,952 [INFO] extraction: Extracted 28 text blocks
+2025-07-23 17:55:20,954 [INFO] extraction: Document classified as manual (confidence: 1.00)
+2025-07-23 17:55:20,955 [INFO] extraction: Processing technical manual - generalized pattern matching
+2025-07-23 17:55:20,962 [INFO] extraction: Output validation passed
+2025-07-23 17:55:20,963 [INFO] extraction: JSON output formatted and validated successfully
+2025-07-23 17:55:20,969 [INFO] extraction: JSON output saved to /app/output/file01_outline.json
+2025-07-23 17:55:20,970 [INFO] extraction: Processing completed in 0.14 seconds
+2025-07-23 17:55:20,971 [INFO] extraction: Output saved to: /app/output/file01_outline.json
+2025-07-23 17:55:20,972 [INFO] extraction: Processing PDF: /app/input/file02.pdf
+2025-07-23 17:55:21,031 [INFO] extraction: PDF loaded successfully: /app/input/file02.pdf
+2025-07-23 17:55:21,844 [INFO] extraction: Extracted 235 text blocks
+2025-07-23 17:55:21,845 [INFO] extraction: Extracted 235 text blocks
+2025-07-23 17:55:21,846 [INFO] extraction: Document classified as manual (confidence: 1.00)
+2025-07-23 17:55:21,846 [INFO] extraction: Processing technical manual - generalized pattern matching
+2025-07-23 17:55:21,853 [INFO] extraction: Font analysis completed: 18 size samples, 2 unique fonts
+2025-07-23 17:55:21,853 [INFO] extraction: Spatial analysis completed for 8 pages
+2025-07-23 17:55:21,858 [INFO] extraction: Text pattern analysis completed for 18 blocks
+2025-07-23 17:55:21,859 [INFO] extraction: Document structure analysis completed
+2025-07-23 17:55:21,861 [INFO] extraction: Output validation passed
+2025-07-23 17:55:21,862 [INFO] extraction: Output validation passed
+2025-07-23 17:55:21,862 [INFO] extraction: JSON output formatted and validated successfully
+2025-07-23 17:55:21,865 [INFO] extraction: JSON output saved to /app/output/file02_outline.json
+2025-07-23 17:55:21,866 [INFO] extraction: Processing completed in 0.89 seconds
+2025-07-23 17:55:21,866 [INFO] extraction: Output saved to: /app/output/file02_outline.json
+2025-07-23 17:55:21,867 [INFO] extraction: Processing PDF: /app/input/file03.pdf
+2025-07-23 17:55:21,917 [INFO] extraction: PDF loaded successfully: /app/input/file03.pdf
+2025-07-23 17:55:22,988 [INFO] extraction: Extracted 224 text blocks
+2025-07-23 17:55:22,989 [INFO] extraction: Extracted 224 text blocks
+2025-07-23 17:55:22,992 [INFO] extraction: Document classified as business (confidence: 1.00)
+2025-07-23 17:55:22,992 [INFO] extraction: Processing business document
+2025-07-23 17:55:22,995 [INFO] extraction: Extracted title: RFP: RRFP: RRFP: RRFP: Reeeequest fquest fquest fquest foooor Prr Prr Prr Proposaloposal oposaloposal
+2025-07-23 17:55:22,995 [INFO] extraction: Extracting outline for business document with 224 text blocks
+2025-07-23 17:55:23,007 [INFO] extraction: Font analysis completed: 17 size samples, 3 unique fonts
+2025-07-23 17:55:23,007 [INFO] extraction: Font analysis completed: 17 size samples, 3 unique fonts
+2025-07-23 17:55:23,008 [INFO] extraction: Spatial analysis completed for 14 pages
+2025-07-23 17:55:23,013 [INFO] extraction: Text pattern analysis completed for 17 blocks
+2025-07-23 17:55:23,014 [INFO] extraction: Document structure analysis completed
+2025-07-23 17:55:23,019 [INFO] extraction: Extracted 0 outline items
+2025-07-23 17:55:23,020 [INFO] extraction: Font analysis completed: 224 size samples, 8 unique fonts
+2025-07-23 17:55:23,025 [INFO] extraction: Output validation passed
+2025-07-23 17:55:23,025 [INFO] extraction: JSON output formatted and validated successfully
+2025-07-23 17:55:23,029 [INFO] extraction: JSON output saved to /app/output/file03_outline.json
+2025-07-23 17:55:23,030 [INFO] extraction: Processing completed in 1.16 seconds
+2025-07-23 17:55:23,030 [INFO] extraction: Output saved to: /app/output/file03_outline.json
+2025-07-23 17:55:23,031 [INFO] extraction: Processing PDF: /app/input/file04.pdf
+2025-07-23 17:55:23,069 [INFO] extraction: PDF loaded successfully: /app/input/file04.pdf
+2025-07-23 17:55:23,217 [INFO] extraction: Extracted 28 text blocks
+2025-07-23 17:55:23,218 [INFO] extraction: Extracted 28 text blocks
+2025-07-23 17:55:23,219 [INFO] extraction: Document classified as program (confidence: 1.00)
+2025-07-23 17:55:23,220 [INFO] extraction: Processing program document - pure component-driven analysis
+2025-07-23 17:55:23,221 [INFO] extraction: Font analysis completed: 28 size samples, 5 unique fonts
+2025-07-23 17:55:23,221 [INFO] extraction: Spatial analysis completed for 1 pages
+2025-07-23 17:55:23,224 [INFO] extraction: Text pattern analysis completed for 28 blocks
+2025-07-23 17:55:23,225 [INFO] extraction: Document structure analysis completed
+2025-07-23 17:55:23,226 [INFO] extraction: Font analysis completed: 28 size samples, 5 unique fonts
+2025-07-23 17:55:23,227 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:55:23,228 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:55:23,228 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:55:23,229 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:55:23,229 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:55:23,230 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:55:23,231 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:55:23,232 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:55:23,232 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:55:23,233 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:55:23,233 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:55:23,234 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:55:23,235 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:55:23,235 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:55:23,235 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:55:23,236 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:55:23,236 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:55:23,237 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:55:23,237 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:55:23,237 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:55:23,237 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:55:23,238 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:55:23,238 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:55:23,238 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:55:23,238 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:55:23,238 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:55:23,239 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:55:23,239 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 17:55:23,239 [INFO] extraction: Extracted title: Parsippany -Troy Hills STEM Pathways
+2025-07-23 17:55:23,240 [INFO] extraction: Component-validated outline item: 'PATHWAY OPTIONS' as H1 (source: structure_analyzer)
+2025-07-23 17:55:23,240 [INFO] extraction: Output validation passed
+2025-07-23 17:55:23,240 [INFO] extraction: Final validation successful - Title: 'Parsippany -Troy Hills STEM Pathways', Outline: 1 items
+2025-07-23 17:55:23,240 [INFO] extraction: Output validation passed
+2025-07-23 17:55:23,240 [INFO] extraction: JSON output formatted and validated successfully
+2025-07-23 17:55:23,243 [INFO] extraction: JSON output saved to /app/output/file04_outline.json
+2025-07-23 17:55:23,243 [INFO] extraction: Processing completed in 0.21 seconds
+2025-07-23 17:55:23,243 [INFO] extraction: Output saved to: /app/output/file04_outline.json
+2025-07-23 17:55:23,244 [INFO] extraction: Processing PDF: /app/input/file05.pdf
+2025-07-23 17:55:23,254 [INFO] extraction: PDF loaded successfully: /app/input/file05.pdf
+2025-07-23 17:55:23,281 [INFO] extraction: Extracted 12 text blocks
+2025-07-23 17:55:23,282 [INFO] extraction: Extracted 12 text blocks
+2025-07-23 17:55:23,283 [INFO] extraction: Document classified as invitation (confidence: 1.00)
+2025-07-23 17:55:23,283 [INFO] extraction: Processing invitation document with dynamic analysis
+2025-07-23 17:55:23,284 [INFO] extraction: Font analysis completed: 1 size samples, 1 unique fonts
+2025-07-23 17:55:23,284 [INFO] extraction: Spatial analysis completed for 1 pages
+2025-07-23 17:55:23,285 [INFO] extraction: Text pattern analysis completed for 1 blocks
+2025-07-23 17:55:23,285 [INFO] extraction: Document structure analysis completed
+2025-07-23 17:55:23,285 [INFO] extraction: Font analysis completed: 1 size samples, 1 unique fonts
+2025-07-23 17:55:23,286 [INFO] extraction: Spatial analysis completed for 1 pages
+2025-07-23 17:55:23,287 [INFO] extraction: Using default title for invitation: 
+2025-07-23 17:55:23,288 [INFO] extraction: Extracting outline for invitation document with 1 text blocks
+2025-07-23 17:55:23,288 [INFO] extraction: Font analysis completed: 1 size samples, 1 unique fonts
+2025-07-23 17:55:23,288 [INFO] extraction: Font analysis completed: 1 size samples, 1 unique fonts
+2025-07-23 17:55:23,289 [INFO] extraction: Spatial analysis completed for 1 pages
+2025-07-23 17:55:23,289 [INFO] extraction: Text pattern analysis completed for 1 blocks
+2025-07-23 17:55:23,289 [INFO] extraction: Document structure analysis completed
+2025-07-23 17:55:23,289 [INFO] extraction: Extracted 0 outline items
+2025-07-23 17:55:23,290 [INFO] extraction: Added to outline: 'HOPE To SEE You THERE!' as H1 (method: semantic_analysis, confidence: 0.67)
+2025-07-23 17:55:23,290 [INFO] extraction: Output validation passed
+2025-07-23 17:55:23,290 [INFO] extraction: Output validation passed
+2025-07-23 17:55:23,290 [INFO] extraction: Output validation passed
+2025-07-23 17:55:23,290 [INFO] extraction: JSON output formatted and validated successfully
+2025-07-23 17:55:23,292 [INFO] extraction: JSON output saved to /app/output/file05_outline.json
+2025-07-23 17:55:23,292 [INFO] extraction: Processing completed in 0.05 seconds
+2025-07-23 17:55:23,292 [INFO] extraction: Output saved to: /app/output/file05_outline.json
+2025-07-23 17:55:23,293 [INFO] extraction: Successfully processed 5/5 PDF files
+2025-07-23 18:18:06,248 [ERROR] extraction: Failed to initialize extractor: MANUAL_DOCUMENT
+2025-07-23 18:29:12,348 [INFO] extraction: All directories ensured to exist
+2025-07-23 18:29:12,348 [INFO] extraction: Initializing PDF Outline Extractor...
+2025-07-23 18:29:12,352 [ERROR] extraction: Failed to initialize extractor: MANUAL_DOCUMENT
+Traceback (most recent call last):
+  File "/app/app/main.py", line 251, in main
+    extractor = PDFOutlineExtractor()
+  File "/app/app/main.py", line 40, in __init__
+    self._initialize_processors()
+  File "/app/app/main.py", line 46, in _initialize_processors
+    (DocumentType.MANUAL_DOCUMENT, ManualProcessor, "ManualProcessor"),
+  File "/usr/local/lib/python3.9/enum.py", line 429, in __getattr__
+    raise AttributeError(name) from None
+AttributeError: MANUAL_DOCUMENT
+2025-07-23 18:40:00,650 [INFO] extraction: All directories ensured to exist
+2025-07-23 18:40:00,651 [INFO] extraction: Initializing PDF Outline Extractor...
+2025-07-23 18:40:00,655 [INFO] extraction: ✓ Successfully initialized FormProcessor for form
+2025-07-23 18:40:00,656 [INFO] extraction: ManualProcessor initialized successfully
+2025-07-23 18:40:00,657 [INFO] extraction: ✓ Successfully initialized ManualProcessor for manual
+2025-07-23 18:40:00,657 [INFO] extraction: ✓ Successfully initialized BusinessProcessor for business
+2025-07-23 18:40:00,658 [INFO] extraction: ✓ Successfully initialized ProgramProcessor for program
+2025-07-23 18:40:00,659 [INFO] extraction: ✓ Successfully initialized InvitationProcessor for invitation
+2025-07-23 18:40:00,660 [INFO] extraction: Total processors initialized: 5
+2025-07-23 18:40:00,660 [INFO] extraction: Available document types: ['form', 'manual', 'business', 'program', 'invitation']
+2025-07-23 18:40:00,661 [INFO] extraction: Extractor initialized successfully
+2025-07-23 18:40:00,671 [INFO] extraction: Found 5 PDF files to process
+2025-07-23 18:40:00,672 [INFO] extraction: Starting processing: file01.pdf
+2025-07-23 18:40:00,673 [INFO] extraction: Processing PDF: /app/input/file01.pdf
+2025-07-23 18:40:00,705 [INFO] extraction: PDF loaded successfully: /app/input/file01.pdf
+2025-07-23 18:40:00,795 [INFO] extraction: Extracted 28 text blocks
+2025-07-23 18:40:00,796 [INFO] extraction: Extracted 28 text blocks
+2025-07-23 18:40:00,805 [INFO] extraction: Document classified as manual (confidence: 1.00)
+2025-07-23 18:40:00,806 [INFO] extraction: Looking for processor for document type: manual
+2025-07-23 18:40:00,807 [INFO] extraction: Available processors: ['form', 'manual', 'business', 'program', 'invitation']
+2025-07-23 18:40:00,807 [INFO] extraction: Found primary processor: ManualProcessor
+2025-07-23 18:40:00,808 [INFO] extraction: Starting processing with ManualProcessor
+2025-07-23 18:40:00,808 [INFO] extraction: Processing manual document - component-driven analysis
+2025-07-23 18:40:00,809 [INFO] extraction: Processing 28 text blocks
+2025-07-23 18:40:00,813 [INFO] extraction: Font analysis completed: 28 size samples, 3 unique fonts
+2025-07-23 18:40:00,814 [INFO] extraction: Spatial analysis completed for 1 pages
+2025-07-23 18:40:00,820 [INFO] extraction: Text pattern analysis completed for 28 blocks
+2025-07-23 18:40:00,822 [INFO] extraction: Document structure analysis completed
+2025-07-23 18:40:00,823 [INFO] extraction: Extracted title: Application form for grant of LTC advance
+2025-07-23 18:40:00,826 [INFO] extraction: Selected title: 'Application form for grant of LTC advance ' using title_extractor
+2025-07-23 18:40:00,827 [INFO] extraction: Extracted title: 'Application form for grant of LTC advance '
+2025-07-23 18:40:00,827 [INFO] extraction: Extracting outline for manual document with 28 text blocks
+2025-07-23 18:40:00,829 [WARNING] extraction: No structural elements found
+2025-07-23 18:40:00,830 [INFO] extraction: Output validation passed
+2025-07-23 18:40:00,831 [INFO] extraction: Structure analyzer success: 14 items
+2025-07-23 18:40:00,831 [INFO] extraction: Extracted outline: 14 items
+2025-07-23 18:40:00,832 [INFO] extraction: ManualProcessor completed successfully
+2025-07-23 18:40:00,833 [INFO] extraction: Processing successful - Title: 'Application form for grant of LTC advance ', Outline items: 14
+2025-07-23 18:40:00,833 [INFO] extraction: Output validation passed
+2025-07-23 18:40:00,834 [INFO] extraction: JSON output formatted and validated successfully
+2025-07-23 18:40:00,834 [INFO] extraction: JSON formatting successful
+2025-07-23 18:40:00,842 [INFO] extraction: JSON output saved to /app/output/file01_outline.json
+2025-07-23 18:40:00,842 [INFO] extraction: Processing completed in 0.17 seconds
+2025-07-23 18:40:00,842 [INFO] extraction: Output saved to: /app/output/file01_outline.json
+2025-07-23 18:40:00,843 [INFO] extraction: ✓ Successfully processed: file01.pdf
+2025-07-23 18:40:00,843 [INFO] extraction: Starting processing: file02.pdf
+2025-07-23 18:40:00,844 [INFO] extraction: Processing PDF: /app/input/file02.pdf
+2025-07-23 18:40:00,894 [INFO] extraction: PDF loaded successfully: /app/input/file02.pdf
+2025-07-23 18:40:01,791 [INFO] extraction: Extracted 235 text blocks
+2025-07-23 18:40:01,792 [INFO] extraction: Extracted 235 text blocks
+2025-07-23 18:40:01,795 [INFO] extraction: Document classified as manual (confidence: 1.00)
+2025-07-23 18:40:01,795 [INFO] extraction: Looking for processor for document type: manual
+2025-07-23 18:40:01,796 [INFO] extraction: Available processors: ['form', 'manual', 'business', 'program', 'invitation']
+2025-07-23 18:40:01,796 [INFO] extraction: Found primary processor: ManualProcessor
+2025-07-23 18:40:01,797 [INFO] extraction: Starting processing with ManualProcessor
+2025-07-23 18:40:01,797 [INFO] extraction: Processing manual document - component-driven analysis
+2025-07-23 18:40:01,798 [INFO] extraction: Processing 235 text blocks
+2025-07-23 18:40:01,803 [INFO] extraction: Font analysis completed: 18 size samples, 2 unique fonts
+2025-07-23 18:40:01,804 [INFO] extraction: Spatial analysis completed for 8 pages
+2025-07-23 18:40:01,806 [INFO] extraction: Text pattern analysis completed for 18 blocks
+2025-07-23 18:40:01,807 [INFO] extraction: Document structure analysis completed
+2025-07-23 18:40:01,807 [INFO] extraction: Using default title for manual: 
+2025-07-23 18:40:01,808 [INFO] extraction: Selected title: 'Revision History  ' using semantic_block_0
+2025-07-23 18:40:01,809 [INFO] extraction: Extracted title: 'Revision History  '
+2025-07-23 18:40:01,809 [INFO] extraction: Extracting outline for manual document with 18 text blocks
+2025-07-23 18:40:01,811 [INFO] extraction: Font analysis completed: 18 size samples, 2 unique fonts
+2025-07-23 18:40:01,812 [INFO] extraction: Font analysis completed: 18 size samples, 2 unique fonts
+2025-07-23 18:40:01,813 [INFO] extraction: Spatial analysis completed for 8 pages
+2025-07-23 18:40:01,814 [INFO] extraction: Text pattern analysis completed for 18 blocks
+2025-07-23 18:40:01,815 [INFO] extraction: Document structure analysis completed
+2025-07-23 18:40:01,819 [INFO] extraction: Extracted 17 outline items
+2025-07-23 18:40:01,819 [INFO] extraction: Output validation passed
+2025-07-23 18:40:01,820 [INFO] extraction: Outline extractor success: 17 items
+2025-07-23 18:40:01,820 [INFO] extraction: Extracted outline: 17 items
+2025-07-23 18:40:01,821 [INFO] extraction: ManualProcessor completed successfully
+2025-07-23 18:40:01,821 [INFO] extraction: Processing successful - Title: 'Revision History  ', Outline items: 17
+2025-07-23 18:40:01,822 [INFO] extraction: Output validation passed
+2025-07-23 18:40:01,822 [INFO] extraction: JSON output formatted and validated successfully
+2025-07-23 18:40:01,823 [INFO] extraction: JSON formatting successful
+2025-07-23 18:40:01,828 [INFO] extraction: JSON output saved to /app/output/file02_outline.json
+2025-07-23 18:40:01,828 [INFO] extraction: Processing completed in 0.98 seconds
+2025-07-23 18:40:01,828 [INFO] extraction: Output saved to: /app/output/file02_outline.json
+2025-07-23 18:40:01,829 [INFO] extraction: ✓ Successfully processed: file02.pdf
+2025-07-23 18:40:01,830 [INFO] extraction: Starting processing: file03.pdf
+2025-07-23 18:40:01,830 [INFO] extraction: Processing PDF: /app/input/file03.pdf
+2025-07-23 18:40:01,891 [INFO] extraction: PDF loaded successfully: /app/input/file03.pdf
+2025-07-23 18:40:03,160 [INFO] extraction: Extracted 224 text blocks
+2025-07-23 18:40:03,161 [INFO] extraction: Extracted 224 text blocks
+2025-07-23 18:40:03,164 [INFO] extraction: Document classified as business (confidence: 1.00)
+2025-07-23 18:40:03,165 [INFO] extraction: Looking for processor for document type: business
+2025-07-23 18:40:03,165 [INFO] extraction: Available processors: ['form', 'manual', 'business', 'program', 'invitation']
+2025-07-23 18:40:03,166 [INFO] extraction: Found primary processor: BusinessProcessor
+2025-07-23 18:40:03,166 [INFO] extraction: Starting processing with BusinessProcessor
+2025-07-23 18:40:03,167 [INFO] extraction: Processing business document
+2025-07-23 18:40:03,168 [INFO] extraction: Extracted title: RFP: RRFP: RRFP: RRFP: Reeeequest fquest fquest fquest foooor Prr Prr Prr Proposaloposal oposaloposal
+2025-07-23 18:40:03,168 [INFO] extraction: Selected title: 'RFP: RRFP: RRFP: RRFP: Reeeequest fquest fquest fquest foooor Prr Prr Prr Proposaloposal oposaloposal  ' using title_extractor (confidence: 0.90)
+2025-07-23 18:40:03,168 [INFO] extraction: Extracting outline for business document with 224 text blocks
+2025-07-23 18:40:03,174 [INFO] extraction: Font analysis completed: 17 size samples, 3 unique fonts
+2025-07-23 18:40:03,174 [INFO] extraction: Font analysis completed: 17 size samples, 3 unique fonts
+2025-07-23 18:40:03,175 [INFO] extraction: Spatial analysis completed for 14 pages
+2025-07-23 18:40:03,179 [INFO] extraction: Text pattern analysis completed for 17 blocks
+2025-07-23 18:40:03,180 [INFO] extraction: Document structure analysis completed
+2025-07-23 18:40:03,182 [INFO] extraction: Extracted 0 outline items
+2025-07-23 18:40:03,183 [INFO] extraction: Font analysis completed: 224 size samples, 8 unique fonts
+2025-07-23 18:40:03,188 [INFO] extraction: Heading detector found 1 items
+2025-07-23 18:40:03,188 [INFO] extraction: Output validation passed
+2025-07-23 18:40:03,189 [INFO] extraction: Business validation successful - Title: 'RFP: RRFP: RRFP: RRFP: Reeeequest fquest fquest fquest foooor Prr Prr Prr Proposaloposal oposaloposal  ', Outline: 1 items
+2025-07-23 18:40:03,189 [INFO] extraction: Processing successful - Title: 'RFP: RRFP: RRFP: RRFP: Reeeequest fquest fquest fquest foooor Prr Prr Prr Proposaloposal oposaloposal  ', Outline items: 1
+2025-07-23 18:40:03,190 [INFO] extraction: Output validation passed
+2025-07-23 18:40:03,190 [INFO] extraction: JSON output formatted and validated successfully
+2025-07-23 18:40:03,191 [INFO] extraction: JSON formatting successful
+2025-07-23 18:40:03,196 [INFO] extraction: JSON output saved to /app/output/file03_outline.json
+2025-07-23 18:40:03,197 [INFO] extraction: Processing completed in 1.37 seconds
+2025-07-23 18:40:03,197 [INFO] extraction: Output saved to: /app/output/file03_outline.json
+2025-07-23 18:40:03,198 [INFO] extraction: ✓ Successfully processed: file03.pdf
+2025-07-23 18:40:03,199 [INFO] extraction: Starting processing: file04.pdf
+2025-07-23 18:40:03,199 [INFO] extraction: Processing PDF: /app/input/file04.pdf
+2025-07-23 18:40:03,257 [INFO] extraction: PDF loaded successfully: /app/input/file04.pdf
+2025-07-23 18:40:03,410 [INFO] extraction: Extracted 28 text blocks
+2025-07-23 18:40:03,411 [INFO] extraction: Extracted 28 text blocks
+2025-07-23 18:40:03,412 [INFO] extraction: Document classified as program (confidence: 1.00)
+2025-07-23 18:40:03,413 [INFO] extraction: Looking for processor for document type: program
+2025-07-23 18:40:03,414 [INFO] extraction: Available processors: ['form', 'manual', 'business', 'program', 'invitation']
+2025-07-23 18:40:03,415 [INFO] extraction: Found primary processor: ProgramProcessor
+2025-07-23 18:40:03,415 [INFO] extraction: Starting processing with ProgramProcessor
+2025-07-23 18:40:03,416 [INFO] extraction: Processing program document - pure component-driven analysis
+2025-07-23 18:40:03,417 [INFO] extraction: Font analysis completed: 28 size samples, 5 unique fonts
+2025-07-23 18:40:03,418 [INFO] extraction: Spatial analysis completed for 1 pages
+2025-07-23 18:40:03,420 [INFO] extraction: Text pattern analysis completed for 28 blocks
+2025-07-23 18:40:03,421 [INFO] extraction: Document structure analysis completed
+2025-07-23 18:40:03,422 [INFO] extraction: Font analysis completed: 28 size samples, 5 unique fonts
+2025-07-23 18:40:03,424 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 18:40:03,424 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 18:40:03,425 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 18:40:03,426 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 18:40:03,427 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 18:40:03,427 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 18:40:03,428 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 18:40:03,429 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 18:40:03,430 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 18:40:03,430 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 18:40:03,431 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 18:40:03,432 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 18:40:03,433 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 18:40:03,433 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 18:40:03,434 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 18:40:03,434 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 18:40:03,435 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 18:40:03,436 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 18:40:03,436 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 18:40:03,436 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 18:40:03,437 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 18:40:03,437 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 18:40:03,437 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 18:40:03,438 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 18:40:03,438 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 18:40:03,438 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 18:40:03,438 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 18:40:03,439 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-23 18:40:03,439 [INFO] extraction: Extracted title: Parsippany -Troy Hills STEM Pathways
+2025-07-23 18:40:03,440 [INFO] extraction: Component-validated outline item: 'PATHWAY OPTIONS' as H1 (source: structure_analyzer)
+2025-07-23 18:40:03,440 [INFO] extraction: Output validation passed
+2025-07-23 18:40:03,440 [INFO] extraction: Final validation successful - Title: 'Parsippany -Troy Hills STEM Pathways', Outline: 1 items
+2025-07-23 18:40:03,440 [INFO] extraction: Processing successful - Title: 'Parsippany -Troy Hills STEM Pathways', Outline items: 1
+2025-07-23 18:40:03,440 [INFO] extraction: Output validation passed
+2025-07-23 18:40:03,440 [INFO] extraction: JSON output formatted and validated successfully
+2025-07-23 18:40:03,440 [INFO] extraction: JSON formatting successful
+2025-07-23 18:40:03,443 [INFO] extraction: JSON output saved to /app/output/file04_outline.json
+2025-07-23 18:40:03,443 [INFO] extraction: Processing completed in 0.24 seconds
+2025-07-23 18:40:03,443 [INFO] extraction: Output saved to: /app/output/file04_outline.json
+2025-07-23 18:40:03,444 [INFO] extraction: ✓ Successfully processed: file04.pdf
+2025-07-23 18:40:03,444 [INFO] extraction: Starting processing: file05.pdf
+2025-07-23 18:40:03,444 [INFO] extraction: Processing PDF: /app/input/file05.pdf
+2025-07-23 18:40:03,457 [INFO] extraction: PDF loaded successfully: /app/input/file05.pdf
+2025-07-23 18:40:03,491 [INFO] extraction: Extracted 12 text blocks
+2025-07-23 18:40:03,492 [INFO] extraction: Extracted 12 text blocks
+2025-07-23 18:40:03,493 [INFO] extraction: Document classified as invitation (confidence: 1.00)
+2025-07-23 18:40:03,494 [INFO] extraction: Looking for processor for document type: invitation
+2025-07-23 18:40:03,495 [INFO] extraction: Available processors: ['form', 'manual', 'business', 'program', 'invitation']
+2025-07-23 18:40:03,495 [INFO] extraction: Found primary processor: InvitationProcessor
+2025-07-23 18:40:03,496 [INFO] extraction: Starting processing with InvitationProcessor
+2025-07-23 18:40:03,497 [INFO] extraction: Processing invitation document with dynamic analysis
+2025-07-23 18:40:03,499 [INFO] extraction: Font analysis completed: 1 size samples, 1 unique fonts
+2025-07-23 18:40:03,499 [INFO] extraction: Spatial analysis completed for 1 pages
+2025-07-23 18:40:03,500 [INFO] extraction: Text pattern analysis completed for 1 blocks
+2025-07-23 18:40:03,501 [INFO] extraction: Document structure analysis completed
+2025-07-23 18:40:03,502 [INFO] extraction: Font analysis completed: 1 size samples, 1 unique fonts
+2025-07-23 18:40:03,502 [INFO] extraction: Spatial analysis completed for 1 pages
+2025-07-23 18:40:03,504 [INFO] extraction: Using default title for invitation: 
+2025-07-23 18:40:03,505 [INFO] extraction: Extracting outline for invitation document with 1 text blocks
+2025-07-23 18:40:03,507 [INFO] extraction: Font analysis completed: 1 size samples, 1 unique fonts
+2025-07-23 18:40:03,507 [INFO] extraction: Font analysis completed: 1 size samples, 1 unique fonts
+2025-07-23 18:40:03,508 [INFO] extraction: Spatial analysis completed for 1 pages
+2025-07-23 18:40:03,509 [INFO] extraction: Text pattern analysis completed for 1 blocks
+2025-07-23 18:40:03,510 [INFO] extraction: Document structure analysis completed
+2025-07-23 18:40:03,511 [INFO] extraction: Extracted 0 outline items
+2025-07-23 18:40:03,512 [INFO] extraction: Added to outline: 'HOPE To SEE You THERE!' as H1 (method: semantic_analysis, confidence: 0.67)
+2025-07-23 18:40:03,512 [INFO] extraction: Output validation passed
+2025-07-23 18:40:03,513 [INFO] extraction: Output validation passed
+2025-07-23 18:40:03,513 [INFO] extraction: Processing successful - Title: '', Outline items: 1
+2025-07-23 18:40:03,514 [INFO] extraction: Output validation passed
+2025-07-23 18:40:03,515 [INFO] extraction: JSON output formatted and validated successfully
+2025-07-23 18:40:03,515 [INFO] extraction: JSON formatting successful
+2025-07-23 18:40:03,521 [INFO] extraction: JSON output saved to /app/output/file05_outline.json
+2025-07-23 18:40:03,521 [INFO] extraction: Processing completed in 0.08 seconds
+2025-07-23 18:40:03,521 [INFO] extraction: Output saved to: /app/output/file05_outline.json
+2025-07-23 18:40:03,522 [INFO] extraction: ✓ Successfully processed: file05.pdf
+2025-07-23 18:40:03,522 [INFO] extraction: Successfully processed 5/5 PDF files
