@@ -23,4 +23,3 @@ A sophisticated PDF document analysis tool that extracts hierarchical outlines f
 
 ### Local Installation
 
-"# Adobe-Smart-PDF" 

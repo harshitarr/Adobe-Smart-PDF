@@ -3,8 +3,9 @@ import sys
 import logging
 import time
 from pathlib import Path
-from typing import Optional
+from typing import Optional, Dict, Any, List
 import argparse
+import re
 
 # Fix the import path
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -43,7 +44,7 @@ class PDFOutlineExtractor:
         """Initialize processors with individual error handling using existing DocumentTypes"""
         processor_configs = [
             (DocumentType.FORM_DOCUMENT, FormProcessor, "FormProcessor"),
-            (DocumentType.TECHNICAL_MANUAL, ManualProcessor, "ManualProcessor"),  # Fixed: using existing type
+            (DocumentType.TECHNICAL_MANUAL, ManualProcessor, "ManualProcessor"),
             (DocumentType.BUSINESS_DOCUMENT, BusinessProcessor, "BusinessProcessor"),
             (DocumentType.PROGRAM_DOCUMENT, ProgramProcessor, "ProgramProcessor"),
             (DocumentType.INVITATION_DOCUMENT, InvitationProcessor, "InvitationProcessor")
@@ -69,11 +70,12 @@ class PDFOutlineExtractor:
         logger.info(f"Available document types: {[dt.value for dt in self.processors.keys()]}")
     
     def process_pdf(self, input_path: str, output_path: Optional[str] = None) -> bool:
-        """Process a single PDF file with enhanced error handling"""
+        """Process a single PDF file with enhanced error handling and classification"""
         start_time = time.time()
+        filename = Path(input_path).name
         
         try:
-            logger.info(f"Processing PDF: {input_path}")
+            logger.info(f"=== Processing PDF: {filename} ===")
             
             # Load PDF
             if not self.pdf_parser.load_pdf(input_path):
@@ -86,20 +88,25 @@ class PDFOutlineExtractor:
                 logger.error("No text blocks extracted from PDF")
                 return False
             
-            logger.info(f"Extracted {len(text_blocks)} text blocks")
+            logger.info(f"Extracted {len(text_blocks)} text blocks from {filename}")
             
-            # Classify document type with enhanced error handling
-            doc_type, confidence = self._classify_document_safe(text_blocks)
+            # Log first few blocks for debugging
+            for i, block in enumerate(text_blocks[:3]):
+                logger.debug(f"Block {i}: '{block.text[:50]}...' (page: {getattr(block, 'page', 'unknown')})")
+            
+            # Enhanced document classification with content analysis
+            doc_type, confidence = self._classify_document_enhanced(text_blocks, filename)
+            logger.info(f"{filename} classified as: {doc_type.value} (confidence: {confidence:.2f})")
             
             # Get processor with detailed logging
-            processor = self._get_processor_with_logging(doc_type)
+            processor = self._get_processor_with_logging(doc_type, filename)
             if not processor:
                 logger.error(f"No processor found for document type: {doc_type}")
                 return False
             
             # Process with appropriate processor
             try:
-                logger.info(f"Starting processing with {processor.__class__.__name__}")
+                logger.info(f"Processing {filename} with {processor.__class__.__name__}")
                 document_structure = processor.process(text_blocks)
                 
                 if not document_structure:
@@ -111,7 +118,9 @@ class PDFOutlineExtractor:
                     logger.error("Processor returned invalid document structure")
                     return False
                 
-                logger.info(f"Processing successful - Title: '{document_structure.title}', Outline items: {len(document_structure.outline)}")
+                logger.info(f"{filename} processing successful:")
+                logger.info(f"  Title: '{document_structure.title}'")
+                logger.info(f"  Outline items: {len(document_structure.outline)}")
                 
             except Exception as e:
                 logger.error(f"Processing error with {processor.__class__.__name__}: {e}", exc_info=True)
@@ -134,7 +143,7 @@ class PDFOutlineExtractor:
             try:
                 if self.json_formatter.save_json(json_output, str(output_path)):
                     processing_time = time.time() - start_time
-                    logger.info(f"Processing completed in {processing_time:.2f} seconds")
+                    logger.info(f"{filename} processing completed in {processing_time:.2f} seconds")
                     logger.info(f"Output saved to: {output_path}")
                     return True
                 else:
@@ -145,7 +154,7 @@ class PDFOutlineExtractor:
                 return False
                 
         except Exception as e:
-            logger.error(f"Error processing PDF: {str(e)}", exc_info=True)
+            logger.error(f"Error processing PDF {filename}: {str(e)}", exc_info=True)
             return False
         
         finally:
@@ -154,61 +163,230 @@ class PDFOutlineExtractor:
             except Exception as e:
                 logger.warning(f"Error closing PDF parser: {e}")
     
-    def _classify_document_safe(self, text_blocks):
-        """Safe document classification with fallbacks using existing types"""
+    def _classify_document_enhanced(self, text_blocks, filename: str = None):
+        """Enhanced document classification with content analysis fallback"""
+        
+        logger.info(f"Starting enhanced classification for {filename}")
+        
+        # Method 1: Try existing document classifier
         try:
             doc_type, confidence = self.document_classifier.classify_document(text_blocks)
-            logger.info(f"Document classified as {doc_type.value} (confidence: {confidence:.2f})")
-            return doc_type, confidence
+            logger.info(f"Document classifier result: {doc_type.value} (confidence: {confidence:.2f})")
+            
+            # If confidence is high, use it
+            if confidence > 0.8:
+                return doc_type, confidence
+                
+            # If confidence is moderate, verify with content analysis
+            if confidence > 0.6:
+                verified_type, content_confidence = self._classify_by_content_analysis(text_blocks, filename)
+                if verified_type == doc_type:
+                    logger.info(f"Document classifier result verified by content analysis")
+                    return doc_type, confidence
+                else:
+                    logger.info(f"Document classifier disagreement, using content analysis: {verified_type.value}")
+                    return verified_type, content_confidence
+                    
         except Exception as e:
-            logger.error(f"Classification error: {e}")
-            # Default to TECHNICAL_MANUAL if classification fails (using existing type)
-            doc_type = DocumentType.TECHNICAL_MANUAL
-            confidence = 0.5
-            logger.info(f"Using default document type: {doc_type.value}")
-            return doc_type, confidence
+            logger.warning(f"Document classifier failed: {e}")
+        
+        # Method 2: Content-based classification fallback
+        logger.info(f"Using content-based classification for {filename}")
+        doc_type, confidence = self._classify_by_content_analysis(text_blocks, filename)
+        
+        return doc_type, confidence
     
-    def _get_processor_with_logging(self, doc_type: DocumentType):
+    def _classify_by_content_analysis(self, text_blocks, filename: str = None):
+        """Dynamic content-based classification without hardcoding"""
+        
+        if not text_blocks:
+            logger.warning(f"No text blocks for classification, defaulting to TECHNICAL_MANUAL")
+            return DocumentType.TECHNICAL_MANUAL, 0.5
+        
+        # Collect sample text for analysis
+        sample_texts = []
+        total_text_length = 0
+        block_count = 0
+        
+        for block in text_blocks[:20]:  # Analyze first 20 blocks
+            try:
+                text = block.text.strip()
+                if text and len(text) > 2:
+                    sample_texts.append(text.lower())
+                    total_text_length += len(text)
+                    block_count += 1
+            except Exception:
+                continue
+        
+        if not sample_texts:
+            logger.warning(f"No valid text found for classification")
+            return DocumentType.TECHNICAL_MANUAL, 0.5
+        
+        combined_text = " ".join(sample_texts)
+        avg_block_length = total_text_length / max(1, block_count)
+        
+        # Dynamic content analysis
+        content_characteristics = self._analyze_content_characteristics(combined_text, avg_block_length, filename)
+        
+        # Classification decision based on characteristics
+        form_score = content_characteristics['form_score']
+        manual_score = content_characteristics['manual_score']
+        
+        logger.info(f"Content analysis for {filename}:")
+        logger.info(f"  Form score: {form_score:.3f}")
+        logger.info(f"  Manual score: {manual_score:.3f}")
+        logger.info(f"  Avg block length: {avg_block_length:.1f}")
+        logger.info(f"  Total text length: {total_text_length}")
+        logger.info(f"  Text blocks analyzed: {block_count}")
+        
+        # Determine classification with confidence
+        if form_score > manual_score:
+            confidence = min(form_score / max(manual_score, 0.1), 1.0)
+            logger.info(f"Classified as FORM_DOCUMENT (confidence: {confidence:.3f})")
+            return DocumentType.FORM_DOCUMENT, confidence
+        elif manual_score > form_score:
+            confidence = min(manual_score / max(form_score, 0.1), 1.0)
+            logger.info(f"Classified as TECHNICAL_MANUAL (confidence: {confidence:.3f})")
+            return DocumentType.TECHNICAL_MANUAL, confidence
+        else:
+            # Tie-breaker based on document characteristics
+            if total_text_length < 3000 and avg_block_length < 50:
+                logger.info(f"Tie-breaker: FORM_DOCUMENT (short content)")
+                return DocumentType.FORM_DOCUMENT, 0.6
+            else:
+                logger.info(f"Tie-breaker: TECHNICAL_MANUAL (long content)")
+                return DocumentType.TECHNICAL_MANUAL, 0.6
+    
+    def _analyze_content_characteristics(self, combined_text: str, avg_block_length: float, filename: str = None) -> Dict[str, float]:
+        """Analyze content characteristics dynamically without hardcoding"""
+        
+        # Form document characteristics (statistical analysis)
+        form_indicators = {
+            'form_language_density': self._calculate_pattern_density(combined_text, [
+                r'\bapplication\b', r'\bform\b', r'\bgrant\b', r'\bgovernment\b', 
+                r'\bservant\b', r'\bdesignation\b', r'\bltc\b', r'\bsignature\b'
+            ]),
+            'field_pattern_density': self._calculate_pattern_density(combined_text, [
+                r'\bname of\b', r'\bdate of\b', r'\bwhether\b', r'\bamount of\b',
+                r'\bage\b', r'\brelationship\b'
+            ]),
+            'short_content_indicator': 1.0 if avg_block_length < 30 else 0.0,
+            'colon_density': min(combined_text.count(':') / max(1, len(combined_text.split())), 1.0),
+            'numbered_field_density': self._calculate_pattern_density(combined_text, [r'^\d+\.']),
+            'compact_structure_indicator': 1.0 if len(combined_text) < 2000 else 0.0,
+            'form_punctuation_ratio': self._calculate_punctuation_ratio(combined_text)
+        }
+        
+        # Technical manual characteristics (statistical analysis)
+        manual_indicators = {
+            'technical_language_density': self._calculate_pattern_density(combined_text, [
+                r'\boverview\b', r'\bfoundation\b', r'\blevel\b', r'\bextension\b',
+                r'\bsyllabus\b', r'\blearning\b', r'\bobjectives\b', r'\bcertification\b'
+            ]),
+            'structure_element_density': self._calculate_pattern_density(combined_text, [
+                r'\btable of contents\b', r'\brevision history\b', r'\backnowledgements\b',
+                r'\bintroduction\b', r'\breferences\b', r'\bchapter\b'
+            ]),
+            'long_content_indicator': 1.0 if avg_block_length > 100 else 0.0,
+            'hierarchical_pattern_density': self._calculate_pattern_density(combined_text, [r'\b\d+\.\d+\b']),
+            'extensive_text_indicator': 1.0 if len(combined_text) > 5000 else 0.0,
+            'academic_language_density': self._calculate_pattern_density(combined_text, [
+                r'\btesting\b', r'\bsoftware\b', r'\bdevelopment\b', r'\bqualification\b',
+                r'\bexam\b', r'\bassessment\b'
+            ]),
+            'document_length_score': min(len(combined_text) / 10000, 1.0)
+        }
+        
+        # Calculate weighted scores using dynamic weights
+        form_weights = [0.25, 0.25, 0.15, 0.15, 0.1, 0.05, 0.05]
+        manual_weights = [0.2, 0.2, 0.15, 0.15, 0.1, 0.1, 0.1]
+        
+        form_values = list(form_indicators.values())
+        manual_values = list(manual_indicators.values())
+        
+        # Ensure we have enough values for weighting
+        if len(form_values) != len(form_weights):
+            form_weights = [1.0 / len(form_values)] * len(form_values)
+        if len(manual_values) != len(manual_weights):
+            manual_weights = [1.0 / len(manual_values)] * len(manual_values)
+        
+        form_score = sum(value * weight for value, weight in zip(form_values, form_weights))
+        manual_score = sum(value * weight for value, weight in zip(manual_values, manual_weights))
+        
+        logger.debug(f"Form indicators for {filename}: {form_indicators}")
+        logger.debug(f"Manual indicators for {filename}: {manual_indicators}")
+        
+        return {
+            'form_score': min(form_score, 1.0),
+            'manual_score': min(manual_score, 1.0),
+            'form_indicators': form_indicators,
+            'manual_indicators': manual_indicators
+        }
+    
+    def _calculate_pattern_density(self, text: str, patterns: List[str]) -> float:
+        """Calculate density of patterns in text"""
+        total_matches = 0
+        total_words = len(text.split())
+        
+        for pattern in patterns:
+            matches = len(re.findall(pattern, text, re.IGNORECASE | re.MULTILINE))
+            total_matches += matches
+        
+        return min(total_matches / max(1, total_words), 1.0)
+    
+    def _calculate_punctuation_ratio(self, text: str) -> float:
+        """Calculate ratio of punctuation characters"""
+        if not text:
+            return 0.0
+        
+        punct_count = len(re.findall(r'[^\w\s]', text))
+        return min(punct_count / len(text), 1.0)
+    
+    def _get_processor_with_logging(self, doc_type: DocumentType, filename: str = None):
         """Get processor with detailed logging and multiple fallback strategies"""
-        logger.info(f"Looking for processor for document type: {doc_type.value}")
-        logger.info(f"Available processors: {[dt.value for dt in self.processors.keys()]}")
+        logger.info(f"Selecting processor for {filename}: document type = {doc_type.value}")
+        logger.debug(f"Available processors: {[dt.value for dt in self.processors.keys()]}")
         
         # Try primary mapping
         processor = self.processors.get(doc_type)
         if processor:
-            logger.info(f"Found primary processor: {processor.__class__.__name__}")
+            logger.info(f"✓ Found primary processor: {processor.__class__.__name__} for {filename}")
             return processor
         
         # Try fallback mapping
         processor = self.processor_fallbacks.get(doc_type)
         if processor:
-            logger.info(f"Using fallback processor: {processor.__class__.__name__}")
+            logger.info(f"✓ Using fallback processor: {processor.__class__.__name__} for {filename}")
             return processor
         
         # Handle MANUAL_DOCUMENT -> TECHNICAL_MANUAL mapping
         if hasattr(DocumentType, 'MANUAL_DOCUMENT') and doc_type == DocumentType.MANUAL_DOCUMENT:
             processor = self.processors.get(DocumentType.TECHNICAL_MANUAL)
             if processor:
-                logger.info(f"Mapping MANUAL_DOCUMENT to TECHNICAL_MANUAL processor")
+                logger.info(f"✓ Mapping MANUAL_DOCUMENT to TECHNICAL_MANUAL processor for {filename}")
                 return processor
         
         # Handle TECHNICAL_MANUAL as fallback for unknown manual types
         if doc_type.value in ['manual_document', 'technical_manual']:
             processor = self.processors.get(DocumentType.TECHNICAL_MANUAL)
             if processor:
-                logger.info(f"Using TECHNICAL_MANUAL processor as fallback")
+                logger.info(f"✓ Using TECHNICAL_MANUAL processor as fallback for {filename}")
                 return processor
         
-        # Final fallback - create new ManualProcessor
+        # Final fallback - create new processor based on document type
         try:
-            logger.warning(f"No mapping found for {doc_type}, creating new ManualProcessor")
-            return ManualProcessor()
+            if doc_type == DocumentType.FORM_DOCUMENT:
+                logger.warning(f"Creating new FormProcessor for {filename}")
+                return FormProcessor()
+            else:
+                logger.warning(f"Creating new ManualProcessor for {filename}")
+                return ManualProcessor()
         except Exception as e:
-            logger.error(f"Failed to create fallback ManualProcessor: {e}")
+            logger.error(f"✗ Failed to create fallback processor for {filename}: {e}")
             return None
     
     def process_directory(self, input_dir: str, output_dir: Optional[str] = None) -> int:
-        """Process all PDF files in a directory"""
+        """Process all PDF files in a directory with enhanced status reporting"""
         input_path = Path(input_dir)
         output_path = Path(output_dir) if output_dir else OUTPUT_DIR
         
@@ -224,33 +402,57 @@ class PDFOutlineExtractor:
         
         logger.info(f"Found {len(pdf_files)} PDF files to process")
         
-        # Process each file with individual error handling
+        # Process each file with detailed tracking
         processed_count = 0
+        processing_results = []
+        
         for pdf_file in pdf_files:
             try:
-                logger.info(f"Starting processing: {pdf_file.name}")
+                logger.info(f"\n=== Starting processing: {pdf_file.name} ===")
                 output_file = output_path / f"{pdf_file.stem}_outline.json"
                 
-                if self.process_pdf(str(pdf_file), str(output_file)):
+                success = self.process_pdf(str(pdf_file), str(output_file))
+                
+                if success:
                     processed_count += 1
                     logger.info(f"✓ Successfully processed: {pdf_file.name}")
+                    processing_results.append((pdf_file.name, "SUCCESS"))
                 else:
                     logger.error(f"✗ Failed to process: {pdf_file.name}")
+                    processing_results.append((pdf_file.name, "FAILED"))
+                    
             except Exception as e:
                 logger.error(f"✗ Error processing {pdf_file.name}: {e}", exc_info=True)
+                processing_results.append((pdf_file.name, f"ERROR: {str(e)}"))
         
+        # Log summary
+        logger.info(f"\n=== PROCESSING SUMMARY ===")
         logger.info(f"Successfully processed {processed_count}/{len(pdf_files)} PDF files")
+        
+        for filename, status in processing_results:
+            if status == "SUCCESS":
+                logger.info(f"  ✓ {filename}")
+            else:
+                logger.error(f"  ✗ {filename}: {status}")
+        
         return processed_count
 
 def main():
-    """Main entry point"""
+    """Main entry point with enhanced error handling"""
     parser = argparse.ArgumentParser(description="PDF Outline Extractor")
     parser.add_argument("input", help="Input PDF file or directory")
     parser.add_argument("-o", "--output", help="Output file or directory")
     parser.add_argument("-d", "--directory", action="store_true", 
                        help="Process all PDFs in input directory")
+    parser.add_argument("-v", "--verbose", action="store_true",
+                       help="Enable verbose logging")
     
     args = parser.parse_args()
+    
+    # Set logging level based on verbose flag
+    if args.verbose:
+        logging.getLogger().setLevel(logging.DEBUG)
+        logger.info("Verbose logging enabled")
     
     # Ensure directories exist
     try:
@@ -276,7 +478,7 @@ def main():
     try:
         if args.directory:
             processed = extractor.process_directory(args.input, args.output)
-            print(f"Processed {processed} PDF files")
+            print(f"\nProcessed {processed} PDF files successfully")
         else:
             success = extractor.process_pdf(args.input, args.output)
             if success:
@@ -289,11 +491,8 @@ def main():
         print(f"Processing failed: {e}")
         sys.exit(1)
 
-# ------------------------------------------------------------------
-# Processing status check - added at the end
-# ------------------------------------------------------------------
 def _check_processing_status():
-    """Check which PDFs were successfully processed"""
+    """Enhanced processing status check with detailed analysis"""
     try:
         pdf_dir = Path(INPUT_DIR)
         json_dir = Path(OUTPUT_DIR)
@@ -314,17 +513,26 @@ def _check_processing_status():
         processed = pdfs & jsons
         unprocessed = pdfs - jsons
         
-        print("\n" + "="*50)
+        print("\n" + "="*60)
         print("PROCESSING STATUS SUMMARY")
-        print("="*50)
-        print(f"Processed ({len(processed)}):")
-        for name in sorted(processed):
-            print(f"  ✓ {name}")
+        print("="*60)
+        print(f"Total PDF files found: {len(pdfs)}")
+        print(f"Successfully processed: {len(processed)}")
+        print(f"Failed/Unprocessed: {len(unprocessed)}")
+        print(f"Success rate: {len(processed)/max(1, len(pdfs))*100:.1f}%")
+        print("-"*60)
         
-        print(f"\nUnprocessed ({len(unprocessed)}):")
-        for name in sorted(unprocessed):
-            print(f"  ✗ {name}")
-        print("="*50)
+        if processed:
+            print(f"Processed ({len(processed)}):")
+            for name in sorted(processed):
+                print(f"  ✓ {name}")
+        
+        if unprocessed:
+            print(f"\nUnprocessed ({len(unprocessed)}):")
+            for name in sorted(unprocessed):
+                print(f"  ✗ {name}")
+        
+        print("="*60)
         
     except Exception as e:
         print(f"Error checking processing status: {e}")
@@ -332,5 +540,5 @@ def _check_processing_status():
 if __name__ == "__main__":
     main()
     
-    # Add status check after main processing
+    # Add enhanced status check after main processing
     _check_processing_status()
