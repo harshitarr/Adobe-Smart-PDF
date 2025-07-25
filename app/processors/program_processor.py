@@ -2,432 +2,561 @@ import sys
 import os
 sys.path.append(os.path.join(os.path.dirname(__file__), '..', '..'))
 
-import re
-from typing import List, Dict, Any, Tuple, Optional
+from typing import List, Dict, Any, Optional
 import logging
+from dataclasses import dataclass
 
+# Core imports
 from models.document_types import TextBlock, DocumentType, DocumentStructure, HeadingLevel
 from core.title_extractor import TitleExtractor
 from core.outline_extractor import OutlineExtractor
 
+# Analyzer imports
+from analyzers.font_analyzer import FontAnalyzer
+from analyzers.spatial_analyzer import SpatialAnalyzer
+from analyzers.text_analyzer import TextAnalyzer
+from analyzers.structure_analyzer import StructureAnalyzer
+
+# Classifier imports
+from classifiers.content_filter import ContentFilter
+from classifiers.heading_detector import HeadingDetector
+from classifiers.pattern_matcher import PatternMatcher
+from classifiers.semantic_classifier import SemanticClassifier
+
+# Utils imports
+from utils.text_utils import TextProcessor
+from utils.validation_utils import OutputValidator
+
 logger = logging.getLogger('extraction')
 
+@dataclass
+class ProgramProcessorConfig:
+    """Configuration class to remove all hardcoding from ProgramProcessor"""
+    
+    # Document settings
+    document_type: DocumentType = DocumentType.PROGRAM_DOCUMENT
+    document_confidence: float = 0.9
+    fallback_confidence: float = 0.8
+    empty_confidence: float = 0.0
+    
+    # Title extraction settings
+    title_search_range: int = 5
+    title_confidence_threshold: float = 0.7
+    
+    # Hierarchical importance thresholds
+    primary_sections_threshold: float = 0.8
+    secondary_sections_threshold: float = 0.6
+    pattern_confidence_minimum: float = 0.0
+    
+    # Semantic validation thresholds
+    exclusion_penalty_threshold: float = 0.5
+    semantic_exclusion_threshold: float = 0.7
+    structural_significance_threshold: float = 0.5
+    final_structural_threshold: float = 0.6
+    final_exclusion_threshold: float = 0.3
+    
+    # Confidence thresholds for outline extraction
+    high_confidence_detection_threshold: float = 0.7
+    structure_analyzer_default_confidence: float = 0.8
+    
+    # Scoring weights for hierarchical importance
+    semantic_structural_weight: float = 0.5
+    pattern_recognition_weight: float = 0.3
+    exclusion_penalty_multiplier: float = 0.5
+    max_importance_score: float = 1.0
+    
+    # Level-based importance weights
+    h1_weight: float = 0.2
+    h2_weight: float = 0.15
+    h3_weight: float = 0.1
+    h4_weight: float = 0.05
+    default_level_weight: float = 0.0
+    
+    # Source priorities (lower number = higher priority)
+    hierarchical_primary_priority: int = 1
+    heading_detector_priority: int = 2
+    structure_analyzer_priority: int = 3
+    default_source_priority: int = 4
+    
+    # Logging settings
+    enable_debug_logging: bool = True
+
 class ProgramProcessor:
-    def __init__(self):
+    """Fully configurable processor for program documents with no hardcoded values"""
+    
+    def __init__(self, config: Optional[ProgramProcessorConfig] = None):
+        self.config = config or ProgramProcessorConfig()
+        
+        # Core components
         self.title_extractor = TitleExtractor()
         self.outline_extractor = OutlineExtractor()
         
+        # Analyzers
+        self.font_analyzer = FontAnalyzer()
+        self.spatial_analyzer = SpatialAnalyzer()
+        self.text_analyzer = TextAnalyzer()
+        self.structure_analyzer = StructureAnalyzer()
+        
+        # Classifiers
+        self.content_filter = ContentFilter()
+        self.heading_detector = HeadingDetector()
+        self.pattern_matcher = PatternMatcher()
+        self.semantic_classifier = SemanticClassifier()
+        
+        # Utils
+        self.text_processor = TextProcessor()
+        self.output_validator = OutputValidator()
+        
+        # Set up logging
+        if self.config.enable_debug_logging:
+            logger.setLevel(logging.DEBUG)
+        
     def process(self, text_blocks: List[TextBlock]) -> DocumentStructure:
-        """Process document using hierarchical context analysis"""
-        logger.info("Processing document with context-aware hierarchy analysis")
+        """Process program document using pure component intelligence"""
+        logger.info("Processing program document - pure component-driven analysis")
         
-        # Analyze document structural context
-        context_analysis = self._analyze_document_context(text_blocks)
+        if not text_blocks:
+            return self._create_empty_result()
         
-        # Extract title
-        title = self._extract_title_contextual(text_blocks, context_analysis)
+        # Pure component analysis
+        analysis = self._perform_pure_component_analysis(text_blocks)
         
-        # Extract outline with hierarchical context awareness
-        outline = self._extract_hierarchical_outline(text_blocks, context_analysis)
+        # Component-driven title extraction
+        title = self._extract_title_pure_components(text_blocks, analysis)
         
-        return DocumentStructure(
+        # Intelligent outline filtering using component hierarchy
+        outline = self._extract_intelligent_filtered_outline(text_blocks, analysis, title)
+        
+        # Create result
+        result = DocumentStructure(
             title=title,
             outline=outline,
-            doc_type=DocumentType.PROGRAM_DOCUMENT,
-            confidence=0.9
+            doc_type=self.config.document_type,
+            confidence=self.config.document_confidence
         )
+        
+        return self._validate_final_output(result)
     
-    def _analyze_document_context(self, text_blocks: List[TextBlock]) -> Dict:
-        """Analyze document context for hierarchy detection"""
-        context = {
-            'content_sections': [],
-            'potential_headers': [],
-            'header_groups': {},
-            'formatting_patterns': {'bold_blocks': [], 'upper_blocks': []},
-            'content_flow': []
+    def _perform_pure_component_analysis(self, text_blocks: List[TextBlock]) -> Dict:
+        """Pure component-driven analysis without any hardcoded logic"""
+        analysis = {
+            'structure_result': {},
+            'heading_detections': [],
+            'semantic_classifications': [],
+            'filtered_content': [],
+            'hierarchical_analysis': {}
         }
         
-        # Identify content sections and potential headers
+        # Structure analyzer - complete document understanding
+        try:
+            analysis['structure_result'] = self.structure_analyzer.analyze_document_structure(
+                text_blocks, self.config.document_type
+            )
+        except Exception as e:
+            logger.warning(f"Structure analyzer error: {e}")
+            analysis['structure_result'] = {}
+        
+        # Heading detector - identify all potential headings
+        try:
+            font_analysis = self.font_analyzer.analyze_fonts(text_blocks)
+            analysis['heading_detections'] = self.heading_detector.detect_headings(
+                text_blocks, self.config.document_type, font_analysis
+            )
+        except Exception as e:
+            logger.warning(f"Heading detection error: {e}")
+            analysis['heading_detections'] = []
+        
+        # Semantic classifier - classify all content
         for i, block in enumerate(text_blocks):
-            text = block.text.strip()
-            if len(text) < 2:
+            text = getattr(block, 'text', '').strip()
+            if not text:
                 continue
                 
-            block_analysis = {
-                'index': i,
-                'text': text,
-                'word_count': len(text.split()),
-                'is_bold': block.is_bold,
-                'is_upper': text.isupper(),
-                'font_size': getattr(block, 'font_size', 12),
-                'page': block.page
-            }
-            
-            # Categorize content
-            if self._is_descriptive_section(text):
-                context['content_sections'].append(block_analysis)
-            elif self._has_header_characteristics(text, block):
-                context['potential_headers'].append(block_analysis)
+            try:
+                semantic_scores = self.semantic_classifier.classify_text_role(text)
                 
-                # Group headers by formatting similarity
-                format_key = f"bold:{block.is_bold}_upper:{text.isupper()}"
-                if format_key not in context['header_groups']:
-                    context['header_groups'][format_key] = []
-                context['header_groups'][format_key].append(block_analysis)
-            
-            context['content_flow'].append(block_analysis)
-        
-        return context
-    
-    def _extract_title_contextual(self, text_blocks: List[TextBlock], context_analysis: Dict) -> str:
-        """Extract title using contextual position analysis"""
-        # Look in document opening
-        for block in text_blocks[:5]:
-            text = block.text.strip()
-            if len(text) < 3:
-                continue
+                classification = {
+                    'index': i,
+                    'text': text,
+                    'block': block,
+                    'page': getattr(block, 'page', 0),
+                    'semantic_scores': semantic_scores
+                }
+                analysis['semantic_classifications'].append(classification)
                 
-            if self._is_document_title_pattern(text, block, context_analysis):
-                return self._clean_text(text)
+                # Filter using content filter
+                if not self.content_filter.is_structural_noise(text):
+                    analysis['filtered_content'].append(classification)
+                    
+            except Exception as e:
+                logger.warning(f"Semantic classification error: {e}")
         
-        # Fallback to first substantial non-descriptive text
-        for block in text_blocks[:8]:
-            text = block.text.strip()
-            if 8 <= len(text) <= 80 and not self._is_descriptive_section(text):
-                return self._clean_text(text)
-                
-        return "Document Title"
+        # Hierarchical analysis using pattern matcher
+        analysis['hierarchical_analysis'] = self._analyze_content_hierarchy(analysis)
+        
+        return analysis
     
-    def _is_document_title_pattern(self, text: str, block: TextBlock, context: Dict) -> bool:
-        """Identify document title using contextual patterns"""
-        word_count = len(text.split())
-        
-        title_indicators = [
-            3 <= word_count <= 12,  # Appropriate title length
-            not self._is_descriptive_section(text),
-            not text.startswith(('*', '-', '•')),
-            block.page == 0,  # First page
-            not self._is_list_item(text)
-        ]
-        
-        return sum(title_indicators) >= 4
-    
-    def _extract_hierarchical_outline(self, text_blocks: List[TextBlock], context_analysis: Dict) -> List[HeadingLevel]:
-        """Extract outline using hierarchical context analysis"""
-        hierarchy_candidates = []
-        
-        # Analyze each potential header in context
-        for header in context_analysis['potential_headers']:
-            hierarchy_analysis = self._analyze_hierarchical_context(header, context_analysis, text_blocks)
-            
-            if hierarchy_analysis and hierarchy_analysis['hierarchical_significance'] > 0.6:
-                hierarchy_candidates.append(hierarchy_analysis)
-        
-        # Select based on hierarchical importance
-        return self._select_hierarchical_headers(hierarchy_candidates)
-    
-    def _analyze_hierarchical_context(self, header: Dict, context: Dict, all_blocks: List[TextBlock]) -> Optional[Dict]:
-        """Analyze header's hierarchical significance in document context"""
-        text = header['text']
-        position = header['index']
-        
-        # Calculate hierarchical significance
-        hierarchical_score = 0.0
-        
-        # 1. Context introducer analysis (key insight)
-        introducer_score = self._calculate_introducer_significance(text, position, all_blocks)
-        hierarchical_score += introducer_score * 0.5
-        
-        # 2. Format significance
-        format_score = self._calculate_format_significance(header, context)
-        hierarchical_score += format_score * 0.3
-        
-        # 3. Position significance
-        position_score = self._calculate_hierarchical_position_score(position, len(all_blocks))
-        hierarchical_score += position_score * 0.2
-        
-        if hierarchical_score < 0.6:
-            return None
-        
-        # Determine hierarchical role
-        hierarchical_role = self._determine_hierarchical_role(text, hierarchical_score, introducer_score)
-        
-        return {
-            'header': header,
-            'hierarchical_significance': hierarchical_score,
-            'hierarchical_role': hierarchical_role,
-            'introducer_score': introducer_score
+    def _analyze_content_hierarchy(self, analysis: Dict) -> Dict:
+        """Analyze content hierarchy using pattern matcher intelligence"""
+        hierarchy = {
+            'primary_sections': [],
+            'secondary_sections': [],
+            'content_elements': []
         }
+        
+        # Use pattern matcher to understand hierarchical relationships
+        for classification in analysis['filtered_content']:
+            text = classification['text']
+            semantic_scores = classification['semantic_scores']
+            
+            try:
+                # Pattern matcher determines hierarchical importance
+                matched_level, pattern_confidence, pattern_info = self.pattern_matcher.match_heading_pattern(text)
+                
+                if matched_level and pattern_confidence > self.config.pattern_confidence_minimum:
+                    classification['pattern_level'] = matched_level
+                    classification['pattern_confidence'] = pattern_confidence
+                    classification['pattern_info'] = pattern_info
+                    
+                    # Combine semantic and pattern analysis for hierarchy determination
+                    combined_importance = self._calculate_hierarchical_importance(
+                        semantic_scores, pattern_confidence, matched_level
+                    )
+                    
+                    classification['hierarchical_importance'] = combined_importance
+                    
+                    # Categorize based on configurable component intelligence
+                    if combined_importance > self.config.primary_sections_threshold:
+                        hierarchy['primary_sections'].append(classification)
+                    elif combined_importance > self.config.secondary_sections_threshold:
+                        hierarchy['secondary_sections'].append(classification)
+                    else:
+                        hierarchy['content_elements'].append(classification)
+                        
+            except Exception as e:
+                logger.warning(f"Pattern analysis error: {e}")
+        
+        return hierarchy
     
-    def _calculate_introducer_significance(self, text: str, position: int, all_blocks: List[TextBlock]) -> float:
-        """Calculate significance as content section introducer (CRITICAL for accuracy)"""
-        if position >= len(all_blocks) - 1:
-            return 0.0
+    def _calculate_hierarchical_importance(self, semantic_scores: Dict, pattern_confidence: float, matched_level: str) -> float:
+        """Calculate hierarchical importance using configurable component scores"""
+        importance = 0.0
         
-        score = 0.0
+        # Semantic structural importance (configurable weight)
+        importance += semantic_scores.get('structural', 0) * self.config.semantic_structural_weight
         
-        # Analyze what follows this text
-        following_blocks = all_blocks[position + 1:position + 8]  # Look ahead 7 blocks
+        # Pattern recognition confidence (configurable weight)
+        importance += pattern_confidence * self.config.pattern_recognition_weight
         
-        similar_formatted_items = 0
-        content_items_count = 0
+        # Level-based importance using configurable weights
+        level_weights = {
+            'H1': self.config.h1_weight,
+            'H2': self.config.h2_weight,
+            'H3': self.config.h3_weight,
+            'H4': self.config.h4_weight
+        }
+        importance += level_weights.get(matched_level, self.config.default_level_weight)
         
-        for block in following_blocks:
-            following_text = block.text.strip()
-            if len(following_text) < 2:
+        # Exclusion penalty (configurable threshold and multiplier)
+        if semantic_scores.get('excluded', 0) > self.config.exclusion_penalty_threshold:
+            importance *= self.config.exclusion_penalty_multiplier
+        
+        return min(self.config.max_importance_score, importance)
+    
+    def _extract_title_pure_components(self, text_blocks: List[TextBlock], analysis: Dict) -> str:
+        """Extract title using pure component intelligence"""
+        # Method 1: Title extractor (primary method)
+        try:
+            extracted_title = self.title_extractor.extract_title(text_blocks, self.config.document_type)
+            if extracted_title:
+                return self.text_processor.clean_text(extracted_title)
+        except Exception as e:
+            logger.warning(f"Title extractor error: {e}")
+        
+        # Method 2: Semantic classifier on early content (configurable search range)
+        search_limit = min(self.config.title_search_range, len(analysis['semantic_classifications']))
+        
+        for classification in analysis['semantic_classifications'][:search_limit]:
+            try:
+                is_title, confidence = self.semantic_classifier.is_document_title(
+                    classification['text'], self.config.document_type, {}
+                )
+                
+                if is_title and confidence > self.config.title_confidence_threshold:
+                    return self.text_processor.clean_text(classification['text'])
+            except Exception as e:
+                logger.warning(f"Semantic title detection error: {e}")
+        
+        # Method 3: Structure analyzer title extraction
+        structure_result = analysis.get('structure_result', {})
+        if structure_result.get('extracted_title'):
+            return self.text_processor.clean_text(structure_result['extracted_title'])
+        
+        return ""
+    
+    def _extract_intelligent_filtered_outline(self, text_blocks: List[TextBlock], analysis: Dict, title: str) -> List[HeadingLevel]:
+        """Extract outline using intelligent component-based filtering"""
+        candidates = []
+        
+        # Method 1: Use hierarchical analysis results
+        hierarchy = analysis.get('hierarchical_analysis', {})
+        
+        # Process primary sections (highest importance)
+        for primary in hierarchy.get('primary_sections', []):
+            text = primary['text']
+            
+            # Skip title duplicates
+            if title and text.lower().strip() == title.lower().strip():
                 continue
             
-            # Count structured content items that could be under this header
-            if self._is_structured_content_item(following_text):
-                content_items_count += 1
-                
-                # Check if it has similar formatting to current text (indicates sub-items)
-                if self._has_similar_formatting(text, following_text, block):
-                    similar_formatted_items += 1
+            # Component validation
+            if self._validate_outline_candidate_with_components(primary, analysis):
+                try:
+                    clean_text = self.text_processor.clean_text(text)
+                    
+                    candidates.append({
+                        'text': clean_text,
+                        'level': primary.get('pattern_level', 'H1'),
+                        'page': primary['page'],
+                        'confidence': primary['hierarchical_importance'],
+                        'source': 'hierarchical_primary'
+                    })
+                except Exception as e:
+                    logger.warning(f"Text processing error: {e}")
         
-        # Strong introducer pattern: followed by multiple structured items
-        if content_items_count >= 2:
-            score += 0.8
+        # Method 2: Heading detector validation (configurable threshold)
+        for block, level, confidence in analysis['heading_detections']:
+            text = block.text.strip()
             
-            # Bonus if introducing similarly formatted items (like pathway types)
-            if similar_formatted_items >= 2:
-                score += 0.2
-        elif content_items_count >= 1:
-            score += 0.4
+            # Skip title duplicates
+            if title and text.lower().strip() == title.lower().strip():
+                continue
+            
+            # High confidence detections only (configurable threshold)
+            if confidence > self.config.high_confidence_detection_threshold:
+                try:
+                    # Validate with pattern matcher
+                    if not self.pattern_matcher.is_exclusion_pattern(text):
+                        clean_text = self.text_processor.clean_text(text)
+                        
+                        # Avoid duplicates
+                        if not any(c['text'].lower() == clean_text.lower() for c in candidates):
+                            candidates.append({
+                                'text': clean_text,
+                                'level': level,
+                                'page': getattr(block, 'page', 0),
+                                'confidence': confidence,
+                                'source': 'heading_detector'
+                            })
+                except Exception as e:
+                    logger.warning(f"Heading validation error: {e}")
         
-        return min(score, 1.0)
+        # Method 3: Structure analyzer outline
+        try:
+            structure_outline = self.structure_analyzer.extract_hierarchical_outline(
+                analysis['structure_result'], self.config.document_type
+            )
+            
+            for heading in structure_outline:
+                text = heading.text.strip()
+                
+                # Skip title duplicates
+                if title and text.lower().strip() == title.lower().strip():
+                    continue
+                
+                # Validate with pattern matcher
+                if not self.pattern_matcher.is_exclusion_pattern(text):
+                    # Avoid duplicates
+                    if not any(c['text'].lower() == text.lower() for c in candidates):
+                        candidates.append({
+                            'text': text,
+                            'level': heading.level,
+                            'page': heading.page,
+                            'confidence': getattr(heading, 'confidence', self.config.structure_analyzer_default_confidence),
+                            'source': 'structure_analyzer'
+                        })
+        except Exception as e:
+            logger.warning(f"Structure outline error: {e}")
+        
+        return self._build_component_filtered_outline(candidates)
     
-    def _calculate_format_significance(self, header: Dict, context: Dict) -> float:
-        """Calculate format-based significance"""
-        score = 0.0
+    def _validate_outline_candidate_with_components(self, candidate: Dict, analysis: Dict) -> bool:
+        """Validate outline candidate using configurable components"""
+        text = candidate['text']
         
-        # ALL CAPS significance
-        if header['is_upper']:
-            if header['word_count'] <= 4:
-                score += 0.8
-            elif header['word_count'] <= 6:
-                score += 0.6
-            else:
-                score += 0.3
+        # Pattern matcher exclusion check
+        try:
+            if self.pattern_matcher.is_exclusion_pattern(text):
+                return False
+        except Exception as e:
+            logger.warning(f"Pattern exclusion check error: {e}")
         
-        # Bold significance
-        if header['is_bold']:
-            score += 0.5
+        # Semantic exclusion check (configurable threshold)
+        semantic_scores = candidate.get('semantic_scores', {})
+        if semantic_scores.get('excluded', 0) > self.config.semantic_exclusion_threshold:
+            return False
         
-        # Font size significance
-        if header['font_size'] > 12:
-            score += 0.3
+        # Must have structural significance (configurable threshold)
+        if semantic_scores.get('structural', 0) < self.config.structural_significance_threshold:
+            return False
         
-        return min(score, 1.0)
+        return True
     
-    def _calculate_hierarchical_position_score(self, position: int, total_blocks: int) -> float:
-        """Calculate position-based hierarchical significance"""
-        relative_pos = position / total_blocks
-        
-        # Middle sections often contain main structural divisions
-        if 0.2 <= relative_pos <= 0.8:  # Middle 60%
-            return 1.0
-        elif 0.1 <= relative_pos <= 0.9:  # Broader middle
-            return 0.7
-        else:
-            return 0.3
-    
-    def _determine_hierarchical_role(self, text: str, hierarchical_score: float, introducer_score: float) -> str:
-        """Determine hierarchical role in document structure"""
-        word_count = len(text.split())
-        
-        # Main section introducer (like "PATHWAY OPTIONS")
-        if introducer_score > 0.6 and hierarchical_score > 0.8:
-            return 'main_section_introducer'
-        
-        # Content item (like "REGULAR PATHWAY", "DISTINCTION PATHWAY")
-        elif introducer_score < 0.3 and hierarchical_score > 0.6:
-            return 'content_item'
-        
-        # Regular section header
-        elif hierarchical_score > 0.7:
-            return 'section_header'
-        
-        else:
-            return 'minor_heading'
-    
-    def _select_hierarchical_headers(self, candidates: List[Dict]) -> List[HeadingLevel]:
-        """Select headers based on hierarchical importance with improved logic"""
+    def _build_component_filtered_outline(self, candidates: List[Dict]) -> List[HeadingLevel]:
+        """Build final outline using configurable component intelligence"""
         if not candidates:
             return []
         
-        # Sort by hierarchical role priority and significance
-        role_priority = {
-            'main_section_introducer': 1,
-            'section_header': 2,
-            'content_item': 3,
-            'minor_heading': 4
+        # Component-based prioritization using configurable priorities
+        source_priority = {
+            'hierarchical_primary': self.config.hierarchical_primary_priority,
+            'heading_detector': self.config.heading_detector_priority,
+            'structure_analyzer': self.config.structure_analyzer_priority
         }
         
         candidates.sort(key=lambda x: (
-            role_priority.get(x['hierarchical_role'], 5),
-            -x['hierarchical_significance']
+            source_priority.get(x['source'], self.config.default_source_priority),
+            -x['confidence']
         ))
         
-        outline = []
-        used_texts = set()
-        
-        # Enhanced selection logic
+        # Remove duplicates (keep highest priority)
+        unique_candidates = {}
         for candidate in candidates:
-            text_key = candidate['header']['text'].lower().strip()
-            
-            # Avoid duplicates
-            if text_key in used_texts:
-                continue
-            
-            role = candidate['hierarchical_role']
-            significance = candidate['hierarchical_significance']
-            
-            # Prioritize main section introducers
-            if role == 'main_section_introducer' and significance > 0.75:
-                outline.append(self._create_heading_level(candidate, 'H1'))
-                used_texts.add(text_key)
-                break  # Take the best main section introducer
+            text_key = candidate['text'].lower().strip()
+            if text_key not in unique_candidates:
+                unique_candidates[text_key] = candidate
         
-        # If no main introducer found, consider best section header
-        if not outline:
-            for candidate in candidates:
-                text_key = candidate['header']['text'].lower().strip()
-                if text_key in used_texts:
-                    continue
-                    
-                if candidate['hierarchical_role'] == 'section_header' and candidate['hierarchical_significance'] > 0.85:
-                    outline.append(self._create_heading_level(candidate, 'H1'))
-                    used_texts.add(text_key)
-                    break
+        final_candidates = list(unique_candidates.values())
         
-        # Last resort: highest scoring candidate if none found
-        if not outline and candidates:
-            best_candidate = candidates[0]
-            if best_candidate['hierarchical_significance'] > 0.9:
-                outline.append(self._create_heading_level(best_candidate, 'H1'))
+        # Final component validation using configurable thresholds
+        validated_candidates = []
+        for candidate in final_candidates:
+            try:
+                # Final semantic validation
+                semantic_scores = self.semantic_classifier.classify_text_role(candidate['text'])
+                
+                # Only include if components agree it's structural (configurable thresholds)
+                if (semantic_scores.get('structural', 0) > self.config.final_structural_threshold and 
+                    semantic_scores.get('excluded', 0) < self.config.final_exclusion_threshold):
+                    validated_candidates.append(candidate)
+            except Exception as e:
+                logger.warning(f"Final validation error: {e}")
+                # Include if validation fails (fail-safe)
+                validated_candidates.append(candidate)
         
-        return outline
+        # Build final outline
+        final_outline = []
+        for candidate in validated_candidates:
+            final_outline.append(HeadingLevel(
+                level=candidate['level'],
+                text=candidate['text'],
+                page=candidate['page'],
+                confidence=candidate['confidence'],
+                font_size=None,
+                font_name=None
+            ))
+            
+            logger.info(f"Component-validated outline item: '{candidate['text']}' as {candidate['level']} (source: {candidate['source']})")
+        
+        return final_outline
     
-    def _create_heading_level(self, candidate: Dict, level: str) -> HeadingLevel:
-        """Create HeadingLevel from candidate"""
-        header = candidate['header']
-        return HeadingLevel(
-            level=level,
-            text=self._clean_text(header['text']),
-            page=header['page'],
-            confidence=candidate['hierarchical_significance'],
-            font_size=header.get('font_size'),
-            font_name=None
+    def _validate_final_output(self, result: DocumentStructure) -> DocumentStructure:
+        """Final validation using output validator with configurable confidence"""
+        result_dict = {
+            "title": result.title,
+            "outline": [
+                {
+                    "level": h.level,
+                    "text": h.text,
+                    "page": h.page
+                } for h in result.outline
+            ]
+        }
+        
+        try:
+            if self.output_validator.validate_output(result_dict):
+                logger.info(f"Final validation successful - Title: '{result.title}', Outline: {len(result.outline)} items")
+                return result
+            else:
+                logger.warning("Final validation failed, cleaning")
+                cleaned_dict = self.output_validator.clean_output(result_dict)
+                
+                return DocumentStructure(
+                    title=cleaned_dict["title"],
+                    outline=[
+                        HeadingLevel(
+                            level=item["level"],
+                            text=item["text"],
+                            page=item["page"],
+                            confidence=self.config.fallback_confidence
+                        ) for item in cleaned_dict["outline"]
+                    ],
+                    doc_type=self.config.document_type,
+                    confidence=self.config.fallback_confidence
+                )
+        except Exception as e:
+            logger.error(f"Final validation error: {e}")
+            return result
+    
+    def _create_empty_result(self) -> DocumentStructure:
+        """Create empty result with configurable confidence"""
+        return DocumentStructure(
+            title="",
+            outline=[],
+            doc_type=self.config.document_type,
+            confidence=self.config.empty_confidence
         )
+
+# Factory function for easy processor creation
+def create_program_processor(processor_type: str = 'standard') -> ProgramProcessor:
+    """Factory function to create preconfigured program processors"""
     
-    def _has_header_characteristics(self, text: str, block: TextBlock) -> bool:
-        """Check if text has header characteristics"""
-        word_count = len(text.split())
-        
-        characteristics = [
-            word_count <= 10,  # Reasonable header length
-            not self._is_descriptive_section(text),
-            not text.startswith(('*', '-', '•')),
-            text.isupper() or text.istitle() or block.is_bold
-        ]
-        
-        return sum(characteristics) >= 3
+    if processor_type == 'strict':
+        config = ProgramProcessorConfig(
+            document_confidence=0.95,
+            title_confidence_threshold=0.8,
+            primary_sections_threshold=0.9,
+            secondary_sections_threshold=0.7,
+            high_confidence_detection_threshold=0.8
+        )
+        return ProgramProcessor(config=config)
     
-    def _is_structured_content_item(self, text: str) -> bool:
-        """Identify structured content items (not section introducers)"""
-        text_lower = text.lower()
-        
-        structured_patterns = [
-            text.startswith('*') or text.startswith('-'),  # Bullet points
-            'credits of' in text_lower,
-            'maintain' in text_lower and ('gpa' in text_lower or 'overall' in text_lower),
-            'participate' in text_lower,
-            'join and' in text_lower,
-            re.search(r'at least.*course', text_lower),
-            'either participate' in text_lower,
-            text_lower.endswith('pathway') and len(text.split()) <= 6,  # Specific pathway types
-            # Pattern-based detection for pathway items
-            self._is_pathway_type_item(text),
-            # Requirement items
-            self._is_requirement_item(text_lower)
-        ]
-        
-        return any(structured_patterns)
+    elif processor_type == 'lenient':
+        config = ProgramProcessorConfig(
+            document_confidence=0.8,
+            title_confidence_threshold=0.5,
+            primary_sections_threshold=0.6,
+            secondary_sections_threshold=0.4,
+            high_confidence_detection_threshold=0.5
+        )
+        return ProgramProcessor(config=config)
     
-    def _is_pathway_type_item(self, text: str) -> bool:
-        """Detect pathway-type items without hardcoding"""
-        text_upper = text.upper()
-        word_count = len(text.split())
-        
-        # Pattern-based detection for items like "REGULAR PATHWAY", "DISTINCTION PATHWAY"
-        pathway_patterns = [
-            text_upper.endswith('PATHWAY') and word_count <= 4,
-            text_upper.endswith('TRACK') and word_count <= 4,
-            text_upper.endswith('OPTION') and word_count <= 4,
-            text_upper.endswith('PROGRAM') and word_count <= 4,
-            # Pattern: [ADJECTIVE] + [TYPE] (2 words, all caps)
-            word_count == 2 and text.isupper() and not self._is_section_introducer_pattern(text)
-        ]
-        
-        return any(pathway_patterns)
+    elif processor_type == 'debug':
+        config = ProgramProcessorConfig(
+            enable_debug_logging=True,
+            document_confidence=0.9
+        )
+        return ProgramProcessor(config=config)
     
-    def _is_section_introducer_pattern(self, text: str) -> bool:
-        """Detect section introducer patterns"""
-        text_upper = text.upper()
-        
-        # Section introducer patterns (like "PATHWAY OPTIONS")
-        introducer_patterns = [
-            'OPTIONS' in text_upper,
-            'REQUIREMENTS' in text_upper,
-            'OVERVIEW' in text_upper,
-            'SUMMARY' in text_upper,
-            'DETAILS' in text_upper
-        ]
-        
-        return any(introducer_patterns)
+    else:  # 'standard'
+        return ProgramProcessor()
+
+# Usage examples
+if __name__ == "__main__":
+    # Standard processor
+    processor = ProgramProcessor()
     
-    def _is_requirement_item(self, text_lower: str) -> bool:
-        """Detect requirement items without hardcoding"""
-        requirement_patterns = [
-            'credits of' in text_lower,
-            'maintain' in text_lower and ('gpa' in text_lower or 'overall' in text_lower),
-            'participate in' in text_lower and ('minimum' in text_lower or 'required' in text_lower),
-            'at least one' in text_lower,
-            'either participate' in text_lower,
-            re.search(r'\d+\s+credits', text_lower),
-            'attendance' in text_lower and 'year' in text_lower
-        ]
-        
-        return any(requirement_patterns)
+    # Custom configuration
+    custom_config = ProgramProcessorConfig(
+        document_type=DocumentType.PROGRAM_DOCUMENT,
+        document_confidence=0.95,
+        title_search_range=10,
+        primary_sections_threshold=0.85,
+        semantic_structural_weight=0.6,
+        pattern_recognition_weight=0.4
+    )
+    custom_processor = ProgramProcessor(config=custom_config)
     
-    def _has_similar_formatting(self, header_text: str, content_text: str, content_block: TextBlock) -> bool:
-        """Check if content has similar formatting to header (indicates sub-items)"""
-        return (content_text.isupper() and header_text.isupper() and 
-                content_block.is_bold and len(content_text.split()) <= 8)
-    
-    def _is_descriptive_section(self, text: str) -> bool:
-        """Identify descriptive content sections"""
-        text_lower = text.lower()
-        
-        descriptive_patterns = [
-            text_lower.startswith('mission'),
-            text_lower.startswith('goals'),
-            text_lower.startswith('objectives'),
-            'statement:' in text_lower,
-            'to provide' in text_lower,
-            'inspire' in text_lower,
-            'expose students' in text_lower,
-            'encourage students' in text_lower,
-            len(text.split()) > 15  # Very long descriptive text
-        ]
-        
-        return any(descriptive_patterns)
-    
-    def _is_list_item(self, text: str) -> bool:
-        """Check if text is a list item"""
-        return text.startswith(('*', '-', '•')) or text.lower().startswith(('goals:', 'objectives:'))
-    
-    def _clean_text(self, text: str) -> str:
-        """Clean and normalize text"""
-        return re.sub(r'\s+', ' ', text.strip())
+    # Using factory
+    strict_processor = create_program_processor('strict')
+    lenient_processor = create_program_processor('lenient')

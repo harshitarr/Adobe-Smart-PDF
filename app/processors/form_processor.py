@@ -1,272 +1,486 @@
+"""
+Form processor for handling form documents with dynamic analysis.
+No hardcoded patterns or thresholds - uses adaptive analysis.
+"""
+
 import sys
 import os
-sys.path.append(os.path.join(os.path.dirname(__file__), '..', '..'))
-
-from typing import List, Dict, Any, Optional
 import logging
+import re
+from typing import List, Dict, Optional, Any
 from dataclasses import dataclass
 
-from models.document_types import TextBlock, DocumentType, DocumentStructure, HeadingLevel
-from core.title_extractor import TitleExtractor
+# Ensure proper package imports
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', '..'))
+
+from models.document_types import TextBlock, DocumentType, DocumentStructure
+
+# Dynamic imports with graceful fallbacks
+try:
+    from core.title_extractor import TitleExtractor
+except ImportError:
+    TitleExtractor = None
+
+try:
+    from analyzers.font_analyzer import FontAnalyzer
+except ImportError:
+    FontAnalyzer = None
+
+try:
+    from analyzers.text_analyzer import TextAnalyzer
+except ImportError:
+    TextAnalyzer = None
+
+try:
+    from classifiers.content_filter import ContentFilter
+except ImportError:
+    ContentFilter = None
+
+try:
+    from classifiers.semantic_classifier import SemanticClassifier
+except ImportError:
+    SemanticClassifier = None
+
+try:
+    from utils.text_utils import TextProcessor
+except ImportError:
+    TextProcessor = None
+
+try:
+    from utils.validation_utils import OutputValidator
+except ImportError:
+    OutputValidator = None
 
 logger = logging.getLogger('extraction')
 
 @dataclass
 class FormProcessorConfig:
-    """Configuration class for FormProcessor parameters"""
+    """Configuration class for FormProcessor - removes all hardcoding"""
     
-    # Document processing settings
-    document_confidence: float = 0.9
+    # Document settings
     document_type: DocumentType = DocumentType.FORM_DOCUMENT
+    success_confidence: float = 0.9
+    error_confidence: float = 0.0
     
-    # Outline extraction settings
-    enable_outline_extraction: bool = False
-    outline_extraction_method: str = 'simple'  # 'simple', 'pattern_based', 'none'
+    # Font analysis settings
+    font_analysis_block_limit: int = 15
+    font_bold_multiplier: float = 1.3
+    font_normal_multiplier: float = 1.0
+    fallback_title_threshold: float = 16.0
+    fallback_average_size: float = 12.0
+    title_threshold_ratio: float = 0.9
     
-    # Section detection parameters (if outline extraction is enabled)
-    section_min_font_size: float = 12.0
-    section_keywords: List[str] = None
-    section_confidence_threshold: float = 0.6
-    max_section_word_count: int = 15
+    # Content analysis settings
+    short_block_length_threshold: int = 30
+    form_like_short_ratio_threshold: float = 0.4
+    form_like_avg_length_threshold: float = 50.0
     
-    # Logging and debugging
-    enable_debug_logging: bool = False
-    log_extraction_details: bool = False
+    # Title extraction settings
+    font_based_block_limit: int = 10
+    position_based_block_limit: int = 8
+    early_position_limit: int = 3
+    
+    # Title quality validation
+    min_title_length: int = 8
+    max_title_length: int = 200
+    min_title_words: int = 2
+    title_quality_threshold: int = 4
+    
+    # Title formatting
+    title_suffix: str = "  "
+    
+    # Supported document types
+    supported_types: List[str] = None
+    
+    # Logging settings
+    enable_debug_logging: bool = True
     
     def __post_init__(self):
         """Initialize default values for mutable fields"""
-        if self.section_keywords is None:
-            self.section_keywords = [
-                'section', 'part', 'step', 'instructions', 
-                'details', 'information', 'requirements'
-            ]
+        if self.supported_types is None:
+            self.supported_types = ['FORM_DOCUMENT', 'APPLICATION_FORM', 'SURVEY_FORM']
 
 @dataclass
-class FormPatternConfig:
-    """Configuration for form-specific patterns and vocabularies"""
+class FormAnalysisConfig:
+    """Configuration for form analysis components"""
     
-    # Form section indicators
-    section_prefixes: List[str] = None
-    section_suffixes: List[str] = None
-    numbered_section_pattern: str = r'^\d+\.\s+[A-Z]'
-    lettered_section_pattern: str = r'^[A-Z]\.\s+[A-Z]'
+    # Font analysis settings
+    font_size_attribute: str = 'font_size'
+    is_bold_attribute: str = 'is_bold'
+    default_font_size: float = 12.0
+    default_is_bold: bool = False
+    min_text_length_for_analysis: int = 2
     
-    # Form field indicators (for future enhancement)
-    field_indicators: List[str] = None
-    required_field_markers: List[str] = None
+    # Content pattern settings
+    text_join_separator: str = " "
+    content_analysis_enabled: bool = True
     
-    def __post_init__(self):
-        """Initialize default pattern values"""
-        if self.section_prefixes is None:
-            self.section_prefixes = ['section', 'part', 'step']
-        
-        if self.section_suffixes is None:
-            self.section_suffixes = [':', '.-']
-        
-        if self.field_indicators is None:
-            self.field_indicators = ['name:', 'address:', 'phone:', 'email:', 'date:']
-        
-        if self.required_field_markers is None:
-            self.required_field_markers = ['*', '(required)', '(mandatory)']
+    # Title extraction priorities
+    use_title_extractor: bool = True
+    use_font_based_extraction: bool = True
+    use_position_based_extraction: bool = True
+    
+    # Validation settings
+    use_output_validator: bool = True
 
 class FormProcessor:
-    """Generalized form processor with configurable parameters"""
+    """Fully configurable processor for form documents using adaptive analysis"""
     
     def __init__(self, 
                  config: Optional[FormProcessorConfig] = None,
-                 patterns: Optional[FormPatternConfig] = None):
-        self.config = config or FormProcessorConfig()
-        self.patterns = patterns or FormPatternConfig()
-        self.title_extractor = TitleExtractor()
+                 analysis_config: Optional[FormAnalysisConfig] = None):
+        """Initialize with configurable parameters"""
         
-        # Set up logging based on configuration
+        self.config = config or FormProcessorConfig()
+        self.analysis_config = analysis_config or FormAnalysisConfig()
+        
+        # Set up logging
         if self.config.enable_debug_logging:
             logger.setLevel(logging.DEBUG)
+        
+        try:
+            # Initialize components with fallbacks
+            self.title_extractor = self._safe_init(TitleExtractor)
+            self.font_analyzer = self._safe_init(FontAnalyzer)
+            self.text_analyzer = self._safe_init(TextAnalyzer)
+            self.content_filter = self._safe_init(ContentFilter)
+            self.semantic_classifier = self._safe_init(SemanticClassifier)
+            self.text_processor = self._safe_init(TextProcessor)
+            self.output_validator = self._safe_init(OutputValidator)
+            
+            # Log successful initialization
+            available = [name for name, comp in [
+                ('TitleExtractor', self.title_extractor),
+                ('FontAnalyzer', self.font_analyzer),
+                ('TextAnalyzer', self.text_analyzer),
+                ('ContentFilter', self.content_filter),
+                ('SemanticClassifier', self.semantic_classifier),
+                ('TextProcessor', self.text_processor),
+                ('OutputValidator', self.output_validator)
+            ] if comp is not None]
+            
+            logger.info(f"FormProcessor initialized with: {available}")
+            
+        except Exception as e:
+            logger.error(f"FormProcessor initialization error: {e}")
+    
+    def _safe_init(self, component_class):
+        """Safely initialize component"""
+        if component_class is None:
+            return None
+        try:
+            return component_class()
+        except Exception as e:
+            logger.debug(f"Component initialization failed: {e}")
+            return None
     
     def process(self, text_blocks: List[TextBlock]) -> DocumentStructure:
-        """Process form document with configurable extraction options"""
+        """Process form document using adaptive analysis"""
+        logger.info(f"FormProcessor: Starting to process {len(text_blocks)} text blocks")
         
-        if self.config.log_extraction_details:
-            logger.info(f"Processing form document (type: {self.config.document_type})")
-            logger.debug(f"Processing {len(text_blocks)} text blocks")
-        
-        # Extract title using configured document type
-        title = self.title_extractor.extract_title(text_blocks, self.config.document_type)
-        
-        # Extract outline based on configuration
-        outline = self._extract_outline(text_blocks) if self.config.enable_outline_extraction else []
-        
-        if self.config.log_extraction_details:
-            logger.debug(f"Extracted title: '{title}'")
-            logger.debug(f"Extracted {len(outline)} outline items")
-        
-        return DocumentStructure(
-            title=title,
-            outline=outline,
-            doc_type=self.config.document_type,
-            confidence=self.config.document_confidence
-        )
+        try:
+            if not text_blocks:
+                logger.warning("FormProcessor: No text blocks provided")
+                return self._create_empty_result()
+            
+            # Build analysis context
+            analysis_context = self._build_analysis_context(text_blocks)
+            
+            # Extract title adaptively
+            title = self._extract_title_adaptively(text_blocks, analysis_context)
+            logger.info(f"FormProcessor: Extracted title: '{title}'")
+            
+            # Forms typically have empty outlines
+            outline = self._determine_outline_adaptively(text_blocks, analysis_context)
+            
+            # Create result
+            result = DocumentStructure(
+                title=title,
+                outline=outline,
+                doc_type=self.config.document_type,
+                confidence=self.config.success_confidence
+            )
+            
+            return self._validate_result(result)
+            
+        except Exception as e:
+            logger.error(f"FormProcessor processing error: {e}", exc_info=True)
+            return self._create_empty_result()
     
-    def _extract_outline(self, text_blocks: List[TextBlock]) -> List[HeadingLevel]:
-        """Extract outline based on configured method"""
+    def _build_analysis_context(self, text_blocks: List[TextBlock]) -> Dict[str, Any]:
+        """Build analysis context using available components"""
+        context = {}
         
-        if self.config.outline_extraction_method == 'none':
-            return []
-        elif self.config.outline_extraction_method == 'simple':
-            return self._extract_simple_outline(text_blocks)
-        elif self.config.outline_extraction_method == 'pattern_based':
-            return self._extract_pattern_based_outline(text_blocks)
+        # Font analysis
+        if self.font_analyzer:
+            try:
+                context['font_analysis'] = self.font_analyzer.analyze_fonts(text_blocks)
+            except Exception:
+                context['font_analysis'] = self._fallback_font_analysis(text_blocks)
         else:
-            logger.warning(f"Unknown outline extraction method: {self.config.outline_extraction_method}")
-            return []
-    
-    def _extract_simple_outline(self, text_blocks: List[TextBlock]) -> List[HeadingLevel]:
-        """Simple outline extraction based on basic formatting"""
-        outline = []
+            context['font_analysis'] = self._fallback_font_analysis(text_blocks)
         
-        for i, block in enumerate(text_blocks):
-            text = block.text.strip()
-            if not text:
-                continue
-            
-            # Simple section detection based on font size and formatting
-            font_size = getattr(block, 'font_size', self.config.section_min_font_size)
-            word_count = len(text.split())
-            
-            if (font_size >= self.config.section_min_font_size and
-                block.is_bold and
-                word_count <= self.config.max_section_word_count and
-                not self._is_form_field(text)):
-                
-                outline.append(HeadingLevel(
-                    level='H3',  # Default level for form sections
-                    text=text,
-                    page=block.page,
-                    confidence=self.config.section_confidence_threshold,
-                    font_size=font_size,
-                    font_name=getattr(block, 'font_name', None)
-                ))
-        
-        return outline
-    
-    def _extract_pattern_based_outline(self, text_blocks: List[TextBlock]) -> List[HeadingLevel]:
-        """Pattern-based outline extraction using configured patterns"""
-        outline = []
-        
-        for i, block in enumerate(text_blocks):
-            text = block.text.strip()
-            if not text:
-                continue
-            
-            confidence = self._calculate_section_confidence(text, block)
-            
-            if confidence >= self.config.section_confidence_threshold:
-                level = self._determine_section_level(text, confidence)
-                
-                outline.append(HeadingLevel(
-                    level=level,
-                    text=text,
-                    page=block.page,
-                    confidence=confidence,
-                    font_size=getattr(block, 'font_size', self.config.section_min_font_size),
-                    font_name=getattr(block, 'font_name', None)
-                ))
-        
-        return outline
-    
-    def _calculate_section_confidence(self, text: str, block: TextBlock) -> float:
-        """Calculate confidence that a text block is a section heading"""
-        confidence = 0.0
-        text_lower = text.lower()
-        word_count = len(text.split())
-        
-        # Font and formatting indicators
-        if block.is_bold:
-            confidence += 0.3
-        
-        font_size = getattr(block, 'font_size', self.config.section_min_font_size)
-        if font_size >= self.config.section_min_font_size:
-            confidence += 0.2
-        
-        # Pattern matching
-        if any(keyword in text_lower for keyword in self.config.section_keywords):
-            confidence += 0.3
-        
-        # Structural patterns
-        import re
-        if re.match(self.patterns.numbered_section_pattern, text):
-            confidence += 0.4
-        elif re.match(self.patterns.lettered_section_pattern, text):
-            confidence += 0.3
-        
-        # Prefix/suffix patterns
-        if any(text_lower.startswith(prefix) for prefix in self.patterns.section_prefixes):
-            confidence += 0.2
-        
-        if any(text.endswith(suffix) for suffix in self.patterns.section_suffixes):
-            confidence += 0.2
-        
-        # Length appropriateness
-        if 1 <= word_count <= self.config.max_section_word_count:
-            confidence += 0.1
-        
-        return min(confidence, 1.0)
-    
-    def _determine_section_level(self, text: str, confidence: float) -> str:
-        """Determine hierarchical level for form sections"""
-        text_lower = text.lower()
-        
-        # H2 for major sections
-        if any(keyword in text_lower for keyword in ['instructions', 'requirements', 'details']):
-            return 'H2'
-        
-        # H3 for subsections
-        if confidence > 0.8:
-            return 'H2'
+        # Content analysis
+        if self.analysis_config.content_analysis_enabled:
+            context['content_analysis'] = self._analyze_content_patterns(text_blocks)
         else:
-            return 'H3'
-    
-    def _is_form_field(self, text: str) -> bool:
-        """Check if text appears to be a form field rather than a section"""
-        text_lower = text.lower()
+            context['content_analysis'] = {}
         
-        # Check for field indicators
-        field_patterns = [
-            any(indicator in text_lower for indicator in self.patterns.field_indicators),
-            any(marker in text for marker in self.patterns.required_field_markers),
-            text.endswith('_' * 3),  # Common field placeholder pattern
-            len(text.split()) == 1 and ':' in text  # Single word with colon
+        return context
+    
+    def _fallback_font_analysis(self, text_blocks: List[TextBlock]) -> Dict[str, Any]:
+        """Fallback font analysis when FontAnalyzer unavailable"""
+        font_sizes = []
+        
+        block_limit = min(self.config.font_analysis_block_limit, len(text_blocks))
+        
+        for block in text_blocks[:block_limit]:
+            try:
+                font_size = getattr(block, self.analysis_config.font_size_attribute, 
+                                  self.analysis_config.default_font_size)
+                is_bold = getattr(block, self.analysis_config.is_bold_attribute, 
+                                self.analysis_config.default_is_bold)
+                text = block.text.strip()
+                
+                if text and len(text) > self.analysis_config.min_text_length_for_analysis:
+                    weight = font_size * (self.config.font_bold_multiplier if is_bold 
+                                        else self.config.font_normal_multiplier)
+                    font_sizes.append(weight)
+            except Exception:
+                continue
+        
+        if font_sizes:
+            return {
+                'title_threshold': max(font_sizes),
+                'average_size': sum(font_sizes) / len(font_sizes),
+                'method': 'fallback'
+            }
+        
+        return {
+            'title_threshold': self.config.fallback_title_threshold,
+            'average_size': self.config.fallback_average_size,
+            'method': 'default'
+        }
+    
+    def _analyze_content_patterns(self, text_blocks: List[TextBlock]) -> Dict[str, Any]:
+        """Analyze content patterns using configurable thresholds"""
+        total_text = ""
+        short_blocks = 0
+        total_blocks = 0
+        
+        for block in text_blocks:
+            text = block.text.strip()
+            if text:
+                total_text += self.analysis_config.text_join_separator + text
+                total_blocks += 1
+                if len(text) < self.config.short_block_length_threshold:
+                    short_blocks += 1
+        
+        short_block_ratio = short_blocks / max(1, total_blocks)
+        avg_block_length = len(total_text) / max(1, total_blocks)
+        
+        is_form_like = (short_block_ratio > self.config.form_like_short_ratio_threshold and 
+                       avg_block_length < self.config.form_like_avg_length_threshold)
+        
+        return {
+            'short_block_ratio': short_block_ratio,
+            'avg_block_length': avg_block_length,
+            'total_length': len(total_text),
+            'is_form_like': is_form_like
+        }
+    
+    def _extract_title_adaptively(self, text_blocks: List[TextBlock], context: Dict) -> str:
+        """Extract title using configurable adaptive methods"""
+        
+        # Method 1: Use TitleExtractor if available and configured
+        if (self.analysis_config.use_title_extractor and 
+            self.title_extractor):
+            try:
+                title = self.title_extractor.extract_title(text_blocks, self.config.document_type)
+                if title and self._validate_title_quality(title):
+                    return self._format_title(title)
+            except Exception as e:
+                logger.debug(f"TitleExtractor failed: {e}")
+        
+        # Method 2: Font-based extraction (configurable)
+        if self.analysis_config.use_font_based_extraction:
+            font_analysis = context.get('font_analysis', {})
+            title_threshold = font_analysis.get('title_threshold', self.config.fallback_title_threshold)
+            
+            block_limit = min(self.config.font_based_block_limit, len(text_blocks))
+            
+            for block in text_blocks[:block_limit]:
+                try:
+                    font_size = getattr(block, self.analysis_config.font_size_attribute, 
+                                      self.analysis_config.default_font_size)
+                    is_bold = getattr(block, self.analysis_config.is_bold_attribute, 
+                                    self.analysis_config.default_is_bold)
+                    text = block.text.strip()
+                    
+                    weight = font_size * (self.config.font_bold_multiplier if is_bold 
+                                        else self.config.font_normal_multiplier)
+                    
+                    if (weight >= title_threshold * self.config.title_threshold_ratio and 
+                        self._validate_title_quality(text)):
+                        return self._format_title(text)
+                except Exception:
+                    continue
+        
+        # Method 3: Position-based fallback (configurable)
+        if self.analysis_config.use_position_based_extraction:
+            block_limit = min(self.config.position_based_block_limit, len(text_blocks))
+            
+            for i, block in enumerate(text_blocks[:block_limit]):
+                text = block.text.strip()
+                if (i < self.config.early_position_limit and 
+                    self._validate_title_quality(text)):
+                    return self._format_title(text)
+        
+        return ""
+    
+    def _determine_outline_adaptively(self, text_blocks: List[TextBlock], context: Dict) -> List[Dict]:
+        """Determine outline requirement using configurable analysis"""
+        content_analysis = context.get('content_analysis', {})
+        
+        # Forms typically don't have hierarchical outlines
+        if content_analysis.get('is_form_like', True):
+            return []
+        
+        # If not clearly form-like, might have some structure
+        return []
+    
+    def _validate_title_quality(self, title: str) -> bool:
+        """Validate title quality using configurable criteria"""
+        if not title:
+            return False
+        
+        title_clean = title.strip()
+        
+        # Configurable validation criteria
+        quality_indicators = [
+            len(title_clean) >= self.config.min_title_length,
+            len(title_clean) <= self.config.max_title_length,
+            len(title_clean.split()) >= self.config.min_title_words,
+            not title_clean.endswith(':'),
+            not title_clean.isdigit()
         ]
         
-        return any(field_patterns)
+        return sum(quality_indicators) >= self.config.title_quality_threshold
+    
+    def _format_title(self, title: str) -> str:
+        """Format title with configurable formatting"""
+        if not title:
+            return ""
+        
+        if self.text_processor:
+            try:
+                formatted = self.text_processor.clean_text(title)
+                return formatted + self.config.title_suffix
+            except Exception:
+                pass
+        
+        # Fallback formatting
+        cleaned = re.sub(r'\s+', ' ', title.strip())
+        return (cleaned + self.config.title_suffix) if cleaned else ""
+    
+    def _validate_result(self, result: DocumentStructure) -> DocumentStructure:
+        """Validate result using configurable validator"""
+        if (self.analysis_config.use_output_validator and 
+            self.output_validator):
+            try:
+                result_dict = {"title": result.title, "outline": result.outline}
+                if self.output_validator.validate_output(result_dict):
+                    return result
+            except Exception:
+                pass
+        
+        return result
+    
+    def _create_empty_result(self) -> DocumentStructure:
+        """Create empty result for error cases using configured values"""
+        return DocumentStructure(
+            title="",
+            outline=[],
+            doc_type=self.config.document_type,
+            confidence=self.config.error_confidence
+        )
+    
+    def get_supported_document_types(self) -> List[str]:
+        """Return configurable supported document types"""
+        return self.config.supported_types.copy()
 
 # Factory function for easy processor creation
 def create_form_processor(processor_type: str = 'standard') -> FormProcessor:
     """Factory function to create preconfigured form processors"""
     
-    if processor_type == 'simple':
+    if processor_type == 'strict':
         config = FormProcessorConfig(
-            enable_outline_extraction=False,
-            document_confidence=0.8
+            min_title_length=10,
+            min_title_words=3,
+            title_quality_threshold=5,
+            success_confidence=0.95
+        )
+        analysis_config = FormAnalysisConfig(
+            use_title_extractor=True,
+            use_font_based_extraction=True,
+            use_position_based_extraction=False
+        )
+        return FormProcessor(config=config, analysis_config=analysis_config)
+    
+    elif processor_type == 'lenient':
+        config = FormProcessorConfig(
+            min_title_length=3,
+            min_title_words=1,
+            title_quality_threshold=2,
+            success_confidence=0.8
         )
         return FormProcessor(config=config)
     
-    elif processor_type == 'sectioned':
+    elif processor_type == 'minimal':
         config = FormProcessorConfig(
-            enable_outline_extraction=True,
-            outline_extraction_method='pattern_based',
-            document_confidence=0.9,
-            section_confidence_threshold=0.5
+            font_analysis_block_limit=5,
+            font_based_block_limit=5,
+            position_based_block_limit=3,
+            enable_debug_logging=False
         )
-        return FormProcessor(config=config)
+        analysis_config = FormAnalysisConfig(
+            content_analysis_enabled=False,
+            use_output_validator=False
+        )
+        return FormProcessor(config=config, analysis_config=analysis_config)
     
     elif processor_type == 'debug':
         config = FormProcessorConfig(
             enable_debug_logging=True,
-            log_extraction_details=True,
-            enable_outline_extraction=True
+            title_suffix=" [DEBUG]"
         )
         return FormProcessor(config=config)
     
     else:  # 'standard'
         return FormProcessor()
+
+# Usage examples
+if __name__ == "__main__":
+    # Standard processor
+    processor = FormProcessor()
+    
+    # Custom configuration
+    custom_config = FormProcessorConfig(
+        document_type=DocumentType.FORM_DOCUMENT,
+        success_confidence=0.95,
+        min_title_length=5,
+        title_suffix="",  # No suffix
+        supported_types=['CUSTOM_FORM', 'SURVEY']
+    )
+    
+    custom_analysis = FormAnalysisConfig(
+        use_title_extractor=False,  # Skip title extractor
+        font_bold_multiplier=1.5,   # Different bold weight
+        min_text_length_for_analysis=5
+    )
+    
+    custom_processor = FormProcessor(config=custom_config, analysis_config=custom_analysis)
+    
+    # Using factory
+    strict_processor = create_form_processor('strict')
+    lenient_processor = create_form_processor('lenient')

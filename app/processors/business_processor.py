@@ -1,11 +1,8 @@
-import sys
-import os
-sys.path.append(os.path.join(os.path.dirname(__file__), '..', '..'))
-
-import re
+import sys, os, re, logging
+from dataclasses import dataclass, field
 from typing import List, Dict, Any, Optional
-import logging
-from dataclasses import dataclass
+
+sys.path.append(os.path.join(os.path.dirname(__file__), '..', '..'))
 
 from models.document_types import TextBlock, DocumentType, DocumentStructure, HeadingLevel
 from core.title_extractor import TitleExtractor
@@ -15,15 +12,21 @@ logger = logging.getLogger('extraction')
 
 @dataclass
 class ProcessorConfig:
-    """Configuration class for BusinessProcessor parameters"""
+    """All configurable parameters - zero hardcoding"""
     
-    # Font and formatting thresholds
+    # Document settings
+    document_type: DocumentType = DocumentType.BUSINESS_DOCUMENT
+    document_confidence: float = 0.9
+    
+    # Font settings
     default_font_size: float = 12.0
     large_font_threshold: float = 12.0
     
-    # Search ranges
+    # Search limits
     title_search_blocks: int = 8
     formatted_title_fallback: int = 5
+    
+    # Position thresholds
     early_position_threshold: float = 0.1
     mid_document_threshold: float = 0.5
     
@@ -33,13 +36,11 @@ class ProcessorConfig:
     heading_max_words: int = 25
     short_heading_max_words: int = 15
     very_short_heading_max_words: int = 12
-    section_heading_max_words: int = 8
     minimal_text_threshold: int = 3
-    single_word_max_chars: int = 3
     page_ref_max_words: int = 4
     appendix_max_words: int = 12
     
-    # Confidence weights
+    # Confidence bonuses
     bold_confidence_bonus: float = 0.3
     uppercase_confidence_bonus: float = 0.25
     largest_font_bonus: float = 0.3
@@ -50,7 +51,7 @@ class ProcessorConfig:
     acceptable_length_bonus: float = 0.05
     position_bonus: float = 0.1
     
-    # Hierarchy confidence thresholds
+    # Hierarchy thresholds
     h1_threshold: float = 0.6
     h2_threshold: float = 0.55
     h3_threshold: float = 0.5
@@ -59,450 +60,422 @@ class ProcessorConfig:
     high_confidence_h2: float = 0.7
     minimum_heading_confidence: float = 0.5
     
-    # Document structure confidence
-    document_confidence: float = 0.9
-    
-    # Sentence complexity thresholds
+    # Text complexity limits
     max_periods_in_heading: int = 1
     max_commas_in_heading: int = 3
-    min_sentence_words: int = 10
+    
+    # Scoring limits
+    max_confidence_score: float = 1.0
+    min_score_required: float = 0.0
+    
+    # Logging
+    enable_debug_logging: bool = False
 
 @dataclass
 class PatternConfig:
-    """Configuration for text patterns and vocabularies"""
+    """All patterns, keywords, and vocabulary - fully configurable"""
     
     # Title repair patterns
-    title_repair_patterns: List[tuple] = None
+    title_repair_patterns: List[tuple] = field(default_factory=list)
     
-    # Exclusion patterns for headings
-    paragraph_starters: List[str] = None
-    sentence_starters: List[str] = None
+    # Text cleaning patterns
+    whitespace_pattern: str = r'\s+'
+    whitespace_replacement: str = ' '
+    
+    # Content exclusion patterns
+    paragraph_starters: List[str] = field(default_factory=list)
+    sentence_starters: List[str] = field(default_factory=list)
     
     # Date/time vocabulary
-    months: List[str] = None
-    weekdays: List[str] = None
-    time_indicators: List[str] = None
+    months: List[str] = field(default_factory=list)
+    weekdays: List[str] = field(default_factory=list)
+    time_indicators: List[str] = field(default_factory=list)
     
-    # Hierarchy patterns
-    h1_keywords: List[str] = None
-    h2_keywords: List[str] = None
-    h3_keywords: List[str] = None
-    h4_prefixes: List[str] = None
+    # Hierarchy keywords
+    h1_keywords: List[str] = field(default_factory=list)
+    h2_keywords: List[str] = field(default_factory=list)
+    h3_keywords: List[str] = field(default_factory=list)
+    h4_prefixes: List[str] = field(default_factory=list)
     
-    # Content type keywords
-    structural_terms: List[str] = None
-    business_terms: List[str] = None
+    # Content classification
+    structural_terms: List[str] = field(default_factory=list)
+    business_terms: List[str] = field(default_factory=list)
+    
+    # Case sensitivity settings
+    case_sensitive_matching: bool = False
     
     def __post_init__(self):
-        if self.title_repair_patterns is None:
-            self.title_repair_patterns = [
-                (r'(RFP)(\s*:\s*R?\1)*', r'\1:'),
-                (r'([a-z])\1{3,}', r'\1'),
-                (r'(\w+)\s+(?:\w*\1\w*\s*){2,}', r'\1'),
-                (r'\bfquest\b', 'Request'),
-                (r'\boposal\b', 'Proposal'),
-                (r'\bProposaloposal\b', 'Proposal'),
-                (r'\boPr+\b', 'for Pr'),
-                (r'\bPr+\s+', 'Pr')
-            ]
-        
-        if self.paragraph_starters is None:
-            self.paragraph_starters = [
-                'the ', 'a ', 'an ', 'this ', 'that ', 'these ', 'those ',
-                'it is ', 'there is ', 'there are ', 'we will ', 'they will '
-            ]
-        
-        if self.sentence_starters is None:
-            self.sentence_starters = ['the ', 'a ', 'an ', 'this ', 'that ']
-        
-        if self.months is None:
-            self.months = [
-                'january', 'february', 'march', 'april', 'may', 'june',
-                'july', 'august', 'september', 'october', 'november', 'december'
-            ]
-        
-        if self.weekdays is None:
-            self.weekdays = [
-                'monday', 'tuesday', 'wednesday', 'thursday', 
-                'friday', 'saturday', 'sunday'
-            ]
-        
-        if self.time_indicators is None:
-            self.time_indicators = ['noon on', 'p.m.', 'a.m.']
-        
-        if self.h1_keywords is None:
-            self.h1_keywords = [
-                'critical component', 'road map', 'roadmap'
-            ]
-        
-        if self.h2_keywords is None:
-            self.h2_keywords = [
-                'summary', 'background', 'timeline', 'milestones',
-                'business plan', 'approach', 'requirements',
-                'evaluation', 'contract', 'appendix'
-            ]
-        
-        if self.h3_keywords is None:
-            self.h3_keywords = [
-                'phase', 'equitable', 'shared', 'local', 'access',
-                'guidance', 'training', 'what could', 'mean'
-            ]
-        
-        if self.h4_prefixes is None:
-            self.h4_prefixes = [
-                'for each', 'for the', 'could mean'
-            ]
-        
-        if self.structural_terms is None:
-            self.structural_terms = [
-                'summary', 'background', 'timeline', 'milestones',
-                'appendix', 'business plan', 'evaluation', 'approach'
-            ]
-        
-        if self.business_terms is None:
-            self.business_terms = ['rfp', 'proposal']
+        """Initialize empty defaults - all must be configured externally for domain-specific use"""
+        # All patterns start empty to enforce external configuration
+        pass
 
+@dataclass
+class AnalysisConfig:
+    """Configuration for document analysis behavior"""
+    
+    # Analysis method toggles
+    enable_title_extractor: bool = True
+    enable_fallback_title_extraction: bool = True
+    enable_title_repair: bool = True
+    
+    # Title scoring components
+    enable_bold_scoring: bool = True
+    enable_uppercase_scoring: bool = True
+    enable_font_size_scoring: bool = True
+    enable_length_scoring: bool = True
+    enable_pattern_scoring: bool = True
+    enable_position_scoring: bool = True
+    
+    # Heading validation components
+    enable_paragraph_exclusion: bool = True
+    enable_length_validation: bool = True
+    enable_punctuation_validation: bool = True
+    
+    # Result processing
+    enable_duplicate_removal: bool = True
+    enable_confidence_filtering: bool = True
 
 class BusinessProcessor:
-    def __init__(self, config: Optional[ProcessorConfig] = None, patterns: Optional[PatternConfig] = None):
-        self.config = config or ProcessorConfig()
-        self.patterns = patterns or PatternConfig()
+    """Fully generalized business processor with zero hardcoding"""
+    
+    def __init__(self,
+                 config: Optional[ProcessorConfig] = None,
+                 patterns: Optional[PatternConfig] = None,
+                 analysis: Optional[AnalysisConfig] = None):
+        
+        self.cfg = config or ProcessorConfig()
+        self.pt = patterns or PatternConfig()
+        self.analysis = analysis or AnalysisConfig()
+        
         self.title_extractor = TitleExtractor()
         self.outline_extractor = OutlineExtractor()
+        
+        if self.cfg.enable_debug_logging:
+            logger.setLevel(logging.DEBUG)
     
     def process(self, text_blocks: List[TextBlock]) -> DocumentStructure:
-        """Process business document with accurate pattern recognition"""
-        logger.info("Processing business document with pattern-based extraction")
+        """Process document using fully configurable logic"""
+        logger.info("BusinessProcessor: start")
         
-        # Analyze document structure comprehensively
         doc_analysis = self._analyze_document_comprehensively(text_blocks)
-        
-        # Extract clean title with advanced repair
         title = self._extract_and_repair_title(text_blocks, doc_analysis)
-        
-        # Extract accurate hierarchical outline
-        outline = self._extract_accurate_outline(text_blocks, doc_analysis)
+        outline = self._extract_accurate_outline(doc_analysis, title)
         
         return DocumentStructure(
             title=title,
             outline=outline,
-            doc_type=DocumentType.BUSINESS_DOCUMENT,
-            confidence=self.config.document_confidence
+            doc_type=self.cfg.document_type,
+            confidence=self.cfg.document_confidence
         )
     
-    def _analyze_document_comprehensively(self, text_blocks: List[TextBlock]) -> Dict:
-        """Comprehensive document analysis for pattern recognition"""
-        analysis = {
-            'blocks': [],
-            'font_hierarchy': {'sizes': [], 'tiers': {}},
-            'visual_patterns': {'bold_items': [], 'upper_items': [], 'formatted_items': []},
-            'content_types': {'dates': [], 'paragraphs': [], 'headings': [], 'titles': []}
-        }
+    def _analyze_document_comprehensively(self, blocks: List[TextBlock]) -> Dict[str, Any]:
+        """Analyze document using configurable parameters"""
+        analysis = {'blocks': []}
+        total = len(blocks) or 1
         
-        # Collect all block information
-        for i, block in enumerate(text_blocks):
-            text = block.text.strip()
-            if len(text) < 1:
+        for i, blk in enumerate(blocks):
+            txt = blk.text.strip()
+            if not txt:
                 continue
-                
-            font_size = getattr(block, 'font_size', self.config.default_font_size)
-            analysis['font_hierarchy']['sizes'].append(font_size)
             
-            block_data = {
+            fs = getattr(blk, 'font_size', self.cfg.default_font_size)
+            bd = getattr(blk, 'is_bold', False)
+            ub = txt.isupper()
+            wc = len(txt.split())
+            cc = len(txt)
+            pr = i / total
+            
+            analysis['blocks'].append({
                 'index': i,
-                'text': text,
-                'word_count': len(text.split()),
-                'char_count': len(text),
-                'is_bold': block.is_bold,
-                'is_upper': text.isupper(),
-                'font_size': font_size,
-                'page': block.page,
-                'position_ratio': i / len(text_blocks)
-            }
-            
-            analysis['blocks'].append(block_data)
-            
-            # Categorize by visual patterns
-            if block.is_bold:
-                analysis['visual_patterns']['bold_items'].append(block_data)
-            if text.isupper():
-                analysis['visual_patterns']['upper_items'].append(block_data)
-            if block.is_bold or text.isupper() or font_size > self.config.large_font_threshold:
-                analysis['visual_patterns']['formatted_items'].append(block_data)
-        
-        # Calculate font tiers
-        if analysis['font_hierarchy']['sizes']:
-            unique_sizes = sorted(set(analysis['font_hierarchy']['sizes']), reverse=True)
-            analysis['font_hierarchy']['tiers'] = {
-                'largest': unique_sizes[0] if len(unique_sizes) > 0 else self.config.default_font_size,
-                'large': unique_sizes[1] if len(unique_sizes) > 1 else self.config.default_font_size,
-                'medium': unique_sizes[2] if len(unique_sizes) > 2 else self.config.default_font_size,
-                'small': unique_sizes[-1] if len(unique_sizes) > 0 else self.config.default_font_size
-            }
+                'text': txt,
+                'font_size': fs,
+                'is_bold': bd,
+                'is_upper': ub,
+                'word_count': wc,
+                'char_count': cc,
+                'position_ratio': pr,
+                'page': getattr(blk, 'page', 0)
+            })
         
         return analysis
     
-    def _extract_and_repair_title(self, text_blocks: List[TextBlock], doc_analysis: Dict) -> str:
-        """Extract title with advanced corruption repair"""
-        # Look for title in first few blocks
-        for block_data in doc_analysis['blocks'][:self.config.title_search_blocks]:
-            if self._is_title_candidate(block_data):
-                return self._advanced_title_repair(block_data['text'])
+    def _extract_and_repair_title(self, blocks: List[TextBlock], analysis: Dict) -> str:
+        """Extract and repair title using configurable methods"""
         
-        # Fallback to first substantial formatted text
-        for block_data in doc_analysis['visual_patterns']['formatted_items'][:self.config.formatted_title_fallback]:
-            if (self.config.title_min_words <= block_data['word_count'] <= self.config.title_max_words and 
-                not self._is_date_content(block_data['text']) and
-                block_data['position_ratio'] < self.config.early_position_threshold):
-                return self._advanced_title_repair(block_data['text'])
+        # Method 1: Core title extractor (configurable)
+        if self.analysis.enable_title_extractor:
+            try:
+                extracted_title = self.title_extractor.extract_title(blocks, self.cfg.document_type)
+                if extracted_title:
+                    return self._repair_title(extracted_title) if self.analysis.enable_title_repair else extracted_title
+            except Exception as e:
+                if self.cfg.enable_debug_logging:
+                    logger.debug(f"Title extractor failed: {e}")
         
-        return "Business Document"
+        # Method 2: Fallback extraction (configurable)
+        if self.analysis.enable_fallback_title_extraction:
+            candidates = []
+            search_limit = min(self.cfg.formatted_title_fallback, len(analysis['blocks']))
+            
+            for block_data in analysis['blocks'][:search_limit]:
+                if not self._is_valid_title_candidate(block_data):
+                    continue
+                
+                score = self._calculate_title_score(block_data)
+                if score > self.cfg.min_score_required:
+                    candidates.append((block_data['text'], score))
+            
+            if candidates:
+                best_text = max(candidates, key=lambda x: x[1])[0]
+                return self._repair_title(best_text) if self.analysis.enable_title_repair else best_text
+        
+        # Method 3: Return empty (configurable default)
+        return ""
     
-    def _advanced_title_repair(self, text: str) -> str:
-        """Advanced title corruption repair with configurable patterns"""
-        repaired = text
-        
-        # Apply all configured repair patterns
-        for pattern, replacement in self.patterns.title_repair_patterns:
-            repaired = re.sub(pattern, replacement, repaired, flags=re.IGNORECASE)
-        
-        # Clean multiple spaces and punctuation
-        repaired = re.sub(r'\s+', ' ', repaired)
-        repaired = re.sub(r':+', ':', repaired)
-        
-        return repaired.strip()
+    def _is_valid_title_candidate(self, block_data: Dict) -> bool:
+        """Validate title candidate using configurable criteria"""
+        return (
+            block_data['word_count'] >= self.cfg.title_min_words and
+            block_data['word_count'] <= self.cfg.title_max_words and
+            block_data['position_ratio'] <= self.cfg.mid_document_threshold
+        )
     
-    def _extract_accurate_outline(self, text_blocks: List[TextBlock], doc_analysis: Dict) -> List[HeadingLevel]:
-        """Extract outline with accurate heading detection"""
-        heading_candidates = []
+    def _calculate_title_score(self, block_data: Dict) -> float:
+        """Calculate title score using configurable components"""
+        score = 0.0
         
-        # Process each block for heading potential
-        for block_data in doc_analysis['blocks']:
-            heading_analysis = self._analyze_heading_potential(block_data, doc_analysis, text_blocks)
-            
-            if heading_analysis and heading_analysis['confidence'] > self.config.minimum_heading_confidence:
-                heading_candidates.append(heading_analysis)
+        # Bold scoring (configurable)
+        if self.analysis.enable_bold_scoring and block_data['is_bold']:
+            score += self.cfg.bold_confidence_bonus
         
-        # Build final outline with proper hierarchy
-        return self._build_hierarchical_outline(heading_candidates)
+        # Uppercase scoring (configurable)
+        if self.analysis.enable_uppercase_scoring and block_data['is_upper']:
+            score += self.cfg.uppercase_confidence_bonus
+        
+        # Font size scoring (configurable)
+        if self.analysis.enable_font_size_scoring:
+            if block_data['font_size'] >= self.cfg.large_font_threshold:
+                score += self.cfg.largest_font_bonus
+        
+        return min(self.cfg.max_confidence_score, score)
     
-    def _analyze_heading_potential(self, block_data: Dict, doc_analysis: Dict, all_blocks: List[TextBlock]) -> Optional[Dict]:
-        """Analyze block for heading potential with strict filtering"""
-        text = block_data['text']
+    def _repair_title(self, raw_title: str) -> str:
+        """Repair title using configurable patterns"""
+        if not self.analysis.enable_title_repair:
+            return raw_title
         
-        # Strict exclusion filters
-        if self._should_exclude_from_headings(text, block_data):
-            return None
+        repaired = raw_title.strip()
         
-        # Calculate comprehensive confidence
-        confidence = self._calculate_comprehensive_confidence(block_data, doc_analysis)
+        # Apply configurable repair patterns
+        for pattern, replacement in self.pt.title_repair_patterns:
+            repaired = re.sub(pattern, replacement, repaired, 
+                            flags=0 if self.pt.case_sensitive_matching else re.IGNORECASE)
         
-        if confidence < self.config.minimum_heading_confidence:
-            return None
+        # Apply configurable whitespace cleaning
+        repaired = re.sub(self.pt.whitespace_pattern, self.pt.whitespace_replacement, repaired)
         
-        # Determine hierarchical level
-        level = self._determine_hierarchy_level(block_data, confidence, doc_analysis)
-        
-        return {
-            'block_data': block_data,
-            'confidence': confidence,
-            'level': level,
-            'clean_text': self._clean_heading_text(text)
-        }
+        return repaired
     
-    def _should_exclude_from_headings(self, text: str, block_data: Dict) -> bool:
-        """Comprehensive exclusion filter for non-heading content"""
-        exclusion_patterns = [
-            # Date patterns
-            self._is_date_content(text),
+    def _extract_accurate_outline(self, analysis: Dict, title: str) -> List[HeadingLevel]:
+        """Extract outline using configurable heading detection"""
+        headings = []
+        
+        for block_data in analysis['blocks']:
+            text = block_data['text']
             
-            # Long paragraphs
-            block_data['word_count'] > self.config.heading_max_words,
-            
-            # Sentence patterns
-            text.count('.') > self.config.max_periods_in_heading and block_data['word_count'] > self.config.min_sentence_words,
-            text.count(',') > self.config.max_commas_in_heading,
-            
-            # Descriptive content starters
-            any(text.lower().startswith(starter) for starter in self.patterns.paragraph_starters),
-            
-            # URLs and contact info
-            '@' in text or 'www.' in text or '.com' in text,
-            
-            # Financial/statistical content
-            '$' in text or '%' in text,
-            re.search(r'\d+[-,]\d+', text),
-            
-            # Very short non-meaningful text
-            block_data['word_count'] == 1 and len(text) <= self.config.single_word_max_chars,
-            
-            # Page references
-            'page ' in text.lower() and block_data['word_count'] <= self.config.page_ref_max_words
-        ]
-        
-        return any(exclusion_patterns)
-    
-    def _calculate_comprehensive_confidence(self, block_data: Dict, doc_analysis: Dict) -> float:
-        """Calculate heading confidence using configurable factors"""
-        confidence = 0.0
-        text = block_data['text']
-        text_lower = text.lower()
-        
-        # Format-based confidence
-        if block_data['is_bold']:
-            confidence += self.config.bold_confidence_bonus
-        
-        if block_data['is_upper'] and block_data['word_count'] <= self.config.short_heading_max_words:
-            confidence += self.config.uppercase_confidence_bonus
-        
-        # Font size confidence (relative to document)
-        font_tiers = doc_analysis['font_hierarchy']['tiers']
-        if block_data['font_size'] >= font_tiers['largest']:
-            confidence += self.config.largest_font_bonus
-        elif block_data['font_size'] >= font_tiers['large']:
-            confidence += self.config.large_font_bonus
-        elif block_data['font_size'] >= font_tiers['medium']:
-            confidence += self.config.medium_font_bonus
-        
-        # Content pattern confidence
-        structural_patterns = [
-            text_lower in self.patterns.structural_terms,
-            any(term in text_lower for term in self.patterns.h2_keywords) and block_data['word_count'] <= self.config.appendix_max_words,
-            text.endswith(':') and 2 <= block_data['word_count'] <= self.config.section_heading_max_words,
-            re.match(r'^\d+\.\s+[A-Z]', text),  # Numbered sections
-            any(term in text_lower for term in self.patterns.h3_keywords)
-        ]
-        
-        if any(structural_patterns):
-            confidence += self.config.pattern_match_bonus
-        
-        # Length appropriateness
-        if 2 <= block_data['word_count'] <= self.config.very_short_heading_max_words:
-            confidence += self.config.good_length_bonus
-        elif block_data['word_count'] <= 20:
-            confidence += self.config.acceptable_length_bonus
-        
-        # Position bonus
-        if block_data['position_ratio'] < self.config.mid_document_threshold:
-            confidence += self.config.position_bonus
-        
-        return min(confidence, 1.0)
-    
-    def _determine_hierarchy_level(self, block_data: Dict, confidence: float, doc_analysis: Dict) -> str:
-        """Determine hierarchical level with configurable pattern-based rules"""
-        text = block_data['text']
-        text_lower = text.lower()
-        
-        # H1 level patterns
-        h1_patterns = [
-            any(keyword in text_lower for keyword in self.patterns.h1_keywords),
-            confidence > self.config.high_confidence_h1 and block_data['font_size'] >= doc_analysis['font_hierarchy']['tiers']['largest']
-        ]
-        
-        if any(h1_patterns):
-            return 'H1'
-        
-        # H2 level patterns
-        h2_patterns = [
-            text_lower in self.patterns.h2_keywords,
-            any(term in text_lower for term in self.patterns.h2_keywords) and block_data['word_count'] <= self.config.appendix_max_words,
-            confidence > self.config.high_confidence_h2 and block_data['is_bold']
-        ]
-        
-        if any(h2_patterns):
-            return 'H2'
-        
-        # H3 level patterns
-        h3_patterns = [
-            text.endswith(':') and 2 <= block_data['word_count'] <= self.config.section_heading_max_words,
-            re.match(r'^\d+\.\s+[A-Z]', text),  # Numbered sections
-            any(keyword in text_lower for keyword in self.patterns.h3_keywords) and block_data['word_count'] <= self.config.section_heading_max_words,
-            text.endswith(':') and any(keyword in text_lower for keyword in ['access'])
-        ]
-        
-        if any(h3_patterns):
-            return 'H3'
-        
-        # H4 level patterns
-        h4_patterns = [
-            any(text_lower.startswith(prefix) for prefix in self.patterns.h4_prefixes),
-            any(phrase in text_lower for phrase in self.patterns.h4_prefixes) and text.endswith(':')
-        ]
-        
-        if any(h4_patterns):
-            return 'H4'
-        
-        # Default based on confidence
-        if confidence > 0.75:
-            return 'H2'
-        else:
-            return 'H3'
-    
-    def _build_hierarchical_outline(self, candidates: List[Dict]) -> List[HeadingLevel]:
-        """Build final hierarchical outline with quality control"""
-        if not candidates:
-            return []
-        
-        # Sort by page and document position
-        candidates.sort(key=lambda x: (x['block_data']['page'], x['block_data']['index']))
-        
-        outline = []
-        used_texts = set()
-        
-        # Configure thresholds
-        level_thresholds = {
-            'H1': self.config.h1_threshold,
-            'H2': self.config.h2_threshold,
-            'H3': self.config.h3_threshold,
-            'H4': self.config.h4_threshold
-        }
-        
-        for candidate in candidates:
-            clean_text = candidate['clean_text']
-            text_key = clean_text.lower().strip()
-            
-            # Skip duplicates
-            if text_key in used_texts:
+            # Skip title duplicates (configurable)
+            if self.analysis.enable_duplicate_removal and text.lower() == title.lower():
                 continue
             
-            # Apply confidence thresholds by level
-            required_threshold = level_thresholds.get(candidate['level'], self.config.minimum_heading_confidence)
+            # Validate as heading (configurable)
+            if not self._is_valid_heading(block_data):
+                continue
             
-            if candidate['confidence'] >= required_threshold:
-                outline.append(HeadingLevel(
-                    level=candidate['level'],
-                    text=clean_text,
-                    page=candidate['block_data']['page'],
-                    confidence=candidate['confidence'],
-                    font_size=candidate['block_data']['font_size'],
-                    font_name=None
-                ))
-                used_texts.add(text_key)
+            # Score heading (configurable)
+            confidence = self._score_heading(block_data)
+            
+            # Apply confidence filter (configurable)
+            if self.analysis.enable_confidence_filtering:
+                if confidence < self.cfg.minimum_heading_confidence:
+                    continue
+            
+            # Determine level (configurable)
+            level = self._determine_heading_level(confidence, block_data)
+            
+            headings.append(HeadingLevel(
+                level=level,
+                text=text,
+                page=block_data['page'],
+                confidence=confidence,
+                font_size=block_data['font_size'],
+                font_name=None
+            ))
         
-        return outline
+        return headings
     
-    def _is_title_candidate(self, block_data: Dict) -> bool:
-        """Check if block is a title candidate"""
+    def _is_valid_heading(self, block_data: Dict) -> bool:
+        """Validate heading using configurable exclusion rules"""
         text = block_data['text']
-        return (block_data['index'] <= 5 and
-                self.config.title_min_words <= block_data['word_count'] <= self.config.title_max_words and
-                any(term in text.lower() for term in self.patterns.business_terms) and
-                not self._is_date_content(text))
-    
-    def _is_date_content(self, text: str) -> bool:
-        """Comprehensive date content detection using configurable patterns"""
-        date_patterns = [
-            any(month in text.lower() for month in self.patterns.months) and len(text.split()) <= 6,
-            re.search(r'\d{1,2}:\d{2}', text),  # Times
-            any(day in text.lower() for day in self.patterns.weekdays) and len(text.split()) <= 5,
-            re.search(r'\d{1,2}/\d{1,2}/\d{4}', text),  # Date formats
-            re.match(r'^(' + '|'.join(self.patterns.months[:3]) + r')\s+\d+$', text.lower()),  # Month + day
-            any(indicator in text.lower() for indicator in self.patterns.time_indicators)
-        ]
+        text_lower = text.lower() if not self.pt.case_sensitive_matching else text
         
-        return any(date_patterns)
+        # Paragraph starter exclusion (configurable)
+        if self.analysis.enable_paragraph_exclusion:
+            comparison_starters = (self.pt.paragraph_starters if self.pt.case_sensitive_matching 
+                                 else [s.lower() for s in self.pt.paragraph_starters])
+            if any(text_lower.startswith(starter) for starter in comparison_starters):
+                return False
+        
+        # Length validation (configurable)
+        if self.analysis.enable_length_validation:
+            if len(text.split()) > self.cfg.heading_max_words:
+                return False
+        
+        # Punctuation validation (configurable)
+        if self.analysis.enable_punctuation_validation:
+            if (text.count('.') > self.cfg.max_periods_in_heading or
+                text.count(',') > self.cfg.max_commas_in_heading):
+                return False
+        
+        return True
     
-    def _clean_heading_text(self, text: str) -> str:
-        """Clean heading text while preserving structure"""
-        cleaned = re.sub(r'\s+', ' ', text.strip())
-        return cleaned
+    def _score_heading(self, block_data: Dict) -> float:
+        """Score heading using configurable components"""
+        score = 0.0
+        
+        # Format-based scoring (configurable)
+        if self.analysis.enable_bold_scoring and block_data['is_bold']:
+            score += self.cfg.bold_confidence_bonus
+        
+        if self.analysis.enable_uppercase_scoring and block_data['is_upper']:
+            score += self.cfg.uppercase_confidence_bonus
+        
+        # Font size scoring (configurable)
+        if self.analysis.enable_font_size_scoring:
+            font_size = block_data['font_size']
+            if font_size >= self.cfg.large_font_threshold:
+                score += self.cfg.largest_font_bonus
+            elif font_size > self.cfg.default_font_size:
+                score += self.cfg.large_font_bonus
+        
+        # Length scoring (configurable)
+        if self.analysis.enable_length_scoring:
+            word_count = block_data['word_count']
+            if word_count <= self.cfg.very_short_heading_max_words:
+                score += self.cfg.acceptable_length_bonus
+            elif word_count <= self.cfg.short_heading_max_words:
+                score += self.cfg.good_length_bonus
+        
+        # Pattern scoring (configurable)
+        if self.analysis.enable_pattern_scoring:
+            text_for_comparison = (block_data['text'] if self.pt.case_sensitive_matching 
+                                 else block_data['text'].lower())
+            
+            comparison_terms = (self.pt.structural_terms + self.pt.business_terms 
+                              if self.pt.case_sensitive_matching
+                              else [term.lower() for term in self.pt.structural_terms + self.pt.business_terms])
+            
+            if any(term in text_for_comparison for term in comparison_terms):
+                score += self.cfg.pattern_match_bonus
+        
+        # Position scoring (configurable)
+        if self.analysis.enable_position_scoring:
+            if block_data['position_ratio'] <= self.cfg.early_position_threshold:
+                score += self.cfg.position_bonus
+        
+        return min(self.cfg.max_confidence_score, score)
+    
+    def _determine_heading_level(self, confidence: float, block_data: Dict) -> str:
+        """Determine heading level using configurable thresholds"""
+        if confidence >= self.cfg.high_confidence_h1:
+            return 'H1'
+        elif confidence >= self.cfg.h1_threshold:
+            return 'H1'
+        elif confidence >= self.cfg.high_confidence_h2:
+            return 'H2'
+        elif confidence >= self.cfg.h2_threshold:
+            return 'H2'
+        elif confidence >= self.cfg.h3_threshold:
+            return 'H3'
+        else:
+            return 'H4'
+
+# Factory function for easy processor creation
+def create_business_processor(mode: str = 'standard') -> BusinessProcessor:
+    """Create processor with preconfigured settings"""
+    
+    config = ProcessorConfig()
+    patterns = PatternConfig()
+    analysis = AnalysisConfig()
+    
+    if mode == 'strict':
+        config.bold_confidence_bonus = 0.4
+        config.h1_threshold = 0.7
+        config.minimum_heading_confidence = 0.6
+        
+    elif mode == 'lenient':
+        config.bold_confidence_bonus = 0.2
+        config.minimum_heading_confidence = 0.4
+        config.h1_threshold = 0.5
+        
+    elif mode == 'debug':
+        config.enable_debug_logging = True
+        
+    elif mode == 'rfp_configured':
+        # Example of domain-specific configuration
+        patterns.title_repair_patterns = [
+            (r'(RFP)(\s*:\s*R?\1)*', r'\1:'),
+            (r'([a-z])\1{3,}', r'\1'),
+            (r'(\w+)\s+(?:\w*\1\w*\s*){2,}', r'\1'),
+            (r'\bfquest\b', 'Request'),
+            (r'\boposal\b', 'Proposal'),
+            (r'\bProposaloposal\b', 'Proposal'),
+            (r'\boPr+\b', 'for Pr'),
+            (r'\bPr+\s+', 'Pr')
+        ]
+        patterns.paragraph_starters = [
+            'the ', 'a ', 'an ', 'this ', 'that ',
+            'it is ', 'there is ', 'we will ', 'they will '
+        ]
+        patterns.h2_keywords = [
+            'summary', 'background', 'timeline', 'milestones',
+            'business plan', 'approach', 'requirements', 'evaluation',
+            'contract', 'appendix'
+        ]
+        patterns.business_terms = ['rfp', 'proposal']
+        patterns.structural_terms = patterns.h2_keywords + ['appendix', 'business plan']
+    
+    return BusinessProcessor(config=config, patterns=patterns, analysis=analysis)
+
+# Usage examples
+if __name__ == "__main__":
+    # Standard processor (empty patterns)
+    standard_processor = create_business_processor('standard')
+    
+    # RFP-configured processor
+    rfp_processor = create_business_processor('rfp_configured')
+    
+    # Custom configuration
+    custom_config = ProcessorConfig(
+        document_type=DocumentType.BUSINESS_DOCUMENT,
+        document_confidence=0.95,
+        title_min_words=3,
+        large_font_threshold=14.0
+    )
+    
+    custom_patterns = PatternConfig(
+        title_repair_patterns=[(r'SPEC\s*:', 'Specification:')],
+        business_terms=['specification', 'standard', 'protocol'],
+        case_sensitive_matching=False
+    )
+    
+    custom_analysis = AnalysisConfig(
+        enable_title_repair=True,
+        enable_pattern_scoring=True,
+        enable_confidence_filtering=True
+    )
+    
+    custom_processor = BusinessProcessor(
+        config=custom_config,
+        patterns=custom_patterns,
+        analysis=custom_analysis
+    )
