@@ -6826,3 +6826,871 @@ KeyError: 'other'
 2025-07-25 18:30:37,653 [INFO] extraction:   ✓ file03.pdf
 2025-07-25 18:30:37,653 [INFO] extraction:   ✓ file04.pdf
 2025-07-25 18:30:37,653 [INFO] extraction:   ✓ file05.pdf
+2025-07-25 18:37:51,987 [INFO] extraction: All directories ensured to exist
+2025-07-25 18:37:51,988 [INFO] extraction: Initializing PDF Outline Extractor with page count guard...
+2025-07-25 18:37:51,992 [INFO] extraction: FormProcessor initialized with: ['TitleExtractor', 'FontAnalyzer', 'TextAnalyzer', 'ContentFilter', 'SemanticClassifier', 'TextProcessor', 'OutputValidator']
+2025-07-25 18:37:51,992 [INFO] extraction: ✓ Successfully initialized FormProcessor for form
+2025-07-25 18:37:51,994 [INFO] extraction: ✓ Successfully initialized ManualProcessor for manual
+2025-07-25 18:37:51,994 [INFO] extraction: ✓ Successfully initialized BusinessProcessor for business
+2025-07-25 18:37:51,995 [INFO] extraction: ✓ Successfully initialized ProgramProcessor for program
+2025-07-25 18:37:51,996 [INFO] extraction: ✓ Successfully initialized InvitationProcessor for invitation
+2025-07-25 18:37:51,997 [INFO] extraction: Total processors initialized: 5
+2025-07-25 18:37:51,997 [INFO] extraction: Available document types: ['form', 'manual', 'business', 'program', 'invitation']
+2025-07-25 18:37:51,998 [INFO] extraction: Extractor initialized successfully (max pages: 50)
+2025-07-25 18:37:52,005 [INFO] extraction: Found 5 PDF files to process
+2025-07-25 18:37:52,006 [INFO] extraction: === Processing PDF [1]: file01.pdf ===
+2025-07-25 18:37:52,031 [INFO] extraction: PDF loaded successfully: /app/input/file01.pdf
+2025-07-25 18:37:52,032 [ERROR] extraction: Validation failed for file01.pdf: Failed to analyze PDF structure: seek of closed file
+2025-07-25 18:37:52,032 [INFO] extraction: === Processing PDF [2]: file02.pdf ===
+2025-07-25 18:37:52,085 [INFO] extraction: PDF loaded successfully: /app/input/file02.pdf
+2025-07-25 18:37:52,086 [ERROR] extraction: Validation failed for file02.pdf: Failed to analyze PDF structure: seek of closed file
+2025-07-25 18:37:52,086 [INFO] extraction: === Processing PDF [3]: file03.pdf ===
+2025-07-25 18:37:52,144 [INFO] extraction: PDF loaded successfully: /app/input/file03.pdf
+2025-07-25 18:37:52,145 [ERROR] extraction: Validation failed for file03.pdf: Failed to analyze PDF structure: seek of closed file
+2025-07-25 18:37:52,145 [INFO] extraction: === Processing PDF [4]: file04.pdf ===
+2025-07-25 18:37:52,177 [INFO] extraction: PDF loaded successfully: /app/input/file04.pdf
+2025-07-25 18:37:52,177 [ERROR] extraction: Validation failed for file04.pdf: Failed to analyze PDF structure: seek of closed file
+2025-07-25 18:37:52,178 [INFO] extraction: === Processing PDF [5]: file05.pdf ===
+2025-07-25 18:37:52,192 [INFO] extraction: PDF loaded successfully: /app/input/file05.pdf
+2025-07-25 18:37:52,193 [ERROR] extraction: Validation failed for file05.pdf: Failed to analyze PDF structure: seek of closed file
+2025-07-25 18:46:01,478 [INFO] extraction: All directories ensured to exist
+2025-07-25 18:46:01,479 [INFO] extraction: Initializing PDF Outline Extractor with page count guard...
+2025-07-25 18:46:01,483 [INFO] extraction: FormProcessor initialized with: ['TitleExtractor', 'FontAnalyzer', 'TextAnalyzer', 'ContentFilter', 'SemanticClassifier', 'TextProcessor', 'OutputValidator']
+2025-07-25 18:46:01,483 [INFO] extraction: ✓ Successfully initialized FormProcessor for form
+2025-07-25 18:46:01,485 [INFO] extraction: ✓ Successfully initialized ManualProcessor for manual
+2025-07-25 18:46:01,485 [INFO] extraction: ✓ Successfully initialized BusinessProcessor for business
+2025-07-25 18:46:01,486 [INFO] extraction: ✓ Successfully initialized ProgramProcessor for program
+2025-07-25 18:46:01,487 [INFO] extraction: ✓ Successfully initialized InvitationProcessor for invitation
+2025-07-25 18:46:01,488 [INFO] extraction: Total processors initialized: 5
+2025-07-25 18:46:01,488 [INFO] extraction: Available document types: ['form', 'manual', 'business', 'program', 'invitation']
+2025-07-25 18:46:01,488 [INFO] extraction: Extractor initialized successfully (max pages: 50)
+2025-07-25 18:46:01,494 [INFO] extraction: Found 5 PDF files to process
+2025-07-25 18:46:01,495 [INFO] extraction: === Processing PDF [1]: file01.pdf ===
+2025-07-25 18:46:01,510 [INFO] extraction: PDF loaded successfully: /app/input/file01.pdf
+2025-07-25 18:46:01,511 [ERROR] extraction: Validation failed for file01.pdf: Failed to analyze PDF structure: seek of closed file
+2025-07-25 18:46:01,511 [INFO] extraction: === Processing PDF [2]: file02.pdf ===
+2025-07-25 18:46:01,559 [INFO] extraction: PDF loaded successfully: /app/input/file02.pdf
+2025-07-25 18:46:01,560 [ERROR] extraction: Validation failed for file02.pdf: Failed to analyze PDF structure: seek of closed file
+2025-07-25 18:46:01,560 [INFO] extraction: === Processing PDF [3]: file03.pdf ===
+2025-07-25 18:46:01,605 [INFO] extraction: PDF loaded successfully: /app/input/file03.pdf
+2025-07-25 18:46:01,606 [ERROR] extraction: Validation failed for file03.pdf: Failed to analyze PDF structure: seek of closed file
+2025-07-25 18:46:01,607 [INFO] extraction: === Processing PDF [4]: file04.pdf ===
+2025-07-25 18:46:01,635 [INFO] extraction: PDF loaded successfully: /app/input/file04.pdf
+2025-07-25 18:46:01,636 [ERROR] extraction: Validation failed for file04.pdf: Failed to analyze PDF structure: seek of closed file
+2025-07-25 18:46:01,636 [INFO] extraction: === Processing PDF [5]: file05.pdf ===
+2025-07-25 18:46:01,650 [INFO] extraction: PDF loaded successfully: /app/input/file05.pdf
+2025-07-25 18:46:01,651 [ERROR] extraction: Validation failed for file05.pdf: Failed to analyze PDF structure: seek of closed file
+2025-07-25 18:53:12,276 [INFO] extraction: All directories ensured to exist
+2025-07-25 18:53:12,277 [INFO] extraction: Initializing PDF Outline Extractor with page count guard...
+2025-07-25 18:53:12,281 [INFO] extraction: FormProcessor initialized with: ['TitleExtractor', 'FontAnalyzer', 'TextAnalyzer', 'ContentFilter', 'SemanticClassifier', 'TextProcessor', 'OutputValidator']
+2025-07-25 18:53:12,281 [INFO] extraction: ✓ Successfully initialized FormProcessor for form
+2025-07-25 18:53:12,283 [INFO] extraction: ✓ Successfully initialized ManualProcessor for manual
+2025-07-25 18:53:12,284 [INFO] extraction: ✓ Successfully initialized BusinessProcessor for business
+2025-07-25 18:53:12,284 [INFO] extraction: ✓ Successfully initialized ProgramProcessor for program
+2025-07-25 18:53:12,287 [INFO] extraction: ✓ Successfully initialized InvitationProcessor for invitation
+2025-07-25 18:53:12,287 [INFO] extraction: Total processors initialized: 5
+2025-07-25 18:53:12,288 [INFO] extraction: Available document types: ['form', 'manual', 'business', 'program', 'invitation']
+2025-07-25 18:53:12,288 [INFO] extraction: Extractor initialized successfully (max pages: 50)
+2025-07-25 18:53:12,293 [INFO] extraction: Found 5 PDF files to process
+2025-07-25 18:53:12,294 [INFO] extraction: === Processing PDF [1]: file01.pdf ===
+2025-07-25 18:53:12,314 [INFO] extraction: PDF loaded successfully: /app/input/file01.pdf
+2025-07-25 18:53:12,314 [ERROR] extraction: Could not read file01.pdf: Could not read PDF file: seek of closed file
+2025-07-25 18:53:12,315 [INFO] extraction: === Processing PDF [2]: file02.pdf ===
+2025-07-25 18:53:12,372 [INFO] extraction: PDF loaded successfully: /app/input/file02.pdf
+2025-07-25 18:53:12,373 [ERROR] extraction: Could not read file02.pdf: Could not read PDF file: seek of closed file
+2025-07-25 18:53:12,373 [INFO] extraction: === Processing PDF [3]: file03.pdf ===
+2025-07-25 18:53:12,430 [INFO] extraction: PDF loaded successfully: /app/input/file03.pdf
+2025-07-25 18:53:12,431 [ERROR] extraction: Could not read file03.pdf: Could not read PDF file: seek of closed file
+2025-07-25 18:53:12,432 [INFO] extraction: === Processing PDF [4]: file04.pdf ===
+2025-07-25 18:53:12,465 [INFO] extraction: PDF loaded successfully: /app/input/file04.pdf
+2025-07-25 18:53:12,466 [ERROR] extraction: Could not read file04.pdf: Could not read PDF file: seek of closed file
+2025-07-25 18:53:12,466 [INFO] extraction: === Processing PDF [5]: file05.pdf ===
+2025-07-25 18:53:12,481 [INFO] extraction: PDF loaded successfully: /app/input/file05.pdf
+2025-07-25 18:53:12,481 [ERROR] extraction: Could not read file05.pdf: Could not read PDF file: seek of closed file
+2025-07-25 18:58:51,746 [INFO] extraction: All directories ensured to exist
+2025-07-25 18:58:51,746 [INFO] extraction: Initializing PDF Outline Extractor with fixed file handling...
+2025-07-25 18:58:51,752 [INFO] extraction: FormProcessor initialized with: ['TitleExtractor', 'FontAnalyzer', 'TextAnalyzer', 'ContentFilter', 'SemanticClassifier', 'TextProcessor', 'OutputValidator']
+2025-07-25 18:58:51,753 [INFO] extraction: ✓ Successfully initialized FormProcessor for form
+2025-07-25 18:58:51,754 [INFO] extraction: ✓ Successfully initialized ManualProcessor for manual
+2025-07-25 18:58:51,755 [INFO] extraction: ✓ Successfully initialized BusinessProcessor for business
+2025-07-25 18:58:51,756 [INFO] extraction: ✓ Successfully initialized ProgramProcessor for program
+2025-07-25 18:58:51,757 [INFO] extraction: ✓ Successfully initialized InvitationProcessor for invitation
+2025-07-25 18:58:51,758 [INFO] extraction: Total processors initialized: 5
+2025-07-25 18:58:51,758 [INFO] extraction: Available document types: ['form', 'manual', 'business', 'program', 'invitation']
+2025-07-25 18:58:51,759 [INFO] extraction: Extractor initialized successfully (max pages: 50)
+2025-07-25 18:58:51,764 [INFO] extraction: Found 5 PDF files to process
+2025-07-25 18:58:51,765 [INFO] extraction: === Processing PDF [1]: file01.pdf ===
+2025-07-25 18:58:51,797 [INFO] extraction: PDF loaded successfully: /app/input/file01.pdf
+2025-07-25 18:58:51,798 [ERROR] extraction: Could not get page count from file01.pdf: seek of closed file
+2025-07-25 18:58:51,799 [INFO] extraction: === Processing PDF [2]: file02.pdf ===
+2025-07-25 18:58:51,864 [INFO] extraction: PDF loaded successfully: /app/input/file02.pdf
+2025-07-25 18:58:51,865 [ERROR] extraction: Could not get page count from file02.pdf: seek of closed file
+2025-07-25 18:58:51,866 [INFO] extraction: === Processing PDF [3]: file03.pdf ===
+2025-07-25 18:58:51,923 [INFO] extraction: PDF loaded successfully: /app/input/file03.pdf
+2025-07-25 18:58:51,923 [ERROR] extraction: Could not get page count from file03.pdf: seek of closed file
+2025-07-25 18:58:51,924 [INFO] extraction: === Processing PDF [4]: file04.pdf ===
+2025-07-25 18:58:51,959 [INFO] extraction: PDF loaded successfully: /app/input/file04.pdf
+2025-07-25 18:58:51,959 [ERROR] extraction: Could not get page count from file04.pdf: seek of closed file
+2025-07-25 18:58:51,960 [INFO] extraction: === Processing PDF [5]: file05.pdf ===
+2025-07-25 18:58:51,979 [INFO] extraction: PDF loaded successfully: /app/input/file05.pdf
+2025-07-25 18:58:51,979 [ERROR] extraction: Could not get page count from file05.pdf: seek of closed file
+2025-07-25 19:02:38,153 [INFO] extraction: All directories ensured to exist
+2025-07-25 19:02:38,154 [INFO] extraction: Initializing PDF Outline Extractor...
+2025-07-25 19:02:38,157 [INFO] extraction: FormProcessor initialized with: ['TitleExtractor', 'FontAnalyzer', 'TextAnalyzer', 'ContentFilter', 'SemanticClassifier', 'TextProcessor', 'OutputValidator']
+2025-07-25 19:02:38,158 [INFO] extraction: ✓ Successfully initialized FormProcessor for form
+2025-07-25 19:02:38,159 [INFO] extraction: ✓ Successfully initialized ManualProcessor for manual
+2025-07-25 19:02:38,160 [INFO] extraction: ✓ Successfully initialized BusinessProcessor for business
+2025-07-25 19:02:38,161 [INFO] extraction: ✓ Successfully initialized ProgramProcessor for program
+2025-07-25 19:02:38,161 [INFO] extraction: ✓ Successfully initialized InvitationProcessor for invitation
+2025-07-25 19:02:38,162 [INFO] extraction: Total processors initialized: 5
+2025-07-25 19:02:38,162 [INFO] extraction: Available document types: ['form', 'manual', 'business', 'program', 'invitation']
+2025-07-25 19:02:38,163 [INFO] extraction: Extractor initialized successfully
+2025-07-25 19:02:38,169 [INFO] extraction: Found 5 PDF files to process
+2025-07-25 19:02:38,170 [INFO] extraction: 
+=== Starting processing: file01.pdf ===
+2025-07-25 19:02:38,171 [INFO] extraction: === Processing PDF: file01.pdf ===
+2025-07-25 19:02:38,207 [INFO] extraction: PDF loaded successfully: /app/input/file01.pdf
+2025-07-25 19:02:38,295 [INFO] extraction: Extracted 28 text blocks
+2025-07-25 19:02:38,296 [INFO] extraction: Extracted 28 text blocks from file01.pdf
+2025-07-25 19:02:38,297 [INFO] extraction: Starting enhanced classification for file01.pdf
+2025-07-25 19:02:38,299 [INFO] extraction: Document classifier result: manual (confidence: 1.00)
+2025-07-25 19:02:38,300 [INFO] extraction: file01.pdf classified as: manual (confidence: 1.00)
+2025-07-25 19:02:38,300 [INFO] extraction: Selecting processor for file01.pdf: document type = manual
+2025-07-25 19:02:38,301 [INFO] extraction: ✓ Found primary processor: ManualProcessor for file01.pdf
+2025-07-25 19:02:38,301 [INFO] extraction: Processing file01.pdf with ManualProcessor
+2025-07-25 19:02:38,301 [INFO] extraction: Processing technical manual - generalized pattern matching
+2025-07-25 19:02:38,305 [INFO] extraction: file01.pdf processing successful:
+2025-07-25 19:02:38,305 [INFO] extraction:   Title: 'Application form for grant of LTC advance '
+2025-07-25 19:02:38,306 [INFO] extraction:   Outline items: 0
+2025-07-25 19:02:38,306 [INFO] extraction: Output validation passed
+2025-07-25 19:02:38,307 [INFO] extraction: JSON output formatted and validated successfully
+2025-07-25 19:02:38,307 [INFO] extraction: JSON formatting successful
+2025-07-25 19:02:38,316 [INFO] extraction: JSON output saved to /app/output/file01_outline.json
+2025-07-25 19:02:38,316 [INFO] extraction: file01.pdf processing completed in 0.15 seconds
+2025-07-25 19:02:38,316 [INFO] extraction: Output saved to: /app/output/file01_outline.json
+2025-07-25 19:02:38,317 [INFO] extraction: ✓ Successfully processed: file01.pdf
+2025-07-25 19:02:38,317 [INFO] extraction: 
+=== Starting processing: file02.pdf ===
+2025-07-25 19:02:38,318 [INFO] extraction: === Processing PDF: file02.pdf ===
+2025-07-25 19:02:38,369 [INFO] extraction: PDF loaded successfully: /app/input/file02.pdf
+2025-07-25 19:02:39,169 [INFO] extraction: Extracted 235 text blocks
+2025-07-25 19:02:39,170 [INFO] extraction: Extracted 235 text blocks from file02.pdf
+2025-07-25 19:02:39,170 [INFO] extraction: Starting enhanced classification for file02.pdf
+2025-07-25 19:02:39,173 [INFO] extraction: Document classifier result: manual (confidence: 1.00)
+2025-07-25 19:02:39,174 [INFO] extraction: file02.pdf classified as: manual (confidence: 1.00)
+2025-07-25 19:02:39,174 [INFO] extraction: Selecting processor for file02.pdf: document type = manual
+2025-07-25 19:02:39,175 [INFO] extraction: ✓ Found primary processor: ManualProcessor for file02.pdf
+2025-07-25 19:02:39,176 [INFO] extraction: Processing file02.pdf with ManualProcessor
+2025-07-25 19:02:39,176 [INFO] extraction: Processing technical manual - generalized pattern matching
+2025-07-25 19:02:39,180 [INFO] extraction: file02.pdf processing successful:
+2025-07-25 19:02:39,181 [INFO] extraction:   Title: 'Overview Foundation Level Extensions  '
+2025-07-25 19:02:39,182 [INFO] extraction:   Outline items: 18
+2025-07-25 19:02:39,182 [INFO] extraction: Output validation passed
+2025-07-25 19:02:39,183 [INFO] extraction: JSON output formatted and validated successfully
+2025-07-25 19:02:39,184 [INFO] extraction: JSON formatting successful
+2025-07-25 19:02:39,193 [INFO] extraction: JSON output saved to /app/output/file02_outline.json
+2025-07-25 19:02:39,193 [INFO] extraction: file02.pdf processing completed in 0.88 seconds
+2025-07-25 19:02:39,193 [INFO] extraction: Output saved to: /app/output/file02_outline.json
+2025-07-25 19:02:39,194 [INFO] extraction: ✓ Successfully processed: file02.pdf
+2025-07-25 19:02:39,195 [INFO] extraction: 
+=== Starting processing: file03.pdf ===
+2025-07-25 19:02:39,195 [INFO] extraction: === Processing PDF: file03.pdf ===
+2025-07-25 19:02:39,242 [INFO] extraction: PDF loaded successfully: /app/input/file03.pdf
+2025-07-25 19:02:40,381 [INFO] extraction: Extracted 224 text blocks
+2025-07-25 19:02:40,382 [INFO] extraction: Extracted 224 text blocks from file03.pdf
+2025-07-25 19:02:40,383 [INFO] extraction: Starting enhanced classification for file03.pdf
+2025-07-25 19:02:40,388 [INFO] extraction: Document classifier result: business (confidence: 1.00)
+2025-07-25 19:02:40,389 [INFO] extraction: file03.pdf classified as: business (confidence: 1.00)
+2025-07-25 19:02:40,389 [INFO] extraction: Selecting processor for file03.pdf: document type = business
+2025-07-25 19:02:40,390 [INFO] extraction: ✓ Found primary processor: BusinessProcessor for file03.pdf
+2025-07-25 19:02:40,390 [INFO] extraction: Processing file03.pdf with BusinessProcessor
+2025-07-25 19:02:40,391 [INFO] extraction: BusinessProcessor: start
+2025-07-25 19:02:40,394 [INFO] extraction: Extracted title: RFP: RRFP: RRFP: RRFP: Reeeequest fquest fquest fquest foooor Prr Prr Prr Proposaloposal oposaloposal
+2025-07-25 19:02:40,396 [INFO] extraction: file03.pdf processing successful:
+2025-07-25 19:02:40,397 [INFO] extraction:   Title: 'RFP: RRFP: RRFP: RRFP: Reeeequest fquest fquest fquest foooor Prr Prr Prr Proposaloposal oposaloposal'
+2025-07-25 19:02:40,397 [INFO] extraction:   Outline items: 15
+2025-07-25 19:02:40,398 [INFO] extraction: Output validation passed
+2025-07-25 19:02:40,398 [INFO] extraction: JSON output formatted and validated successfully
+2025-07-25 19:02:40,399 [INFO] extraction: JSON formatting successful
+2025-07-25 19:02:40,404 [INFO] extraction: JSON output saved to /app/output/file03_outline.json
+2025-07-25 19:02:40,404 [INFO] extraction: file03.pdf processing completed in 1.21 seconds
+2025-07-25 19:02:40,405 [INFO] extraction: Output saved to: /app/output/file03_outline.json
+2025-07-25 19:02:40,406 [INFO] extraction: ✓ Successfully processed: file03.pdf
+2025-07-25 19:02:40,407 [INFO] extraction: 
+=== Starting processing: file04.pdf ===
+2025-07-25 19:02:40,407 [INFO] extraction: === Processing PDF: file04.pdf ===
+2025-07-25 19:02:40,479 [INFO] extraction: PDF loaded successfully: /app/input/file04.pdf
+2025-07-25 19:02:40,619 [INFO] extraction: Extracted 28 text blocks
+2025-07-25 19:02:40,620 [INFO] extraction: Extracted 28 text blocks from file04.pdf
+2025-07-25 19:02:40,620 [INFO] extraction: Starting enhanced classification for file04.pdf
+2025-07-25 19:02:40,621 [INFO] extraction: Document classifier result: program (confidence: 1.00)
+2025-07-25 19:02:40,621 [INFO] extraction: file04.pdf classified as: program (confidence: 1.00)
+2025-07-25 19:02:40,621 [INFO] extraction: Selecting processor for file04.pdf: document type = program
+2025-07-25 19:02:40,622 [INFO] extraction: ✓ Found primary processor: ProgramProcessor for file04.pdf
+2025-07-25 19:02:40,622 [INFO] extraction: Processing file04.pdf with ProgramProcessor
+2025-07-25 19:02:40,622 [INFO] extraction: Processing program document - pure component-driven analysis
+2025-07-25 19:02:40,623 [INFO] extraction: Font analysis completed: 28 size samples, 5 unique fonts
+2025-07-25 19:02:40,624 [INFO] extraction: Spatial analysis completed for 1 pages
+2025-07-25 19:02:40,630 [INFO] extraction: Text pattern analysis completed for 28 blocks
+2025-07-25 19:02:40,631 [INFO] extraction: Document structure analysis completed
+2025-07-25 19:02:40,632 [INFO] extraction: Font analysis completed: 28 size samples, 5 unique fonts
+2025-07-25 19:02:40,635 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:02:40,636 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:02:40,636 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:02:40,636 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:02:40,637 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:02:40,637 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:02:40,638 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:02:40,638 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:02:40,638 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:02:40,638 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:02:40,639 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:02:40,639 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:02:40,639 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:02:40,640 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:02:40,640 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:02:40,640 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:02:40,640 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:02:40,641 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:02:40,641 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:02:40,641 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:02:40,641 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:02:40,642 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:02:40,642 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:02:40,642 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:02:40,642 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:02:40,642 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:02:40,643 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:02:40,643 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:02:40,643 [INFO] extraction: Extracted title: Parsippany -Troy Hills STEM Pathways
+2025-07-25 19:02:40,644 [INFO] extraction: Component-validated outline item: 'PATHWAY OPTIONS' as H1 (source: structure_analyzer)
+2025-07-25 19:02:40,644 [INFO] extraction: Output validation passed
+2025-07-25 19:02:40,644 [INFO] extraction: Final validation successful - Title: 'Parsippany -Troy Hills STEM Pathways', Outline: 1 items
+2025-07-25 19:02:40,644 [INFO] extraction: file04.pdf processing successful:
+2025-07-25 19:02:40,644 [INFO] extraction:   Title: 'Parsippany -Troy Hills STEM Pathways'
+2025-07-25 19:02:40,645 [INFO] extraction:   Outline items: 1
+2025-07-25 19:02:40,645 [INFO] extraction: Output validation passed
+2025-07-25 19:02:40,645 [INFO] extraction: JSON output formatted and validated successfully
+2025-07-25 19:02:40,645 [INFO] extraction: JSON formatting successful
+2025-07-25 19:02:40,647 [INFO] extraction: JSON output saved to /app/output/file04_outline.json
+2025-07-25 19:02:40,647 [INFO] extraction: file04.pdf processing completed in 0.24 seconds
+2025-07-25 19:02:40,647 [INFO] extraction: Output saved to: /app/output/file04_outline.json
+2025-07-25 19:02:40,648 [INFO] extraction: ✓ Successfully processed: file04.pdf
+2025-07-25 19:02:40,648 [INFO] extraction: 
+=== Starting processing: file05.pdf ===
+2025-07-25 19:02:40,648 [INFO] extraction: === Processing PDF: file05.pdf ===
+2025-07-25 19:02:40,660 [INFO] extraction: PDF loaded successfully: /app/input/file05.pdf
+2025-07-25 19:02:40,692 [INFO] extraction: Extracted 12 text blocks
+2025-07-25 19:02:40,692 [INFO] extraction: Extracted 12 text blocks from file05.pdf
+2025-07-25 19:02:40,693 [INFO] extraction: Starting enhanced classification for file05.pdf
+2025-07-25 19:02:40,694 [INFO] extraction: Document classifier result: invitation (confidence: 1.00)
+2025-07-25 19:02:40,694 [INFO] extraction: file05.pdf classified as: invitation (confidence: 1.00)
+2025-07-25 19:02:40,695 [INFO] extraction: Selecting processor for file05.pdf: document type = invitation
+2025-07-25 19:02:40,695 [INFO] extraction: ✓ Found primary processor: InvitationProcessor for file05.pdf
+2025-07-25 19:02:40,696 [INFO] extraction: Processing file05.pdf with InvitationProcessor
+2025-07-25 19:02:40,696 [INFO] extraction: Processing invitation document with 12 blocks
+2025-07-25 19:02:40,698 [INFO] extraction: Font analysis completed: 1 size samples, 1 unique fonts
+2025-07-25 19:02:40,698 [INFO] extraction: Spatial analysis completed for 1 pages
+2025-07-25 19:02:40,699 [INFO] extraction: Text pattern analysis completed for 1 blocks
+2025-07-25 19:02:40,700 [INFO] extraction: Document structure analysis completed
+2025-07-25 19:02:40,700 [INFO] extraction: Font analysis completed: 1 size samples, 1 unique fonts
+2025-07-25 19:02:40,701 [INFO] extraction: Spatial analysis completed for 1 pages
+2025-07-25 19:02:40,703 [INFO] extraction: Using default title for invitation: 
+2025-07-25 19:02:40,704 [INFO] extraction: Extracting outline for invitation document with 1 text blocks
+2025-07-25 19:02:40,705 [INFO] extraction: Font analysis completed: 1 size samples, 1 unique fonts
+2025-07-25 19:02:40,706 [INFO] extraction: Font analysis completed: 1 size samples, 1 unique fonts
+2025-07-25 19:02:40,706 [INFO] extraction: Spatial analysis completed for 1 pages
+2025-07-25 19:02:40,707 [INFO] extraction: Text pattern analysis completed for 1 blocks
+2025-07-25 19:02:40,708 [INFO] extraction: Document structure analysis completed
+2025-07-25 19:02:40,709 [INFO] extraction: Extracted 0 outline items
+2025-07-25 19:02:40,709 [INFO] extraction: Added to outline: 'HOPE To SEE You THERE!' as H1 (method: semantic_analysis, confidence: 0.67)
+2025-07-25 19:02:40,709 [INFO] extraction: Output validation passed
+2025-07-25 19:02:40,710 [INFO] extraction: Output validation passed
+2025-07-25 19:02:40,710 [INFO] extraction: file05.pdf processing successful:
+2025-07-25 19:02:40,710 [INFO] extraction:   Title: ''
+2025-07-25 19:02:40,711 [INFO] extraction:   Outline items: 1
+2025-07-25 19:02:40,711 [INFO] extraction: Output validation passed
+2025-07-25 19:02:40,711 [INFO] extraction: JSON output formatted and validated successfully
+2025-07-25 19:02:40,712 [INFO] extraction: JSON formatting successful
+2025-07-25 19:02:40,716 [INFO] extraction: JSON output saved to /app/output/file05_outline.json
+2025-07-25 19:02:40,716 [INFO] extraction: file05.pdf processing completed in 0.07 seconds
+2025-07-25 19:02:40,716 [INFO] extraction: Output saved to: /app/output/file05_outline.json
+2025-07-25 19:02:40,717 [INFO] extraction: ✓ Successfully processed: file05.pdf
+2025-07-25 19:02:40,717 [INFO] extraction: 
+=== PROCESSING SUMMARY ===
+2025-07-25 19:02:40,717 [INFO] extraction: Successfully processed 5/5 PDF files
+2025-07-25 19:02:40,717 [INFO] extraction:   ✓ file01.pdf
+2025-07-25 19:02:40,718 [INFO] extraction:   ✓ file02.pdf
+2025-07-25 19:02:40,718 [INFO] extraction:   ✓ file03.pdf
+2025-07-25 19:02:40,718 [INFO] extraction:   ✓ file04.pdf
+2025-07-25 19:02:40,718 [INFO] extraction:   ✓ file05.pdf
+2025-07-25 19:05:12,348 [INFO] extraction: FormProcessor initialized with: ['TitleExtractor', 'FontAnalyzer', 'TextAnalyzer', 'ContentFilter', 'SemanticClassifier', 'TextProcessor', 'OutputValidator']
+2025-07-25 19:05:12,349 [INFO] extraction: ✓ Initialized FormProcessor for form
+2025-07-25 19:05:12,350 [INFO] extraction: ✓ Initialized ManualProcessor for manual
+2025-07-25 19:05:12,351 [INFO] extraction: ✓ Initialized BusinessProcessor for business
+2025-07-25 19:05:12,351 [INFO] extraction: ✓ Initialized ProgramProcessor for program
+2025-07-25 19:05:12,352 [INFO] extraction: ✓ Initialized InvitationProcessor for invitation
+2025-07-25 19:05:12,371 [INFO] extraction: PDF: file01.pdf | Pages: 1
+2025-07-25 19:05:12,372 [INFO] extraction: === Processing PDF: file01.pdf ===
+2025-07-25 19:05:12,393 [INFO] extraction: PDF loaded successfully: /app/input/file01.pdf
+2025-07-25 19:05:12,476 [INFO] extraction: Extracted 28 text blocks
+2025-07-25 19:05:12,477 [INFO] extraction: Extracted 28 text blocks
+2025-07-25 19:05:12,479 [INFO] extraction: Classified as manual (confidence: 1.00)
+2025-07-25 19:05:12,480 [INFO] extraction: Processing technical manual - generalized pattern matching
+2025-07-25 19:05:12,482 [INFO] extraction: Title: Application form for grant of LTC advance 
+2025-07-25 19:05:12,482 [INFO] extraction: Outline items: 0
+2025-07-25 19:05:12,482 [INFO] extraction: Output validation passed
+2025-07-25 19:05:12,483 [INFO] extraction: JSON output formatted and validated successfully
+2025-07-25 19:05:12,487 [INFO] extraction: JSON output saved to /app/output/file01_outline.json
+2025-07-25 19:05:12,488 [INFO] extraction: ✓ Processed file01.pdf in 0.12s → /app/output/file01_outline.json
+2025-07-25 19:05:12,514 [INFO] extraction: PDF: file02.pdf | Pages: 12
+2025-07-25 19:05:12,515 [INFO] extraction: === Processing PDF: file02.pdf ===
+2025-07-25 19:05:12,572 [INFO] extraction: PDF loaded successfully: /app/input/file02.pdf
+2025-07-25 19:05:13,368 [INFO] extraction: Extracted 235 text blocks
+2025-07-25 19:05:13,369 [INFO] extraction: Extracted 235 text blocks
+2025-07-25 19:05:13,371 [INFO] extraction: Classified as manual (confidence: 1.00)
+2025-07-25 19:05:13,372 [INFO] extraction: Processing technical manual - generalized pattern matching
+2025-07-25 19:05:13,376 [INFO] extraction: Title: Overview Foundation Level Extensions  
+2025-07-25 19:05:13,377 [INFO] extraction: Outline items: 18
+2025-07-25 19:05:13,377 [INFO] extraction: Output validation passed
+2025-07-25 19:05:13,378 [INFO] extraction: JSON output formatted and validated successfully
+2025-07-25 19:05:13,385 [INFO] extraction: JSON output saved to /app/output/file02_outline.json
+2025-07-25 19:05:13,386 [INFO] extraction: ✓ Processed file02.pdf in 0.87s → /app/output/file02_outline.json
+2025-07-25 19:05:13,408 [INFO] extraction: PDF: file03.pdf | Pages: 14
+2025-07-25 19:05:13,409 [INFO] extraction: === Processing PDF: file03.pdf ===
+2025-07-25 19:05:13,474 [INFO] extraction: PDF loaded successfully: /app/input/file03.pdf
+2025-07-25 19:05:14,524 [INFO] extraction: Extracted 224 text blocks
+2025-07-25 19:05:14,524 [INFO] extraction: Extracted 224 text blocks
+2025-07-25 19:05:14,528 [INFO] extraction: Classified as business (confidence: 1.00)
+2025-07-25 19:05:14,529 [INFO] extraction: BusinessProcessor: start
+2025-07-25 19:05:14,532 [INFO] extraction: Extracted title: RFP: RRFP: RRFP: RRFP: Reeeequest fquest fquest fquest foooor Prr Prr Prr Proposaloposal oposaloposal
+2025-07-25 19:05:14,534 [INFO] extraction: Title: RFP: RRFP: RRFP: RRFP: Reeeequest fquest fquest fquest foooor Prr Prr Prr Proposaloposal oposaloposal
+2025-07-25 19:05:14,534 [INFO] extraction: Outline items: 15
+2025-07-25 19:05:14,535 [INFO] extraction: Output validation passed
+2025-07-25 19:05:14,535 [INFO] extraction: JSON output formatted and validated successfully
+2025-07-25 19:05:14,540 [INFO] extraction: JSON output saved to /app/output/file03_outline.json
+2025-07-25 19:05:14,541 [INFO] extraction: ✓ Processed file03.pdf in 1.13s → /app/output/file03_outline.json
+2025-07-25 19:05:14,561 [INFO] extraction: PDF: file04.pdf | Pages: 1
+2025-07-25 19:05:14,562 [INFO] extraction: === Processing PDF: file04.pdf ===
+2025-07-25 19:05:14,638 [INFO] extraction: PDF loaded successfully: /app/input/file04.pdf
+2025-07-25 19:05:14,765 [INFO] extraction: Extracted 28 text blocks
+2025-07-25 19:05:14,766 [INFO] extraction: Extracted 28 text blocks
+2025-07-25 19:05:14,767 [INFO] extraction: Classified as program (confidence: 1.00)
+2025-07-25 19:05:14,768 [INFO] extraction: Processing program document - pure component-driven analysis
+2025-07-25 19:05:14,769 [INFO] extraction: Font analysis completed: 28 size samples, 5 unique fonts
+2025-07-25 19:05:14,770 [INFO] extraction: Spatial analysis completed for 1 pages
+2025-07-25 19:05:14,777 [INFO] extraction: Text pattern analysis completed for 28 blocks
+2025-07-25 19:05:14,778 [INFO] extraction: Document structure analysis completed
+2025-07-25 19:05:14,779 [INFO] extraction: Font analysis completed: 28 size samples, 5 unique fonts
+2025-07-25 19:05:14,784 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:05:14,785 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:05:14,785 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:05:14,786 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:05:14,787 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:05:14,787 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:05:14,788 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:05:14,788 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:05:14,789 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:05:14,789 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:05:14,790 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:05:14,790 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:05:14,791 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:05:14,791 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:05:14,791 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:05:14,792 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:05:14,792 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:05:14,792 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:05:14,792 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:05:14,793 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:05:14,793 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:05:14,793 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:05:14,794 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:05:14,794 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:05:14,794 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:05:14,794 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:05:14,794 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:05:14,795 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:05:14,795 [INFO] extraction: Extracted title: Parsippany -Troy Hills STEM Pathways
+2025-07-25 19:05:14,796 [INFO] extraction: Component-validated outline item: 'PATHWAY OPTIONS' as H1 (source: structure_analyzer)
+2025-07-25 19:05:14,796 [INFO] extraction: Output validation passed
+2025-07-25 19:05:14,796 [INFO] extraction: Final validation successful - Title: 'Parsippany -Troy Hills STEM Pathways', Outline: 1 items
+2025-07-25 19:05:14,796 [INFO] extraction: Title: Parsippany -Troy Hills STEM Pathways
+2025-07-25 19:05:14,796 [INFO] extraction: Outline items: 1
+2025-07-25 19:05:14,796 [INFO] extraction: Output validation passed
+2025-07-25 19:05:14,796 [INFO] extraction: JSON output formatted and validated successfully
+2025-07-25 19:05:14,799 [INFO] extraction: JSON output saved to /app/output/file04_outline.json
+2025-07-25 19:05:14,799 [INFO] extraction: ✓ Processed file04.pdf in 0.24s → /app/output/file04_outline.json
+2025-07-25 19:05:14,811 [INFO] extraction: PDF: file05.pdf | Pages: 1
+2025-07-25 19:05:14,811 [INFO] extraction: === Processing PDF: file05.pdf ===
+2025-07-25 19:05:14,821 [INFO] extraction: PDF loaded successfully: /app/input/file05.pdf
+2025-07-25 19:05:14,848 [INFO] extraction: Extracted 12 text blocks
+2025-07-25 19:05:14,849 [INFO] extraction: Extracted 12 text blocks
+2025-07-25 19:05:14,850 [INFO] extraction: Classified as invitation (confidence: 1.00)
+2025-07-25 19:05:14,851 [INFO] extraction: Processing invitation document with 12 blocks
+2025-07-25 19:05:14,853 [INFO] extraction: Font analysis completed: 1 size samples, 1 unique fonts
+2025-07-25 19:05:14,854 [INFO] extraction: Spatial analysis completed for 1 pages
+2025-07-25 19:05:14,854 [INFO] extraction: Text pattern analysis completed for 1 blocks
+2025-07-25 19:05:14,855 [INFO] extraction: Document structure analysis completed
+2025-07-25 19:05:14,856 [INFO] extraction: Font analysis completed: 1 size samples, 1 unique fonts
+2025-07-25 19:05:14,857 [INFO] extraction: Spatial analysis completed for 1 pages
+2025-07-25 19:05:14,858 [INFO] extraction: Using default title for invitation: 
+2025-07-25 19:05:14,860 [INFO] extraction: Extracting outline for invitation document with 1 text blocks
+2025-07-25 19:05:14,861 [INFO] extraction: Font analysis completed: 1 size samples, 1 unique fonts
+2025-07-25 19:05:14,862 [INFO] extraction: Font analysis completed: 1 size samples, 1 unique fonts
+2025-07-25 19:05:14,863 [INFO] extraction: Spatial analysis completed for 1 pages
+2025-07-25 19:05:14,864 [INFO] extraction: Text pattern analysis completed for 1 blocks
+2025-07-25 19:05:14,864 [INFO] extraction: Document structure analysis completed
+2025-07-25 19:05:14,865 [INFO] extraction: Extracted 0 outline items
+2025-07-25 19:05:14,866 [INFO] extraction: Added to outline: 'HOPE To SEE You THERE!' as H1 (method: semantic_analysis, confidence: 0.67)
+2025-07-25 19:05:14,866 [INFO] extraction: Output validation passed
+2025-07-25 19:05:14,867 [INFO] extraction: Output validation passed
+2025-07-25 19:05:14,867 [INFO] extraction: Title: 
+2025-07-25 19:05:14,868 [INFO] extraction: Outline items: 1
+2025-07-25 19:05:14,868 [INFO] extraction: Output validation passed
+2025-07-25 19:05:14,869 [INFO] extraction: JSON output formatted and validated successfully
+2025-07-25 19:05:14,873 [INFO] extraction: JSON output saved to /app/output/file05_outline.json
+2025-07-25 19:05:14,873 [INFO] extraction: ✓ Processed file05.pdf in 0.06s → /app/output/file05_outline.json
+2025-07-25 19:10:10,606 [INFO] extraction: FormProcessor initialized with: ['TitleExtractor', 'FontAnalyzer', 'TextAnalyzer', 'ContentFilter', 'SemanticClassifier', 'TextProcessor', 'OutputValidator']
+2025-07-25 19:10:10,606 [INFO] extraction: ✓ Initialized FormProcessor for form
+2025-07-25 19:10:10,608 [INFO] extraction: ✓ Initialized ManualProcessor for manual
+2025-07-25 19:10:10,608 [INFO] extraction: ✓ Initialized BusinessProcessor for business
+2025-07-25 19:10:10,609 [INFO] extraction: ✓ Initialized ProgramProcessor for program
+2025-07-25 19:10:10,609 [INFO] extraction: ✓ Initialized InvitationProcessor for invitation
+2025-07-25 19:10:10,616 [INFO] extraction: Found 5 PDF files to process
+2025-07-25 19:10:10,624 [INFO] extraction: file01.pdf has 1 pages
+2025-07-25 19:10:10,625 [INFO] extraction: === Processing PDF: file01.pdf ===
+2025-07-25 19:10:10,642 [INFO] extraction: PDF loaded successfully: /app/input/file01.pdf
+2025-07-25 19:10:10,722 [INFO] extraction: Extracted 28 text blocks
+2025-07-25 19:10:10,723 [INFO] extraction: Extracted 28 text blocks from file01.pdf
+2025-07-25 19:10:10,726 [INFO] extraction: file01.pdf classified as: manual (confidence: 1.00)
+2025-07-25 19:10:10,726 [INFO] extraction: Processing file01.pdf with ManualProcessor
+2025-07-25 19:10:10,727 [INFO] extraction: Processing technical manual - generalized pattern matching
+2025-07-25 19:10:10,729 [INFO] extraction: file01.pdf processing successful
+2025-07-25 19:10:10,730 [INFO] extraction:   Title: 'Application form for grant of LTC advance '
+2025-07-25 19:10:10,730 [INFO] extraction:   Outline items: 0
+2025-07-25 19:10:10,731 [INFO] extraction: Output validation passed
+2025-07-25 19:10:10,732 [INFO] extraction: JSON output formatted and validated successfully
+2025-07-25 19:10:10,737 [INFO] extraction: JSON output saved to /app/output/file01_outline.json
+2025-07-25 19:10:10,738 [INFO] extraction: file01.pdf processing completed in 0.11 seconds
+2025-07-25 19:10:10,739 [INFO] extraction: Output saved to: /app/output/file01_outline.json
+2025-07-25 19:10:10,740 [INFO] extraction: ✓ Successfully processed: file01.pdf
+2025-07-25 19:10:10,764 [INFO] extraction: file02.pdf has 12 pages
+2025-07-25 19:10:10,765 [INFO] extraction: === Processing PDF: file02.pdf ===
+2025-07-25 19:10:10,821 [INFO] extraction: PDF loaded successfully: /app/input/file02.pdf
+2025-07-25 19:10:11,625 [INFO] extraction: Extracted 235 text blocks
+2025-07-25 19:10:11,626 [INFO] extraction: Extracted 235 text blocks from file02.pdf
+2025-07-25 19:10:11,628 [INFO] extraction: file02.pdf classified as: manual (confidence: 1.00)
+2025-07-25 19:10:11,629 [INFO] extraction: Processing file02.pdf with ManualProcessor
+2025-07-25 19:10:11,629 [INFO] extraction: Processing technical manual - generalized pattern matching
+2025-07-25 19:10:11,633 [INFO] extraction: file02.pdf processing successful
+2025-07-25 19:10:11,634 [INFO] extraction:   Title: 'Overview Foundation Level Extensions  '
+2025-07-25 19:10:11,635 [INFO] extraction:   Outline items: 18
+2025-07-25 19:10:11,635 [INFO] extraction: Output validation passed
+2025-07-25 19:10:11,636 [INFO] extraction: JSON output formatted and validated successfully
+2025-07-25 19:10:11,643 [INFO] extraction: JSON output saved to /app/output/file02_outline.json
+2025-07-25 19:10:11,644 [INFO] extraction: file02.pdf processing completed in 0.88 seconds
+2025-07-25 19:10:11,644 [INFO] extraction: Output saved to: /app/output/file02_outline.json
+2025-07-25 19:10:11,645 [INFO] extraction: ✓ Successfully processed: file02.pdf
+2025-07-25 19:10:11,659 [INFO] extraction: file03.pdf has 14 pages
+2025-07-25 19:10:11,660 [INFO] extraction: === Processing PDF: file03.pdf ===
+2025-07-25 19:10:11,711 [INFO] extraction: PDF loaded successfully: /app/input/file03.pdf
+2025-07-25 19:10:12,901 [INFO] extraction: Extracted 224 text blocks
+2025-07-25 19:10:12,902 [INFO] extraction: Extracted 224 text blocks from file03.pdf
+2025-07-25 19:10:12,904 [INFO] extraction: file03.pdf classified as: business (confidence: 1.00)
+2025-07-25 19:10:12,905 [INFO] extraction: Processing file03.pdf with BusinessProcessor
+2025-07-25 19:10:12,905 [INFO] extraction: BusinessProcessor: start
+2025-07-25 19:10:12,907 [INFO] extraction: Extracted title: RFP: RRFP: RRFP: RRFP: Reeeequest fquest fquest fquest foooor Prr Prr Prr Proposaloposal oposaloposal
+2025-07-25 19:10:12,908 [INFO] extraction: file03.pdf processing successful
+2025-07-25 19:10:12,908 [INFO] extraction:   Title: 'RFP: RRFP: RRFP: RRFP: Reeeequest fquest fquest fquest foooor Prr Prr Prr Proposaloposal oposaloposal'
+2025-07-25 19:10:12,909 [INFO] extraction:   Outline items: 15
+2025-07-25 19:10:12,909 [INFO] extraction: Output validation passed
+2025-07-25 19:10:12,909 [INFO] extraction: JSON output formatted and validated successfully
+2025-07-25 19:10:12,912 [INFO] extraction: JSON output saved to /app/output/file03_outline.json
+2025-07-25 19:10:12,913 [INFO] extraction: file03.pdf processing completed in 1.25 seconds
+2025-07-25 19:10:12,913 [INFO] extraction: Output saved to: /app/output/file03_outline.json
+2025-07-25 19:10:12,914 [INFO] extraction: ✓ Successfully processed: file03.pdf
+2025-07-25 19:10:12,923 [INFO] extraction: file04.pdf has 1 pages
+2025-07-25 19:10:12,923 [INFO] extraction: === Processing PDF: file04.pdf ===
+2025-07-25 19:10:12,953 [INFO] extraction: PDF loaded successfully: /app/input/file04.pdf
+2025-07-25 19:10:13,075 [INFO] extraction: Extracted 28 text blocks
+2025-07-25 19:10:13,076 [INFO] extraction: Extracted 28 text blocks from file04.pdf
+2025-07-25 19:10:13,078 [INFO] extraction: file04.pdf classified as: program (confidence: 1.00)
+2025-07-25 19:10:13,078 [INFO] extraction: Processing file04.pdf with ProgramProcessor
+2025-07-25 19:10:13,079 [INFO] extraction: Processing program document - pure component-driven analysis
+2025-07-25 19:10:13,080 [INFO] extraction: Font analysis completed: 28 size samples, 5 unique fonts
+2025-07-25 19:10:13,080 [INFO] extraction: Spatial analysis completed for 1 pages
+2025-07-25 19:10:13,087 [INFO] extraction: Text pattern analysis completed for 28 blocks
+2025-07-25 19:10:13,088 [INFO] extraction: Document structure analysis completed
+2025-07-25 19:10:13,089 [INFO] extraction: Font analysis completed: 28 size samples, 5 unique fonts
+2025-07-25 19:10:13,093 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:10:13,093 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:10:13,094 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:10:13,095 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:10:13,095 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:10:13,096 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:10:13,096 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:10:13,096 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:10:13,097 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:10:13,098 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:10:13,098 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:10:13,099 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:10:13,100 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:10:13,100 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:10:13,100 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:10:13,101 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:10:13,101 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:10:13,101 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:10:13,101 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:10:13,102 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:10:13,102 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:10:13,102 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:10:13,102 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:10:13,103 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:10:13,103 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:10:13,103 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:10:13,104 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:10:13,104 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:10:13,105 [INFO] extraction: Extracted title: Parsippany -Troy Hills STEM Pathways
+2025-07-25 19:10:13,106 [INFO] extraction: Component-validated outline item: 'PATHWAY OPTIONS' as H1 (source: structure_analyzer)
+2025-07-25 19:10:13,107 [INFO] extraction: Output validation passed
+2025-07-25 19:10:13,107 [INFO] extraction: Final validation successful - Title: 'Parsippany -Troy Hills STEM Pathways', Outline: 1 items
+2025-07-25 19:10:13,107 [INFO] extraction: file04.pdf processing successful
+2025-07-25 19:10:13,108 [INFO] extraction:   Title: 'Parsippany -Troy Hills STEM Pathways'
+2025-07-25 19:10:13,108 [INFO] extraction:   Outline items: 1
+2025-07-25 19:10:13,108 [INFO] extraction: Output validation passed
+2025-07-25 19:10:13,109 [INFO] extraction: JSON output formatted and validated successfully
+2025-07-25 19:10:13,113 [INFO] extraction: JSON output saved to /app/output/file04_outline.json
+2025-07-25 19:10:13,114 [INFO] extraction: file04.pdf processing completed in 0.19 seconds
+2025-07-25 19:10:13,114 [INFO] extraction: Output saved to: /app/output/file04_outline.json
+2025-07-25 19:10:13,115 [INFO] extraction: ✓ Successfully processed: file04.pdf
+2025-07-25 19:10:13,127 [INFO] extraction: file05.pdf has 1 pages
+2025-07-25 19:10:13,128 [INFO] extraction: === Processing PDF: file05.pdf ===
+2025-07-25 19:10:13,141 [INFO] extraction: PDF loaded successfully: /app/input/file05.pdf
+2025-07-25 19:10:13,173 [INFO] extraction: Extracted 12 text blocks
+2025-07-25 19:10:13,173 [INFO] extraction: Extracted 12 text blocks from file05.pdf
+2025-07-25 19:10:13,174 [INFO] extraction: file05.pdf classified as: invitation (confidence: 1.00)
+2025-07-25 19:10:13,174 [INFO] extraction: Processing file05.pdf with InvitationProcessor
+2025-07-25 19:10:13,175 [INFO] extraction: Processing invitation document with 12 blocks
+2025-07-25 19:10:13,177 [INFO] extraction: Font analysis completed: 1 size samples, 1 unique fonts
+2025-07-25 19:10:13,177 [INFO] extraction: Spatial analysis completed for 1 pages
+2025-07-25 19:10:13,178 [INFO] extraction: Text pattern analysis completed for 1 blocks
+2025-07-25 19:10:13,178 [INFO] extraction: Document structure analysis completed
+2025-07-25 19:10:13,179 [INFO] extraction: Font analysis completed: 1 size samples, 1 unique fonts
+2025-07-25 19:10:13,179 [INFO] extraction: Spatial analysis completed for 1 pages
+2025-07-25 19:10:13,181 [INFO] extraction: Using default title for invitation: 
+2025-07-25 19:10:13,182 [INFO] extraction: Extracting outline for invitation document with 1 text blocks
+2025-07-25 19:10:13,183 [INFO] extraction: Font analysis completed: 1 size samples, 1 unique fonts
+2025-07-25 19:10:13,183 [INFO] extraction: Font analysis completed: 1 size samples, 1 unique fonts
+2025-07-25 19:10:13,184 [INFO] extraction: Spatial analysis completed for 1 pages
+2025-07-25 19:10:13,184 [INFO] extraction: Text pattern analysis completed for 1 blocks
+2025-07-25 19:10:13,185 [INFO] extraction: Document structure analysis completed
+2025-07-25 19:10:13,186 [INFO] extraction: Extracted 0 outline items
+2025-07-25 19:10:13,186 [INFO] extraction: Added to outline: 'HOPE To SEE You THERE!' as H1 (method: semantic_analysis, confidence: 0.67)
+2025-07-25 19:10:13,187 [INFO] extraction: Output validation passed
+2025-07-25 19:10:13,187 [INFO] extraction: Output validation passed
+2025-07-25 19:10:13,187 [INFO] extraction: file05.pdf processing successful
+2025-07-25 19:10:13,188 [INFO] extraction:   Title: ''
+2025-07-25 19:10:13,188 [INFO] extraction:   Outline items: 1
+2025-07-25 19:10:13,188 [INFO] extraction: Output validation passed
+2025-07-25 19:10:13,189 [INFO] extraction: JSON output formatted and validated successfully
+2025-07-25 19:10:13,192 [INFO] extraction: JSON output saved to /app/output/file05_outline.json
+2025-07-25 19:10:13,192 [INFO] extraction: file05.pdf processing completed in 0.06 seconds
+2025-07-25 19:10:13,192 [INFO] extraction: Output saved to: /app/output/file05_outline.json
+2025-07-25 19:10:13,193 [INFO] extraction: ✓ Successfully processed: file05.pdf
+2025-07-25 19:16:15,739 [INFO] extraction: FormProcessor initialized with: ['TitleExtractor', 'FontAnalyzer', 'TextAnalyzer', 'ContentFilter', 'SemanticClassifier', 'TextProcessor', 'OutputValidator']
+2025-07-25 19:16:15,740 [INFO] extraction: ✓ Initialized FormProcessor for form
+2025-07-25 19:16:15,741 [INFO] extraction: ✓ Initialized ManualProcessor for manual
+2025-07-25 19:16:15,742 [INFO] extraction: ✓ Initialized BusinessProcessor for business
+2025-07-25 19:16:15,743 [INFO] extraction: ✓ Initialized ProgramProcessor for program
+2025-07-25 19:16:15,743 [INFO] extraction: ✓ Initialized InvitationProcessor for invitation
+2025-07-25 19:16:15,749 [INFO] extraction: Found 5 PDF files to process
+2025-07-25 19:16:15,760 [INFO] extraction: file01.pdf has 1 pages
+2025-07-25 19:16:15,760 [INFO] extraction: === Processing PDF: file01.pdf ===
+2025-07-25 19:16:15,784 [INFO] extraction: PDF loaded successfully: /app/input/file01.pdf
+2025-07-25 19:16:15,866 [INFO] extraction: Extracted 28 text blocks
+2025-07-25 19:16:15,867 [INFO] extraction: Extracted 28 text blocks from file01.pdf
+2025-07-25 19:16:15,869 [INFO] extraction: file01.pdf classified as: manual (confidence: 1.00)
+2025-07-25 19:16:15,870 [INFO] extraction: Processing file01.pdf with ManualProcessor
+2025-07-25 19:16:15,870 [INFO] extraction: Processing technical manual - generalized pattern matching
+2025-07-25 19:16:15,873 [INFO] extraction: file01.pdf processing successful
+2025-07-25 19:16:15,874 [INFO] extraction:   Title: 'Application form for grant of LTC advance '
+2025-07-25 19:16:15,874 [INFO] extraction:   Outline items: 0
+2025-07-25 19:16:15,875 [INFO] extraction: Output validation passed
+2025-07-25 19:16:15,876 [INFO] extraction: JSON output formatted and validated successfully
+2025-07-25 19:16:15,884 [INFO] extraction: JSON output saved to /app/output/file01_outline.json
+2025-07-25 19:16:15,884 [INFO] extraction: file01.pdf processing completed in 0.12 seconds
+2025-07-25 19:16:15,885 [INFO] extraction: Output saved to: /app/output/file01_outline.json
+2025-07-25 19:16:15,886 [INFO] extraction: ✓ Successfully processed: file01.pdf
+2025-07-25 19:16:15,902 [INFO] extraction: file02.pdf has 12 pages
+2025-07-25 19:16:15,902 [INFO] extraction: === Processing PDF: file02.pdf ===
+2025-07-25 19:16:15,948 [INFO] extraction: PDF loaded successfully: /app/input/file02.pdf
+2025-07-25 19:16:16,788 [INFO] extraction: Extracted 235 text blocks
+2025-07-25 19:16:16,789 [INFO] extraction: Extracted 235 text blocks from file02.pdf
+2025-07-25 19:16:16,791 [INFO] extraction: file02.pdf classified as: manual (confidence: 1.00)
+2025-07-25 19:16:16,792 [INFO] extraction: Processing file02.pdf with ManualProcessor
+2025-07-25 19:16:16,792 [INFO] extraction: Processing technical manual - generalized pattern matching
+2025-07-25 19:16:16,796 [INFO] extraction: file02.pdf processing successful
+2025-07-25 19:16:16,797 [INFO] extraction:   Title: 'Overview Foundation Level Extensions  '
+2025-07-25 19:16:16,797 [INFO] extraction:   Outline items: 18
+2025-07-25 19:16:16,797 [INFO] extraction: Output validation passed
+2025-07-25 19:16:16,797 [INFO] extraction: JSON output formatted and validated successfully
+2025-07-25 19:16:16,802 [INFO] extraction: JSON output saved to /app/output/file02_outline.json
+2025-07-25 19:16:16,803 [INFO] extraction: file02.pdf processing completed in 0.90 seconds
+2025-07-25 19:16:16,803 [INFO] extraction: Output saved to: /app/output/file02_outline.json
+2025-07-25 19:16:16,804 [INFO] extraction: ✓ Successfully processed: file02.pdf
+2025-07-25 19:16:16,821 [INFO] extraction: file03.pdf has 14 pages
+2025-07-25 19:16:16,821 [INFO] extraction: === Processing PDF: file03.pdf ===
+2025-07-25 19:16:16,902 [INFO] extraction: PDF loaded successfully: /app/input/file03.pdf
+2025-07-25 19:16:18,061 [INFO] extraction: Extracted 224 text blocks
+2025-07-25 19:16:18,061 [INFO] extraction: Extracted 224 text blocks from file03.pdf
+2025-07-25 19:16:18,065 [INFO] extraction: file03.pdf classified as: business (confidence: 1.00)
+2025-07-25 19:16:18,065 [INFO] extraction: Processing file03.pdf with BusinessProcessor
+2025-07-25 19:16:18,065 [INFO] extraction: BusinessProcessor: start
+2025-07-25 19:16:18,067 [INFO] extraction: Extracted title: RFP: RRFP: RRFP: RRFP: Reeeequest fquest fquest fquest foooor Prr Prr Prr Proposaloposal oposaloposal
+2025-07-25 19:16:18,069 [INFO] extraction: file03.pdf processing successful
+2025-07-25 19:16:18,070 [INFO] extraction:   Title: 'RFP: RRFP: RRFP: RRFP: Reeeequest fquest fquest fquest foooor Prr Prr Prr Proposaloposal oposaloposal'
+2025-07-25 19:16:18,070 [INFO] extraction:   Outline items: 15
+2025-07-25 19:16:18,070 [INFO] extraction: Output validation passed
+2025-07-25 19:16:18,071 [INFO] extraction: JSON output formatted and validated successfully
+2025-07-25 19:16:18,075 [INFO] extraction: JSON output saved to /app/output/file03_outline.json
+2025-07-25 19:16:18,075 [INFO] extraction: file03.pdf processing completed in 1.25 seconds
+2025-07-25 19:16:18,076 [INFO] extraction: Output saved to: /app/output/file03_outline.json
+2025-07-25 19:16:18,077 [INFO] extraction: ✓ Successfully processed: file03.pdf
+2025-07-25 19:16:18,088 [INFO] extraction: file04.pdf has 1 pages
+2025-07-25 19:16:18,088 [INFO] extraction: === Processing PDF: file04.pdf ===
+2025-07-25 19:16:18,122 [INFO] extraction: PDF loaded successfully: /app/input/file04.pdf
+2025-07-25 19:16:18,251 [INFO] extraction: Extracted 28 text blocks
+2025-07-25 19:16:18,254 [INFO] extraction: Extracted 28 text blocks from file04.pdf
+2025-07-25 19:16:18,256 [INFO] extraction: file04.pdf classified as: program (confidence: 1.00)
+2025-07-25 19:16:18,256 [INFO] extraction: Processing file04.pdf with ProgramProcessor
+2025-07-25 19:16:18,257 [INFO] extraction: Processing program document - pure component-driven analysis
+2025-07-25 19:16:18,258 [INFO] extraction: Font analysis completed: 28 size samples, 5 unique fonts
+2025-07-25 19:16:18,258 [INFO] extraction: Spatial analysis completed for 1 pages
+2025-07-25 19:16:18,265 [INFO] extraction: Text pattern analysis completed for 28 blocks
+2025-07-25 19:16:18,267 [INFO] extraction: Document structure analysis completed
+2025-07-25 19:16:18,267 [INFO] extraction: Font analysis completed: 28 size samples, 5 unique fonts
+2025-07-25 19:16:18,271 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:16:18,272 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:16:18,273 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:16:18,274 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:16:18,274 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:16:18,275 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:16:18,275 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:16:18,276 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:16:18,276 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:16:18,277 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:16:18,277 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:16:18,278 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:16:18,279 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:16:18,279 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:16:18,280 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:16:18,280 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:16:18,281 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:16:18,281 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:16:18,282 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:16:18,282 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:16:18,283 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:16:18,283 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:16:18,284 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:16:18,284 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:16:18,285 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:16:18,286 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:16:18,286 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:16:18,287 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:16:18,288 [INFO] extraction: Extracted title: Parsippany -Troy Hills STEM Pathways
+2025-07-25 19:16:18,289 [INFO] extraction: Component-validated outline item: 'PATHWAY OPTIONS' as H1 (source: structure_analyzer)
+2025-07-25 19:16:18,289 [INFO] extraction: Output validation passed
+2025-07-25 19:16:18,290 [INFO] extraction: Final validation successful - Title: 'Parsippany -Troy Hills STEM Pathways', Outline: 1 items
+2025-07-25 19:16:18,290 [INFO] extraction: file04.pdf processing successful
+2025-07-25 19:16:18,291 [INFO] extraction:   Title: 'Parsippany -Troy Hills STEM Pathways'
+2025-07-25 19:16:18,291 [INFO] extraction:   Outline items: 1
+2025-07-25 19:16:18,292 [INFO] extraction: Output validation passed
+2025-07-25 19:16:18,292 [INFO] extraction: JSON output formatted and validated successfully
+2025-07-25 19:16:18,299 [INFO] extraction: JSON output saved to /app/output/file04_outline.json
+2025-07-25 19:16:18,300 [INFO] extraction: file04.pdf processing completed in 0.21 seconds
+2025-07-25 19:16:18,300 [INFO] extraction: Output saved to: /app/output/file04_outline.json
+2025-07-25 19:16:18,301 [INFO] extraction: ✓ Successfully processed: file04.pdf
+2025-07-25 19:16:18,313 [INFO] extraction: file05.pdf has 1 pages
+2025-07-25 19:16:18,314 [INFO] extraction: === Processing PDF: file05.pdf ===
+2025-07-25 19:16:18,329 [INFO] extraction: PDF loaded successfully: /app/input/file05.pdf
+2025-07-25 19:16:18,366 [INFO] extraction: Extracted 12 text blocks
+2025-07-25 19:16:18,367 [INFO] extraction: Extracted 12 text blocks from file05.pdf
+2025-07-25 19:16:18,368 [INFO] extraction: file05.pdf classified as: invitation (confidence: 1.00)
+2025-07-25 19:16:18,369 [INFO] extraction: Processing file05.pdf with InvitationProcessor
+2025-07-25 19:16:18,369 [INFO] extraction: Processing invitation document with 12 blocks
+2025-07-25 19:16:18,371 [INFO] extraction: Font analysis completed: 1 size samples, 1 unique fonts
+2025-07-25 19:16:18,371 [INFO] extraction: Spatial analysis completed for 1 pages
+2025-07-25 19:16:18,371 [INFO] extraction: Text pattern analysis completed for 1 blocks
+2025-07-25 19:16:18,372 [INFO] extraction: Document structure analysis completed
+2025-07-25 19:16:18,372 [INFO] extraction: Font analysis completed: 1 size samples, 1 unique fonts
+2025-07-25 19:16:18,372 [INFO] extraction: Spatial analysis completed for 1 pages
+2025-07-25 19:16:18,374 [INFO] extraction: Using default title for invitation: 
+2025-07-25 19:16:18,374 [INFO] extraction: Extracting outline for invitation document with 1 text blocks
+2025-07-25 19:16:18,375 [INFO] extraction: Font analysis completed: 1 size samples, 1 unique fonts
+2025-07-25 19:16:18,376 [INFO] extraction: Font analysis completed: 1 size samples, 1 unique fonts
+2025-07-25 19:16:18,376 [INFO] extraction: Spatial analysis completed for 1 pages
+2025-07-25 19:16:18,377 [INFO] extraction: Text pattern analysis completed for 1 blocks
+2025-07-25 19:16:18,378 [INFO] extraction: Document structure analysis completed
+2025-07-25 19:16:18,378 [INFO] extraction: Extracted 0 outline items
+2025-07-25 19:16:18,379 [INFO] extraction: Added to outline: 'HOPE To SEE You THERE!' as H1 (method: semantic_analysis, confidence: 0.67)
+2025-07-25 19:16:18,379 [INFO] extraction: Output validation passed
+2025-07-25 19:16:18,380 [INFO] extraction: Output validation passed
+2025-07-25 19:16:18,380 [INFO] extraction: file05.pdf processing successful
+2025-07-25 19:16:18,380 [INFO] extraction:   Title: ''
+2025-07-25 19:16:18,380 [INFO] extraction:   Outline items: 1
+2025-07-25 19:16:18,381 [INFO] extraction: Output validation passed
+2025-07-25 19:16:18,381 [INFO] extraction: JSON output formatted and validated successfully
+2025-07-25 19:16:18,385 [INFO] extraction: JSON output saved to /app/output/file05_outline.json
+2025-07-25 19:16:18,386 [INFO] extraction: file05.pdf processing completed in 0.07 seconds
+2025-07-25 19:16:18,386 [INFO] extraction: Output saved to: /app/output/file05_outline.json
+2025-07-25 19:16:18,387 [INFO] extraction: ✓ Successfully processed: file05.pdf
+2025-07-25 19:17:29,137 [INFO] extraction: FormProcessor initialized with: ['TitleExtractor', 'FontAnalyzer', 'TextAnalyzer', 'ContentFilter', 'SemanticClassifier', 'TextProcessor', 'OutputValidator']
+2025-07-25 19:17:29,137 [INFO] extraction: ✓ Initialized FormProcessor for form
+2025-07-25 19:17:29,138 [INFO] extraction: ✓ Initialized ManualProcessor for manual
+2025-07-25 19:17:29,139 [INFO] extraction: ✓ Initialized BusinessProcessor for business
+2025-07-25 19:17:29,139 [INFO] extraction: ✓ Initialized ProgramProcessor for program
+2025-07-25 19:17:29,140 [INFO] extraction: ✓ Initialized InvitationProcessor for invitation
+2025-07-25 19:17:29,143 [INFO] extraction: Found 6 PDF files to process
+2025-07-25 19:17:29,630 [INFO] extraction: 16_EBOOK-7th_ed_software_engineering_a_practitioners_approach_by_roger_s._pressman_.pdf has 930 pages
+2025-07-25 19:17:29,630 [WARNING] extraction: ✗ 16_EBOOK-7th_ed_software_engineering_a_practitioners_approach_by_roger_s._pressman_.pdf exceeds 50 page limit — skipping
+2025-07-25 19:17:29,631 [ERROR] extraction: ✗ Failed to process: 16_EBOOK-7th_ed_software_engineering_a_practitioners_approach_by_roger_s._pressman_.pdf
+2025-07-25 19:17:29,639 [INFO] extraction: file01.pdf has 1 pages
+2025-07-25 19:17:29,639 [INFO] extraction: === Processing PDF: file01.pdf ===
+2025-07-25 19:17:29,663 [INFO] extraction: PDF loaded successfully: /app/input/file01.pdf
+2025-07-25 19:17:29,742 [INFO] extraction: Extracted 28 text blocks
+2025-07-25 19:17:29,743 [INFO] extraction: Extracted 28 text blocks from file01.pdf
+2025-07-25 19:17:29,746 [INFO] extraction: file01.pdf classified as: manual (confidence: 1.00)
+2025-07-25 19:17:29,746 [INFO] extraction: Processing file01.pdf with ManualProcessor
+2025-07-25 19:17:29,746 [INFO] extraction: Processing technical manual - generalized pattern matching
+2025-07-25 19:17:29,749 [INFO] extraction: file01.pdf processing successful
+2025-07-25 19:17:29,750 [INFO] extraction:   Title: 'Application form for grant of LTC advance '
+2025-07-25 19:17:29,750 [INFO] extraction:   Outline items: 0
+2025-07-25 19:17:29,751 [INFO] extraction: Output validation passed
+2025-07-25 19:17:29,751 [INFO] extraction: JSON output formatted and validated successfully
+2025-07-25 19:17:29,757 [INFO] extraction: JSON output saved to /app/output/file01_outline.json
+2025-07-25 19:17:29,757 [INFO] extraction: file01.pdf processing completed in 0.12 seconds
+2025-07-25 19:17:29,758 [INFO] extraction: Output saved to: /app/output/file01_outline.json
+2025-07-25 19:17:29,759 [INFO] extraction: ✓ Successfully processed: file01.pdf
+2025-07-25 19:17:29,778 [INFO] extraction: file02.pdf has 12 pages
+2025-07-25 19:17:29,778 [INFO] extraction: === Processing PDF: file02.pdf ===
+2025-07-25 19:17:29,844 [INFO] extraction: PDF loaded successfully: /app/input/file02.pdf
+2025-07-25 19:17:30,665 [INFO] extraction: Extracted 235 text blocks
+2025-07-25 19:17:30,666 [INFO] extraction: Extracted 235 text blocks from file02.pdf
+2025-07-25 19:17:30,668 [INFO] extraction: file02.pdf classified as: manual (confidence: 1.00)
+2025-07-25 19:17:30,668 [INFO] extraction: Processing file02.pdf with ManualProcessor
+2025-07-25 19:17:30,669 [INFO] extraction: Processing technical manual - generalized pattern matching
+2025-07-25 19:17:30,673 [INFO] extraction: file02.pdf processing successful
+2025-07-25 19:17:30,674 [INFO] extraction:   Title: 'Overview Foundation Level Extensions  '
+2025-07-25 19:17:30,674 [INFO] extraction:   Outline items: 18
+2025-07-25 19:17:30,675 [INFO] extraction: Output validation passed
+2025-07-25 19:17:30,675 [INFO] extraction: JSON output formatted and validated successfully
+2025-07-25 19:17:30,683 [INFO] extraction: JSON output saved to /app/output/file02_outline.json
+2025-07-25 19:17:30,683 [INFO] extraction: file02.pdf processing completed in 0.91 seconds
+2025-07-25 19:17:30,684 [INFO] extraction: Output saved to: /app/output/file02_outline.json
+2025-07-25 19:17:30,685 [INFO] extraction: ✓ Successfully processed: file02.pdf
+2025-07-25 19:17:30,699 [INFO] extraction: file03.pdf has 14 pages
+2025-07-25 19:17:30,699 [INFO] extraction: === Processing PDF: file03.pdf ===
+2025-07-25 19:17:30,757 [INFO] extraction: PDF loaded successfully: /app/input/file03.pdf
+2025-07-25 19:17:31,865 [INFO] extraction: Extracted 224 text blocks
+2025-07-25 19:17:31,866 [INFO] extraction: Extracted 224 text blocks from file03.pdf
+2025-07-25 19:17:31,870 [INFO] extraction: file03.pdf classified as: business (confidence: 1.00)
+2025-07-25 19:17:31,870 [INFO] extraction: Processing file03.pdf with BusinessProcessor
+2025-07-25 19:17:31,871 [INFO] extraction: BusinessProcessor: start
+2025-07-25 19:17:31,873 [INFO] extraction: Extracted title: RFP: RRFP: RRFP: RRFP: Reeeequest fquest fquest fquest foooor Prr Prr Prr Proposaloposal oposaloposal
+2025-07-25 19:17:31,876 [INFO] extraction: file03.pdf processing successful
+2025-07-25 19:17:31,876 [INFO] extraction:   Title: 'RFP: RRFP: RRFP: RRFP: Reeeequest fquest fquest fquest foooor Prr Prr Prr Proposaloposal oposaloposal'
+2025-07-25 19:17:31,877 [INFO] extraction:   Outline items: 15
+2025-07-25 19:17:31,877 [INFO] extraction: Output validation passed
+2025-07-25 19:17:31,877 [INFO] extraction: JSON output formatted and validated successfully
+2025-07-25 19:17:31,882 [INFO] extraction: JSON output saved to /app/output/file03_outline.json
+2025-07-25 19:17:31,882 [INFO] extraction: file03.pdf processing completed in 1.18 seconds
+2025-07-25 19:17:31,883 [INFO] extraction: Output saved to: /app/output/file03_outline.json
+2025-07-25 19:17:31,884 [INFO] extraction: ✓ Successfully processed: file03.pdf
+2025-07-25 19:17:31,901 [INFO] extraction: file04.pdf has 1 pages
+2025-07-25 19:17:31,902 [INFO] extraction: === Processing PDF: file04.pdf ===
+2025-07-25 19:17:31,991 [INFO] extraction: PDF loaded successfully: /app/input/file04.pdf
+2025-07-25 19:17:32,164 [INFO] extraction: Extracted 28 text blocks
+2025-07-25 19:17:32,164 [INFO] extraction: Extracted 28 text blocks from file04.pdf
+2025-07-25 19:17:32,165 [INFO] extraction: file04.pdf classified as: program (confidence: 1.00)
+2025-07-25 19:17:32,166 [INFO] extraction: Processing file04.pdf with ProgramProcessor
+2025-07-25 19:17:32,166 [INFO] extraction: Processing program document - pure component-driven analysis
+2025-07-25 19:17:32,167 [INFO] extraction: Font analysis completed: 28 size samples, 5 unique fonts
+2025-07-25 19:17:32,168 [INFO] extraction: Spatial analysis completed for 1 pages
+2025-07-25 19:17:32,175 [INFO] extraction: Text pattern analysis completed for 28 blocks
+2025-07-25 19:17:32,176 [INFO] extraction: Document structure analysis completed
+2025-07-25 19:17:32,177 [INFO] extraction: Font analysis completed: 28 size samples, 5 unique fonts
+2025-07-25 19:17:32,182 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:17:32,182 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:17:32,183 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:17:32,184 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:17:32,184 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:17:32,184 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:17:32,185 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:17:32,185 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:17:32,185 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:17:32,186 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:17:32,186 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:17:32,187 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:17:32,187 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:17:32,188 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:17:32,188 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:17:32,188 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:17:32,189 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:17:32,189 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:17:32,189 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:17:32,190 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:17:32,190 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:17:32,190 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:17:32,190 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:17:32,191 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:17:32,191 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:17:32,192 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:17:32,192 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:17:32,192 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-25 19:17:32,193 [INFO] extraction: Extracted title: Parsippany -Troy Hills STEM Pathways
+2025-07-25 19:17:32,194 [INFO] extraction: Component-validated outline item: 'PATHWAY OPTIONS' as H1 (source: structure_analyzer)
+2025-07-25 19:17:32,194 [INFO] extraction: Output validation passed
+2025-07-25 19:17:32,194 [INFO] extraction: Final validation successful - Title: 'Parsippany -Troy Hills STEM Pathways', Outline: 1 items
+2025-07-25 19:17:32,195 [INFO] extraction: file04.pdf processing successful
+2025-07-25 19:17:32,195 [INFO] extraction:   Title: 'Parsippany -Troy Hills STEM Pathways'
+2025-07-25 19:17:32,195 [INFO] extraction:   Outline items: 1
+2025-07-25 19:17:32,196 [INFO] extraction: Output validation passed
+2025-07-25 19:17:32,196 [INFO] extraction: JSON output formatted and validated successfully
+2025-07-25 19:17:32,199 [INFO] extraction: JSON output saved to /app/output/file04_outline.json
+2025-07-25 19:17:32,200 [INFO] extraction: file04.pdf processing completed in 0.30 seconds
+2025-07-25 19:17:32,200 [INFO] extraction: Output saved to: /app/output/file04_outline.json
+2025-07-25 19:17:32,200 [INFO] extraction: ✓ Successfully processed: file04.pdf
+2025-07-25 19:17:32,211 [INFO] extraction: file05.pdf has 1 pages
+2025-07-25 19:17:32,212 [INFO] extraction: === Processing PDF: file05.pdf ===
+2025-07-25 19:17:32,231 [INFO] extraction: PDF loaded successfully: /app/input/file05.pdf
+2025-07-25 19:17:32,278 [INFO] extraction: Extracted 12 text blocks
+2025-07-25 19:17:32,278 [INFO] extraction: Extracted 12 text blocks from file05.pdf
+2025-07-25 19:17:32,279 [INFO] extraction: file05.pdf classified as: invitation (confidence: 1.00)
+2025-07-25 19:17:32,280 [INFO] extraction: Processing file05.pdf with InvitationProcessor
+2025-07-25 19:17:32,280 [INFO] extraction: Processing invitation document with 12 blocks
+2025-07-25 19:17:32,281 [INFO] extraction: Font analysis completed: 1 size samples, 1 unique fonts
+2025-07-25 19:17:32,282 [INFO] extraction: Spatial analysis completed for 1 pages
+2025-07-25 19:17:32,282 [INFO] extraction: Text pattern analysis completed for 1 blocks
+2025-07-25 19:17:32,283 [INFO] extraction: Document structure analysis completed
+2025-07-25 19:17:32,283 [INFO] extraction: Font analysis completed: 1 size samples, 1 unique fonts
+2025-07-25 19:17:32,284 [INFO] extraction: Spatial analysis completed for 1 pages
+2025-07-25 19:17:32,286 [INFO] extraction: Using default title for invitation: 
+2025-07-25 19:17:32,287 [INFO] extraction: Extracting outline for invitation document with 1 text blocks
+2025-07-25 19:17:32,288 [INFO] extraction: Font analysis completed: 1 size samples, 1 unique fonts
+2025-07-25 19:17:32,289 [INFO] extraction: Font analysis completed: 1 size samples, 1 unique fonts
+2025-07-25 19:17:32,289 [INFO] extraction: Spatial analysis completed for 1 pages
+2025-07-25 19:17:32,290 [INFO] extraction: Text pattern analysis completed for 1 blocks
+2025-07-25 19:17:32,290 [INFO] extraction: Document structure analysis completed
+2025-07-25 19:17:32,291 [INFO] extraction: Extracted 0 outline items
+2025-07-25 19:17:32,291 [INFO] extraction: Added to outline: 'HOPE To SEE You THERE!' as H1 (method: semantic_analysis, confidence: 0.67)
+2025-07-25 19:17:32,291 [INFO] extraction: Output validation passed
+2025-07-25 19:17:32,292 [INFO] extraction: Output validation passed
+2025-07-25 19:17:32,292 [INFO] extraction: file05.pdf processing successful
+2025-07-25 19:17:32,318 [INFO] extraction:   Title: ''
+2025-07-25 19:17:32,319 [INFO] extraction:   Outline items: 1
+2025-07-25 19:17:32,319 [INFO] extraction: Output validation passed
+2025-07-25 19:17:32,319 [INFO] extraction: JSON output formatted and validated successfully
+2025-07-25 19:17:32,323 [INFO] extraction: JSON output saved to /app/output/file05_outline.json
+2025-07-25 19:17:32,324 [INFO] extraction: file05.pdf processing completed in 0.11 seconds
+2025-07-25 19:17:32,324 [INFO] extraction: Output saved to: /app/output/file05_outline.json
+2025-07-25 19:17:32,325 [INFO] extraction: ✓ Successfully processed: file05.pdf
