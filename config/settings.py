@@ -2,7 +2,7 @@ import os
 from pathlib import Path
 
 # Base directories
-BASE_DIR = Path(__file__).parent.parent
+BASE_DIR = Path(__file__).resolve().parent.parent
 INPUT_DIR = BASE_DIR / "input"
 OUTPUT_DIR = BASE_DIR / "output"
 LOGS_DIR = BASE_DIR / "logs"
