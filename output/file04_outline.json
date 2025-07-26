@@ -5,6 +5,31 @@
             "level": "H1",
             "text": "PATHWAY OPTIONS",
             "page": 0
+        },
+        {
+            "level": "H1",
+            "text": "REGULAR PATHWAY",
+            "page": 0
+        },
+        {
+            "level": "H1",
+            "text": "DISTINCTION PATHWAY",
+            "page": 0
+        },
+        {
+            "level": "H3",
+            "text": "Mission Statement:",
+            "page": 0
+        },
+        {
+            "level": "H3",
+            "text": "Goals:",
+            "page": 0
+        },
+        {
+            "level": "H1",
+            "text": "design and implement a community",
+            "page": 0
         }
     ]
 }

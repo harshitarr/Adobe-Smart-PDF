@@ -1,12 +1,14 @@
 import sys, os, re, logging
 from dataclasses import dataclass, field
-from typing import List, Dict, Any, Optional
+from typing import List, Dict, Any, Optional, Tuple
 
 sys.path.append(os.path.join(os.path.dirname(__file__), '..', '..'))
 
 from models.document_types import TextBlock, DocumentType, DocumentStructure, HeadingLevel
 from core.title_extractor import TitleExtractor
 from core.outline_extractor import OutlineExtractor
+from processors.base_processor import BaseProcessor
+from config.language_patterns import LANGUAGE_PROCESSING_CONFIG
 
 logger = logging.getLogger('extraction')
 
@@ -70,6 +72,11 @@ class ProcessorConfig:
     
     # Logging
     enable_debug_logging: bool = False
+    
+    # Language-aware settings (new)
+    enable_language_aware_processing: bool = True
+    apply_language_font_adjustments: bool = True
+    use_language_specific_patterns: bool = True
 
 @dataclass
 class PatternConfig:
@@ -104,10 +111,48 @@ class PatternConfig:
     # Case sensitivity settings
     case_sensitive_matching: bool = False
     
+    # Language-specific patterns (new)
+    language_specific_h1_keywords: Dict[str, List[str]] = field(default_factory=dict)
+    language_specific_h2_keywords: Dict[str, List[str]] = field(default_factory=dict)
+    language_specific_business_terms: Dict[str, List[str]] = field(default_factory=dict)
+    language_specific_structural_terms: Dict[str, List[str]] = field(default_factory=dict)
+    
     def __post_init__(self):
         """Initialize empty defaults - all must be configured externally for domain-specific use"""
         # All patterns start empty to enforce external configuration
-        pass
+        
+        # Initialize language-specific pattern dictionaries if empty
+        if not self.language_specific_h1_keywords:
+            self.language_specific_h1_keywords = {
+                'japanese': [],
+                'german': [],
+                'tamil': [],
+                'english': []
+            }
+        
+        if not self.language_specific_h2_keywords:
+            self.language_specific_h2_keywords = {
+                'japanese': [],
+                'german': [],
+                'tamil': [],
+                'english': []
+            }
+        
+        if not self.language_specific_business_terms:
+            self.language_specific_business_terms = {
+                'japanese': [],
+                'german': [],
+                'tamil': [],
+                'english': []
+            }
+        
+        if not self.language_specific_structural_terms:
+            self.language_specific_structural_terms = {
+                'japanese': [],
+                'german': [],
+                'tamil': [],
+                'english': []
+            }
 
 @dataclass
 class AnalysisConfig:
@@ -134,14 +179,22 @@ class AnalysisConfig:
     # Result processing
     enable_duplicate_removal: bool = True
     enable_confidence_filtering: bool = True
+    
+    # Language-aware analysis (new)
+    enable_language_aware_scoring: bool = True
+    enable_language_specific_validation: bool = True
+    apply_language_font_thresholds: bool = True
 
-class BusinessProcessor:
-    """Fully generalized business processor with zero hardcoding"""
+class BusinessProcessor(BaseProcessor):
+    """Fully generalized business processor with zero hardcoding and multilingual support"""
     
     def __init__(self,
                  config: Optional[ProcessorConfig] = None,
                  patterns: Optional[PatternConfig] = None,
                  analysis: Optional[AnalysisConfig] = None):
+        
+        # Initialize base processor for language support
+        super().__init__()
         
         self.cfg = config or ProcessorConfig()
         self.pt = patterns or PatternConfig()
@@ -150,28 +203,108 @@ class BusinessProcessor:
         self.title_extractor = TitleExtractor()
         self.outline_extractor = OutlineExtractor()
         
+        # Language-aware configuration cache
+        self._language_adjusted_config = {}
+        self._current_language_patterns = {}
+        
         if self.cfg.enable_debug_logging:
             logger.setLevel(logging.DEBUG)
+        
+        logger.info("BusinessProcessor initialized with multilingual support")
+    
+    def set_language_config(self, language: str, config: Dict[str, Any]):
+        """Override from BaseProcessor - set language-specific configuration"""
+        super().set_language_config(language, config)
+        
+        if self.cfg.enable_language_aware_processing:
+            self._apply_language_adjustments(language, config)
+            logger.info(f"Applied {language} configuration to BusinessProcessor")
+    
+    def _apply_language_adjustments(self, language: str, lang_config: Dict[str, Any]):
+        """Apply language-specific adjustments to processing configuration"""
+        
+        # Store original config if not already cached
+        if not self._language_adjusted_config:
+            self._language_adjusted_config = {
+                'font_weight_threshold': self.cfg.large_font_threshold,
+                'spacing_multiplier': 1.0,  # Default spacing
+                'title_patterns': self.pt.title_repair_patterns.copy()
+            }
+        
+        # Apply language-specific font adjustments
+        if self.cfg.apply_language_font_adjustments:
+            font_threshold = lang_config.get('font_weight_threshold', self.cfg.large_font_threshold)
+            spacing_mult = lang_config.get('spacing_multiplier', 1.0)
+            
+            # Adjust font thresholds based on language characteristics
+            self.cfg.large_font_threshold = font_threshold
+            
+            logger.debug(f"Font threshold adjusted to {font_threshold} for {language}")
+        
+        # Apply language-specific patterns
+        if self.cfg.use_language_specific_patterns:
+            self._update_language_patterns(language, lang_config)
+    
+    def _update_language_patterns(self, language: str, lang_config: Dict[str, Any]):
+        """Update patterns based on language-specific configuration"""
+        
+        # Get language-specific title patterns
+        title_patterns = lang_config.get('title_patterns', [])
+        if title_patterns:
+            # Merge with existing patterns rather than replace
+            combined_patterns = self.pt.title_repair_patterns + [
+                (pattern, pattern) for pattern in title_patterns
+            ]
+            self.pt.title_repair_patterns = combined_patterns
+        
+        # Update heading indicators
+        heading_indicators = lang_config.get('heading_indicators', [])
+        if heading_indicators:
+            # Add language-specific indicators to existing business/structural terms
+            self.pt.structural_terms.extend(heading_indicators)
+            self.pt.h2_keywords.extend(heading_indicators)
+        
+        # Cache current language patterns
+        self._current_language_patterns = {
+            'language': language,
+            'patterns': lang_config
+        }
+        
+        logger.debug(f"Updated patterns for {language} processing")
     
     def process(self, text_blocks: List[TextBlock]) -> DocumentStructure:
-        """Process document using fully configurable logic"""
+        """Process document using fully configurable logic with language awareness"""
         logger.info("BusinessProcessor: start")
         
         doc_analysis = self._analyze_document_comprehensively(text_blocks)
         title = self._extract_and_repair_title(text_blocks, doc_analysis)
         outline = self._extract_accurate_outline(doc_analysis, title)
         
-        return DocumentStructure(
+        # Create document structure with language metadata
+        doc_structure = DocumentStructure(
             title=title,
             outline=outline,
             doc_type=self.cfg.document_type,
             confidence=self.cfg.document_confidence
         )
+        
+        # Add language information to metadata if available
+        if hasattr(doc_structure, 'metadata') and hasattr(self, 'language'):
+            doc_structure.metadata.update({
+                'detected_language': self.language,
+                'language_config_applied': bool(self._current_language_patterns),
+                'processing_language': self._current_language_patterns.get('language', 'english')
+            })
+        
+        return doc_structure
     
     def _analyze_document_comprehensively(self, blocks: List[TextBlock]) -> Dict[str, Any]:
-        """Analyze document using configurable parameters"""
+        """Analyze document using configurable parameters with language awareness"""
         analysis = {'blocks': []}
         total = len(blocks) or 1
+        
+        # Get language-specific font adjustments
+        font_multiplier = self.language_config.get('spacing_multiplier', 1.0) if hasattr(self, 'language_config') else 1.0
         
         for i, blk in enumerate(blocks):
             txt = blk.text.strip()
@@ -179,6 +312,11 @@ class BusinessProcessor:
                 continue
             
             fs = getattr(blk, 'font_size', self.cfg.default_font_size)
+            
+            # Apply language-specific font size adjustments
+            if self.analysis.apply_language_font_thresholds and font_multiplier != 1.0:
+                fs = fs * font_multiplier
+            
             bd = getattr(blk, 'is_bold', False)
             ub = txt.isupper()
             wc = len(txt.split())
@@ -194,20 +332,27 @@ class BusinessProcessor:
                 'word_count': wc,
                 'char_count': cc,
                 'position_ratio': pr,
-                'page': getattr(blk, 'page', 0)
+                'page': getattr(blk, 'page', 0),
+                'language_adjusted_font': fs != getattr(blk, 'font_size', self.cfg.default_font_size)
             })
         
         return analysis
     
     def _extract_and_repair_title(self, blocks: List[TextBlock], analysis: Dict) -> str:
-        """Extract and repair title using configurable methods"""
+        """Extract and repair title using configurable methods with language awareness"""
         
         # Method 1: Core title extractor (configurable)
         if self.analysis.enable_title_extractor:
             try:
                 extracted_title = self.title_extractor.extract_title(blocks, self.cfg.document_type)
                 if extracted_title:
-                    return self._repair_title(extracted_title) if self.analysis.enable_title_repair else extracted_title
+                    repaired_title = self._repair_title(extracted_title) if self.analysis.enable_title_repair else extracted_title
+                    
+                    # Apply language-specific title processing if available
+                    if self.cfg.enable_language_aware_processing and hasattr(self, 'language'):
+                        repaired_title = self._apply_language_title_processing(repaired_title)
+                    
+                    return repaired_title
             except Exception as e:
                 if self.cfg.enable_debug_logging:
                     logger.debug(f"Title extractor failed: {e}")
@@ -227,40 +372,174 @@ class BusinessProcessor:
             
             if candidates:
                 best_text = max(candidates, key=lambda x: x[1])[0]
-                return self._repair_title(best_text) if self.analysis.enable_title_repair else best_text
+                repaired_title = self._repair_title(best_text) if self.analysis.enable_title_repair else best_text
+                
+                # Apply language-specific title processing if available
+                if self.cfg.enable_language_aware_processing and hasattr(self, 'language'):
+                    repaired_title = self._apply_language_title_processing(repaired_title)
+                
+                return repaired_title
         
         # Method 3: Return empty (configurable default)
         return ""
     
+    def _apply_language_title_processing(self, title: str) -> str:
+        """Apply language-specific title processing"""
+        if not hasattr(self, 'language') or not self._current_language_patterns:
+            return title
+        
+        processed_title = title
+        language = self.language
+        
+        # Apply language-specific title patterns if available
+        lang_patterns = self._current_language_patterns.get('patterns', {})
+        title_patterns = lang_patterns.get('title_patterns', [])
+        
+        for pattern in title_patterns:
+            if isinstance(pattern, str):
+                # Simple pattern - use as regex to clean common issues
+                processed_title = re.sub(pattern, '', processed_title, flags=re.IGNORECASE)
+        
+        # Language-specific title formatting
+        if language == 'german':
+            # German titles often have compound words - preserve capitalization
+            processed_title = processed_title.strip()
+        elif language == 'japanese':
+            # Japanese titles may have mixed scripts - preserve all characters
+            processed_title = processed_title.strip()
+        elif language == 'tamil':
+            # Tamil titles - preserve script integrity
+            processed_title = processed_title.strip()
+        
+        return processed_title
+    
     def _is_valid_title_candidate(self, block_data: Dict) -> bool:
-        """Validate title candidate using configurable criteria"""
-        return (
+        """Validate title candidate using configurable criteria with language awareness"""
+        base_valid = (
             block_data['word_count'] >= self.cfg.title_min_words and
             block_data['word_count'] <= self.cfg.title_max_words and
             block_data['position_ratio'] <= self.cfg.mid_document_threshold
         )
+        
+        if not base_valid:
+            return False
+        
+        # Apply language-specific validation if enabled
+        if self.analysis.enable_language_specific_validation and hasattr(self, 'language'):
+            return self._validate_title_for_language(block_data)
+        
+        return True
+    
+    def _validate_title_for_language(self, block_data: Dict) -> bool:
+        """Apply language-specific title validation"""
+        if not hasattr(self, 'language'):
+            return True
+        
+        language = self.language
+        text = block_data['text']
+        
+        # Language-specific validation rules
+        if language == 'japanese':
+            # Japanese titles should have reasonable character balance
+            # Allow more flexibility in word count due to different tokenization
+            return len(text.strip()) >= 3
+        elif language == 'german':
+            # German can have very long compound words
+            # Be more lenient with word count limits
+            return block_data['word_count'] <= self.cfg.title_max_words * 1.5
+        elif language == 'tamil':
+            # Tamil script validation - ensure meaningful content
+            return len(text.strip()) >= 3
+        
+        return True
     
     def _calculate_title_score(self, block_data: Dict) -> float:
-        """Calculate title score using configurable components"""
+        """Calculate title score using configurable components with language awareness"""
         score = 0.0
         
         # Bold scoring (configurable)
         if self.analysis.enable_bold_scoring and block_data['is_bold']:
-            score += self.cfg.bold_confidence_bonus
+            score += self._get_language_adjusted_bonus('bold', self.cfg.bold_confidence_bonus)
         
-        # Uppercase scoring (configurable)
+        # Uppercase scoring (configurable with language awareness)
         if self.analysis.enable_uppercase_scoring and block_data['is_upper']:
-            score += self.cfg.uppercase_confidence_bonus
+            # Some languages don't use uppercase the same way
+            uppercase_bonus = self._get_language_adjusted_bonus('uppercase', self.cfg.uppercase_confidence_bonus)
+            score += uppercase_bonus
         
         # Font size scoring (configurable)
         if self.analysis.enable_font_size_scoring:
             if block_data['font_size'] >= self.cfg.large_font_threshold:
-                score += self.cfg.largest_font_bonus
+                score += self._get_language_adjusted_bonus('font', self.cfg.largest_font_bonus)
+        
+        # Language-aware pattern scoring
+        if self.analysis.enable_language_aware_scoring and hasattr(self, 'language'):
+            language_score = self._calculate_language_specific_score(block_data)
+            score += language_score
         
         return min(self.cfg.max_confidence_score, score)
     
+    def _get_language_adjusted_bonus(self, bonus_type: str, default_bonus: float) -> float:
+        """Get language-adjusted bonus values"""
+        if not hasattr(self, 'language') or not self._current_language_patterns:
+            return default_bonus
+        
+        language = self.language
+        
+        # Language-specific bonus adjustments
+        adjustments = {
+            'japanese': {
+                'bold': 0.8,      # Bold is less common in Japanese
+                'uppercase': 0.3,  # Uppercase doesn't apply to Japanese scripts
+                'font': 1.0
+            },
+            'german': {
+                'bold': 1.0,
+                'uppercase': 0.7,  # German uses less all-caps
+                'font': 1.0
+            },
+            'tamil': {
+                'bold': 0.9,
+                'uppercase': 0.2,  # Uppercase doesn't apply to Tamil script
+                'font': 1.0
+            },
+            'english': {
+                'bold': 1.0,
+                'uppercase': 1.0,
+                'font': 1.0
+            }
+        }
+        
+        multiplier = adjustments.get(language, {}).get(bonus_type, 1.0)
+        return default_bonus * multiplier
+    
+    def _calculate_language_specific_score(self, block_data: Dict) -> float:
+        """Calculate additional score based on language-specific patterns"""
+        if not hasattr(self, 'language'):
+            return 0.0
+        
+        language = self.language
+        text = block_data['text'].lower()
+        score = 0.0
+        
+        # Check language-specific business terms
+        lang_business_terms = self.pt.language_specific_business_terms.get(language, [])
+        if lang_business_terms:
+            for term in lang_business_terms:
+                if term.lower() in text:
+                    score += self.cfg.pattern_match_bonus * 0.5
+        
+        # Check language-specific structural terms
+        lang_structural_terms = self.pt.language_specific_structural_terms.get(language, [])
+        if lang_structural_terms:
+            for term in lang_structural_terms:
+                if term.lower() in text:
+                    score += self.cfg.pattern_match_bonus * 0.3
+        
+        return min(self.cfg.pattern_match_bonus, score)
+    
     def _repair_title(self, raw_title: str) -> str:
-        """Repair title using configurable patterns"""
+        """Repair title using configurable patterns with language awareness"""
         if not self.analysis.enable_title_repair:
             return raw_title
         
@@ -277,7 +556,7 @@ class BusinessProcessor:
         return repaired
     
     def _extract_accurate_outline(self, analysis: Dict, title: str) -> List[HeadingLevel]:
-        """Extract outline using configurable heading detection"""
+        """Extract outline using configurable heading detection with language awareness"""
         headings = []
         
         for block_data in analysis['blocks']:
@@ -314,7 +593,7 @@ class BusinessProcessor:
         return headings
     
     def _is_valid_heading(self, block_data: Dict) -> bool:
-        """Validate heading using configurable exclusion rules"""
+        """Validate heading using configurable exclusion rules with language awareness"""
         text = block_data['text']
         text_lower = text.lower() if not self.pt.case_sensitive_matching else text
         
@@ -325,9 +604,10 @@ class BusinessProcessor:
             if any(text_lower.startswith(starter) for starter in comparison_starters):
                 return False
         
-        # Length validation (configurable)
+        # Length validation (configurable with language awareness)
         if self.analysis.enable_length_validation:
-            if len(text.split()) > self.cfg.heading_max_words:
+            max_words = self._get_language_adjusted_max_words(self.cfg.heading_max_words)
+            if len(text.split()) > max_words:
                 return False
         
         # Punctuation validation (configurable)
@@ -338,24 +618,40 @@ class BusinessProcessor:
         
         return True
     
+    def _get_language_adjusted_max_words(self, default_max: int) -> int:
+        """Get language-adjusted maximum word count for headings"""
+        if not hasattr(self, 'language'):
+            return default_max
+        
+        # Language-specific adjustments for word count limits
+        adjustments = {
+            'japanese': 1.5,   # Japanese may have different tokenization
+            'german': 1.3,     # German compound words may affect word count
+            'tamil': 1.4,      # Tamil script considerations
+            'english': 1.0
+        }
+        
+        multiplier = adjustments.get(self.language, 1.0)
+        return int(default_max * multiplier)
+    
     def _score_heading(self, block_data: Dict) -> float:
-        """Score heading using configurable components"""
+        """Score heading using configurable components with language awareness"""
         score = 0.0
         
         # Format-based scoring (configurable)
         if self.analysis.enable_bold_scoring and block_data['is_bold']:
-            score += self.cfg.bold_confidence_bonus
+            score += self._get_language_adjusted_bonus('bold', self.cfg.bold_confidence_bonus)
         
         if self.analysis.enable_uppercase_scoring and block_data['is_upper']:
-            score += self.cfg.uppercase_confidence_bonus
+            score += self._get_language_adjusted_bonus('uppercase', self.cfg.uppercase_confidence_bonus)
         
         # Font size scoring (configurable)
         if self.analysis.enable_font_size_scoring:
             font_size = block_data['font_size']
             if font_size >= self.cfg.large_font_threshold:
-                score += self.cfg.largest_font_bonus
+                score += self._get_language_adjusted_bonus('font', self.cfg.largest_font_bonus)
             elif font_size > self.cfg.default_font_size:
-                score += self.cfg.large_font_bonus
+                score += self._get_language_adjusted_bonus('font', self.cfg.large_font_bonus)
         
         # Length scoring (configurable)
         if self.analysis.enable_length_scoring:
@@ -365,27 +661,75 @@ class BusinessProcessor:
             elif word_count <= self.cfg.short_heading_max_words:
                 score += self.cfg.good_length_bonus
         
-        # Pattern scoring (configurable)
+        # Pattern scoring (configurable with language awareness)
         if self.analysis.enable_pattern_scoring:
-            text_for_comparison = (block_data['text'] if self.pt.case_sensitive_matching 
-                                 else block_data['text'].lower())
-            
-            comparison_terms = (self.pt.structural_terms + self.pt.business_terms 
-                              if self.pt.case_sensitive_matching
-                              else [term.lower() for term in self.pt.structural_terms + self.pt.business_terms])
-            
-            if any(term in text_for_comparison for term in comparison_terms):
-                score += self.cfg.pattern_match_bonus
+            pattern_score = self._calculate_pattern_score(block_data)
+            score += pattern_score
         
         # Position scoring (configurable)
         if self.analysis.enable_position_scoring:
             if block_data['position_ratio'] <= self.cfg.early_position_threshold:
                 score += self.cfg.position_bonus
         
+        # Language-specific heading scoring
+        if self.analysis.enable_language_aware_scoring and hasattr(self, 'language'):
+            language_heading_score = self._calculate_language_heading_score(block_data)
+            score += language_heading_score
+        
         return min(self.cfg.max_confidence_score, score)
     
+    def _calculate_pattern_score(self, block_data: Dict) -> float:
+        """Calculate pattern-based score with language awareness"""
+        score = 0.0
+        text_for_comparison = (block_data['text'] if self.pt.case_sensitive_matching 
+                             else block_data['text'].lower())
+        
+        # Standard pattern matching
+        comparison_terms = (self.pt.structural_terms + self.pt.business_terms 
+                          if self.pt.case_sensitive_matching
+                          else [term.lower() for term in self.pt.structural_terms + self.pt.business_terms])
+        
+        if any(term in text_for_comparison for term in comparison_terms):
+            score += self.cfg.pattern_match_bonus
+        
+        # Language-specific pattern matching
+        if hasattr(self, 'language') and self.language in self.pt.language_specific_h2_keywords:
+            lang_terms = self.pt.language_specific_h2_keywords[self.language]
+            lang_comparison_terms = (lang_terms if self.pt.case_sensitive_matching
+                                   else [term.lower() for term in lang_terms])
+            
+            if any(term in text_for_comparison for term in lang_comparison_terms):
+                score += self.cfg.pattern_match_bonus * 0.8
+        
+        return score
+    
+    def _calculate_language_heading_score(self, block_data: Dict) -> float:
+        """Calculate language-specific heading scores"""
+        if not hasattr(self, 'language'):
+            return 0.0
+        
+        language = self.language
+        text = block_data['text']
+        score = 0.0
+        
+        # Get language-specific heading patterns from configuration
+        lang_config = self.language_config if hasattr(self, 'language_config') else {}
+        
+        # Check against language-specific heading indicators
+        heading_indicators = lang_config.get('heading_indicators', [])
+        for indicator in heading_indicators:
+            if indicator.lower() in text.lower():
+                score += self.cfg.pattern_match_bonus * 0.6
+        
+        return score
+    
     def _determine_heading_level(self, confidence: float, block_data: Dict) -> str:
-        """Determine heading level using configurable thresholds"""
+        """Determine heading level using configurable thresholds with language awareness"""
+        
+        # Apply language-specific threshold adjustments if available
+        if hasattr(self, 'language') and self._current_language_patterns:
+            confidence = self._adjust_confidence_for_language(confidence, block_data)
+        
         if confidence >= self.cfg.high_confidence_h1:
             return 'H1'
         elif confidence >= self.cfg.h1_threshold:
@@ -398,6 +742,30 @@ class BusinessProcessor:
             return 'H3'
         else:
             return 'H4'
+    
+    def _adjust_confidence_for_language(self, confidence: float, block_data: Dict) -> float:
+        """Adjust confidence score based on language-specific factors"""
+        if not hasattr(self, 'language'):
+            return confidence
+        
+        language = self.language
+        adjusted_confidence = confidence
+        
+        # Language-specific confidence adjustments
+        if language == 'japanese':
+            # Japanese may have different formatting conventions
+            if block_data.get('language_adjusted_font', False):
+                adjusted_confidence *= 1.1
+        elif language == 'german':
+            # German compound words might affect scoring
+            if block_data['word_count'] > self.cfg.short_heading_max_words:
+                adjusted_confidence *= 0.95  # Slight penalty for very long headings
+        elif language == 'tamil':
+            # Tamil script considerations
+            if len(block_data['text']) > 50:  # Character-based check for Tamil
+                adjusted_confidence *= 1.05
+        
+        return min(self.cfg.max_confidence_score, adjusted_confidence)
 
 # Factory function for easy processor creation
 def create_business_processor(mode: str = 'standard') -> BusinessProcessor:
@@ -419,6 +787,15 @@ def create_business_processor(mode: str = 'standard') -> BusinessProcessor:
         
     elif mode == 'debug':
         config.enable_debug_logging = True
+        
+    elif mode == 'multilingual':
+        # Enhanced multilingual mode
+        config.enable_language_aware_processing = True
+        config.apply_language_font_adjustments = True
+        config.use_language_specific_patterns = True
+        analysis.enable_language_aware_scoring = True
+        analysis.enable_language_specific_validation = True
+        analysis.apply_language_font_thresholds = True
         
     elif mode == 'rfp_configured':
         # Example of domain-specific configuration
@@ -443,6 +820,14 @@ def create_business_processor(mode: str = 'standard') -> BusinessProcessor:
         ]
         patterns.business_terms = ['rfp', 'proposal']
         patterns.structural_terms = patterns.h2_keywords + ['appendix', 'business plan']
+        
+        # Add language-specific patterns for RFP documents
+        patterns.language_specific_business_terms = {
+            'german': ['antrag', 'vorschlag', 'ausschreibung'],
+            'japanese': ['提案書', '要求仕様書', '仕様書'],
+            'tamil': ['முன்மொழிவு', 'கோரிக்கை'],
+            'english': ['rfp', 'proposal', 'request']
+        }
     
     return BusinessProcessor(config=config, patterns=patterns, analysis=analysis)
 
@@ -450,6 +835,9 @@ def create_business_processor(mode: str = 'standard') -> BusinessProcessor:
 if __name__ == "__main__":
     # Standard processor (empty patterns)
     standard_processor = create_business_processor('standard')
+    
+    # Multilingual processor
+    multilingual_processor = create_business_processor('multilingual')
     
     # RFP-configured processor
     rfp_processor = create_business_processor('rfp_configured')
@@ -459,7 +847,8 @@ if __name__ == "__main__":
         document_type=DocumentType.BUSINESS_DOCUMENT,
         document_confidence=0.95,
         title_min_words=3,
-        large_font_threshold=14.0
+        large_font_threshold=14.0,
+        enable_language_aware_processing=True
     )
     
     custom_patterns = PatternConfig(
@@ -471,7 +860,8 @@ if __name__ == "__main__":
     custom_analysis = AnalysisConfig(
         enable_title_repair=True,
         enable_pattern_scoring=True,
-        enable_confidence_filtering=True
+        enable_confidence_filtering=True,
+        enable_language_aware_scoring=True
     )
     
     custom_processor = BusinessProcessor(

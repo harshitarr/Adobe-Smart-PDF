@@ -1,0 +1,16 @@
+{
+    "detected_language": "english",
+    "confidence": 0.5,
+    "display_name": "English",
+    "language_code": "en",
+    "confidence_level": "medium",
+    "analysis_confidence_level": "medium",
+    "detection_scores": {
+        "japanese": 0.0,
+        "german": 0.39,
+        "tamil": 0.0,
+        "english": 0.5
+    },
+    "text_sample_length": 1197,
+    "threshold_applied": 0.4
+}

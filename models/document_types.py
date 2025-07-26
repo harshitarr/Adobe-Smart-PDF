@@ -1,6 +1,6 @@
 from enum import Enum
-from dataclasses import dataclass
-from typing import List, Optional
+from dataclasses import dataclass, field
+from typing import List, Optional, Dict, Any
 
 class DocumentType(Enum):
     FORM_DOCUMENT = "form"
@@ -24,6 +24,7 @@ class DocumentStructure:
     outline: List[HeadingLevel]
     doc_type: DocumentType
     confidence: float = 0.0
+    metadata: Dict[str, Any] = field(default_factory=dict)
 
 @dataclass
 class TextBlock:

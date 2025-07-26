@@ -7694,3 +7694,725 @@ KeyError: 'other'
 2025-07-25 19:17:32,324 [INFO] extraction: file05.pdf processing completed in 0.11 seconds
 2025-07-25 19:17:32,324 [INFO] extraction: Output saved to: /app/output/file05_outline.json
 2025-07-25 19:17:32,325 [INFO] extraction: ✓ Successfully processed: file05.pdf
+2025-07-26 06:42:12,267 [INFO] extraction: LanguageAnalyzer initialized with 4 language patterns
+2025-07-26 06:42:12,268 [INFO] extraction: Supported languages: ['japanese', 'german', 'tamil', 'english']
+2025-07-26 06:42:12,268 [INFO] extraction: ✓ Language detection enabled
+2025-07-26 06:42:12,269 [INFO] extraction: FormProcessor initialized with: ['TitleExtractor', 'FontAnalyzer', 'TextAnalyzer', 'ContentFilter', 'SemanticClassifier', 'TextProcessor', 'OutputValidator']
+2025-07-26 06:42:12,269 [INFO] extraction: ✓ Initialized FormProcessor for form
+2025-07-26 06:42:12,269 [INFO] extraction: ManualProcessor initialized with multilingual support
+2025-07-26 06:42:12,270 [INFO] extraction: ✓ Initialized ManualProcessor for manual
+2025-07-26 06:42:12,270 [INFO] extraction: BusinessProcessor initialized with multilingual support
+2025-07-26 06:42:12,271 [INFO] extraction: ✓ Initialized BusinessProcessor for business
+2025-07-26 06:42:12,271 [INFO] extraction: ProgramProcessor initialized with multilingual support
+2025-07-26 06:42:12,272 [INFO] extraction: ✓ Initialized ProgramProcessor for program
+2025-07-26 06:42:12,272 [INFO] extraction: InvitationProcessor initialized with multilingual support
+2025-07-26 06:42:12,273 [INFO] extraction: ✓ Initialized InvitationProcessor for invitation
+2025-07-26 06:42:12,278 [INFO] extraction: Found 5 PDF files to process
+2025-07-26 06:42:12,314 [INFO] extraction: file01.pdf has 1 pages
+2025-07-26 06:42:12,315 [INFO] extraction: === Processing PDF: file01.pdf ===
+2025-07-26 06:42:12,337 [INFO] extraction: PDF loaded successfully: /app/input/file01.pdf
+2025-07-26 06:42:12,428 [INFO] extraction: Extracted 28 text blocks
+2025-07-26 06:42:12,429 [INFO] extraction: Extracted 28 text blocks from file01.pdf
+2025-07-26 06:42:12,429 [INFO] extraction: Analyzing text sample of 1197 characters from 28 blocks
+2025-07-26 06:42:12,438 [INFO] extraction: Language detection scores: {'japanese': 0.0, 'german': 0.38999999999999996, 'tamil': 0.0, 'english': 0.5}
+2025-07-26 06:42:12,439 [INFO] extraction: Detected language: english (confidence: 0.500, level: medium)
+2025-07-26 06:42:12,439 [INFO] extraction: Language detected: english (confidence: 0.500)
+2025-07-26 06:42:12,442 [INFO] extraction: file01.pdf classified as: manual (confidence: 1.00)
+2025-07-26 06:42:12,443 [INFO] extraction: Processing file01.pdf with ManualProcessor
+2025-07-26 06:42:12,443 [INFO] extraction: Processing technical manual - generalized pattern matching
+2025-07-26 06:42:12,447 [INFO] extraction: file01.pdf processing successful
+2025-07-26 06:42:12,448 [INFO] extraction:   Title: 'Application form for grant of LTC advance '
+2025-07-26 06:42:12,448 [INFO] extraction:   Outline items: 0
+2025-07-26 06:42:12,449 [INFO] extraction: Output validation passed
+2025-07-26 06:42:12,449 [INFO] extraction: JSON output formatted and validated successfully
+2025-07-26 06:42:12,457 [INFO] extraction: JSON output saved to /app/output/file01_outline.json
+2025-07-26 06:42:12,457 [INFO] extraction: Output saved to: /app/output/file01_outline.json
+2025-07-26 06:42:12,458 [INFO] extraction: file01.pdf processing completed in 0.14 seconds
+2025-07-26 06:42:12,459 [INFO] extraction: ✓ Successfully processed: file01.pdf
+2025-07-26 06:42:12,528 [INFO] extraction: file02.pdf has 12 pages
+2025-07-26 06:42:12,529 [INFO] extraction: === Processing PDF: file02.pdf ===
+2025-07-26 06:42:12,620 [INFO] extraction: PDF loaded successfully: /app/input/file02.pdf
+2025-07-26 06:42:13,496 [INFO] extraction: Extracted 235 text blocks
+2025-07-26 06:42:13,497 [INFO] extraction: Extracted 235 text blocks from file02.pdf
+2025-07-26 06:42:13,498 [INFO] extraction: Analyzing text sample of 5000 characters from 75 blocks
+2025-07-26 06:42:13,507 [INFO] extraction: Language detection scores: {'japanese': 0.0, 'german': 0.7100000000000001, 'tamil': 0.0, 'english': 0.2797494780793319}
+2025-07-26 06:42:13,508 [INFO] extraction: Detected language: german (confidence: 0.710, level: high)
+2025-07-26 06:42:13,508 [INFO] extraction: Language detected: german (confidence: 0.710)
+2025-07-26 06:42:13,511 [INFO] extraction: file02.pdf classified as: manual (confidence: 1.00)
+2025-07-26 06:42:13,512 [INFO] extraction: Applied german configuration to ManualProcessor
+2025-07-26 06:42:13,512 [INFO] extraction: Applied german patterns to ManualProcessor
+2025-07-26 06:42:13,513 [INFO] extraction: Applied german processing configuration
+2025-07-26 06:42:13,513 [INFO] extraction: Processing file02.pdf with ManualProcessor
+2025-07-26 06:42:13,514 [INFO] extraction: Processing technical manual - generalized pattern matching
+2025-07-26 06:42:13,537 [INFO] extraction: file02.pdf processing successful
+2025-07-26 06:42:13,537 [INFO] extraction:   Title: 'Overview Foundation Level Extensions  '
+2025-07-26 06:42:13,538 [INFO] extraction:   Outline items: 18
+2025-07-26 06:42:13,538 [INFO] extraction: Output validation passed
+2025-07-26 06:42:13,538 [INFO] extraction: JSON output formatted and validated successfully
+2025-07-26 06:42:13,543 [INFO] extraction: JSON output saved to /app/output/file02_outline.json
+2025-07-26 06:42:13,543 [INFO] extraction: Output saved to: /app/output/file02_outline.json
+2025-07-26 06:42:13,544 [INFO] extraction: file02.pdf processing completed in 1.02 seconds
+2025-07-26 06:42:13,546 [INFO] extraction: ✓ Successfully processed: file02.pdf
+2025-07-26 06:42:13,640 [INFO] extraction: file03.pdf has 14 pages
+2025-07-26 06:42:13,642 [INFO] extraction: === Processing PDF: file03.pdf ===
+2025-07-26 06:42:13,783 [INFO] extraction: PDF loaded successfully: /app/input/file03.pdf
+2025-07-26 06:42:15,039 [INFO] extraction: Extracted 224 text blocks
+2025-07-26 06:42:15,040 [INFO] extraction: Extracted 224 text blocks from file03.pdf
+2025-07-26 06:42:15,041 [INFO] extraction: Analyzing text sample of 5000 characters from 75 blocks
+2025-07-26 06:42:15,050 [INFO] extraction: Language detection scores: {'japanese': 0.0, 'german': 0.44999999999999996, 'tamil': 0.0, 'english': 0.5}
+2025-07-26 06:42:15,051 [INFO] extraction: Detected language: english (confidence: 0.500, level: medium)
+2025-07-26 06:42:15,051 [INFO] extraction: Language detected: english (confidence: 0.500)
+2025-07-26 06:42:15,055 [INFO] extraction: file03.pdf classified as: business (confidence: 1.00)
+2025-07-26 06:42:15,055 [INFO] extraction: Processing file03.pdf with BusinessProcessor
+2025-07-26 06:42:15,055 [INFO] extraction: BusinessProcessor: start
+2025-07-26 06:42:15,057 [INFO] extraction: Extracted title: RFP: RRFP: RRFP: RRFP: Reeeequest fquest fquest fquest foooor Prr Prr Prr Proposaloposal oposaloposal
+2025-07-26 06:42:15,060 [INFO] extraction: file03.pdf processing successful
+2025-07-26 06:42:15,060 [INFO] extraction:   Title: 'RFP: RRFP: RRFP: RRFP: Reeeequest fquest fquest fquest foooor Prr Prr Prr Proposaloposal oposaloposal'
+2025-07-26 06:42:15,061 [INFO] extraction:   Outline items: 15
+2025-07-26 06:42:15,061 [INFO] extraction: Output validation passed
+2025-07-26 06:42:15,062 [INFO] extraction: JSON output formatted and validated successfully
+2025-07-26 06:42:15,068 [INFO] extraction: JSON output saved to /app/output/file03_outline.json
+2025-07-26 06:42:15,068 [INFO] extraction: Output saved to: /app/output/file03_outline.json
+2025-07-26 06:42:15,069 [INFO] extraction: file03.pdf processing completed in 1.43 seconds
+2025-07-26 06:42:15,070 [INFO] extraction: ✓ Successfully processed: file03.pdf
+2025-07-26 06:42:15,122 [INFO] extraction: file04.pdf has 1 pages
+2025-07-26 06:42:15,123 [INFO] extraction: === Processing PDF: file04.pdf ===
+2025-07-26 06:42:15,146 [INFO] extraction: PDF loaded successfully: /app/input/file04.pdf
+2025-07-26 06:42:15,279 [INFO] extraction: Extracted 28 text blocks
+2025-07-26 06:42:15,279 [INFO] extraction: Extracted 28 text blocks from file04.pdf
+2025-07-26 06:42:15,280 [INFO] extraction: Analyzing text sample of 2188 characters from 28 blocks
+2025-07-26 06:42:15,285 [INFO] extraction: Language detection scores: {'japanese': 0.0, 'german': 0.41, 'tamil': 0.0, 'english': 0.5}
+2025-07-26 06:42:15,285 [INFO] extraction: Detected language: english (confidence: 0.500, level: medium)
+2025-07-26 06:42:15,286 [INFO] extraction: Language detected: english (confidence: 0.500)
+2025-07-26 06:42:15,287 [INFO] extraction: file04.pdf classified as: program (confidence: 1.00)
+2025-07-26 06:42:15,287 [INFO] extraction: Processing file04.pdf with ProgramProcessor
+2025-07-26 06:42:15,288 [INFO] extraction: Processing program document - pure component-driven analysis
+2025-07-26 06:42:15,289 [INFO] extraction: Font analysis completed: 28 size samples, 5 unique fonts
+2025-07-26 06:42:15,289 [INFO] extraction: Spatial analysis completed for 1 pages
+2025-07-26 06:42:15,298 [INFO] extraction: Text pattern analysis completed for 28 blocks
+2025-07-26 06:42:15,301 [INFO] extraction: Document structure analysis completed
+2025-07-26 06:42:15,301 [INFO] extraction: Font analysis completed: 28 size samples, 5 unique fonts
+2025-07-26 06:42:15,306 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-26 06:42:15,307 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-26 06:42:15,307 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-26 06:42:15,308 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-26 06:42:15,308 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-26 06:42:15,309 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-26 06:42:15,309 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-26 06:42:15,310 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-26 06:42:15,310 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-26 06:42:15,311 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-26 06:42:15,312 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-26 06:42:15,313 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-26 06:42:15,314 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-26 06:42:15,315 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-26 06:42:15,315 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-26 06:42:15,316 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-26 06:42:15,316 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-26 06:42:15,317 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-26 06:42:15,317 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-26 06:42:15,318 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-26 06:42:15,318 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-26 06:42:15,319 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-26 06:42:15,320 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-26 06:42:15,321 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-26 06:42:15,323 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-26 06:42:15,324 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-26 06:42:15,325 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-26 06:42:15,325 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-26 06:42:15,327 [INFO] extraction: Extracted title: Parsippany -Troy Hills STEM Pathways
+2025-07-26 06:42:15,328 [INFO] extraction: Component-validated outline item: 'PATHWAY OPTIONS' as H1 (source: structure_analyzer) (lang: english)
+2025-07-26 06:42:15,328 [INFO] extraction: Output validation passed
+2025-07-26 06:42:15,329 [INFO] extraction: Final validation successful - Title: 'Parsippany -Troy Hills STEM Pathways', Outline: 1 items (lang: english)
+2025-07-26 06:42:15,330 [INFO] extraction: file04.pdf processing successful
+2025-07-26 06:42:15,331 [INFO] extraction:   Title: 'Parsippany -Troy Hills STEM Pathways'
+2025-07-26 06:42:15,331 [INFO] extraction:   Outline items: 1
+2025-07-26 06:42:15,332 [INFO] extraction: Output validation passed
+2025-07-26 06:42:15,332 [INFO] extraction: JSON output formatted and validated successfully
+2025-07-26 06:42:15,340 [INFO] extraction: JSON output saved to /app/output/file04_outline.json
+2025-07-26 06:42:15,340 [INFO] extraction: Output saved to: /app/output/file04_outline.json
+2025-07-26 06:42:15,341 [INFO] extraction: file04.pdf processing completed in 0.22 seconds
+2025-07-26 06:42:15,342 [INFO] extraction: ✓ Successfully processed: file04.pdf
+2025-07-26 06:42:15,387 [INFO] extraction: file05.pdf has 1 pages
+2025-07-26 06:42:15,387 [INFO] extraction: === Processing PDF: file05.pdf ===
+2025-07-26 06:42:15,401 [INFO] extraction: PDF loaded successfully: /app/input/file05.pdf
+2025-07-26 06:42:15,497 [INFO] extraction: Extracted 12 text blocks
+2025-07-26 06:42:15,498 [INFO] extraction: Extracted 12 text blocks from file05.pdf
+2025-07-26 06:42:15,499 [INFO] extraction: Analyzing text sample of 311 characters from 12 blocks
+2025-07-26 06:42:15,500 [INFO] extraction: Language detection scores: {'japanese': 0.0, 'german': 0.15, 'tamil': 0.0, 'english': 0.5}
+2025-07-26 06:42:15,500 [INFO] extraction: Detected language: english (confidence: 0.500, level: medium)
+2025-07-26 06:42:15,500 [INFO] extraction: Language detected: english (confidence: 0.500)
+2025-07-26 06:42:15,501 [INFO] extraction: file05.pdf classified as: invitation (confidence: 1.00)
+2025-07-26 06:42:15,502 [INFO] extraction: Processing file05.pdf with InvitationProcessor
+2025-07-26 06:42:15,502 [INFO] extraction: Processing invitation document with 12 blocks
+2025-07-26 06:42:15,504 [INFO] extraction: Font analysis completed: 1 size samples, 1 unique fonts
+2025-07-26 06:42:15,504 [INFO] extraction: Spatial analysis completed for 1 pages
+2025-07-26 06:42:15,505 [INFO] extraction: Text pattern analysis completed for 1 blocks
+2025-07-26 06:42:15,505 [INFO] extraction: Document structure analysis completed
+2025-07-26 06:42:15,506 [INFO] extraction: Font analysis completed: 1 size samples, 1 unique fonts
+2025-07-26 06:42:15,507 [INFO] extraction: Spatial analysis completed for 1 pages
+2025-07-26 06:42:15,509 [INFO] extraction: Using default title for invitation: 
+2025-07-26 06:42:15,510 [INFO] extraction: Extracting outline for invitation document with 1 text blocks
+2025-07-26 06:42:15,512 [INFO] extraction: Font analysis completed: 1 size samples, 1 unique fonts
+2025-07-26 06:42:15,513 [INFO] extraction: Font analysis completed: 1 size samples, 1 unique fonts
+2025-07-26 06:42:15,514 [INFO] extraction: Spatial analysis completed for 1 pages
+2025-07-26 06:42:15,514 [INFO] extraction: Text pattern analysis completed for 1 blocks
+2025-07-26 06:42:15,515 [INFO] extraction: Document structure analysis completed
+2025-07-26 06:42:15,516 [INFO] extraction: Extracted 0 outline items
+2025-07-26 06:42:15,517 [INFO] extraction: Added to outline: 'HOPE To SEE You THERE!' as H1 (method: semantic_analysis, confidence: 0.67) (lang: english)
+2025-07-26 06:42:15,518 [INFO] extraction: Output validation passed
+2025-07-26 06:42:15,520 [INFO] extraction: Output validation passed
+2025-07-26 06:42:15,521 [INFO] extraction: file05.pdf processing successful
+2025-07-26 06:42:15,521 [INFO] extraction:   Title: ''
+2025-07-26 06:42:15,522 [INFO] extraction:   Outline items: 1
+2025-07-26 06:42:15,522 [INFO] extraction: Output validation passed
+2025-07-26 06:42:15,522 [INFO] extraction: JSON output formatted and validated successfully
+2025-07-26 06:42:15,526 [INFO] extraction: JSON output saved to /app/output/file05_outline.json
+2025-07-26 06:42:15,527 [INFO] extraction: Output saved to: /app/output/file05_outline.json
+2025-07-26 06:42:15,528 [INFO] extraction: file05.pdf processing completed in 0.14 seconds
+2025-07-26 06:42:15,530 [INFO] extraction: ✓ Successfully processed: file05.pdf
+2025-07-26 07:01:32,869 [INFO] extraction: LanguageAnalyzer initialized with 4 language patterns
+2025-07-26 07:01:32,870 [INFO] extraction: Supported languages: ['japanese', 'german', 'tamil', 'english']
+2025-07-26 07:01:32,870 [INFO] extraction: ✓ Language detection enabled
+2025-07-26 07:01:32,870 [INFO] extraction: FormProcessor initialized with: ['TitleExtractor', 'FontAnalyzer', 'TextAnalyzer', 'ContentFilter', 'SemanticClassifier', 'TextProcessor', 'OutputValidator']
+2025-07-26 07:01:32,871 [INFO] extraction: ✓ Initialized FormProcessor for form
+2025-07-26 07:01:32,871 [INFO] extraction: ManualProcessor initialized with multilingual support
+2025-07-26 07:01:32,872 [INFO] extraction: ✓ Initialized ManualProcessor for manual
+2025-07-26 07:01:32,872 [INFO] extraction: BusinessProcessor initialized with multilingual support
+2025-07-26 07:01:32,873 [INFO] extraction: ✓ Initialized BusinessProcessor for business
+2025-07-26 07:01:32,874 [INFO] extraction: ProgramProcessor initialized with multilingual support
+2025-07-26 07:01:32,874 [INFO] extraction: ✓ Initialized ProgramProcessor for program
+2025-07-26 07:01:32,875 [INFO] extraction: InvitationProcessor initialized with multilingual support
+2025-07-26 07:01:32,876 [INFO] extraction: ✓ Initialized InvitationProcessor for invitation
+2025-07-26 07:01:32,880 [INFO] extraction: Found 5 PDF files to process
+2025-07-26 07:01:32,896 [INFO] extraction: file01.pdf has 1 pages
+2025-07-26 07:01:32,896 [INFO] extraction: === Processing PDF: file01.pdf ===
+2025-07-26 07:01:32,929 [INFO] extraction: PDF loaded successfully: /app/input/file01.pdf
+2025-07-26 07:01:33,018 [INFO] extraction: Extracted 28 text blocks
+2025-07-26 07:01:33,019 [INFO] extraction: Extracted 28 text blocks from file01.pdf
+2025-07-26 07:01:33,020 [INFO] extraction: Analyzing text sample of 1197 characters from 28 blocks
+2025-07-26 07:01:33,029 [INFO] extraction: Language detection scores: {'japanese': 0.0, 'german': 0.38999999999999996, 'tamil': 0.0, 'english': 0.5}
+2025-07-26 07:01:33,030 [INFO] extraction: Detected language: english (confidence: 0.500, level: medium)
+2025-07-26 07:01:33,030 [INFO] extraction: Language detected: english (confidence: 0.500)
+2025-07-26 07:01:33,033 [INFO] extraction: file01.pdf classified as: manual (confidence: 1.00)
+2025-07-26 07:01:33,033 [INFO] extraction: Processing file01.pdf with ManualProcessor
+2025-07-26 07:01:33,034 [INFO] extraction: Processing technical manual - generalized pattern matching
+2025-07-26 07:01:33,037 [INFO] extraction: file01.pdf processing successful
+2025-07-26 07:01:33,037 [INFO] extraction:   Title: 'Application form for grant of LTC advance '
+2025-07-26 07:01:33,038 [INFO] extraction:   Outline items: 0
+2025-07-26 07:01:33,038 [INFO] extraction: Output validation passed
+2025-07-26 07:01:33,039 [INFO] extraction: JSON output formatted and validated successfully
+2025-07-26 07:01:33,047 [INFO] extraction: Main JSON output saved to /app/output/file01_outline.json
+2025-07-26 07:01:33,055 [INFO] extraction: Language info saved to /app/output/Language Info/file01_language_english ✓.json
+2025-07-26 07:01:33,056 [INFO] extraction: Complete output saved - Main: /app/output/file01_outline.json, Language: /app/output/Language Info/file01_language_english ✓.json
+2025-07-26 07:01:33,057 [INFO] extraction: file01.pdf processing completed in 0.16 seconds
+2025-07-26 07:01:33,058 [INFO] extraction: ✓ Successfully processed: file01.pdf
+2025-07-26 07:01:33,092 [INFO] extraction: file02.pdf has 12 pages
+2025-07-26 07:01:33,093 [INFO] extraction: === Processing PDF: file02.pdf ===
+2025-07-26 07:01:33,180 [INFO] extraction: PDF loaded successfully: /app/input/file02.pdf
+2025-07-26 07:01:33,945 [INFO] extraction: Extracted 235 text blocks
+2025-07-26 07:01:33,946 [INFO] extraction: Extracted 235 text blocks from file02.pdf
+2025-07-26 07:01:33,947 [INFO] extraction: Analyzing text sample of 5000 characters from 75 blocks
+2025-07-26 07:01:33,955 [INFO] extraction: Language detection scores: {'japanese': 0.0, 'german': 0.7100000000000001, 'tamil': 0.0, 'english': 0.2797494780793319}
+2025-07-26 07:01:33,955 [INFO] extraction: Detected language: german (confidence: 0.710, level: high)
+2025-07-26 07:01:33,956 [INFO] extraction: Language detected: german (confidence: 0.710)
+2025-07-26 07:01:33,959 [INFO] extraction: file02.pdf classified as: manual (confidence: 1.00)
+2025-07-26 07:01:33,959 [INFO] extraction: Applied german configuration to ManualProcessor
+2025-07-26 07:01:33,960 [INFO] extraction: Applied german patterns to ManualProcessor
+2025-07-26 07:01:33,960 [INFO] extraction: Applied german processing configuration
+2025-07-26 07:01:33,960 [INFO] extraction: Processing file02.pdf with ManualProcessor
+2025-07-26 07:01:33,961 [INFO] extraction: Processing technical manual - generalized pattern matching
+2025-07-26 07:01:33,982 [INFO] extraction: file02.pdf processing successful
+2025-07-26 07:01:33,983 [INFO] extraction:   Title: 'Overview Foundation Level Extensions  '
+2025-07-26 07:01:33,983 [INFO] extraction:   Outline items: 18
+2025-07-26 07:01:33,984 [INFO] extraction: Output validation passed
+2025-07-26 07:01:33,984 [INFO] extraction: JSON output formatted and validated successfully
+2025-07-26 07:01:33,988 [INFO] extraction: Main JSON output saved to /app/output/file02_outline.json
+2025-07-26 07:01:33,995 [INFO] extraction: Language info saved to /app/output/Language Info/file02_language_german ✓.json
+2025-07-26 07:01:33,995 [INFO] extraction: Complete output saved - Main: /app/output/file02_outline.json, Language: /app/output/Language Info/file02_language_german ✓.json
+2025-07-26 07:01:33,996 [INFO] extraction: file02.pdf processing completed in 0.90 seconds
+2025-07-26 07:01:33,997 [INFO] extraction: ✓ Successfully processed: file02.pdf
+2025-07-26 07:01:34,026 [INFO] extraction: file03.pdf has 14 pages
+2025-07-26 07:01:34,027 [INFO] extraction: === Processing PDF: file03.pdf ===
+2025-07-26 07:01:34,088 [INFO] extraction: PDF loaded successfully: /app/input/file03.pdf
+2025-07-26 07:01:35,341 [INFO] extraction: Extracted 224 text blocks
+2025-07-26 07:01:35,342 [INFO] extraction: Extracted 224 text blocks from file03.pdf
+2025-07-26 07:01:35,342 [INFO] extraction: Analyzing text sample of 5000 characters from 75 blocks
+2025-07-26 07:01:35,352 [INFO] extraction: Language detection scores: {'japanese': 0.0, 'german': 0.44999999999999996, 'tamil': 0.0, 'english': 0.5}
+2025-07-26 07:01:35,352 [INFO] extraction: Detected language: english (confidence: 0.500, level: medium)
+2025-07-26 07:01:35,353 [INFO] extraction: Language detected: english (confidence: 0.500)
+2025-07-26 07:01:35,356 [INFO] extraction: file03.pdf classified as: business (confidence: 1.00)
+2025-07-26 07:01:35,357 [INFO] extraction: Processing file03.pdf with BusinessProcessor
+2025-07-26 07:01:35,357 [INFO] extraction: BusinessProcessor: start
+2025-07-26 07:01:35,360 [INFO] extraction: Extracted title: RFP: RRFP: RRFP: RRFP: Reeeequest fquest fquest fquest foooor Prr Prr Prr Proposaloposal oposaloposal
+2025-07-26 07:01:35,363 [INFO] extraction: file03.pdf processing successful
+2025-07-26 07:01:35,363 [INFO] extraction:   Title: 'RFP: RRFP: RRFP: RRFP: Reeeequest fquest fquest fquest foooor Prr Prr Prr Proposaloposal oposaloposal'
+2025-07-26 07:01:35,364 [INFO] extraction:   Outline items: 15
+2025-07-26 07:01:35,365 [INFO] extraction: Output validation passed
+2025-07-26 07:01:35,366 [INFO] extraction: JSON output formatted and validated successfully
+2025-07-26 07:01:35,370 [INFO] extraction: Main JSON output saved to /app/output/file03_outline.json
+2025-07-26 07:01:35,377 [INFO] extraction: Language info saved to /app/output/Language Info/file03_language_english ✓.json
+2025-07-26 07:01:35,378 [INFO] extraction: Complete output saved - Main: /app/output/file03_outline.json, Language: /app/output/Language Info/file03_language_english ✓.json
+2025-07-26 07:01:35,379 [INFO] extraction: file03.pdf processing completed in 1.35 seconds
+2025-07-26 07:01:35,380 [INFO] extraction: ✓ Successfully processed: file03.pdf
+2025-07-26 07:01:35,404 [INFO] extraction: file04.pdf has 1 pages
+2025-07-26 07:01:35,404 [INFO] extraction: === Processing PDF: file04.pdf ===
+2025-07-26 07:01:35,444 [INFO] extraction: PDF loaded successfully: /app/input/file04.pdf
+2025-07-26 07:01:35,624 [INFO] extraction: Extracted 28 text blocks
+2025-07-26 07:01:35,625 [INFO] extraction: Extracted 28 text blocks from file04.pdf
+2025-07-26 07:01:35,626 [INFO] extraction: Analyzing text sample of 2188 characters from 28 blocks
+2025-07-26 07:01:35,631 [INFO] extraction: Language detection scores: {'japanese': 0.0, 'german': 0.41, 'tamil': 0.0, 'english': 0.5}
+2025-07-26 07:01:35,632 [INFO] extraction: Detected language: english (confidence: 0.500, level: medium)
+2025-07-26 07:01:35,632 [INFO] extraction: Language detected: english (confidence: 0.500)
+2025-07-26 07:01:35,633 [INFO] extraction: file04.pdf classified as: program (confidence: 1.00)
+2025-07-26 07:01:35,634 [INFO] extraction: Processing file04.pdf with ProgramProcessor
+2025-07-26 07:01:35,634 [INFO] extraction: Processing program document - pure component-driven analysis
+2025-07-26 07:01:35,636 [INFO] extraction: Font analysis completed: 28 size samples, 5 unique fonts
+2025-07-26 07:01:35,637 [INFO] extraction: Spatial analysis completed for 1 pages
+2025-07-26 07:01:35,647 [INFO] extraction: Text pattern analysis completed for 28 blocks
+2025-07-26 07:01:35,649 [INFO] extraction: Document structure analysis completed
+2025-07-26 07:01:35,650 [INFO] extraction: Font analysis completed: 28 size samples, 5 unique fonts
+2025-07-26 07:01:35,655 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-26 07:01:35,655 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-26 07:01:35,656 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-26 07:01:35,657 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-26 07:01:35,658 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-26 07:01:35,659 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-26 07:01:35,660 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-26 07:01:35,661 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-26 07:01:35,661 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-26 07:01:35,662 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-26 07:01:35,662 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-26 07:01:35,663 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-26 07:01:35,663 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-26 07:01:35,664 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-26 07:01:35,665 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-26 07:01:35,665 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-26 07:01:35,666 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-26 07:01:35,667 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-26 07:01:35,667 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-26 07:01:35,668 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-26 07:01:35,669 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-26 07:01:35,669 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-26 07:01:35,670 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-26 07:01:35,670 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-26 07:01:35,671 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-26 07:01:35,671 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-26 07:01:35,672 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-26 07:01:35,673 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-26 07:01:35,675 [INFO] extraction: Extracted title: Parsippany -Troy Hills STEM Pathways
+2025-07-26 07:01:35,678 [INFO] extraction: Component-validated outline item: 'PATHWAY OPTIONS' as H1 (source: structure_analyzer) (lang: english)
+2025-07-26 07:01:35,679 [INFO] extraction: Output validation passed
+2025-07-26 07:01:35,679 [INFO] extraction: Final validation successful - Title: 'Parsippany -Troy Hills STEM Pathways', Outline: 1 items (lang: english)
+2025-07-26 07:01:35,680 [INFO] extraction: file04.pdf processing successful
+2025-07-26 07:01:35,681 [INFO] extraction:   Title: 'Parsippany -Troy Hills STEM Pathways'
+2025-07-26 07:01:35,681 [INFO] extraction:   Outline items: 1
+2025-07-26 07:01:35,683 [INFO] extraction: Output validation passed
+2025-07-26 07:01:35,683 [INFO] extraction: JSON output formatted and validated successfully
+2025-07-26 07:01:35,687 [INFO] extraction: Main JSON output saved to /app/output/file04_outline.json
+2025-07-26 07:01:35,696 [INFO] extraction: Language info saved to /app/output/Language Info/file04_language_english ✓.json
+2025-07-26 07:01:35,696 [INFO] extraction: Complete output saved - Main: /app/output/file04_outline.json, Language: /app/output/Language Info/file04_language_english ✓.json
+2025-07-26 07:01:35,697 [INFO] extraction: file04.pdf processing completed in 0.29 seconds
+2025-07-26 07:01:35,699 [INFO] extraction: ✓ Successfully processed: file04.pdf
+2025-07-26 07:01:35,720 [INFO] extraction: file05.pdf has 1 pages
+2025-07-26 07:01:35,720 [INFO] extraction: === Processing PDF: file05.pdf ===
+2025-07-26 07:01:35,737 [INFO] extraction: PDF loaded successfully: /app/input/file05.pdf
+2025-07-26 07:01:35,778 [INFO] extraction: Extracted 12 text blocks
+2025-07-26 07:01:35,778 [INFO] extraction: Extracted 12 text blocks from file05.pdf
+2025-07-26 07:01:35,779 [INFO] extraction: Analyzing text sample of 311 characters from 12 blocks
+2025-07-26 07:01:35,781 [INFO] extraction: Language detection scores: {'japanese': 0.0, 'german': 0.15, 'tamil': 0.0, 'english': 0.5}
+2025-07-26 07:01:35,782 [INFO] extraction: Detected language: english (confidence: 0.500, level: medium)
+2025-07-26 07:01:35,782 [INFO] extraction: Language detected: english (confidence: 0.500)
+2025-07-26 07:01:35,784 [INFO] extraction: file05.pdf classified as: invitation (confidence: 1.00)
+2025-07-26 07:01:35,784 [INFO] extraction: Processing file05.pdf with InvitationProcessor
+2025-07-26 07:01:35,785 [INFO] extraction: Processing invitation document with 12 blocks
+2025-07-26 07:01:35,787 [INFO] extraction: Font analysis completed: 1 size samples, 1 unique fonts
+2025-07-26 07:01:35,788 [INFO] extraction: Spatial analysis completed for 1 pages
+2025-07-26 07:01:35,788 [INFO] extraction: Text pattern analysis completed for 1 blocks
+2025-07-26 07:01:35,788 [INFO] extraction: Document structure analysis completed
+2025-07-26 07:01:35,789 [INFO] extraction: Font analysis completed: 1 size samples, 1 unique fonts
+2025-07-26 07:01:35,790 [INFO] extraction: Spatial analysis completed for 1 pages
+2025-07-26 07:01:35,794 [INFO] extraction: Using default title for invitation: 
+2025-07-26 07:01:35,795 [INFO] extraction: Extracting outline for invitation document with 1 text blocks
+2025-07-26 07:01:35,797 [INFO] extraction: Font analysis completed: 1 size samples, 1 unique fonts
+2025-07-26 07:01:35,797 [INFO] extraction: Font analysis completed: 1 size samples, 1 unique fonts
+2025-07-26 07:01:35,799 [INFO] extraction: Spatial analysis completed for 1 pages
+2025-07-26 07:01:35,800 [INFO] extraction: Text pattern analysis completed for 1 blocks
+2025-07-26 07:01:35,801 [INFO] extraction: Document structure analysis completed
+2025-07-26 07:01:35,802 [INFO] extraction: Extracted 0 outline items
+2025-07-26 07:01:35,803 [INFO] extraction: Added to outline: 'HOPE To SEE You THERE!' as H1 (method: semantic_analysis, confidence: 0.67) (lang: english)
+2025-07-26 07:01:35,803 [INFO] extraction: Output validation passed
+2025-07-26 07:01:35,804 [INFO] extraction: Output validation passed
+2025-07-26 07:01:35,804 [INFO] extraction: file05.pdf processing successful
+2025-07-26 07:01:35,805 [INFO] extraction:   Title: ''
+2025-07-26 07:01:35,806 [INFO] extraction:   Outline items: 1
+2025-07-26 07:01:35,806 [INFO] extraction: Output validation passed
+2025-07-26 07:01:35,807 [INFO] extraction: JSON output formatted and validated successfully
+2025-07-26 07:01:35,812 [INFO] extraction: Main JSON output saved to /app/output/file05_outline.json
+2025-07-26 07:01:35,818 [INFO] extraction: Language info saved to /app/output/Language Info/file05_language_english ✓.json
+2025-07-26 07:01:35,819 [INFO] extraction: Complete output saved - Main: /app/output/file05_outline.json, Language: /app/output/Language Info/file05_language_english ✓.json
+2025-07-26 07:01:35,819 [INFO] extraction: file05.pdf processing completed in 0.10 seconds
+2025-07-26 07:01:35,820 [INFO] extraction: ✓ Successfully processed: file05.pdf
+2025-07-26 07:21:24,194 [INFO] extraction: LanguageAnalyzer initialized with 4 language patterns
+2025-07-26 07:21:24,195 [INFO] extraction: Supported languages: ['japanese', 'german', 'tamil', 'english']
+2025-07-26 07:21:24,195 [INFO] extraction: ✓ Language detection enabled
+2025-07-26 07:21:24,196 [INFO] extraction: FormProcessor initialized with: ['TitleExtractor', 'FontAnalyzer', 'TextAnalyzer', 'ContentFilter', 'SemanticClassifier', 'TextProcessor', 'OutputValidator']
+2025-07-26 07:21:24,196 [INFO] extraction: ✓ Initialized FormProcessor for form
+2025-07-26 07:21:24,197 [INFO] extraction: ManualProcessor initialized with multilingual support
+2025-07-26 07:21:24,197 [INFO] extraction: ✓ Initialized ManualProcessor for manual
+2025-07-26 07:21:24,198 [INFO] extraction: BusinessProcessor initialized with multilingual support
+2025-07-26 07:21:24,198 [INFO] extraction: ✓ Initialized BusinessProcessor for business
+2025-07-26 07:21:24,199 [INFO] extraction: ProgramProcessor initialized with multilingual support
+2025-07-26 07:21:24,199 [INFO] extraction: ✓ Initialized ProgramProcessor for program
+2025-07-26 07:21:24,200 [INFO] extraction: InvitationProcessor initialized with multilingual support
+2025-07-26 07:21:24,200 [INFO] extraction: ✓ Initialized InvitationProcessor for invitation
+2025-07-26 07:21:24,203 [INFO] extraction: Found 6 PDF files to process
+2025-07-26 07:21:24,215 [INFO] extraction: file01.pdf has 1 pages
+2025-07-26 07:21:24,215 [INFO] extraction: === Processing PDF: file01.pdf ===
+2025-07-26 07:21:24,236 [INFO] extraction: PDF loaded successfully: /app/input/file01.pdf
+2025-07-26 07:21:24,320 [INFO] extraction: Extracted 28 text blocks
+2025-07-26 07:21:24,321 [INFO] extraction: Extracted 28 text blocks from file01.pdf
+2025-07-26 07:21:24,321 [INFO] extraction: Analyzing text sample of 1197 characters from 28 blocks
+2025-07-26 07:21:24,331 [INFO] extraction: Language detection scores: {'japanese': 0.0, 'german': 0.38999999999999996, 'tamil': 0.0, 'english': 0.5}
+2025-07-26 07:21:24,332 [INFO] extraction: Detected language: english (confidence: 0.500, level: medium)
+2025-07-26 07:21:24,332 [INFO] extraction: Language detected: english (confidence: 0.500)
+2025-07-26 07:21:24,335 [INFO] extraction: file01.pdf classified as: manual (confidence: 1.00)
+2025-07-26 07:21:24,335 [INFO] extraction: Processing file01.pdf with ManualProcessor
+2025-07-26 07:21:24,336 [INFO] extraction: Processing technical manual - generalized pattern matching
+2025-07-26 07:21:24,340 [INFO] extraction: file01.pdf processing successful
+2025-07-26 07:21:24,340 [INFO] extraction:   Title: 'Application form for grant of LTC advance '
+2025-07-26 07:21:24,341 [INFO] extraction:   Outline items: 0
+2025-07-26 07:21:24,341 [INFO] extraction: Output validation passed
+2025-07-26 07:21:24,342 [INFO] extraction: JSON output formatted and validated successfully
+2025-07-26 07:21:24,350 [INFO] extraction: Main JSON output saved to /app/output/file01_outline.json
+2025-07-26 07:21:24,358 [INFO] extraction: Language info saved to /app/output/Language Info/file01_language_english ✓.json
+2025-07-26 07:21:24,358 [INFO] extraction: Complete output saved - Main: /app/output/file01_outline.json, Language: /app/output/Language Info/file01_language_english ✓.json
+2025-07-26 07:21:24,360 [INFO] extraction: Output saved successfully for file01.pdf
+2025-07-26 07:21:24,361 [INFO] extraction: file01.pdf processing completed in 0.15 seconds
+2025-07-26 07:21:24,363 [INFO] extraction: ✓ Successfully processed: file01.pdf
+2025-07-26 07:21:24,399 [INFO] extraction: file02.pdf has 12 pages
+2025-07-26 07:21:24,399 [INFO] extraction: === Processing PDF: file02.pdf ===
+2025-07-26 07:21:24,492 [INFO] extraction: PDF loaded successfully: /app/input/file02.pdf
+2025-07-26 07:21:25,280 [INFO] extraction: Extracted 235 text blocks
+2025-07-26 07:21:25,281 [INFO] extraction: Extracted 235 text blocks from file02.pdf
+2025-07-26 07:21:25,282 [INFO] extraction: Analyzing text sample of 5000 characters from 75 blocks
+2025-07-26 07:21:25,290 [INFO] extraction: Language detection scores: {'japanese': 0.0, 'german': 0.7100000000000001, 'tamil': 0.0, 'english': 0.2797494780793319}
+2025-07-26 07:21:25,291 [INFO] extraction: Detected language: german (confidence: 0.710, level: high)
+2025-07-26 07:21:25,291 [INFO] extraction: Language detected: german (confidence: 0.710)
+2025-07-26 07:21:25,293 [INFO] extraction: file02.pdf classified as: manual (confidence: 1.00)
+2025-07-26 07:21:25,294 [INFO] extraction: Applied german configuration to ManualProcessor
+2025-07-26 07:21:25,294 [INFO] extraction: Applied german patterns to ManualProcessor
+2025-07-26 07:21:25,294 [INFO] extraction: Applied german processing configuration
+2025-07-26 07:21:25,295 [INFO] extraction: Processing file02.pdf with ManualProcessor
+2025-07-26 07:21:25,295 [INFO] extraction: Processing technical manual - generalized pattern matching
+2025-07-26 07:21:25,316 [INFO] extraction: file02.pdf processing successful
+2025-07-26 07:21:25,317 [INFO] extraction:   Title: 'Overview Foundation Level Extensions  '
+2025-07-26 07:21:25,317 [INFO] extraction:   Outline items: 18
+2025-07-26 07:21:25,318 [INFO] extraction: Output validation passed
+2025-07-26 07:21:25,318 [INFO] extraction: JSON output formatted and validated successfully
+2025-07-26 07:21:25,324 [INFO] extraction: Main JSON output saved to /app/output/file02_outline.json
+2025-07-26 07:21:25,332 [INFO] extraction: Language info saved to /app/output/Language Info/file02_language_german ✓.json
+2025-07-26 07:21:25,333 [INFO] extraction: Complete output saved - Main: /app/output/file02_outline.json, Language: /app/output/Language Info/file02_language_german ✓.json
+2025-07-26 07:21:25,333 [INFO] extraction: Output saved successfully for file02.pdf
+2025-07-26 07:21:25,333 [INFO] extraction: file02.pdf processing completed in 0.93 seconds
+2025-07-26 07:21:25,335 [INFO] extraction: ✓ Successfully processed: file02.pdf
+2025-07-26 07:21:25,364 [INFO] extraction: file03.pdf has 14 pages
+2025-07-26 07:21:25,365 [INFO] extraction: === Processing PDF: file03.pdf ===
+2025-07-26 07:21:25,425 [INFO] extraction: PDF loaded successfully: /app/input/file03.pdf
+2025-07-26 07:21:26,667 [INFO] extraction: Extracted 224 text blocks
+2025-07-26 07:21:26,668 [INFO] extraction: Extracted 224 text blocks from file03.pdf
+2025-07-26 07:21:26,669 [INFO] extraction: Analyzing text sample of 5000 characters from 75 blocks
+2025-07-26 07:21:26,680 [INFO] extraction: Language detection scores: {'japanese': 0.0, 'german': 0.44999999999999996, 'tamil': 0.0, 'english': 0.5}
+2025-07-26 07:21:26,680 [INFO] extraction: Detected language: english (confidence: 0.500, level: medium)
+2025-07-26 07:21:26,681 [INFO] extraction: Language detected: english (confidence: 0.500)
+2025-07-26 07:21:26,685 [INFO] extraction: file03.pdf classified as: business (confidence: 1.00)
+2025-07-26 07:21:26,685 [INFO] extraction: Processing file03.pdf with BusinessProcessor
+2025-07-26 07:21:26,686 [INFO] extraction: BusinessProcessor: start
+2025-07-26 07:21:26,689 [INFO] extraction: Extracted title: RFP: RRFP: RRFP: RRFP: Reeeequest fquest fquest fquest foooor Prr Prr Prr Proposaloposal oposaloposal
+2025-07-26 07:21:26,693 [INFO] extraction: file03.pdf processing successful
+2025-07-26 07:21:26,694 [INFO] extraction:   Title: 'RFP: RRFP: RRFP: RRFP: Reeeequest fquest fquest fquest foooor Prr Prr Prr Proposaloposal oposaloposal'
+2025-07-26 07:21:26,695 [INFO] extraction:   Outline items: 15
+2025-07-26 07:21:26,697 [INFO] extraction: Output validation passed
+2025-07-26 07:21:26,698 [INFO] extraction: JSON output formatted and validated successfully
+2025-07-26 07:21:26,705 [INFO] extraction: Main JSON output saved to /app/output/file03_outline.json
+2025-07-26 07:21:26,714 [INFO] extraction: Language info saved to /app/output/Language Info/file03_language_english ✓.json
+2025-07-26 07:21:26,715 [INFO] extraction: Complete output saved - Main: /app/output/file03_outline.json, Language: /app/output/Language Info/file03_language_english ✓.json
+2025-07-26 07:21:26,716 [INFO] extraction: Output saved successfully for file03.pdf
+2025-07-26 07:21:26,716 [INFO] extraction: file03.pdf processing completed in 1.35 seconds
+2025-07-26 07:21:26,718 [INFO] extraction: ✓ Successfully processed: file03.pdf
+2025-07-26 07:21:26,743 [INFO] extraction: file04.pdf has 1 pages
+2025-07-26 07:21:26,744 [INFO] extraction: === Processing PDF: file04.pdf ===
+2025-07-26 07:21:26,792 [INFO] extraction: PDF loaded successfully: /app/input/file04.pdf
+2025-07-26 07:21:26,938 [INFO] extraction: Extracted 28 text blocks
+2025-07-26 07:21:26,939 [INFO] extraction: Extracted 28 text blocks from file04.pdf
+2025-07-26 07:21:26,939 [INFO] extraction: Analyzing text sample of 2188 characters from 28 blocks
+2025-07-26 07:21:26,944 [INFO] extraction: Language detection scores: {'japanese': 0.0, 'german': 0.41, 'tamil': 0.0, 'english': 0.5}
+2025-07-26 07:21:26,944 [INFO] extraction: Detected language: english (confidence: 0.500, level: medium)
+2025-07-26 07:21:26,945 [INFO] extraction: Language detected: english (confidence: 0.500)
+2025-07-26 07:21:26,946 [INFO] extraction: file04.pdf classified as: program (confidence: 1.00)
+2025-07-26 07:21:26,946 [INFO] extraction: Processing file04.pdf with ProgramProcessor
+2025-07-26 07:21:26,946 [INFO] extraction: Processing program document - pure component-driven analysis
+2025-07-26 07:21:26,947 [INFO] extraction: Font analysis completed: 28 size samples, 5 unique fonts
+2025-07-26 07:21:26,948 [INFO] extraction: Spatial analysis completed for 1 pages
+2025-07-26 07:21:26,957 [INFO] extraction: Text pattern analysis completed for 28 blocks
+2025-07-26 07:21:26,959 [INFO] extraction: Document structure analysis completed
+2025-07-26 07:21:26,960 [INFO] extraction: Font analysis completed: 28 size samples, 5 unique fonts
+2025-07-26 07:21:26,966 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-26 07:21:26,966 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-26 07:21:26,968 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-26 07:21:26,970 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-26 07:21:26,971 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-26 07:21:26,972 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-26 07:21:26,973 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-26 07:21:26,974 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-26 07:21:26,974 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-26 07:21:26,975 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-26 07:21:26,975 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-26 07:21:26,976 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-26 07:21:26,977 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-26 07:21:26,977 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-26 07:21:26,978 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-26 07:21:26,980 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-26 07:21:26,981 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-26 07:21:26,981 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-26 07:21:26,982 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-26 07:21:26,983 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-26 07:21:26,983 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-26 07:21:26,986 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-26 07:21:26,986 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-26 07:21:26,987 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-26 07:21:26,990 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-26 07:21:26,991 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-26 07:21:26,991 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-26 07:21:26,992 [WARNING] extraction: Semantic classification error: 'ContentFilter' object has no attribute 'is_structural_noise'
+2025-07-26 07:21:26,993 [INFO] extraction: Extracted title: Parsippany -Troy Hills STEM Pathways
+2025-07-26 07:21:26,994 [INFO] extraction: Component-validated outline item: 'PATHWAY OPTIONS' as H1 (source: structure_analyzer) (lang: english)
+2025-07-26 07:21:26,995 [INFO] extraction: Output validation passed
+2025-07-26 07:21:26,996 [INFO] extraction: Final validation successful - Title: 'Parsippany -Troy Hills STEM Pathways', Outline: 1 items (lang: english)
+2025-07-26 07:21:26,996 [INFO] extraction: file04.pdf processing successful
+2025-07-26 07:21:26,998 [INFO] extraction:   Title: 'Parsippany -Troy Hills STEM Pathways'
+2025-07-26 07:21:27,000 [INFO] extraction:   Outline items: 1
+2025-07-26 07:21:27,001 [INFO] extraction: Output validation passed
+2025-07-26 07:21:27,002 [INFO] extraction: JSON output formatted and validated successfully
+2025-07-26 07:21:27,007 [INFO] extraction: Main JSON output saved to /app/output/file04_outline.json
+2025-07-26 07:21:27,015 [INFO] extraction: Language info saved to /app/output/Language Info/file04_language_english ✓.json
+2025-07-26 07:21:27,016 [INFO] extraction: Complete output saved - Main: /app/output/file04_outline.json, Language: /app/output/Language Info/file04_language_english ✓.json
+2025-07-26 07:21:27,016 [INFO] extraction: Output saved successfully for file04.pdf
+2025-07-26 07:21:27,017 [INFO] extraction: file04.pdf processing completed in 0.27 seconds
+2025-07-26 07:21:27,019 [INFO] extraction: ✓ Successfully processed: file04.pdf
+2025-07-26 07:21:27,047 [INFO] extraction: file05.pdf has 1 pages
+2025-07-26 07:21:27,047 [INFO] extraction: === Processing PDF: file05.pdf ===
+2025-07-26 07:21:27,066 [INFO] extraction: PDF loaded successfully: /app/input/file05.pdf
+2025-07-26 07:21:27,109 [INFO] extraction: Extracted 12 text blocks
+2025-07-26 07:21:27,110 [INFO] extraction: Extracted 12 text blocks from file05.pdf
+2025-07-26 07:21:27,111 [INFO] extraction: Analyzing text sample of 311 characters from 12 blocks
+2025-07-26 07:21:27,113 [INFO] extraction: Language detection scores: {'japanese': 0.0, 'german': 0.15, 'tamil': 0.0, 'english': 0.5}
+2025-07-26 07:21:27,113 [INFO] extraction: Detected language: english (confidence: 0.500, level: medium)
+2025-07-26 07:21:27,113 [INFO] extraction: Language detected: english (confidence: 0.500)
+2025-07-26 07:21:27,114 [INFO] extraction: file05.pdf classified as: invitation (confidence: 1.00)
+2025-07-26 07:21:27,114 [INFO] extraction: Processing file05.pdf with InvitationProcessor
+2025-07-26 07:21:27,115 [INFO] extraction: Processing invitation document with 12 blocks
+2025-07-26 07:21:27,119 [INFO] extraction: Font analysis completed: 1 size samples, 1 unique fonts
+2025-07-26 07:21:27,120 [INFO] extraction: Spatial analysis completed for 1 pages
+2025-07-26 07:21:27,120 [INFO] extraction: Text pattern analysis completed for 1 blocks
+2025-07-26 07:21:27,121 [INFO] extraction: Document structure analysis completed
+2025-07-26 07:21:27,122 [INFO] extraction: Font analysis completed: 1 size samples, 1 unique fonts
+2025-07-26 07:21:27,123 [INFO] extraction: Spatial analysis completed for 1 pages
+2025-07-26 07:21:27,125 [INFO] extraction: Using default title for invitation: 
+2025-07-26 07:21:27,127 [INFO] extraction: Extracting outline for invitation document with 1 text blocks
+2025-07-26 07:21:27,129 [INFO] extraction: Font analysis completed: 1 size samples, 1 unique fonts
+2025-07-26 07:21:27,130 [INFO] extraction: Font analysis completed: 1 size samples, 1 unique fonts
+2025-07-26 07:21:27,131 [INFO] extraction: Spatial analysis completed for 1 pages
+2025-07-26 07:21:27,131 [INFO] extraction: Text pattern analysis completed for 1 blocks
+2025-07-26 07:21:27,132 [INFO] extraction: Document structure analysis completed
+2025-07-26 07:21:27,133 [INFO] extraction: Extracted 0 outline items
+2025-07-26 07:21:27,135 [INFO] extraction: Added to outline: 'HOPE To SEE You THERE!' as H1 (method: semantic_analysis, confidence: 0.67) (lang: english)
+2025-07-26 07:21:27,136 [INFO] extraction: Output validation passed
+2025-07-26 07:21:27,137 [INFO] extraction: Output validation passed
+2025-07-26 07:21:27,137 [INFO] extraction: file05.pdf processing successful
+2025-07-26 07:21:27,138 [INFO] extraction:   Title: ''
+2025-07-26 07:21:27,139 [INFO] extraction:   Outline items: 1
+2025-07-26 07:21:27,139 [INFO] extraction: Output validation passed
+2025-07-26 07:21:27,140 [INFO] extraction: JSON output formatted and validated successfully
+2025-07-26 07:21:27,144 [INFO] extraction: Main JSON output saved to /app/output/file05_outline.json
+2025-07-26 07:21:27,150 [INFO] extraction: Language info saved to /app/output/Language Info/file05_language_english ✓.json
+2025-07-26 07:21:27,152 [INFO] extraction: Complete output saved - Main: /app/output/file05_outline.json, Language: /app/output/Language Info/file05_language_english ✓.json
+2025-07-26 07:21:27,153 [INFO] extraction: Output saved successfully for file05.pdf
+2025-07-26 07:21:27,154 [INFO] extraction: file05.pdf processing completed in 0.11 seconds
+2025-07-26 07:21:27,156 [INFO] extraction: ✓ Successfully processed: file05.pdf
+2025-07-26 07:21:27,250 [INFO] extraction: file06.pdf has 38 pages
+2025-07-26 07:21:27,250 [INFO] extraction: === Processing PDF: file06.pdf ===
+2025-07-26 07:21:27,260 [INFO] extraction: PDF loaded successfully: /app/input/file06.pdf
+2025-07-26 07:21:27,548 [INFO] extraction: Extracted 0 text blocks
+2025-07-26 07:21:27,548 [ERROR] extraction: No text blocks extracted from PDF
+2025-07-26 07:21:27,549 [ERROR] extraction: ✗ Failed to process file06.pdf: No text extracted
+2025-07-26 07:34:12,469 [INFO] extraction: LanguageAnalyzer initialized with 4 language patterns
+2025-07-26 07:34:12,472 [INFO] extraction: Supported languages: ['japanese', 'german', 'tamil', 'english']
+2025-07-26 07:34:12,472 [INFO] extraction: ✓ Language detection enabled
+2025-07-26 07:34:12,473 [INFO] extraction: FormProcessor initialized with: ['TitleExtractor', 'FontAnalyzer', 'TextAnalyzer', 'ContentFilter', 'SemanticClassifier', 'TextProcessor', 'OutputValidator']
+2025-07-26 07:34:12,473 [INFO] extraction: ✓ Initialized FormProcessor for form
+2025-07-26 07:34:12,473 [INFO] extraction: ManualProcessor initialized with multilingual support
+2025-07-26 07:34:12,474 [INFO] extraction: ✓ Initialized ManualProcessor for manual
+2025-07-26 07:34:12,474 [INFO] extraction: BusinessProcessor initialized with multilingual support
+2025-07-26 07:34:12,475 [INFO] extraction: ✓ Initialized BusinessProcessor for business
+2025-07-26 07:34:12,476 [INFO] extraction: ProgramProcessor initialized with multilingual support
+2025-07-26 07:34:12,476 [INFO] extraction: ✓ Initialized ProgramProcessor for program
+2025-07-26 07:34:12,477 [INFO] extraction: InvitationProcessor initialized with multilingual support
+2025-07-26 07:34:12,477 [INFO] extraction: ✓ Initialized InvitationProcessor for invitation
+2025-07-26 07:34:12,482 [INFO] extraction: Found 6 PDF files to process
+2025-07-26 07:34:12,497 [INFO] extraction: file01.pdf has 1 pages
+2025-07-26 07:34:12,497 [INFO] extraction: === Processing PDF: file01.pdf ===
+2025-07-26 07:34:12,531 [INFO] extraction: PDF loaded successfully: /app/input/file01.pdf
+2025-07-26 07:34:12,634 [INFO] extraction: Extracted 28 text blocks
+2025-07-26 07:34:12,634 [INFO] extraction: Extracted 28 text blocks from file01.pdf
+2025-07-26 07:34:12,635 [INFO] extraction: Analyzing text sample of 1197 characters from 28 blocks
+2025-07-26 07:34:12,650 [INFO] extraction: Language detection scores: {'japanese': 0.0, 'german': 0.38999999999999996, 'tamil': 0.0, 'english': 0.5}
+2025-07-26 07:34:12,650 [INFO] extraction: Detected language: english (confidence: 0.500, level: medium)
+2025-07-26 07:34:12,651 [INFO] extraction: Language detected: english (confidence: 0.500)
+2025-07-26 07:34:12,656 [INFO] extraction: file01.pdf classified as: manual (confidence: 1.00)
+2025-07-26 07:34:12,657 [INFO] extraction: Processing file01.pdf with ManualProcessor
+2025-07-26 07:34:12,658 [INFO] extraction: Processing technical manual - generalized pattern matching
+2025-07-26 07:34:12,663 [INFO] extraction: file01.pdf processing successful
+2025-07-26 07:34:12,665 [INFO] extraction:   Title: 'Application form for grant of LTC advance '
+2025-07-26 07:34:12,666 [INFO] extraction:   Outline items: 0
+2025-07-26 07:34:12,668 [INFO] extraction: Output validation passed
+2025-07-26 07:34:12,669 [INFO] extraction: JSON output formatted and validated successfully
+2025-07-26 07:34:12,676 [INFO] extraction: Main JSON output saved to /app/output/file01_outline.json
+2025-07-26 07:34:12,684 [INFO] extraction: Language info saved to /app/output/Language Info/file01_language_english ✓.json
+2025-07-26 07:34:12,685 [INFO] extraction: Complete output saved - Main: /app/output/file01_outline.json, Language: /app/output/Language Info/file01_language_english ✓.json
+2025-07-26 07:34:12,685 [INFO] extraction: Output saved successfully for file01.pdf
+2025-07-26 07:34:12,686 [INFO] extraction: file01.pdf processing completed in 0.19 seconds
+2025-07-26 07:34:12,687 [INFO] extraction: ✓ Successfully processed: file01.pdf
+2025-07-26 07:34:12,732 [INFO] extraction: file02.pdf has 12 pages
+2025-07-26 07:34:12,733 [INFO] extraction: === Processing PDF: file02.pdf ===
+2025-07-26 07:34:12,860 [INFO] extraction: PDF loaded successfully: /app/input/file02.pdf
+2025-07-26 07:34:14,310 [INFO] extraction: Extracted 235 text blocks
+2025-07-26 07:34:14,312 [INFO] extraction: Extracted 235 text blocks from file02.pdf
+2025-07-26 07:34:14,313 [INFO] extraction: Analyzing text sample of 5000 characters from 75 blocks
+2025-07-26 07:34:14,323 [INFO] extraction: Language detection scores: {'japanese': 0.0, 'german': 0.7100000000000001, 'tamil': 0.0, 'english': 0.2797494780793319}
+2025-07-26 07:34:14,324 [INFO] extraction: Detected language: german (confidence: 0.710, level: high)
+2025-07-26 07:34:14,324 [INFO] extraction: Language detected: german (confidence: 0.710)
+2025-07-26 07:34:14,328 [INFO] extraction: file02.pdf classified as: manual (confidence: 1.00)
+2025-07-26 07:34:14,330 [INFO] extraction: Applied german configuration to ManualProcessor
+2025-07-26 07:34:14,331 [INFO] extraction: Applied german patterns to ManualProcessor
+2025-07-26 07:34:14,331 [INFO] extraction: Applied german processing configuration
+2025-07-26 07:34:14,332 [INFO] extraction: Processing file02.pdf with ManualProcessor
+2025-07-26 07:34:14,332 [INFO] extraction: Processing technical manual - generalized pattern matching
+2025-07-26 07:34:14,360 [INFO] extraction: file02.pdf processing successful
+2025-07-26 07:34:14,361 [INFO] extraction:   Title: 'Overview Foundation Level Extensions  '
+2025-07-26 07:34:14,362 [INFO] extraction:   Outline items: 18
+2025-07-26 07:34:14,364 [INFO] extraction: Output validation passed
+2025-07-26 07:34:14,365 [INFO] extraction: JSON output formatted and validated successfully
+2025-07-26 07:34:14,371 [INFO] extraction: Main JSON output saved to /app/output/file02_outline.json
+2025-07-26 07:34:14,381 [INFO] extraction: Language info saved to /app/output/Language Info/file02_language_german ✓.json
+2025-07-26 07:34:14,382 [INFO] extraction: Complete output saved - Main: /app/output/file02_outline.json, Language: /app/output/Language Info/file02_language_german ✓.json
+2025-07-26 07:34:14,383 [INFO] extraction: Output saved successfully for file02.pdf
+2025-07-26 07:34:14,383 [INFO] extraction: file02.pdf processing completed in 1.65 seconds
+2025-07-26 07:34:14,384 [INFO] extraction: ✓ Successfully processed: file02.pdf
+2025-07-26 07:34:14,419 [INFO] extraction: file03.pdf has 14 pages
+2025-07-26 07:34:14,420 [INFO] extraction: === Processing PDF: file03.pdf ===
+2025-07-26 07:34:14,523 [INFO] extraction: PDF loaded successfully: /app/input/file03.pdf
+2025-07-26 07:34:16,159 [INFO] extraction: Extracted 224 text blocks
+2025-07-26 07:34:16,161 [INFO] extraction: Extracted 224 text blocks from file03.pdf
+2025-07-26 07:34:16,162 [INFO] extraction: Analyzing text sample of 5000 characters from 75 blocks
+2025-07-26 07:34:16,172 [INFO] extraction: Language detection scores: {'japanese': 0.0, 'german': 0.44999999999999996, 'tamil': 0.0, 'english': 0.5}
+2025-07-26 07:34:16,172 [INFO] extraction: Detected language: english (confidence: 0.500, level: medium)
+2025-07-26 07:34:16,173 [INFO] extraction: Language detected: english (confidence: 0.500)
+2025-07-26 07:34:16,176 [INFO] extraction: file03.pdf classified as: business (confidence: 1.00)
+2025-07-26 07:34:16,177 [INFO] extraction: Processing file03.pdf with BusinessProcessor
+2025-07-26 07:34:16,178 [INFO] extraction: BusinessProcessor: start
+2025-07-26 07:34:16,180 [INFO] extraction: Extracted title: RFP: RRFP: RRFP: RRFP: Reeeequest fquest fquest fquest foooor Prr Prr Prr Proposaloposal oposaloposal
+2025-07-26 07:34:16,184 [INFO] extraction: file03.pdf processing successful
+2025-07-26 07:34:16,185 [INFO] extraction:   Title: 'RFP: RRFP: RRFP: RRFP: Reeeequest fquest fquest fquest foooor Prr Prr Prr Proposaloposal oposaloposal'
+2025-07-26 07:34:16,185 [INFO] extraction:   Outline items: 15
+2025-07-26 07:34:16,186 [INFO] extraction: Output validation passed
+2025-07-26 07:34:16,187 [INFO] extraction: JSON output formatted and validated successfully
+2025-07-26 07:34:16,192 [INFO] extraction: Main JSON output saved to /app/output/file03_outline.json
+2025-07-26 07:34:16,200 [INFO] extraction: Language info saved to /app/output/Language Info/file03_language_english ✓.json
+2025-07-26 07:34:16,201 [INFO] extraction: Complete output saved - Main: /app/output/file03_outline.json, Language: /app/output/Language Info/file03_language_english ✓.json
+2025-07-26 07:34:16,202 [INFO] extraction: Output saved successfully for file03.pdf
+2025-07-26 07:34:16,202 [INFO] extraction: file03.pdf processing completed in 1.78 seconds
+2025-07-26 07:34:16,204 [INFO] extraction: ✓ Successfully processed: file03.pdf
+2025-07-26 07:34:16,220 [INFO] extraction: file04.pdf has 1 pages
+2025-07-26 07:34:16,221 [INFO] extraction: === Processing PDF: file04.pdf ===
+2025-07-26 07:34:16,269 [INFO] extraction: PDF loaded successfully: /app/input/file04.pdf
+2025-07-26 07:34:16,462 [INFO] extraction: Extracted 28 text blocks
+2025-07-26 07:34:16,463 [INFO] extraction: Extracted 28 text blocks from file04.pdf
+2025-07-26 07:34:16,464 [INFO] extraction: Analyzing text sample of 2188 characters from 28 blocks
+2025-07-26 07:34:16,470 [INFO] extraction: Language detection scores: {'japanese': 0.0, 'german': 0.41, 'tamil': 0.0, 'english': 0.5}
+2025-07-26 07:34:16,471 [INFO] extraction: Detected language: english (confidence: 0.500, level: medium)
+2025-07-26 07:34:16,472 [INFO] extraction: Language detected: english (confidence: 0.500)
+2025-07-26 07:34:16,474 [INFO] extraction: file04.pdf classified as: program (confidence: 1.00)
+2025-07-26 07:34:16,475 [INFO] extraction: Processing file04.pdf with ProgramProcessor
+2025-07-26 07:34:16,476 [INFO] extraction: Processing program document - pure component-driven analysis
+2025-07-26 07:34:16,477 [INFO] extraction: Font analysis completed: 28 size samples, 5 unique fonts
+2025-07-26 07:34:16,478 [INFO] extraction: Spatial analysis completed for 1 pages
+2025-07-26 07:34:16,495 [INFO] extraction: Text pattern analysis completed for 28 blocks
+2025-07-26 07:34:16,497 [INFO] extraction: Document structure analysis completed
+2025-07-26 07:34:16,498 [INFO] extraction: Font analysis completed: 28 size samples, 5 unique fonts
+2025-07-26 07:34:16,513 [INFO] extraction: Extracted title: Parsippany -Troy Hills STEM Pathways
+2025-07-26 07:34:16,515 [INFO] extraction: Component-validated outline item: 'PATHWAY OPTIONS' as H1 (source: hierarchical_primary) (lang: english)
+2025-07-26 07:34:16,516 [INFO] extraction: Component-validated outline item: 'REGULAR PATHWAY' as H1 (source: hierarchical_primary) (lang: english)
+2025-07-26 07:34:16,516 [INFO] extraction: Component-validated outline item: 'DISTINCTION PATHWAY' as H1 (source: hierarchical_primary) (lang: english)
+2025-07-26 07:34:16,517 [INFO] extraction: Component-validated outline item: 'Mission Statement:' as H3 (source: hierarchical_primary) (lang: english)
+2025-07-26 07:34:16,518 [INFO] extraction: Component-validated outline item: 'Goals:' as H3 (source: hierarchical_primary) (lang: english)
+2025-07-26 07:34:16,518 [INFO] extraction: Component-validated outline item: 'design and implement a community' as H1 (source: hierarchical_primary) (lang: english)
+2025-07-26 07:34:16,519 [INFO] extraction: Output validation passed
+2025-07-26 07:34:16,519 [INFO] extraction: Final validation successful - Title: 'Parsippany -Troy Hills STEM Pathways', Outline: 6 items (lang: english)
+2025-07-26 07:34:16,520 [INFO] extraction: file04.pdf processing successful
+2025-07-26 07:34:16,520 [INFO] extraction:   Title: 'Parsippany -Troy Hills STEM Pathways'
+2025-07-26 07:34:16,521 [INFO] extraction:   Outline items: 6
+2025-07-26 07:34:16,522 [INFO] extraction: Output validation passed
+2025-07-26 07:34:16,523 [INFO] extraction: JSON output formatted and validated successfully
+2025-07-26 07:34:16,529 [INFO] extraction: Main JSON output saved to /app/output/file04_outline.json
+2025-07-26 07:34:16,539 [INFO] extraction: Language info saved to /app/output/Language Info/file04_language_english ✓.json
+2025-07-26 07:34:16,539 [INFO] extraction: Complete output saved - Main: /app/output/file04_outline.json, Language: /app/output/Language Info/file04_language_english ✓.json
+2025-07-26 07:34:16,540 [INFO] extraction: Output saved successfully for file04.pdf
+2025-07-26 07:34:16,540 [INFO] extraction: file04.pdf processing completed in 0.32 seconds
+2025-07-26 07:34:16,541 [INFO] extraction: ✓ Successfully processed: file04.pdf
+2025-07-26 07:34:16,570 [INFO] extraction: file05.pdf has 1 pages
+2025-07-26 07:34:16,571 [INFO] extraction: === Processing PDF: file05.pdf ===
+2025-07-26 07:34:16,589 [INFO] extraction: PDF loaded successfully: /app/input/file05.pdf
+2025-07-26 07:34:16,631 [INFO] extraction: Extracted 12 text blocks
+2025-07-26 07:34:16,632 [INFO] extraction: Extracted 12 text blocks from file05.pdf
+2025-07-26 07:34:16,632 [INFO] extraction: Analyzing text sample of 311 characters from 12 blocks
+2025-07-26 07:34:16,634 [INFO] extraction: Language detection scores: {'japanese': 0.0, 'german': 0.15, 'tamil': 0.0, 'english': 0.5}
+2025-07-26 07:34:16,634 [INFO] extraction: Detected language: english (confidence: 0.500, level: medium)
+2025-07-26 07:34:16,634 [INFO] extraction: Language detected: english (confidence: 0.500)
+2025-07-26 07:34:16,636 [INFO] extraction: file05.pdf classified as: invitation (confidence: 1.00)
+2025-07-26 07:34:16,636 [INFO] extraction: Processing file05.pdf with InvitationProcessor
+2025-07-26 07:34:16,637 [INFO] extraction: Processing invitation document with 12 blocks
+2025-07-26 07:34:16,640 [INFO] extraction: Font analysis completed: 1 size samples, 1 unique fonts
+2025-07-26 07:34:16,640 [INFO] extraction: Spatial analysis completed for 1 pages
+2025-07-26 07:34:16,641 [INFO] extraction: Text pattern analysis completed for 1 blocks
+2025-07-26 07:34:16,641 [INFO] extraction: Document structure analysis completed
+2025-07-26 07:34:16,642 [INFO] extraction: Font analysis completed: 1 size samples, 1 unique fonts
+2025-07-26 07:34:16,643 [INFO] extraction: Spatial analysis completed for 1 pages
+2025-07-26 07:34:16,647 [INFO] extraction: Using default title for invitation: 
+2025-07-26 07:34:16,648 [INFO] extraction: Extracting outline for invitation document with 1 text blocks
+2025-07-26 07:34:16,650 [INFO] extraction: Font analysis completed: 1 size samples, 1 unique fonts
+2025-07-26 07:34:16,651 [INFO] extraction: Font analysis completed: 1 size samples, 1 unique fonts
+2025-07-26 07:34:16,652 [INFO] extraction: Spatial analysis completed for 1 pages
+2025-07-26 07:34:16,652 [INFO] extraction: Text pattern analysis completed for 1 blocks
+2025-07-26 07:34:16,653 [INFO] extraction: Document structure analysis completed
+2025-07-26 07:34:16,656 [INFO] extraction: Extracted 0 outline items
+2025-07-26 07:34:16,657 [INFO] extraction: Added to outline: 'HOPE To SEE You THERE!' as H1 (method: semantic_analysis, confidence: 0.67) (lang: english)
+2025-07-26 07:34:16,657 [INFO] extraction: Output validation passed
+2025-07-26 07:34:16,658 [INFO] extraction: Output validation passed
+2025-07-26 07:34:16,658 [INFO] extraction: file05.pdf processing successful
+2025-07-26 07:34:16,658 [INFO] extraction:   Title: ''
+2025-07-26 07:34:16,659 [INFO] extraction:   Outline items: 1
+2025-07-26 07:34:16,659 [INFO] extraction: Output validation passed
+2025-07-26 07:34:16,660 [INFO] extraction: JSON output formatted and validated successfully
+2025-07-26 07:34:16,667 [INFO] extraction: Main JSON output saved to /app/output/file05_outline.json
+2025-07-26 07:34:16,674 [INFO] extraction: Language info saved to /app/output/Language Info/file05_language_english ✓.json
+2025-07-26 07:34:16,675 [INFO] extraction: Complete output saved - Main: /app/output/file05_outline.json, Language: /app/output/Language Info/file05_language_english ✓.json
+2025-07-26 07:34:16,675 [INFO] extraction: Output saved successfully for file05.pdf
+2025-07-26 07:34:16,675 [INFO] extraction: file05.pdf processing completed in 0.10 seconds
+2025-07-26 07:34:16,678 [INFO] extraction: ✓ Successfully processed: file05.pdf
+2025-07-26 07:34:16,887 [INFO] extraction: file06.pdf has 38 pages
+2025-07-26 07:34:16,888 [INFO] extraction: === Processing PDF: file06.pdf ===
+2025-07-26 07:34:16,905 [INFO] extraction: PDF loaded successfully: /app/input/file06.pdf
+2025-07-26 07:34:17,446 [INFO] extraction: Extracted 0 text blocks
+2025-07-26 07:34:17,447 [ERROR] extraction: No text blocks extracted from PDF
+2025-07-26 07:34:17,448 [ERROR] extraction: ✗ Failed to process file06.pdf: No text extracted

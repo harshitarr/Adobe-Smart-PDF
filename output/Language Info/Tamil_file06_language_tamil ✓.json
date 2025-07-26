@@ -1,0 +1,17 @@
+{
+    "detected_language": "tamil",
+    "confidence": 0.95,
+    "display_name": "Tamil (தமிழ்)",
+    "language_code": "ta",
+    "confidence_level": "very_high",
+    "language_processing_applied": true,
+    "analysis_confidence_level": "very_high",
+    "detection_scores": {
+        "japanese": 0.0,
+        "german": 0.0,
+        "tamil": 0.95,
+        "english": 0.2
+    },
+    "text_sample_length": 560,
+    "threshold_applied": 0.4
+}

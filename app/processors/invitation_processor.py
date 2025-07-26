@@ -8,6 +8,7 @@ import logging
 from dataclasses import dataclass
 
 # Core imports
+from processors.base_processor import BaseProcessor
 from models.document_types import TextBlock, DocumentType, DocumentStructure, HeadingLevel
 from core.title_extractor import TitleExtractor
 from core.outline_extractor import OutlineExtractor
@@ -78,6 +79,12 @@ class InvitationProcessorConfig:
     enable_detailed_logging: bool = True
     log_outline_additions: bool = True
     
+    # Language-aware settings (new)
+    enable_language_aware_processing: bool = True
+    apply_language_specific_thresholds: bool = True
+    use_language_specific_patterns: bool = True
+    language_confidence_adjustment: bool = True
+    
     def __post_init__(self):
         """Initialize default values for mutable fields"""
         if self.method_priorities is None:
@@ -108,16 +115,28 @@ class AnalysisConfig:
     text_analysis_enabled: bool = True
     heading_likelihood_threshold: float = 0.6
     title_likelihood_threshold: float = 0.7
+    
+    # Language analysis settings (new)
+    enable_language_aware_analysis: bool = True
+    language_specific_semantic_weight: float = 0.8
+    cross_language_validation: bool = True
 
-class InvitationProcessor:
-    """Fully configurable invitation processor with no hardcoded values"""
+class InvitationProcessor(BaseProcessor):
+    """Fully configurable invitation processor with no hardcoded values and multilingual support"""
     
     def __init__(self, 
                  config: Optional[InvitationProcessorConfig] = None,
                  analysis_config: Optional[AnalysisConfig] = None):
         
+        # Initialize BaseProcessor for language support
+        super().__init__()
+        
         self.config = config or InvitationProcessorConfig()
         self.analysis_config = analysis_config or AnalysisConfig()
+        
+        # Language-specific configuration cache
+        self._language_adjusted_thresholds = {}
+        self._current_language_context = {}
         
         # Core components
         self.title_extractor = TitleExtractor()
@@ -142,6 +161,78 @@ class InvitationProcessor:
         # Set up logging
         if self.config.enable_detailed_logging:
             logger.setLevel(logging.DEBUG)
+        
+        logger.info("InvitationProcessor initialized with multilingual support")
+    
+    def set_language_config(self, language: str, config: Dict[str, Any]):
+        """Override from BaseProcessor - apply language-specific configuration"""
+        super().set_language_config(language, config)
+        
+        if self.config.enable_language_aware_processing:
+            self._apply_language_specific_adjustments(language, config)
+            logger.info(f"Applied {language} configuration to InvitationProcessor")
+    
+    def _apply_language_specific_adjustments(self, language: str, lang_config: Dict[str, Any]):
+        """Apply language-specific adjustments to processing thresholds"""
+        
+        # Store original thresholds if not cached
+        if not self._language_adjusted_thresholds:
+            self._language_adjusted_thresholds = {
+                'original_title_semantic_threshold': self.config.title_semantic_threshold,
+                'original_semantic_structural_threshold': self.config.semantic_structural_threshold,
+                'original_title_confidence_threshold': self.config.title_confidence_threshold,
+                'original_outline_confidence_threshold': self.config.outline_confidence_threshold
+            }
+        
+        # Apply language-specific threshold adjustments
+        if self.config.apply_language_specific_thresholds:
+            adjustments = self._get_language_threshold_adjustments(language)
+            
+            # Adjust thresholds based on language characteristics
+            self.config.title_semantic_threshold *= adjustments.get('title_semantic_multiplier', 1.0)
+            self.config.semantic_structural_threshold *= adjustments.get('structural_multiplier', 1.0)
+            self.config.title_confidence_threshold *= adjustments.get('title_confidence_multiplier', 1.0)
+            self.config.outline_confidence_threshold *= adjustments.get('outline_confidence_multiplier', 1.0)
+        
+        # Cache language-specific context
+        self._current_language_context = {
+            'language': language,
+            'config': lang_config,
+            'adjustments_applied': True
+        }
+    
+    def _get_language_threshold_adjustments(self, language: str) -> Dict[str, float]:
+        """Get language-specific threshold adjustments"""
+        
+        # Language-specific adjustment factors based on characteristics
+        adjustments = {
+            'japanese': {
+                'title_semantic_multiplier': 0.9,      # Japanese titles may be more subtle
+                'structural_multiplier': 1.1,          # Structure is often more explicit
+                'title_confidence_multiplier': 0.85,   # Be more lenient with confidence
+                'outline_confidence_multiplier': 1.0
+            },
+            'german': {
+                'title_semantic_multiplier': 1.0,
+                'structural_multiplier': 1.05,         # German structure is quite explicit
+                'title_confidence_multiplier': 1.0,
+                'outline_confidence_multiplier': 1.0
+            },
+            'tamil': {
+                'title_semantic_multiplier': 0.85,     # Tamil may need more lenient thresholds
+                'structural_multiplier': 1.0,
+                'title_confidence_multiplier': 0.8,
+                'outline_confidence_multiplier': 0.9
+            },
+            'english': {
+                'title_semantic_multiplier': 1.0,
+                'structural_multiplier': 1.0,
+                'title_confidence_multiplier': 1.0,
+                'outline_confidence_multiplier': 1.0
+            }
+        }
+        
+        return adjustments.get(language, adjustments['english'])
     
     def process(self, text_blocks: List[TextBlock]) -> DocumentStructure:
         """Process invitation document with configurable analysis pipeline"""
@@ -177,6 +268,14 @@ class InvitationProcessor:
             confidence=self.config.document_confidence
         )
         
+        # Add language metadata if available
+        if hasattr(result, 'metadata') and hasattr(self, 'language'):
+            result.metadata.update({
+                'detected_language': self.language,
+                'language_config_applied': bool(self._current_language_context),
+                'language_adjustments': self._current_language_context.get('adjustments_applied', False)
+            })
+        
         # Step 6: Validation (configurable)
         if self.config.enable_output_validation and self.output_validator:
             return self._validate_final_result(result)
@@ -189,7 +288,8 @@ class InvitationProcessor:
             'structure_analysis': None,
             'font_analysis': None,
             'spatial_analysis': None,
-            'block_classifications': []
+            'block_classifications': [],
+            'language_context': self._current_language_context
         }
         
         # Structure analysis (configurable)
@@ -230,20 +330,36 @@ class InvitationProcessor:
             'semantic_scores': {},
             'text_characteristics': {},
             'visual_prominence': 0.0,
-            'spatial_context': {}
+            'spatial_context': {},
+            'language_adjusted': False
         }
         
         # Semantic classification (configurable)
         if self.config.enable_semantic_classification and self.semantic_classifier:
-            classification['semantic_scores'] = self.semantic_classifier.classify_text_role(text)
+            semantic_scores = self.semantic_classifier.classify_text_role(text)
+            
+            # Apply language-aware semantic adjustments
+            if (self.config.language_confidence_adjustment and 
+                hasattr(self, 'language') and 
+                self.analysis_config.enable_language_aware_analysis):
+                semantic_scores = self._adjust_semantic_scores_for_language(semantic_scores, text)
+                classification['language_adjusted'] = True
+            
+            classification['semantic_scores'] = semantic_scores
         
         # Text characteristics analysis (configurable)
         if self.analysis_config.text_analysis_enabled and self.text_analyzer:
-            classification['text_characteristics'] = {
+            text_chars = {
                 'is_likely_heading': self.text_processor.is_likely_heading(text),
                 'is_likely_title': self.text_processor.is_likely_title(text),
                 'is_content_text': self.text_processor.is_content_text(text)
             }
+            
+            # Apply language-specific text characteristic adjustments
+            if hasattr(self, 'language') and self.analysis_config.enable_language_aware_analysis:
+                text_chars = self._adjust_text_characteristics_for_language(text_chars, text)
+            
+            classification['text_characteristics'] = text_chars
         
         # Visual prominence (configurable)
         if (self.config.enable_font_analysis and 
@@ -266,6 +382,55 @@ class InvitationProcessor:
         
         return classification
     
+    def _adjust_semantic_scores_for_language(self, semantic_scores: Dict[str, float], text: str) -> Dict[str, float]:
+        """Adjust semantic scores based on language characteristics"""
+        if not hasattr(self, 'language'):
+            return semantic_scores
+        
+        language = self.language
+        adjusted_scores = semantic_scores.copy()
+        
+        # Language-specific semantic score adjustments
+        if language == 'japanese':
+            # Japanese may have different semantic patterns
+            if 'title' in adjusted_scores:
+                adjusted_scores['title'] *= 1.1  # Boost title detection slightly
+            if 'structural' in adjusted_scores:
+                adjusted_scores['structural'] *= 1.05
+        elif language == 'german':
+            # German structure is often very explicit
+            if 'structural' in adjusted_scores:
+                adjusted_scores['structural'] *= 1.1
+        elif language == 'tamil':
+            # Tamil may need more lenient semantic classification
+            if 'title' in adjusted_scores:
+                adjusted_scores['title'] *= 1.15
+            if 'structural' in adjusted_scores:
+                adjusted_scores['structural'] *= 1.1
+        
+        return adjusted_scores
+    
+    def _adjust_text_characteristics_for_language(self, text_chars: Dict[str, bool], text: str) -> Dict[str, bool]:
+        """Adjust text characteristics based on language patterns"""
+        if not hasattr(self, 'language'):
+            return text_chars
+        
+        language = self.language
+        adjusted_chars = text_chars.copy()
+        
+        # Get language-specific patterns from BaseProcessor
+        if hasattr(self, 'language_config'):
+            heading_indicators = self.language_config.get('heading_indicators', [])
+            
+            # Check if text contains language-specific heading indicators
+            text_lower = text.lower()
+            for indicator in heading_indicators:
+                if indicator.lower() in text_lower:
+                    adjusted_chars['is_likely_heading'] = True
+                    break
+        
+        return adjusted_chars
+    
     def _extract_title_dynamically(self, text_blocks: List[TextBlock], doc_analysis: Dict) -> str:
         """Dynamic title extraction using configured thresholds and methods"""
         title_candidates = []
@@ -282,7 +447,8 @@ class InvitationProcessor:
                     context = {
                         'visual_prominence': classification.get('visual_prominence', 0),
                         'position_in_doc': classification.get('position_in_doc', 0),
-                        'is_first_page': getattr(classification['block'], 'page', 0) == 0
+                        'is_first_page': getattr(classification['block'], 'page', 0) == 0,
+                        'language_context': self._current_language_context
                     }
                     
                     is_title, confidence = self.semantic_classifier.is_document_title(
@@ -291,20 +457,32 @@ class InvitationProcessor:
                         context
                     )
                     
+                    # Apply language-specific confidence adjustment
+                    if hasattr(self, 'language') and self.config.language_confidence_adjustment:
+                        confidence = self._adjust_title_confidence_for_language(confidence, classification['text'])
+                    
                     if is_title and confidence > self.config.title_confidence_threshold:
                         title_candidates.append({
                             'text': classification['text'],
                             'confidence': confidence,
-                            'method': 'semantic_classification'
+                            'method': 'semantic_classification',
+                            'language_adjusted': classification.get('language_adjusted', False)
                         })
         
         # Method 2: Use title extractor as fallback
         extracted_title = self.title_extractor.extract_title(text_blocks, self.config.document_type)
         if extracted_title:
+            fallback_confidence = self.config.fallback_title_confidence
+            
+            # Apply language adjustment to fallback confidence
+            if hasattr(self, 'language') and self.config.language_confidence_adjustment:
+                fallback_confidence = self._adjust_title_confidence_for_language(fallback_confidence, extracted_title)
+            
             title_candidates.append({
                 'text': extracted_title,
-                'confidence': self.config.fallback_title_confidence,
-                'method': 'title_extractor'
+                'confidence': fallback_confidence,
+                'method': 'title_extractor',
+                'language_adjusted': hasattr(self, 'language')
             })
         
         # Select best candidate
@@ -319,7 +497,8 @@ class InvitationProcessor:
                     if self.config.enable_detailed_logging:
                         logger.debug(f"Selected title: '{best_candidate['text']}' "
                                    f"(method: {best_candidate['method']}, "
-                                   f"confidence: {best_candidate['confidence']:.2f})")
+                                   f"confidence: {best_candidate['confidence']:.2f}, "
+                                   f"language_adjusted: {best_candidate.get('language_adjusted', False)})")
                     return self.text_processor.clean_text(best_candidate['text'])
             else:
                 # Return any title above basic threshold
@@ -327,6 +506,24 @@ class InvitationProcessor:
                     return self.text_processor.clean_text(best_candidate['text'])
         
         return ""  # Default based on configuration
+    
+    def _adjust_title_confidence_for_language(self, confidence: float, text: str) -> float:
+        """Adjust title confidence based on language characteristics"""
+        if not hasattr(self, 'language'):
+            return confidence
+        
+        language = self.language
+        
+        # Language-specific confidence adjustments
+        adjustments = {
+            'japanese': 1.05,   # Slightly boost Japanese title confidence
+            'german': 1.0,      # German titles are usually clear
+            'tamil': 1.1,       # Be more generous with Tamil titles
+            'english': 1.0
+        }
+        
+        adjusted_confidence = confidence * adjustments.get(language, 1.0)
+        return min(1.0, adjusted_confidence)  # Cap at 1.0
     
     def _extract_outline_dynamically(self, text_blocks: List[TextBlock], doc_analysis: Dict) -> List[HeadingLevel]:
         """Dynamic outline extraction using all configured methods"""
@@ -341,6 +538,10 @@ class InvitationProcessor:
             )
             
             for block, level, confidence in detected_headings:
+                # Apply language-specific confidence adjustment
+                if hasattr(self, 'language') and self.config.language_confidence_adjustment:
+                    confidence = self._adjust_outline_confidence_for_language(confidence, block.text)
+                
                 if confidence > self.config.outline_confidence_threshold:
                     outline_candidates.append({
                         'text': block.text,
@@ -364,11 +565,17 @@ class InvitationProcessor:
                         level = self._determine_heading_level_dynamically(classification)
                         
                         if level:
+                            confidence = semantic_scores['structural']
+                            
+                            # Apply language-specific adjustment
+                            if hasattr(self, 'language') and self.config.language_confidence_adjustment:
+                                confidence = self._adjust_outline_confidence_for_language(confidence, classification['text'])
+                            
                             outline_candidates.append({
                                 'text': classification['text'],
                                 'level': level,
                                 'page': getattr(classification['block'], 'page', 0),
-                                'confidence': semantic_scores['structural'],
+                                'confidence': confidence,
                                 'method': 'semantic_analysis',
                                 'block': classification['block']
                             })
@@ -384,11 +591,17 @@ class InvitationProcessor:
             )
             
             for heading in structure_outline:
+                confidence = heading.confidence
+                
+                # Apply language-specific adjustment
+                if hasattr(self, 'language') and self.config.language_confidence_adjustment:
+                    confidence = self._adjust_outline_confidence_for_language(confidence, heading.text)
+                
                 outline_candidates.append({
                     'text': heading.text,
                     'level': heading.level,
                     'page': heading.page,
-                    'confidence': heading.confidence,
+                    'confidence': confidence,
                     'method': 'structure_analyzer',
                     'block': None
                 })
@@ -397,17 +610,41 @@ class InvitationProcessor:
         extracted_outline = self.outline_extractor.extract_outline(text_blocks, self.config.document_type)
         if extracted_outline:
             for heading in extracted_outline:
+                confidence = getattr(heading, 'confidence', self.config.outline_confidence_threshold)
+                
+                # Apply language-specific adjustment
+                if hasattr(self, 'language') and self.config.language_confidence_adjustment:
+                    confidence = self._adjust_outline_confidence_for_language(confidence, heading.text)
+                
                 outline_candidates.append({
                     'text': heading.text,
                     'level': heading.level,
                     'page': heading.page,
-                    'confidence': getattr(heading, 'confidence', self.config.outline_confidence_threshold),
+                    'confidence': confidence,
                     'method': 'outline_extractor',
                     'block': None
                 })
         
         # Build final outline
         return self._build_final_outline(outline_candidates)
+    
+    def _adjust_outline_confidence_for_language(self, confidence: float, text: str) -> float:
+        """Adjust outline confidence based on language characteristics"""
+        if not hasattr(self, 'language'):
+            return confidence
+        
+        language = self.language
+        
+        # Language-specific outline confidence adjustments
+        adjustments = {
+            'japanese': 1.02,   # Slight boost for Japanese outline elements
+            'german': 1.0,      # German structure is usually clear
+            'tamil': 1.05,      # Be more generous with Tamil outline elements
+            'english': 1.0
+        }
+        
+        adjusted_confidence = confidence * adjustments.get(language, 1.0)
+        return min(1.0, adjusted_confidence)  # Cap at 1.0
     
     def _determine_heading_level_dynamically(self, classification: Dict) -> Optional[str]:
         """Determine heading level using configured thresholds and methods"""
@@ -422,6 +659,10 @@ class InvitationProcessor:
         
         # Method 2: Visual prominence based level assignment (configurable)
         visual_prominence = classification.get('visual_prominence', 0)
+        
+        # Apply language-specific visual prominence adjustments
+        if hasattr(self, 'language') and self.config.use_language_specific_patterns:
+            visual_prominence = self._adjust_visual_prominence_for_language(visual_prominence, text)
         
         if visual_prominence > self.config.h1_visual_threshold:
             return 'H1'
@@ -440,6 +681,26 @@ class InvitationProcessor:
                 return self.config.default_heading_level
         
         return None
+    
+    def _adjust_visual_prominence_for_language(self, prominence: float, text: str) -> float:
+        """Adjust visual prominence based on language characteristics"""
+        if not hasattr(self, 'language'):
+            return prominence
+        
+        language = self.language
+        
+        # Language-specific visual prominence adjustments
+        if language == 'japanese':
+            # Japanese may have different visual conventions
+            return prominence * 1.05
+        elif language == 'german':
+            # German visual prominence is usually reliable
+            return prominence
+        elif language == 'tamil':
+            # Tamil script may need adjusted prominence calculation
+            return prominence * 1.1
+        
+        return prominence
     
     def _build_final_outline(self, candidates: List[Dict]) -> List[HeadingLevel]:
         """Build final outline with configurable validation and deduplication"""
@@ -471,6 +732,11 @@ class InvitationProcessor:
                 self.semantic_classifier and 
                 candidate.get('block')):
                 semantic_scores = self.semantic_classifier.classify_text_role(clean_text)
+                
+                # Apply language-aware validation
+                if hasattr(self, 'language') and self.analysis_config.cross_language_validation:
+                    semantic_scores = self._adjust_semantic_scores_for_language(semantic_scores, clean_text)
+                
                 if semantic_scores.get('excluded', 0) > self.config.semantic_exclusion_validation:
                     is_valid = False
             
@@ -502,8 +768,9 @@ class InvitationProcessor:
             ))
             
             if self.config.log_outline_additions:
+                lang_info = f" (lang: {self.language})" if hasattr(self, 'language') else ""
                 logger.info(f"Added to outline: '{candidate['text']}' as {candidate['level']} "
-                           f"(method: {candidate['method']}, confidence: {candidate['confidence']:.2f})")
+                           f"(method: {candidate['method']}, confidence: {candidate['confidence']:.2f}){lang_info}")
         
         return final_outline
     
@@ -520,6 +787,13 @@ class InvitationProcessor:
                 } for h in result.outline
             ]
         }
+        
+        # Add language context to validation if available
+        if hasattr(self, 'language'):
+            result_dict['language_context'] = {
+                'language': self.language,
+                'adjustments_applied': bool(self._current_language_context)
+            }
         
         # Use output validator
         if self.output_validator.validate_output(result_dict):
@@ -557,7 +831,8 @@ def create_invitation_processor(processor_type: str = 'standard') -> InvitationP
             enable_spatial_analysis=False,
             enable_pattern_matching=False,
             enable_detailed_logging=False,
-            document_confidence=0.8
+            document_confidence=0.8,
+            enable_language_aware_processing=False
         )
         return InvitationProcessor(config=config)
     
@@ -582,15 +857,32 @@ def create_invitation_processor(processor_type: str = 'standard') -> InvitationP
         )
         return InvitationProcessor(config=config)
     
+    elif processor_type == 'multilingual':
+        config = InvitationProcessorConfig(
+            enable_language_aware_processing=True,
+            apply_language_specific_thresholds=True,
+            use_language_specific_patterns=True,
+            language_confidence_adjustment=True,
+            enable_detailed_logging=True
+        )
+        analysis_config = AnalysisConfig(
+            enable_language_aware_analysis=True,
+            language_specific_semantic_weight=0.8,
+            cross_language_validation=True
+        )
+        return InvitationProcessor(config=config, analysis_config=analysis_config)
+    
     elif processor_type == 'debug':
         config = InvitationProcessorConfig(
             enable_detailed_logging=True,
             log_outline_additions=True,
-            enable_output_validation=True
+            enable_output_validation=True,
+            enable_language_aware_processing=True
         )
         analysis_config = AnalysisConfig(
             semantic_confidence_weight=0.8,
-            heading_likelihood_threshold=0.5
+            heading_likelihood_threshold=0.5,
+            enable_language_aware_analysis=True
         )
         return InvitationProcessor(config=config, analysis_config=analysis_config)
     
@@ -607,6 +899,7 @@ if __name__ == "__main__":
         document_confidence=0.95,
         title_search_blocks=10,
         enable_title_extraction=False,  # Skip title extraction entirely
+        enable_language_aware_processing=True,
         method_priorities={
             'semantic_analysis': 1,
             'heading_detector': 2,
@@ -617,5 +910,6 @@ if __name__ == "__main__":
     custom_processor = InvitationProcessor(config=custom_config)
     
     # Using factory
+    multilingual_processor = create_invitation_processor('multilingual')
     debug_processor = create_invitation_processor('debug')
     strict_processor = create_invitation_processor('strict')

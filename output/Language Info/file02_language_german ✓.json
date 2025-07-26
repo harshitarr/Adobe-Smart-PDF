@@ -1,0 +1,16 @@
+{
+    "detected_language": "german",
+    "confidence": 0.71,
+    "display_name": "German (Deutsch)",
+    "language_code": "de",
+    "confidence_level": "high",
+    "analysis_confidence_level": "high",
+    "detection_scores": {
+        "japanese": 0.0,
+        "german": 0.71,
+        "tamil": 0.0,
+        "english": 0.28
+    },
+    "text_sample_length": 5000,
+    "threshold_applied": 0.4
+}
