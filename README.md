@@ -259,10 +259,10 @@ def detect_headings(blocks, doc_type, font_analysis):
 ## Performance Optimizations
 
 ### 1. **Font Clustering Algorithm**
-# - K-means clustering for font hierarchy
-# - Threshold-based size classification
-# - Bold/italic formatting detection
-# - Language-adjusted font weight scoring
+ - K-means clustering for font hierarchy
+ - Threshold-based size classification
+ - Bold/italic formatting detection
+ - Language-adjusted font weight scoring
 
 
 ### 2. **Memory Management**
@@ -322,8 +322,8 @@ def detect_headings(blocks, doc_type, font_analysis):
 - **Output Formats**: Configurable JSON formatting
 
 ## Contributors
-[harshitarr]
-
+Harshita Ravindran Revathi
+Jayanth.C.R
 
 **Note**: This solution prioritizes **accuracy**, **performance**, and **multilingual support** as per Adobe's Challenge requirements while maintaining clean, maintainable code architecture.
 
