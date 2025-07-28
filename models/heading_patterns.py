@@ -9,7 +9,7 @@ class HeadingPatternMatcher:
                 'title_patterns': [
                     r'application\s+form\s+for\s+grant\s+of\s+ltc\s+advance',
                 ],
-                'heading_patterns': {}  # Forms typically have no hierarchical structure
+                'heading_patterns': {}  
             },
             
             DocumentType.TECHNICAL_MANUAL: {
@@ -74,7 +74,7 @@ class HeadingPatternMatcher:
             },
             
             DocumentType.INVITATION_DOCUMENT: {
-                'title_patterns': [],  # No title for invitations
+                'title_patterns': [],  
                 'heading_patterns': {
                     'H1': [
                         r'^hope\s+to\s+see\s+you\s+there!\s*$',
