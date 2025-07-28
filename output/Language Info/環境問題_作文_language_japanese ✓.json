@@ -1,0 +1,17 @@
+{
+    "detected_language": "japanese",
+    "confidence": 1.0,
+    "display_name": "Japanese (日本語)",
+    "language_code": "ja",
+    "confidence_level": "very_high",
+    "language_processing_applied": true,
+    "analysis_confidence_level": "very_high",
+    "detection_scores": {
+        "japanese": 1.0,
+        "german": 0.2,
+        "tamil": 0.0,
+        "english": 0.2
+    },
+    "text_sample_length": 807,
+    "threshold_applied": 0.4
+}
