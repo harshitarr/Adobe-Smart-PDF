@@ -154,10 +154,11 @@ docker run --rm -v "${PWD}\input:/app/input" -v "${PWD}\output:/app/output" -v "
 | Metric | Requirement | Our Solution |
 |--------|-------------|--------------|
 | **Processing Time** | ≤10 seconds | ✅ 3-8 seconds avg |
-| **Model Size** | ≤200MB | ✅ ~45MB total |
+| **Hardcode** | Required | ✅ Zero-Hardcoding |
 | **Page Limit** | 50 pages | ✅ Enforced |
 | **CPU Only** | Required | ✅ No GPU dependencies |
 | **Offline** | Required | ✅ No internet calls |
+| **Multilingual Support** | Bonus | ✅ Implemented |
 
 ## Output Format
 
@@ -208,29 +209,29 @@ docker run --rm -v "${PWD}\input:/app/input" -v "${PWD}\output:/app/output" -v "
 ### 1. **Language Detection Pipeline**
 
 def detect_language(text_blocks):
-# - Script-based analysis for Japanese/Tamil
-# - Pattern matching for German umlauts/compounds
-# - Statistical analysis for English
-# - Confidence scoring with thresholds
+ - Script-based analysis for Japanese/Tamil
+ - Pattern matching for German umlauts/compounds
+ - Statistical analysis for English
+ - Confidence scoring with thresholds
 
 
 ### 2. **Heading Detection Strategy**
 
 def detect_headings(blocks, doc_type, font_analysis):
-# Multi-factor scoring:
-# - Font size (25 points max)
-# - Visual prominence (spatial analysis)
-# - Pattern matching (numbering, formatting)
-# - Semantic classification
-# - Language-specific adjustments
+ - Multi-factor scoring:
+ - Font size (25 points max)
+ - Visual prominence (spatial analysis)
+ - Pattern matching (numbering, formatting)
+ - Semantic classification
+ - Language-specific adjustments
 
 
 ### 3. **Title Extraction Logic**
-def extract_title(blocks, doc_type):
-# - Document-type specific patterns
-# - Font size hierarchy analysis
-# - Position-based scoring
-# - Language-aware processing
+- def extract_title(blocks, doc_type):
+ - Document-type specific patterns
+ - Font size hierarchy analysis
+ - Position-based scoring
+ - Language-aware processing
 
 
 ## Multilingual Capabilities
