@@ -322,8 +322,8 @@ def detect_headings(blocks, doc_type, font_analysis):
 - **Output Formats**: Configurable JSON formatting
 
 ## Contributors
-Harshita Ravindran Revathi
-Jayanth.C.R
+- Harshita Ravindran Revathi
+- Jayanth.C.R
 
 **Note**: This solution prioritizes **accuracy**, **performance**, and **multilingual support** as per Adobe's Challenge requirements while maintaining clean, maintainable code architecture.
 
